@@ -1,0 +1,7 @@
+/.coverage/
+/.idea/
+/.sass-cache/
+/static/
+/media/
+*.pyc
+*.pyo
