@@ -43,6 +43,7 @@ Features on the roadmap include:
 - discussion forum / Q&A board (Askbot, Misago)
 - content download for magazine generation
 - unobtrusive, integrated, transparent document and asset management
+- DropBox, OneDrive, Google Drive, iCloud, etc. integration
 - fully integrated search
 - web analytics respecting your privacy (Piwik)
 - live chat or chat integration
