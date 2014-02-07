@@ -15,3 +15,4 @@
 __license__ = 'Apache License, Version 2.0'
 __url__ = 'http://organice.io/'
 __version__ = '0.1.0-dev'
+__revision__ = '<<--git-commit-hash-->>'

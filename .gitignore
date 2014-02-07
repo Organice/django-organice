@@ -1,7 +1,17 @@
+# tools, IDEs, build folders
 /.coverage/
 /.idea/
 /.sass-cache/
+/build/
+/dist/
+/django_organice.egg-info/
+/docs/build/
+
+# Django and Python
 /static/
 /media/
-*.pyc
-*.pyo
+*.py[cod]
+
+# Virtualenv magic, see https://gist.github.com/bittner/8830745
+.venv
+
