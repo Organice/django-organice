@@ -22,6 +22,7 @@ Recommended for installation
 
 - pip
 - virtualenv
+- virtualenvwrapper
 
 Installing django Organice
 ==========================

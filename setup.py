@@ -38,6 +38,7 @@ DEPENDENCIES = [
     'django-cms<3',
     'django-simple-links==0.1.1',
     #'django-tagging==0.4.dev1',
+    'django-userena',
     'emencia.django.newsletter==0.2',
     'PIL',
 ]

@@ -2,7 +2,7 @@
 django Organice
 ===============
 
-All-in-one collaboration solution for non-profit organizations, sports clubs or small to medium-sized businesses.
+All-in-one collaboration solution. For non-profit organizations, sports clubs, small to medium-sized businesses.
 Nice, very nice, http://organice.io
 
 django Organice is a nice way to run a collaboration platform, an intranet, and websites for your business.
@@ -29,14 +29,14 @@ Major components of django Organice are:
 - flexible contact pages (cmsplugin)
 - link collection pages
 - full-featured newsletter (Emencia)
+- user profiles (userena)
 - multi-language support
 - multiple websites support
 - database support for PostgreSQL, MySQL, and more
 
 Features on the roadmap include:
 
-- user profiles
-- social login
+- social login (Python Social Auth)
 - group spaces with automatic mailing list (group@yoursite.tld)
 - issue list / task management
 - documentation area / wiki (probably by use of CMS functionality)
@@ -44,7 +44,7 @@ Features on the roadmap include:
 - content download for magazine generation
 - unobtrusive, integrated, transparent document and asset management
 - DropBox, OneDrive, Google Drive, iCloud, etc. integration
-- fully integrated search
+- fully integrated search (Haystack)
 - web analytics respecting your privacy (Piwik)
 - live chat or chat integration
 
