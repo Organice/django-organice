@@ -12,7 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__license__ = 'Apache License, Version 2.0'
-__url__ = 'http://organice.io/'
 __version__ = '0.1.0-dev'
 __revision__ = '<<--git-commit-hash-->>'
+
+__author__ = 'Peter Bittner'
+__email__ = 'django@bittner.it'
+
+__url__ = 'http://organice.io/'
+__license__ = 'Apache License, Version 2.0'

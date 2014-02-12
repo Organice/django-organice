@@ -36,6 +36,7 @@ DEPENDENCIES = [
     'cmsplugin-zinnia==0.5.1',
     'django-blog-zinnia==0.13',
     'django-cms<3',
+    'django-reversion==1.8.0',
     'django-simple-links==0.1.1',
     #'django-tagging==0.4.dev1',
     'django-userena',
@@ -52,8 +53,8 @@ ROOT_PATH = os.path.dirname(__file__)
 setup(
     name='django-organice',
     version=organice.__version__,
-    author='Peter Bittner',
-    author_email='django@bittner.it',
+    author=organice.__author__,
+    author_email=organice.__email__,
     url=organice.__url__,
     license=organice.__license__,
 
@@ -70,4 +71,9 @@ setup(
     packages=find_packages(exclude=['demo']),
     include_package_data=True,
     zip_safe=False,
+
+    entry_points="""
+        [console_scripts]
+        organice-setup=organice.bin.organice_setup:startproject
+    """,
 )
