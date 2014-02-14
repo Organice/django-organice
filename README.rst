@@ -2,17 +2,17 @@
 django Organice
 ===============
 
-All-in-one collaboration solution. For non-profit organizations, sports clubs, small to medium-sized businesses.
+All-in-one collaboration solution.  For non-profit organizations, sports clubs, small to medium-sized businesses.
 Nice, very nice, http://organice.io
 
 django Organice is a nice way to run a collaboration platform, an intranet, and websites for your business.
-It's a compilation of the best Django packages, preconfigured for getting you started quickly. Being powered by
-the well-known `Django Web framework <https://www.djangoproject.com/>`_ it's a safe choice for your IT investment
-providing an easily extensible architecture.
+It's a compilation of the best Django packages, preconfigured for getting you started quickly.  Being powered by
+the well-known `Django Web framework`_ it's a safe choice for your IT investment providing an easily extensible
+architecture.
 
-Primary goal of the software is to provide an absolutely intuitive, consistent user experience. Because in fast-paced,
-flexible, probably small-margin businesses you don't have the time to invest in training your staff. We build on
-promising, reliable Django components, and rather invest in those projects than build source code here. We expect to
+Primary goal of the software is to provide an absolutely intuitive, consistent user experience.  Because in fast-paced,
+flexible, probably small-margin businesses you don't have the time to invest in training your staff.  We build on
+promising, reliable Django components, and rather invest in those projects than build source code here.  We expect to
 continually tune the compilation to keep the source footprint small, keeping the project lean and responsive.
 
 See http://organice.io for more information.
@@ -56,3 +56,15 @@ Official repositories: (kept in sync)
 1. Bitbucket: https://bitbucket.org/bittner/django-organice
 #. GitHub: https://github.com/bittner/django-organice
 
+Getting Help
+============
+
+* Documentation -- *coming soon*
+* Questions? Please use StackOverflow_ (tag your questions with ``django-organice``)
+* Found a bug? Please use either the Bitbucket_ or GitHub_ issue tracker (you choose)
+
+
+.. _`Django Web framework`: https://www.djangoproject.com/
+.. _StackOverflow: http://stackoverflow.com/questions/tagged/django-organice
+.. _Bitbucket: https://bitbucket.org/bittner/django-organice/issues
+.. _GitHub: https://github.com/bittner/django-organice/issues
