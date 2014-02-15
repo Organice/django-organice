@@ -15,7 +15,8 @@ class DjangoSettingsManager(object):
     __path = ''
     __file = {}
     __data = {}
-    __match = {}
+    #__match = {}
+    NO_MATCH = (0, 0)
 
     def __init__(self, projectname, *filenames):
         """
@@ -35,7 +36,7 @@ class DjangoSettingsManager(object):
         file = open(os.path.join(self.__path, fname + '.py'), 'a+')
         self.__file[fname] = file
         self.__data[fname] = file.read()
-        self.__match[fname] = {}
+        #self.__match[fname] = {}
 
     def save_files(self):
         """
@@ -47,36 +48,37 @@ class DjangoSettingsManager(object):
 
     def find_var(self, src, var):
         """
-        Returns (start, stop) position of a match, or (0, 0) for no match.
-        A match is a variable including a leading comment and blank line.
+        Returns (start, stop) position of a match, or NO_MATCH i.e. (0, 0).
+        A match is a variable including optional leading comment lines.
         """
         # yield cached result if available (from an earlier call)
-        if var in self.__match[src]:
-            return self.__match[src][var]
+        #if var in self.__match[src]:
+        #    return self.__match[src][var]
 
         data = self.__data[src]
-        m = re.search(r'\n{0,1}(#.*\n)*[ ]*' + var + r'\s*=\s*', data)
+
+        # variable incl. leading comments, until after trailing equal sign
+        # and optional line continuation mark (backslash)
+        pattern = re.compile(r'([ ]*#.*\n)*[ ]*(\A|\b)' + var + r'\s*=\s*\\?\s*')
+        m = pattern.search(data)
         if m == None:
             # not found
-            self.__match[src][var] = (0, 0)
-            return self.__match[src][var]
+            #self.__match[src][var] = (0, 0)
+            return self.NO_MATCH
 
         start, stop = m.span()
-        # jump over line continuation mark (backslash)
-        m = re.match(r'\\{0,1}\s*', data, stop)
-        if m:
-            ignore, stop = m.span()
-        stop = self._find_endofvalue(data, stop + 1)
-        # cache match for follow-up access
-        self.__match[src][var] = (start, stop)
-        return self.__match[src][var]
+        stop = self._find_endofvalue(data, stop)
+
+        #print('>>> MATCH >>>' + str((start,stop)) + '>>>' + data[start:stop] + '<<<')  # DEBUG ONLY
+        #self.__match[src][var] = (start, stop)
+        return (start, stop)
 
     def _find_endofvalue(self, data, start):
         """
         Identifies value type (str, tuple, list, dict) and returns end index.
         """
         delimiters = {
-            '\"\"\"': '\"\"\"',
+            '\"""': '\"""',
             '"': '"',
             "'": "'",
             '(': ')',
@@ -85,20 +87,22 @@ class DjangoSettingsManager(object):
         }
 
         open_delim = data[start:start + 3]
-        if open_delim != '"""':
+        if open_delim != '\"""':
             open_delim = data[start:start + 1]
 
         stop = start + len(open_delim)
         try:
             close_delim = delimiters[open_delim]
-            m = re.search(close_delim + r'[ ]*\n{0,1}', data, stop)
+            pattern = re.compile(close_delim + r'[ ]*\n?')
+            m = pattern.search(data, stop)
             if m:
                 ignore, stop = m.span()
             else:
                 raise SyntaxError('No closing delimiter %s found' % (close_delim, ))
         except:
             # variable found instead of opening delimiter
-            m = re.search(r'\n', data, stop)
+            pattern = re.compile(r'\n')
+            m = pattern.search(data, stop)
             if m:
                 ignore, stop = m.span()
             else:
@@ -121,6 +125,7 @@ class DjangoSettingsManager(object):
         data = self.__data[src]
         start, stop = self.find_var(src, var)
         self.__data[src] = data[:start] + data[stop:]
+        #print('>>> DELETING >>>' + data[start:stop] + '<<< DELETED. ' + os.linesep + '-' * 40)  # DEBUG ONLY
 
     def copy_var(self, src, destinations, var):
         """
