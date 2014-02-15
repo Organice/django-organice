@@ -55,14 +55,13 @@ class DjangoSettingsManager(object):
 
         # variable incl. leading comments, until after trailing equal sign
         # and optional line continuation mark (backslash)
-        pattern = re.compile(r'([ ]*#.*\n)*[ ]*(\A|\b)' + var + r'\s*=\s*\\?\s*')
+        pattern = re.compile(r'(?<=\n)\s*([ ]*#.*\n)*[ ]*(\A|\b)' + var + r'\s*=\s*\\?\s*')
         m = pattern.search(data)
-        if m == None:
+        if m is None:
             return self.NO_MATCH
 
         start, stop = m.span()
         stop = self._find_endofvalue(data, stop)
-
         return (start, stop)
 
     def _find_endofvalue(self, data, start):
@@ -123,7 +122,7 @@ class DjangoSettingsManager(object):
         start, stop = self.find_var(src, var)
         data = self.__data[src][start:stop]
         for dest in destinations:
-            self._append(dest, os.linesep + data)
+            self._append(dest, data)
 
     def move_var(self, src, destinations, var):
         """
@@ -186,7 +185,7 @@ def startproject():
     settings.move_var('common', profiles, 'ALLOWED_HOSTS')
     settings.move_var('common', profiles, 'DATABASES')
     settings.move_var('common', profiles, 'SECRET_KEY')
-    settings.move_var('common', profiles, '#WSGI_APPLICATION')
+    settings.move_var('common', profiles, 'WSGI_APPLICATION')
     settings.save_files()
     print('Done. Enjoy your organiced day!')
 
