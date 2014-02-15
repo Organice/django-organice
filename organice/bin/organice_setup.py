@@ -42,6 +42,8 @@ class DjangoSettingsManager(object):
         """
         for fname, file in self.__file.items():
             data = self.__data[fname]
+            file.seek(0)
+            file.truncate()
             file.write(data)
 
     def find_var(self, src, var):
@@ -88,15 +90,13 @@ class DjangoSettingsManager(object):
             if m:
                 ignore, stop = m.span()
             else:
-                raise SyntaxError('No closing delimiter %s found' % (close_delim, ))
-        except:
-            # variable found instead of opening delimiter
-            pattern = re.compile(r'\n')
+                raise SyntaxError('No closing delimiter %s found' % close_delim)
+        except KeyError:
+            # expression (e.g. variable) found instead of opening delimiter
+            pattern = re.compile(r'(\n|\Z)')
             m = pattern.search(data, stop)
-            if m:
-                ignore, stop = m.span()
-            else:
-                stop = len(data)
+            # NOTE: no test on m needed, \Z will always match
+            ignore, stop = m.span()
         return stop
 
     def _append(self, dest, data):
@@ -104,7 +104,7 @@ class DjangoSettingsManager(object):
 
     def append_lines(self, dest, *lines):
         if len(self.__data[dest]) > 0:
-            self._append(os.linesep)
+            self._append(dest, os.linesep)
         for data in lines:
             self._append(dest, data + os.linesep)
 
@@ -123,7 +123,7 @@ class DjangoSettingsManager(object):
         start, stop = self.find_var(src, var)
         data = self.__data[src][start:stop]
         for dest in destinations:
-            self._append(dest, data)
+            self._append(dest, os.linesep + data)
 
     def move_var(self, src, destinations, var):
         """
