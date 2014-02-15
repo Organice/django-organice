@@ -15,7 +15,6 @@ class DjangoSettingsManager(object):
     __path = ''
     __file = {}
     __data = {}
-    #__match = {}
     NO_MATCH = (0, 0)
 
     def __init__(self, projectname, *filenames):
@@ -36,7 +35,6 @@ class DjangoSettingsManager(object):
         file = open(os.path.join(self.__path, fname + '.py'), 'a+')
         self.__file[fname] = file
         self.__data[fname] = file.read()
-        #self.__match[fname] = {}
 
     def save_files(self):
         """
@@ -51,10 +49,6 @@ class DjangoSettingsManager(object):
         Returns (start, stop) position of a match, or NO_MATCH i.e. (0, 0).
         A match is a variable including optional leading comment lines.
         """
-        # yield cached result if available (from an earlier call)
-        #if var in self.__match[src]:
-        #    return self.__match[src][var]
-
         data = self.__data[src]
 
         # variable incl. leading comments, until after trailing equal sign
@@ -62,15 +56,11 @@ class DjangoSettingsManager(object):
         pattern = re.compile(r'([ ]*#.*\n)*[ ]*(\A|\b)' + var + r'\s*=\s*\\?\s*')
         m = pattern.search(data)
         if m == None:
-            # not found
-            #self.__match[src][var] = (0, 0)
             return self.NO_MATCH
 
         start, stop = m.span()
         stop = self._find_endofvalue(data, stop)
 
-        #print('>>> MATCH >>>' + str((start,stop)) + '>>>' + data[start:stop] + '<<<')  # DEBUG ONLY
-        #self.__match[src][var] = (start, stop)
         return (start, stop)
 
     def _find_endofvalue(self, data, start):
@@ -125,7 +115,6 @@ class DjangoSettingsManager(object):
         data = self.__data[src]
         start, stop = self.find_var(src, var)
         self.__data[src] = data[:start] + data[stop:]
-        #print('>>> DELETING >>>' + data[start:stop] + '<<< DELETED. ' + os.linesep + '-' * 40)  # DEBUG ONLY
 
     def copy_var(self, src, destinations, var):
         """
