@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-
+"""
+Setup script for starting a django Organice project.
+"""
 from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH
 from subprocess import call
 import os
@@ -9,7 +11,7 @@ import sys
 
 class DjangoSettingsManager(object):
     """
-    Utility class which allows moving and copying variables inbetween several
+    Utility class which allows moving and copying variables in-between several
     settings files in the project's ``settings/`` folder.
     """
     __path = ''
@@ -69,27 +71,36 @@ class DjangoSettingsManager(object):
         Identifies value type (str, tuple, list, dict) and returns end index.
         """
         delimiters = {
-            '\"""': '\"""',
-            '"': '"',
-            "'": "'",
-            '(': ')',
-            '[': ']',
-            '{': '}',
+            '"""': (r'"""', r'"""'),
+            '"': (r'"', r'"'),
+            "'": (r"'", r"'"),
+            '(': (r'\(', r'\)'),
+            '[': (r'\[', r'\]'),
+            '{': (r'\{', r'\}'),
         }
 
-        open_delim = data[start:start + 3]
-        if open_delim != '\"""':
-            open_delim = data[start:start + 1]
+        delim = data[start:start + 3]
+        if delim != '"""':
+            delim = delim[0]
 
-        stop = start + len(open_delim)
+        delim_length = len(delim)
+        stop = start + delim_length
         try:
-            close_delim = delimiters[open_delim]
-            pattern = re.compile(close_delim + r'[ ]*\n?')
-            m = pattern.search(data, stop)
-            if m:
-                ignore, stop = m.span()
-            else:
-                raise SyntaxError('No closing delimiter %s found' % close_delim)
+            open_delim, close_delim = delimiters[delim]
+            # TODO: ignore matches in comments and strings
+            open_pattern = re.compile(open_delim)
+            close_pattern = re.compile(close_delim + r'[ ]*,?[ ]*\n?')
+            open_count = 1
+            while open_count > 0:
+                close_match = close_pattern.search(data, stop)
+                if close_match:
+                    open_count -= 1
+                    cm_start, stop = close_match.span()
+                else:
+                    raise SyntaxError('Closing delimiter missing for %s' % delim)
+                open_matches = open_pattern.findall(data, start + delim_length, cm_start)
+                start = stop + delim_length
+                open_count += len(open_matches)
         except KeyError:
             # expression (e.g. variable) found instead of opening delimiter
             pattern = re.compile(r'(\n|\Z)')
