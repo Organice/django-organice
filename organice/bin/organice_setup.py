@@ -68,12 +68,12 @@ def startproject():
                           'This solution follows the second recommendation from',
                           'http://www.sparklewise.com/django-settings-for-production-and-development-best-practices/',
                           '"""',
-                          'from %s.settings.develop import *' % projectname)
+                          'from .develop import *')
     for prof in profiles:
         settings.append_lines(prof,
                               '# Django project settings for %s environment' % prof.capitalize(),
                               '',
-                              'from %s.settings.common import *' % projectname)
+                              'from .common import *')
 
     # out-of-the-box Django values relevant for deployment
     settings.move_var('common', profiles, 'DEBUG')
@@ -189,12 +189,8 @@ def startproject():
           (settings.get_file('develop').name, 'DATABASES'))
     print('See https://docs.djangoproject.com/en/1.5/ref/settings/ for details.' + os.linesep)
 
-    code = call(['python', 'manage.py', 'syncdb'])
-    if code != 0:
-        return code
-    print('`%s.sqlite` is your current development database. '
-          "(You can delete it once you switch from Sqlite3 to a real database.)" % projectname)
-    print('You can run your development server with: `python manage.py runserver`')
+    print('To initialize your development database run: `python manage.py syncdb`')
+    print('You can then run your development server with: `python manage.py runserver`')
 
 
 if __name__ == "__main__":
