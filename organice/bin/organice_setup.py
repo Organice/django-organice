@@ -20,7 +20,6 @@ from organice.management.settings import DjangoSettingsManager
 from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH
 from subprocess import call
 import os
-import re
 import sys
 
 
@@ -69,12 +68,12 @@ def startproject():
                           'This solution follows the second recommendation from',
                           'http://www.sparklewise.com/django-settings-for-production-and-development-best-practices/',
                           '"""',
-                          'from .develop import *')
+                          'from %s.settings.develop import *' % projectname)
     for prof in profiles:
         settings.append_lines(prof,
                               '# Django project settings for %s environment' % prof.capitalize(),
                               '',
-                              'from .common import *')
+                              'from %s.settings.common import *' % projectname)
 
     # out-of-the-box Django values relevant for deployment
     settings.move_var('common', profiles, 'DEBUG')
