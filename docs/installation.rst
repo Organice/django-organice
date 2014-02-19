@@ -8,7 +8,7 @@ If not, please read up on pip_, virtualenv_, and virtualenvwrapper_ first.  A ba
 Requirements
 ============
 
-- Python 2.5 or higher
+- Python 2.6 or higher
 
 All other depencencies are resolved by the django Organice installer.
 
@@ -34,6 +34,16 @@ Installing django Organice
     $ pip install django-organice
 
   This will pull the latest django Organice package from the Internet and install all dependencies automatically.
+
+  If you're a developer you may want to run django Organice with the latest sources: (don't do this as a user) ::
+
+    $ git clone git@github.com:bittner/django-organice.git
+    $ cd django-organice
+    $ python setup.py install
+
+  or, alternatively, using pip::
+
+    $ pip install git+https://github.com/bittner/django-organice.git#egg=django-organice
 
 3. Install the adapter suitable for your database (PostgreSQL ``psycopg2``, MySQL ``MySQL-python``,
    Oracle ``cx_Oracle``, `etc.`_), e.g. ::
@@ -65,7 +75,7 @@ Installing django Organice
 
     *IMPORTANT!* As soon as you're finished evaluating: If you're planning to create your content locally make sure
     you use the same database engine for local development and production.  Your plan of moving the whole database
-    content from from development to production will give major headaches otherwise.
+    content from development to production will give you major headaches otherwise.
 
 Deployment to Production
 ========================
@@ -104,4 +114,4 @@ adapt your Apache configuration file for ``mysite`` with::
 .. _`Django documentation`: https://docs.djangoproject.com/en/1.5/topics/settings/
 .. _`Django settings best practices`: http://www.sparklewise.com/django-settings-for-production-and-development-best-practices/
 
-.. [1] David Cramer from DISQUS has discribed a similar solution at http://justcramer.com/2011/01/13/settings-in-django/
+.. [1] David Cramer from DISQUS has described a similar solution at http://justcramer.com/2011/01/13/settings-in-django/

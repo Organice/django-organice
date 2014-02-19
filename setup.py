@@ -31,20 +31,16 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
-    'cmsplugin-contact==1.0.0',
+    'cmsplugin-contact',
     'cmsplugin-zinnia==0.5.1',
     'django-blog-zinnia==0.13',
     'django-cms<3',
-    'django-reversion==1.8.0',
-    'django-simple-links==0.1.1',
-    #'django-tagging==0.4.dev1',
+    'django-mptt==0.5.2',  # necessary due to poor dependency resolution
+    'django-reversion',
+    'django-simple-links',
     'django-userena',
-    'emencia.django.newsletter==0.2',
+    'emencia.django.newsletter',
     'PIL',
-]
-
-NON_PYPI_DEP_LINKS = [
-    #'svn+http://django-tagging.googlecode.com/svn/trunk#egg=django-tagging-0.4.dev1',
 ]
 
 ROOT_PATH = os.path.dirname(__file__)
@@ -66,9 +62,7 @@ setup(
 
     classifiers=CLASSIFIERS,
     install_requires=DEPENDENCIES,
-    dependency_links=NON_PYPI_DEP_LINKS,
-    packages=find_packages(exclude=['demo']),
-    include_package_data=True,
+    packages=find_packages(),
     zip_safe=False,
 
     entry_points="""

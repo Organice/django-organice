@@ -23,9 +23,11 @@ import os
 import re
 import sys
 
+
 def startproject():
     """
-    Starts a new django Organice project by use of django-admin.py.
+    Starts a new django Organice project by first generating a Django project
+    using ``django-admin.py``, and then modifying the project settings.
     """
     usage_descr = 'django Organice setup. Start getting organiced!'
 
@@ -50,7 +52,9 @@ def startproject():
     filenames = ('__init__', 'common') + profiles
 
     print('Generating project %s ...' % projectname)
-    call(['django-admin.py', 'startproject', projectname, '.'])
+    code = call(['django-admin.py', 'startproject', projectname, '.'])
+    if code != 0:
+        return code
 
     print('Converting settings to deployment profiles (%s) ...' % ', '.join(profiles))
     os.mkdir(os.path.join(projectname, 'settings'))
@@ -65,12 +69,12 @@ def startproject():
                           'This solution follows the second recommendation from',
                           'http://www.sparklewise.com/django-settings-for-production-and-development-best-practices/',
                           '"""',
-                          'from develop import *')
+                          'from .develop import *')
     for prof in profiles:
         settings.append_lines(prof,
                               '# Django project settings for %s environment' % prof.capitalize(),
                               '',
-                              'from common import *')
+                              'from .common import *')
 
     # out-of-the-box Django values relevant for deployment
     settings.move_var('common', profiles, 'DEBUG')
@@ -86,10 +90,24 @@ def startproject():
     settings.set_value('staging', 'DEBUG', False)
     settings.set_value('production', 'DEBUG', False)
 
-    # configuration for included packages
-    adding_cfg_for = 'Adding configuration for %s ...'
+    print('Configuring development database ...')
+    DEV_DATABASES = """{
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',  # 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': os.path.join(PROJECT_PATH, '%s.sqlite'),  # path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',  # Set to empty string for default.
+    }
+}""" % projectname
+    settings.set_value('develop', 'DATABASES', DEV_DATABASES)
 
-    print(adding_cfg_for % 'installed apps')
+    # configuration for included packages
+    adding_settings_for = 'Adding settings for %s ...'
+
+    print(adding_settings_for % 'installed apps')
     settings.delete_var('common', 'INSTALLED_APPS')
     settings.append_lines('common',
                           'INSTALLED_APPS = (',
@@ -124,7 +142,7 @@ def startproject():
                           "    'zinnia',",
                           ')')
 
-    print(adding_cfg_for % 'django CMS')
+    print(adding_settings_for % 'django CMS')
     settings.append_lines('common',
                           'CMS_TEMPLATES = (',
                           "    ('cms_article.html', 'Template for normal content pages'),",
@@ -150,23 +168,34 @@ def startproject():
                           "    'sekizai.context_processors.sekizai',",
                           ')')
 
-    print(adding_cfg_for % 'Emencia Newsletter')
+    print(adding_settings_for % 'Emencia Newsletter')
     settings.append_lines('common',
                           '# emencia/django/newsletter/media/edn/ directory (alternative)',
                           "NEWSLETTER_MEDIA_URL = '/media/'",
                           "NEWSLETTER_DEFAULT_HEADER_SENDER = 'Your Organization <newsletter@your.domain>'")
 
-    print(adding_cfg_for % 'Zinnia Blog')
+    print(adding_settings_for % 'Zinnia Blog')
     settings.append_lines('common',
                           '# use plugin system of django-cms in blog entries',
                           "ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'")
 
     suggest_editing = ('ADMINS', 'TIME_ZONE', 'LANGUAGE_CODE')
-    suggest_adding = ('LANGUAGES', )
+    suggest_adding = ('LANGUAGES', 'SERVER_EMAIL')
     settings.save_files()
     print('Done. Enjoy your organiced day!' + os.linesep)
-    print('Please visit file %s and edit or add the variables: %s' %
+
+    print('Please visit file `%s` and edit or add the variables: %s' %
           (settings.get_file('common').name, ', '.join(suggest_editing + suggest_adding)))
+    print('Please visit file `%s` and configure your development database in: %s' %
+          (settings.get_file('develop').name, 'DATABASES'))
+    print('See https://docs.djangoproject.com/en/1.5/ref/settings/ for details.' + os.linesep)
+
+    code = call(['python', 'manage.py', 'syncdb'])
+    if code != 0:
+        return code
+    print('`%s.sqlite` is your current development database. '
+          "(You can delete it once you switch from Sqlite3 to a real database.)" % projectname)
+    print('You can run your development server with: `python manage.py runserver`')
 
 
 if __name__ == "__main__":
