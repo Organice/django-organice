@@ -39,7 +39,7 @@ DEPENDENCIES = [
     'django-reversion<1.8',  # v1.8.0 introduces incompatibility with django-cms<=2.4.3
     'django-simple-links',
     'django-userena',
-    'emencia.django.newsletter>=0.3.dev',
+    'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
     'PIL',
 ]
 
