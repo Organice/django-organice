@@ -59,9 +59,9 @@ Official repositories: (kept in sync)
 Getting Help
 ============
 
-* Documentation -- *coming soon*
-* Questions? Please use StackOverflow_. Tag your questions with ``django-organice``.
-* Found a bug? Please use either the Bitbucket_ or GitHub_ issue tracker (you choose)
+- Documentation -- *coming soon*
+- Questions? Please use StackOverflow_. Tag your questions with ``django-organice``.
+- Found a bug? Please use either the Bitbucket_ or GitHub_ issue tracker (you choose)
 
 
 .. _`Django Web framework`: https://www.djangoproject.com/
