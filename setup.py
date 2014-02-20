@@ -36,7 +36,7 @@ DEPENDENCIES = [
     'django-blog-zinnia==0.13',
     'django-cms<3',
     'django-mptt==0.5.2',  # necessary due to poor dependency resolution
-    'django-reversion',
+    'django-reversion<1.8',  # v1.8.0 introduces incompatibility with django-cms<=2.4.3
     'django-simple-links',
     'django-userena',
     'emencia.django.newsletter>=0.3.dev',
