@@ -39,8 +39,12 @@ DEPENDENCIES = [
     'django-reversion',
     'django-simple-links',
     'django-userena',
-    'emencia.django.newsletter',
+    'emencia.django.newsletter>=0.3.dev',
     'PIL',
+]
+
+NON_PYPI_DEP_LINKS = [
+    'git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev',
 ]
 
 ROOT_PATH = os.path.dirname(__file__)
@@ -62,6 +66,7 @@ setup(
 
     classifiers=CLASSIFIERS,
     install_requires=DEPENDENCIES,
+    dependency_links=NON_PYPI_DEP_LINKS,
     packages=find_packages(),
     zip_safe=False,
 
