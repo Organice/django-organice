@@ -10,7 +10,7 @@ Requirements
 
 - Python 2.6 or higher
 
-All other depencencies are resolved by the django Organice installer.
+All other dependencies are resolved by the django Organice installer.
 
 Recommended for installation
 ----------------------------
@@ -66,10 +66,10 @@ Installing django Organice
 
 6. Initialize your database and start rocking::
 
-    $ python manage.py createdb --noinput
+    $ python manage.py syncdb --migrate
     $ python manage.py runserver
 
-  You can now point your browser to http://127.0.0.1/ and start developing your project locally.
+  You can now point your browser to http://127.0.0.1:8000/ and start developing your project locally.
 
   ..
 

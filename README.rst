@@ -37,7 +37,7 @@ Major components of django Organice are:
 Features on the roadmap include:
 
 - social login (Python Social Auth)
-- group spaces with automatic mailing list (group@yoursite.tld)
+- group spaces with automatic mailing list (group_name@yoursite.tld)
 - issue list / task management
 - documentation area / wiki (probably by use of CMS functionality)
 - discussion forum / Q&A board (Askbot, Misago)
@@ -60,7 +60,7 @@ Getting Help
 ============
 
 * Documentation -- *coming soon*
-* Questions? Please use StackOverflow_ (tag your questions with ``django-organice``)
+* Questions? Please use StackOverflow_. Tag your questions with ``django-organice``.
 * Found a bug? Please use either the Bitbucket_ or GitHub_ issue tracker (you choose)
 
 
