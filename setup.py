@@ -34,9 +34,9 @@ DEPENDENCIES = [
     'cmsplugin-contact',
     'cmsplugin-zinnia==0.5.1',
     'django-blog-zinnia==0.13',
-    'django-cms<3',
+    'django-cms==2.4.3-support',  # support branch fixes reversion>=1.8 incompatibility
     'django-mptt==0.5.2',  # necessary due to poor dependency resolution
-    'django-reversion<1.8',  # v1.8.0 introduces incompatibility with django-cms<=2.4.3
+    'django-reversion',
     'django-simple-links',
     'django-userena',
     'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
@@ -44,6 +44,7 @@ DEPENDENCIES = [
 ]
 
 NON_PYPI_DEP_LINKS = [
+    'git+https://github.com/bittner/django-cms.git@support/2.4.x#egg=django-cms-2.4.3-support',
     'git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev',
 ]
 
