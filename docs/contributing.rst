@@ -7,6 +7,8 @@ Official repositories: (kept in sync)
 1. Bitbucket: https://bitbucket.org/bittner/django-organice
 #. GitHub: https://github.com/bittner/django-organice
 
+Fork any of the repositories, make your code changes or additions, and place a pull request.
+
 Help Wanted
 ===========
 

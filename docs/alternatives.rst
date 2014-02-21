@@ -2,11 +2,19 @@
 Alternatives to django Organice
 ===============================
 
-If you feel django Organice doesn't fully satisfy your needs it may be a good idea to look at the following
-alternatives.  If you happen to know additional offers `drop us a note`_ so we can make the list more complete.
+With django Organice we strive to make people happy who are not tech or process experts.  People who want to
+collaborate smoothly without having taken part of extensive training programmes in order to understand the tool.
+Simplicity is key, everything should be intuitive, getting things done easily.  Occasional users should be happy
+to the same extent than daily-habit expert users.
+
+But of course, django Organice doesn't fit it all. If you feel it can't satisfy your specific needs it may be
+a good idea to look at the following alternatives.  If you happen to know additional offers `drop us a note`_
+so we can make the list more complete.
 
 Software Alternatives
 =====================
+
+In alphabetical order.
 
 - `Bitrix Intranet`_ (PHP, commercial, ships with source code)
 - Coyo_ (Java/Play, commercial, ships with source code)
@@ -14,6 +22,8 @@ Software Alternatives
 
 Cloud Competitors
 =================
+
+In alphabetical order.
 
 - Bitrix24.com_ / Bitrix24.de_ [1]_
 - Igloo_

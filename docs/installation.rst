@@ -56,11 +56,11 @@ Installing django Organice
 
     *NOTE:* You can skip this step if you decide to use SQLite, e.g. for evaluation purposes.
 
-4. Run the Organice setup command to create a new project *mysite*::
+4. Run the Organice setup command to create your new project: (e.g. *mysite*) ::
 
     $ organice-setup mysite
 
-5. Adapt your settings in ``mysite/settings/common.py``, ``mysite/settings/develop.py``, etc.  See the
+5. Edit your settings in ``mysite/settings/common.py``, ``mysite/settings/develop.py``, etc.  See the
    `Django documentation`_ on settings if you're not familiar with it.  The ``develop`` settings are used by your
    project by default (local development), ``common`` is included in all profiles.
 
@@ -73,9 +73,9 @@ Installing django Organice
 
   ..
 
-    *IMPORTANT!* As soon as you're finished evaluating: If you're planning to create your content locally make sure
-    you use the same database engine for local development and production.  Your plan of moving the whole database
-    content from development to production will give you major headaches otherwise.
+    *NOTE:* If you're planning to create your content locally make sure you use the same database engine for local
+    development and production.  Your plan of moving the whole database content from development to production will
+    give you major headaches otherwise.  And, use Sqlite for evaluating only!
 
 Deployment to Production
 ========================
