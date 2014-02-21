@@ -44,7 +44,7 @@ DEPENDENCIES = [
 ]
 
 NON_PYPI_DEP_LINKS = [
-    'git+https://github.com/bittner/django-cms.git@support/2.4.x#egg=django-cms-2.4.3-support',
+    'git+https://github.com/divio/django-cms.git@support/2.4.x#egg=django-cms-2.4.3-support',
     'git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev',
 ]
 
