@@ -87,9 +87,9 @@ class DjangoSettingsManager(DjangoModuleManager):
 
     def __init__(self, projectname, *filenames):
         """Constructor, adds settings files (named without path and extension)"""
-        DjangoModuleManager.__init__(self, projectname, 'settings')
+        super(DjangoSettingsManager, self).__init__(projectname, 'settings')
         for module in filenames:
-            DjangoModuleManager.add_file(self, module)
+            super(DjangoSettingsManager, self).add_file(module)
 
     def find_var(self, src, var, comments=True):
         """
@@ -97,7 +97,7 @@ class DjangoSettingsManager(DjangoModuleManager):
         A match is a variable including optional leading comment lines.  If
         comments is set to False the match strictly starts with the variable.
         """
-        data = DjangoModuleManager.get_data(self, src)
+        data = super(DjangoSettingsManager, self).get_data(src)
 
         # variable incl. leading comments, until after trailing equal sign
         # and optional line continuation mark (backslash)
@@ -156,13 +156,13 @@ class DjangoSettingsManager(DjangoModuleManager):
         return stop
 
     def __insert(self, dest, start, stop, chunk):
-        data = DjangoModuleManager.get_data(self, dest)
-        DjangoModuleManager.set_data(self, dest, data[:start] + chunk + data[stop:])
+        data = super(DjangoSettingsManager, self).get_data(dest)
+        super(DjangoSettingsManager, self).set_data(dest, data[:start] + chunk + data[stop:])
 
     def insert_lines(self, dest, *lines):
         """Finds position after first comment and inserts the data"""
         pattern = re.compile(r'(\s*#.*\n)*')
-        match = pattern.search(DjangoModuleManager.get_data(self, dest))
+        match = pattern.search(super(DjangoSettingsManager, self).get_data(dest))
         start, stop = self.NO_MATCH if match is None else match.span()
         chunk = ''
         for data in lines:
@@ -182,15 +182,15 @@ class DjangoSettingsManager(DjangoModuleManager):
     def delete_var(self, dest, var):
         """Deletes a variable from a settings file"""
         start, stop = self.find_var(dest, var)
-        data = DjangoModuleManager.get_data(self, dest)
-        DjangoModuleManager.set_data(self, dest, data[:start] + data[stop:])
+        data = super(DjangoSettingsManager, self).get_data(dest)
+        super(DjangoSettingsManager, self).set_data(dest, data[:start] + data[stop:])
 
     def copy_var(self, src, destinations, var):
         """Copies a variable from one settings file to one or more others"""
         start, stop = self.find_var(src, var)
-        data = DjangoModuleManager.get_data(self, src)[start:stop]
+        data = super(DjangoSettingsManager, self).get_data(src)[start:stop]
         for dest in destinations:
-            DjangoModuleManager.append_data(self, dest, data)
+            super(DjangoSettingsManager, self).append_data(dest, data)
 
     def move_var(self, src, destinations, var):
         """Moves a variable from one settings file to one or more others"""
