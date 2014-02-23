@@ -147,15 +147,29 @@ def startproject():
                           "    'emencia.django.newsletter',",
                           "    'simple_links',",
                           "    'zinnia',",
+                          "    'organice',",
                           ')')
 
     print(adding_settings_for % 'django CMS')
+    settings.delete_var('common', 'MIDDLEWARE_CLASSES')
+    settings.append_lines('common',
+                          'MIDDLEWARE_CLASSES = (',
+                          "    'django.middleware.common.CommonMiddleware',",
+                          "    'django.middleware.doc.XViewMiddleware',",
+                          "    'django.middleware.locale.LocaleMiddleware',",
+                          "    'django.middleware.csrf.CsrfViewMiddleware',",
+                          "    'django.contrib.sessions.middleware.SessionMiddleware',",
+                          "    'django.contrib.messages.middleware.MessageMiddleware',",
+                          "    'django.contrib.auth.middleware.AuthenticationMiddleware',",
+                          "    'cms.middleware.page.CurrentPageMiddleware',",
+                          "    'cms.middleware.user.CurrentUserMiddleware',",
+                          "    'cms.middleware.toolbar.ToolbarMiddleware',",
+                          "    'cms.middleware.language.LanguageCookieMiddleware',",
+                          ')')
     settings.append_lines('common',
                           'CMS_TEMPLATES = (',
                           "    ('cms_article.html', 'Template for normal content pages'),",
                           "    ('cms_bookmarks.html', 'Template for the bookmarks page'),",
-                          "    ('cms_journal.html', 'Template for Issuu powered pages'),",
-                          "    ('cms_welcome.html', 'Template for welcome page'),",
                           ')')
     settings.delete_var('common', 'TEMPLATE_DIRS')
     settings.append_lines('common',
@@ -173,6 +187,7 @@ def startproject():
                           "    'django.core.context_processors.static',",
                           "    'cms.context_processors.media',",
                           "    'sekizai.context_processors.sekizai',",
+                          "    'organice.context_processors.expose',",
                           ')')
 
     print(adding_settings_for % 'Emencia Newsletter')

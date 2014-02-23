@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load cms_tags link_list %}
+
+{% block content %}
+{% placeholder content %}
+{% get_link_list "links" as links, category %}
+{% if links %}
+<div id="bookmarks">
+	{% for link in links %}
+	<h2>{{ link.title }}</h2>
+	{{ link.description|linebreaks }}
+	<p class="link"><a href="{{ link.href }}" target="_blank">{{ link.href|slice:"7:-1" }}</a></p>
+	{% endfor %}
+</div>
+{% endif %}
+{% endblock %}

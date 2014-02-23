@@ -1,0 +1,58 @@
+<!DOCTYPE html>{% load staticfiles cms_tags menu_tags sekizai_tags zinnia_tags %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title_tag %}{% block title %}{% page_attribute page_title %}{% endblock title %} | {{ current_site.name }}{% endblock title_tag %}</title>
+	<link rel="icon" type="image/png" href="{% static 'logo.png' %}"><!--[if IE]>
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}"><![endif]-->
+	{% render_block "css" %}
+</head>
+{% addtoblock "css" strip %}
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+{% endaddtoblock %}{% addtoblock "js" strip %}
+	<script type="text/javascript" src="{% static 'jquery.pack.js' %}"></script>
+	<script type="text/javascript" src="{% static 'navigation.js' %}"></script>
+	<script type="text/javascript" src="{% static 'analytics.js' %}"></script>
+	<!--[if lt IE 9]>{# IE8 support of HTML5 elements and media queries #}
+	<script src="{% static 'html5shiv.js' %}"></script>
+	<script src="{% static 'respond.min.js' %}"></script>
+	<![endif]-->
+{% endaddtoblock %}
+<body>
+<div id="gradient">
+	{% cms_toolbar %}
+	<div id="container" class="container">{% block beforeheader %}{% endblock %}
+		<div id="header" class="row">
+			{% block header %}{% endblock header %}
+		</div>
+		<div id="menu" class="row">{% block menu %}{% endblock %}</div>
+		<div id="main" class="row">
+			<ul id="nav" class="col-xs-12 col-sm-4 col-md-3 col-lg-2 hidden-print">{% spaceless %}
+				{% block nav %}{% show_menu 0 100 100 100 %}{% endblock nav %}
+				{% endspaceless %}
+			</ul>
+			<div id="content" class="col-xs-12 col-sm-8 col-md-6 col-lg-8">
+				{% block breadcrumbs %}
+				<ul class="breadcrumbs">{% spaceless %}{% show_breadcrumb %}{% endspaceless %}</ul>
+				{% endblock breadcrumbs %}
+				{% block content %}
+				{% endblock %}</div>
+			<div id="highlights" class="col-xs-12 col-sm-8 col-md-3 col-lg-2 col-sm-push-4 col-md-push-0">
+				<div id="calendar" class="hidden-print">
+					{% get_calendar_entries %}
+					{% block calendar_links %}{% endblock %}
+				</div>
+				<div id="sidebar">
+					{% block sidebar %}{% endblock %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="row">{% block footer %}
+	{% endblock footer %}</div>
+	{% render_block "js" %}
+</div>
+</body>
+</html>
