@@ -54,12 +54,17 @@ def startproject():
     code = call(['django-admin.py', 'startproject', projectname, '.'])
     if code != 0:
         return code
+    os.chmod('manage.py', mode0755)
+
+    print('Creating directories ...')
+    os.mkdir('media')
+    os.mkdir('static')
+    os.mkdir('templates')
+    os.mkdir(os.path.join(projectname, 'settings'))
 
     print('Converting settings to deployment profiles (%s) ...' % ', '.join(profiles))
-    os.mkdir(os.path.join(projectname, 'settings'))
     os.rename(os.path.join(projectname, 'settings.py'),
               os.path.join(projectname, 'settings', 'common.py'))
-    os.chmod('manage.py', mode0755)
 
     settings = DjangoSettingsManager(projectname, *filenames)
     settings.append_lines('__init__',
