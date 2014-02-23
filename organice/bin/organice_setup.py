@@ -220,6 +220,7 @@ def startproject():
     print('See https://docs.djangoproject.com/en/1.5/ref/settings/ for details.' + os.linesep)
 
     print('To initialize your development database run: `python manage.py syncdb --migrate`')
+    print('Zinnia entry model: `./manage.py schemamigration zinnia --auto --update && ./manage.py migrate zinnia`')
     print('You can then run your development server with: `python manage.py runserver`')
 
 

@@ -69,6 +69,7 @@ setup(
     install_requires=DEPENDENCIES,
     dependency_links=NON_PYPI_DEP_LINKS,
     packages=find_packages(),
+    include_package_data=True,
     zip_safe=False,
 
     entry_points="""
