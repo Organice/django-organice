@@ -2,3 +2,6 @@ include LICENSE
 include README.rst
 recursive-include docs *
 recursive-include organice *
+# exclude all bytecode
+global-exclude *.pyc
+global-exclude *.pyo
