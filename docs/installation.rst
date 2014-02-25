@@ -24,10 +24,10 @@ Installing django Organice
 
 1. We recommend preparing a virtual environment for running django Organice::
 
-    $ mkvirtualenv mysite
-    $ workon mysite
+    $ mkvirtualenv example
+    $ workon example
 
-  The prompt will change to something like ``(mysite)~$`` to reflect that your new virtual environment is active.
+  The prompt will change to something like ``(example)~$`` to reflect that your new virtual environment is active.
 
 2. The easiest way is using ``pip`` for installation::
 
@@ -56,11 +56,11 @@ Installing django Organice
 
     *NOTE:* You can skip this step if you decide to use SQLite, e.g. for evaluation purposes.
 
-4. Run the Organice setup command to create your new project: (e.g. *mysite*) ::
+4. Run the Organice setup command to create your new project: (e.g. *example*) ::
 
-    $ organice-setup mysite
+    $ organice-setup example
 
-5. Edit your settings in ``mysite/settings/common.py``, ``mysite/settings/develop.py``, etc.  See the
+5. Edit your settings in ``example/settings/common.py``, ``example/settings/develop.py``, etc.  See the
    `Django documentation`_ on settings if you're not familiar with it.  The ``develop`` settings are used by your
    project by default (local development), ``common`` is included in all profiles.
 
@@ -82,7 +82,7 @@ Deployment to Production
 
 During the installation ``organice-setup`` prepared 3 different environments that help you with deployment::
 
-    mysite
+    example
     ├── settings
     │   ├── __init__.py
     │   ├── common.py
@@ -95,15 +95,15 @@ The ``develop`` settings are active by default (for local development), ``common
 
 For deployment to environments other than ``develop`` the settings module location must be overridden by setting the
 Django environment variable ``DJANGO_SETTINGS_MODULE``.  For example, if you use Apache as your Django web server
-adapt your Apache configuration file for ``mysite`` with::
+adapt your Apache configuration file for ``example`` with::
 
-    SetEnv DJANGO_SETTINGS_MODULE mysite.settings.production
+    SetEnv DJANGO_SETTINGS_MODULE example.settings.production
 
 ..
 
   *NOTE:* To test different settings locally you can start the Django webserver with the ``--settings`` option::
 
-    $ python manage.py runserver --settings=mysite.settings.staging
+    $ python manage.py runserver --settings=example.settings.staging
 
 
 .. _tools: http://www.clemesha.org/blog/modern-python-hacker-tools-virtualenv-fabric-pip/
