@@ -200,6 +200,11 @@ def startproject():
     settings.append_lines('common',
                           '# use plugin system of django-cms in blog entries',
                           "ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'")
+    settings.append_lines('common',
+                          'SOUTH_MIGRATION_MODULES = {',
+                          '    # integration of EntryPlaceholder (django CMS) into Zinnia',
+                          "    'zinnia': 'organice.migrations.zinnia',",
+                          '}')
 
     settings.save_files()
 
