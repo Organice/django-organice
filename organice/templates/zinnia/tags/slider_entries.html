@@ -1,0 +1,13 @@
+{% load i18n staticfiles %}
+{% if entries %}
+<div class="slider-container">
+	<div class="slider">
+		{% for entry in entries %}
+		<div class="entry date">{{ entry.creation_date|date:"SHORT_DATE_FORMAT" }}</div>
+		<h2><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title }}</a></h2>
+		{{ entry.excerpt|safe|linebreaks|truncatewords_html:30 }}
+		{% endfor %}
+		</ul>
+	</div>
+</div>
+{% endif %}

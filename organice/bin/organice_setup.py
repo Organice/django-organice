@@ -126,6 +126,7 @@ def startproject():
                           "    'django.contrib.messages',",
                           "    'django.contrib.staticfiles',",
                           "    'django.contrib.admin',",
+                          "    'organice',",
                           "    'cms',",
                           "    'mptt',",
                           "    'menus',",
@@ -147,7 +148,6 @@ def startproject():
                           "    'emencia.django.newsletter',",
                           "    'simple_links',",
                           "    'zinnia',",
-                          "    'organice',",
                           ')')
 
     print(adding_settings_for % 'django CMS')
