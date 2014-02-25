@@ -48,6 +48,13 @@ Features on the roadmap include:
 - web analytics respecting your privacy (Piwik)
 - live chat or chat integration
 
+Who is using django Organice?
+=============================
+
+Examples of websites running django Organice:
+
+- `Kreuzlingen Rudolf Steiner school`_
+
 Download and Contributions
 ==========================
 
@@ -65,6 +72,7 @@ Getting Help
 
 
 .. _`Django Web framework`: https://www.djangoproject.com/
+.. _`Kreuzlingen Rudolf Steiner school`: http://www.rssk.ch/
 .. _StackOverflow: http://stackoverflow.com/questions/tagged/django-organice
 .. _Bitbucket: https://bitbucket.org/bittner/django-organice/issues
 .. _GitHub: https://github.com/bittner/django-organice/issues

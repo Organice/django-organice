@@ -13,7 +13,7 @@ Help Wanted
 ===========
 
 - Writing tests
-- Translations (documentation, user interface)
+- Translations (blog posts, documentation, user interface)
 
 Bumping Versions, Package, Release
 ==================================
