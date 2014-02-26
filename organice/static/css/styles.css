@@ -1,0 +1,379 @@
+/*
+ * Graceful degredation responsive web design stylesheet
+ *
+ * @author Peter Bittner <peter.bittner@gmx.net>
+ * @copyright 2013 Rudolf Steiner Schule Kreuzlingen Konstanz
+ * @license CC BY-SA 3.0, http://creativecommons.org/licenses/by-sa/3.0/deed.de
+ * @url http://www.rssk.ch
+ * @url http://www.steinerschulekreuzlingen.ch
+ * @url http://www.steinerschulekreuzlingen.com
+ */
+
+html,
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background: #fff5d8;
+	color: #008195;
+}
+
+#gradient {
+	height: 58em;
+	margin: 0 0 2em;
+	/* CSS gradient generated using http://www.colorzilla.com/gradient-editor */
+	background: -moz-linear-gradient(top, #c7b98e 0%, #efddac 52%, #fff5d8 95%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c7b98e), color-stop(52%, #efddac), color-stop(95%, #fff5d8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #c7b98e 0%, #efddac 52%, #fff5d8 95%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #c7b98e 0%, #efddac 52%, #fff5d8 95%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #c7b98e 0%, #efddac 52%, #fff5d8 95%); /* IE10+ */
+	background: linear-gradient(to bottom, #c7b98e 0%, #efddac 52%, #fff5d8 95%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7b98e', endColorstr='#fff5d8',GradientType=0); /* IE6-9 */
+}
+
+#container {
+	background-color: #fff;
+	-moz-box-shadow: 0px 3px 18px #333;
+	-webkit-box-shadow: 0px 3px 18px #333;
+	box-shadow: 0px 3px 18px #333;
+	-ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333'); /* IE 8 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333'); /* IE 5.5 - 7 */
+	padding-bottom: 1em;
+}
+
+#footer {
+	margin-top: 0.5em;
+}
+#footer p {
+	text-align: center;
+	font-size: 0.8em;
+	margin: 0.5em 0;
+	padding: 0;
+}
+#footer a {
+	color: #008195;
+}
+
+#aktionsbutton {
+	position: absolute;
+	margin-top: 0.95em;
+	margin-left: 2.3em;
+	z-index: 2;
+}
+#aktionsbutton .button {
+	position: relative;
+	display: block;
+	behavior: url("js/pngbehavior.htc");
+}
+
+#header img.signet {
+	position: absolute;
+	left: 43%;
+	top: -3px;
+	z-index: 2;
+}
+
+#menu {
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	background-color: #008195;
+	height: 1.75em;
+	margin-bottom: 1.8em;
+}
+
+#nav {
+	padding: 0 0.95em;
+	margin: 0;
+}
+
+#nav,
+#nav ul {
+	list-style-type: none;
+}
+#nav ul {
+	padding: 0;
+}
+#nav li {
+	background-color: #cee4e7;
+	text-indent: 1.25em;
+	border-top: 1px solid #fff;
+}
+#nav li ul li {
+	background-color: #eef6f7;
+	text-indent: 2.1em;
+}
+#nav li ul li ul li {
+	background-color: #f4edd4;
+	text-indent: 2.9em;
+}
+#nav li a {
+	color: #008195;
+	width: 100%;
+	display: block;
+	padding: 0.25em 0;
+}
+#nav li a:hover {
+	text-decoration: none;
+}
+
+.breadcrumbs {
+	list-style-type: none;
+	margin: 1.3em 0 0 -2.4em;
+}
+.breadcrumbs,
+.breadcrumbs a {
+	color: #5e5e5e;
+}
+.breadcrumbs li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+#content ul,
+#content ol {
+	padding-left: 2.5em;
+}
+
+#content ol.nobullets,
+#content ul.nobullets {
+	list-style: none;
+	padding-left: 0.8em;
+}
+
+#content dl.table, /* table-like layout for e.g. Ferientermine */
+#content dl.list { /* list-like layout for e.g. Adventsbasar */
+	width: 100%;
+	overflow: hidden;
+}
+#content dl.table dt {
+	font-weight: normal;
+	float: left;
+	width: 35%; /* adjust the width; make sure the total of both is 100% */
+}
+#content dl.table dd {
+	float: left;
+	width: 65%; /* adjust the width; make sure the total of both is 100% */
+}
+
+#content .side-by-side {
+	width: 50% !important;
+	float: left;
+}
+
+#calendar {
+	font-size: 0.9em;
+	text-align: center;
+}
+#calendar thead {
+	display: none;
+}
+#calendar {
+	padding: 10px 0px;
+	font-size: 11px;
+}
+#calendar caption {
+	padding: 4px;
+	background-color: #daedf0;
+	color: #008195;
+}
+#calendar .prev,
+#calendar .next {
+	color: #008195;
+	font-weight: bold;
+}
+#calendar table {
+	width: 100%;
+	border-spacing: 1px;
+	background-color: #daedf0;
+}
+#calendar table td {
+	text-align: center;
+	vertical-align: middle;
+	background-color: #bde1e5;
+	color: #FFF;
+}
+#calendar table td a,
+#calendar table td a:visited {
+	font-weight: bold;
+	display: block;
+	color: #008195;
+}
+#calendar table td.today,
+#calendar table td.today a {
+	color: #fff;
+	background-color: #008195;
+}
+#calendar table td.future,
+#calendar table td.future a {
+	color: #008195;
+}
+#calendar table td.event {
+	border: 1px solid #008195;
+}
+
+h1,
+h2 {
+	color: #fc9804;
+	font-weight: normal;
+}
+
+h3,
+h4,
+h5 {
+	color: #008195;
+	font-weight: bold;
+}
+h4,
+h5 {
+	margin-top: 1.5em;
+	margin-bottom: 0.2em;
+}
+h5 {
+	margin-top: 1.2em;
+}
+
+h1 > em,
+h2 > em,
+h3 > em,
+h4 > em,
+h5 > em {
+	font-style: normal;
+}
+
+h1 > em,
+h2 > em {
+	font-weight: bold;
+}
+
+h3 > em,
+h4 > em,
+h5 > em {
+	font-weight: normal;
+}
+
+q:before,
+blockquote:before {
+	content: '\201C';
+}
+q:after,
+blockquote:after {
+	content: '\201D';
+}
+
+/* Schulnotizen: Issuu Integration (unnoetigen Text ausblenden) */
+.issuuembed.issuu-isrendered span {
+	display: none;
+}
+#issuu .archive form + p {
+	margin-top: 0.75em;
+}
+
+/* -- zinnia-blog, simple-links -- */
+
+#bookmarks {
+	width: 100%;
+}
+#bookmarks h2,
+.slider .entry.date {
+	border-top: 1px solid #008195;
+	padding-top: 0.5em;
+}
+#bookmarks p.link {
+	text-align: right;
+}
+
+#widget-categories ul {
+	list-style: none;
+	padding-left: 0.2em;
+}
+
+.slider .entry.date {
+	margin: 1em 0 -0.8em 0;
+}
+
+ul.paginator {
+	list-style: none;
+	padding-left: 1em;
+}
+ul.paginator .index {
+	padding-right: 0.7em;
+}
+ul.paginator li {
+	display: inline;
+	margin: 0 1em;
+}
+ul.paginator li a {
+	border: 1px solid;
+	padding: 0 0.5em;
+}
+
+/* -- django CMS output -- */
+
+.plugin_picture.align-left img,
+.plugin_picture.align-right img,
+.plugin_picture.align-center img {
+	display: block;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+.plugin_picture.align-left img {
+	float: left;
+	margin-left: 0 !important;
+}
+.plugin_picture.align-right img {
+	float: right;
+	margin-right: 0 !important;
+}
+
+.plugin_file {
+	display: inline;
+}
+
+.plugin_googlemap {
+	margin-bottom: 0.4em;
+}
+
+/* cmsplugin-contact */
+form label.contact_field {
+	display: block;
+}
+form label.contact_field + input,
+form label.contact_field + textarea {
+	width: 100%;
+}
+form .error_msg {
+	color: red;
+}
+
+/* -- customized responsive behavior -- */
+/*
+@media (max-width: 825px) {
+	#header img.signet {
+		width: 22.5%;
+	}
+}
+@media (max-width: 768px) {
+	#content .side-by-side {
+		width: 100% !important;
+		float: none;
+	}
+	#content .side-by-side dl.list dd {
+		text-indent: 1em;
+	}
+}
+@media (min-width: 768px) {
+	#nav {
+		padding: 0 1.95em;
+		width: 196px;
+	}
+	#content {
+		padding-left: 0.9em;
+		padding-bottom: 1em;
+		margin-top: -1.3em;
+		width: 440px;
+	}
+	#highlights {
+		width: 180px;
+	}
+}
+*/

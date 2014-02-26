@@ -9,15 +9,15 @@
 	{% render_block "css" %}
 </head>
 {% addtoblock "css" strip %}
-	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 {% endaddtoblock %}{% addtoblock "js" strip %}
-	<script type="text/javascript" src="{% static 'jquery.pack.js' %}"></script>
-	<script type="text/javascript" src="{% static 'navigation.js' %}"></script>
-	<script type="text/javascript" src="{% static 'analytics.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.pack.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/navigation.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/analytics.js' %}"></script>
 	<!--[if lt IE 9]>{# IE8 support of HTML5 elements and media queries #}
-	<script src="{% static 'html5shiv.js' %}"></script>
-	<script src="{% static 'respond.min.js' %}"></script>
+	<script src="{% static 'js/html5shiv.js' %}"></script>
+	<script src="{% static 'js/respond.min.js' %}"></script>
 	<![endif]-->
 {% endaddtoblock %}
 <body>

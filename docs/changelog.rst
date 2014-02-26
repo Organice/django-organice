@@ -7,6 +7,6 @@ CHANGELOG
 
 - Initial release
 - Based on Django 1.5.5, django CMS 2.4.3, Zinnia blog 0.13, Emencia newsletter 0.3.dev
-- Setup script with project generation, deployment settings, custom templates
+- Setup script with project generation, deployment settings, custom templates, Bootstrap 3
 
 :Packages: https://github.com/bittner/django-organice/blob/v0.1/docs/requirements.txt
