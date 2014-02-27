@@ -12,6 +12,7 @@ Contents:
 
    overview
    installation
+   components
    contributing
    alternatives
    changelog
