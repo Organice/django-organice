@@ -38,6 +38,7 @@ DEPENDENCIES = [
     'django-mptt==0.5.2',  # necessary due to poor dependency resolution
     'django-reversion',
     'django-simple-links',
+    'django-tinymce',
     'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
     'PIL',
 ]

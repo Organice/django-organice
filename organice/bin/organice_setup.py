@@ -146,6 +146,7 @@ def startproject():
                           "    'cmsplugin_zinnia',",
                           "    'tagging',",
                           "    'emencia.django.newsletter',",
+                          "    'tinymce',",
                           "    'simple_links',",
                           "    'zinnia',",
                           ')')
