@@ -41,6 +41,7 @@ DEPENDENCIES = [
     'django-tinymce',
     'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
     'PIL',
+    'solid_i18n',
 ]
 
 NON_PYPI_DEP_LINKS = [

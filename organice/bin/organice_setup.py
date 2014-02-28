@@ -157,7 +157,7 @@ def startproject():
                           'MIDDLEWARE_CLASSES = (',
                           "    'django.middleware.common.CommonMiddleware',",
                           "    'django.middleware.doc.XViewMiddleware',",
-                          "    'django.middleware.locale.LocaleMiddleware',",
+                          "    'solid_i18n.middleware.SolidLocaleMiddleware',",
                           "    'django.middleware.csrf.CsrfViewMiddleware',",
                           "    'django.contrib.sessions.middleware.SessionMiddleware',",
                           "    'django.contrib.messages.middleware.MessageMiddleware',",
