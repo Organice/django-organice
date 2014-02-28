@@ -167,6 +167,11 @@ def startproject():
                           "    'cms.middleware.toolbar.ToolbarMiddleware',",
                           "    'cms.middleware.language.LanguageCookieMiddleware',",
                           ')')
+    # must be set both in order to make solid_i18n work properly
+    settings.set_value('common', 'LANGUAGE_CODE', """'en-us'
+LANGUAGES = (
+    ('en-us', 'English (United States)'),
+)""")
     settings.append_lines('common',
                           'CMS_TEMPLATES = (',
                           "    ('cms_article.html', 'Template for normal content pages'),",
@@ -227,8 +232,8 @@ def startproject():
     project.add_file('urls', lines=(gen_by_comment, 'from organice.urls import urlpatterns'))
     project.save_files()
 
-    suggest_editing = ('ADMINS', 'TIME_ZONE', 'LANGUAGE_CODE')
-    suggest_adding = ('LANGUAGES', 'SERVER_EMAIL')
+    suggest_editing = ('ADMINS', 'TIME_ZONE', 'LANGUAGE_CODE', 'LANGUAGES')
+    suggest_adding = ('SERVER_EMAIL', )
     print('Done. Enjoy your organiced day!' + os.linesep)
 
     print('Please visit file `%s` and edit or add the variables: %s' %

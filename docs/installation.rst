@@ -80,10 +80,13 @@ Installing django Organice
 Initial Configuration
 =====================
 
-1. Follow the instructions given to you by the django Organice installer ``organice-setup`` after setup has completed.
+#. Follow the instructions given to you by the django Organice installer ``organice-setup`` after setup has completed.
    You have to adapt some values in your project settings!
 
-2. Add your first pages, blog posts, and newsletter data::
+#. If you want your site to use a language other than English, or you want to use several languages:  Adapt the values
+   of ``LANGUAGE_CODE`` and ``LANGUAGES``, and set ``USE_I18N = True`` in your project settings.
+
+#. Add your first pages, blog posts, and newsletter data:
 
   - Add some pages and navigation in the Django administration at Cms > Pages, and publish your changes.
   - Surf your new website, and fill your new pages with content using the front-end editing feature.
@@ -94,7 +97,7 @@ Initial Configuration
   - Finally, add your first newsletter to Newsletter > Newsletters.
   - For adding templates to Emencia Newsletter please consult the related section in the `TinyMCE 3.x documentation`_.
 
-3. For sending newsletters to work you must configure a cronjob polling on ``python manage.py send_newsletter``
+4. For sending newsletters to work you must configure a cronjob polling on ``python manage.py send_newsletter``
    every half an hour.  If that was just Greek to you go ask your server admin for help. She knows!
 
 Deployment to Production
