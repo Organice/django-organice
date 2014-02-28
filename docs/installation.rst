@@ -77,6 +77,26 @@ Installing django Organice
     development and production.  Your plan of moving the whole database content from development to production will
     give you major headaches otherwise.  And, use Sqlite for evaluating only!
 
+Initial Configuration
+=====================
+
+1. Follow the instructions given to you by the django Organice installer ``organice-setup`` after setup has completed.
+   You have to adapt some values in your project settings!
+
+2. Add your first pages, blog posts, and newsletter data::
+
+  - Add some pages and navigation in the Django administration at Cms > Pages, and publish your changes.
+  - Surf your new website, and fill your new pages with content using the front-end editing feature.
+  - Surf to ``/artikel/`` on your website, and start adding Blog posts.
+  - Add a user in the Django administration at Newsletter > Contacts.
+  - Add ``localhost`` (or appropriate server) to Newsletter > SMTP servers.
+  - To allow subscribing from the website (from ``/newsletter/subscribe``) add a list to Newsletter > Mailing lists.
+  - Finally, add your first newsletter to Newsletter > Newsletters.
+  - For adding templates to Emencia Newsletter please consult the related section in the `TinyMCE 3.x documentation`_.
+
+3. For sending newsletters to work you must configure a cronjob polling on ``python manage.py send_newsletter``
+   every half an hour.  If that was just Greek to you go ask your server admin for help. She knows!
+
 Deployment to Production
 ========================
 
@@ -112,6 +132,7 @@ adapt your Apache configuration file for ``example`` with::
 .. _virtualenvwrapper: http://www.doughellmann.com/docs/virtualenvwrapper/
 .. _`etc.`: https://docs.djangoproject.com/en/dev/topics/install/#database-installation
 .. _`Django documentation`: https://docs.djangoproject.com/en/1.5/topics/settings/
+.. _`TinyMCE 3.x documentation`: http://www.tinymce.com/wiki.php/Configuration3x:external_template_list_url
 .. _`Django settings best practices`: http://www.sparklewise.com/django-settings-for-production-and-development-best-practices/
 
 .. [1] David Cramer from DISQUS has described a similar solution at http://justcramer.com/2011/01/13/settings-in-django/
