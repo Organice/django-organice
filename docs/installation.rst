@@ -90,7 +90,7 @@ Initial Configuration
 
   - Add some pages and navigation in the Django administration at Cms > Pages, and publish your changes.
   - Surf your new website, and fill your new pages with content using the front-end editing feature.
-  - Surf to ``/artikel/`` on your website, and start adding Blog posts.
+  - Surf to ``/blog/`` on your website, and start adding Blog posts.
   - Add a user in the Django administration at Newsletter > Contacts.
   - Add ``localhost`` (or appropriate server) to Newsletter > SMTP servers.
   - To allow subscribing from the website (from ``/newsletter/subscribe``) add a list to Newsletter > Mailing lists.

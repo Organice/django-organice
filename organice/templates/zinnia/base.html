@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load i18n zinnia_tags %}
 
-{% block breadcrumbs %}{% zinnia_breadcrumbs "Artikel" %}{% endblock breadcrumbs %}
+{% block breadcrumbs %}{% zinnia_breadcrumbs "Blog" %}{% endblock breadcrumbs %}
 
 {% block sidebar %}
 <div id="widget-categories" class="widget">
-  <h3>{#% trans "Categories" %#}Kategorien</h3>
+  <h3>{% trans "Categories" %}</h3>
   {% get_categories %}
 </div>
 <div id="widget-tags" class="widget">

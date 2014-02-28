@@ -8,11 +8,11 @@
 {% block body-class %}{{ block.super }} archive date year year-{{ year|date:"Y" }}{% endblock body-class %}
 
 {% block content-title %}
-<h1>{#% trans "Archives" %#}Archiv {{ year|date:"Y" }}</h1>
+<h1>{% trans "Archives" %} {{ year|date:"Y" }}</h1>
 {% endblock content-title %}
 
 {% block content-related %}
-<h3>{#% trans "Monthly archives" %#}Monatsarchiv</h3>
+<h3>{% trans "Monthly archives" %}</h3>
 <ul>
   {% for date in date_list %}
   <li>
@@ -22,13 +22,13 @@
 </ul>
 
 {% if previous_year %}
-<h3>{#% trans "Previous year" %#}Letztes Jahr</h3>
+<h3>{% trans "Previous year" %}</h3>
 <p>
   <a href="{% url 'zinnia_entry_archive_year' previous_year|date:"Y" %}" rel="archives">{{ previous_year|date:"Y" }}</a>
 </p>
 {% endif %}
 {% if next_year %}
-<h3>{#% trans "Next year" %#}Nächstes Jahr</h3>
+<h3>{% trans "Next year" %}</h3>
 <p>
   <a href="{% url 'zinnia_entry_archive_year' next_year|date:"Y" %}" rel="archives">{{ next_year|date:"Y" }}</a>
 </p>

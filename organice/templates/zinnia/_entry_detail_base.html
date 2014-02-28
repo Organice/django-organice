@@ -4,11 +4,11 @@
   {% block entry-header %}
   <div class="entry-header">
     {% block entry-title %}
-    <h2 class="entry-title">
+    <h1 class="entry-title">
       <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
         {{ object.title }}
       </a>
-    </h2>
+    </h1>
     {% endblock %}
   </div>
   {% endblock %}
@@ -41,7 +41,7 @@
       <a href="{{ object.get_absolute_url }}"
          title="{% blocktrans with object=object.title %}Weiter lesen: {{ object }}{% endblocktrans %}"
          rel="bookmark">
-        {#% trans "Continue reading" %#}Weiter lesen
+        {% trans "Continue reading" %}
       </a>
     </p>
     {% endif %}
