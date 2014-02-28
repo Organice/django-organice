@@ -36,7 +36,7 @@ existing blog entries works identical to the usual content changes on your websi
 which is not available with an intermediate draft step:  All your changes are immediately visible online.
 
 Note that in django Organice we also use the blog functionality for other use cases that are very similar to the usual
-blogging, such as event agendas, job postings, download lists, etc.
+blogging, such as event agendas, job postings, press releases, download lists, etc.
 
 Newsletter
 ==========

@@ -171,7 +171,8 @@ def startproject():
                           'CMS_TEMPLATES = (',
                           "    ('cms_article.html', 'Template for normal content pages'),",
                           "    ('cms_bookmarks.html', 'Template for the bookmarks page'),",
-                          ')')
+                          ')',
+                          'CMS_USE_TINYMCE = False')
     settings.delete_var('common', 'TEMPLATE_DIRS')
     settings.append_lines('common',
                           'TEMPLATE_DIRS = (',
@@ -200,7 +201,8 @@ def startproject():
     print(adding_settings_for % 'Zinnia Blog')
     settings.append_lines('common',
                           '# use plugin system of django-cms in blog entries',
-                          "ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'")
+                          "ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'",
+                          "ZINNIA_WYSIWYG = 'wymeditor'")
     settings.append_lines('common',
                           'SOUTH_MIGRATION_MODULES = {',
                           '    # integration of EntryPlaceholder (django CMS) into Zinnia',
