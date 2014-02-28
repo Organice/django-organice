@@ -194,9 +194,19 @@ def startproject():
 
     print(adding_settings_for % 'Emencia Newsletter')
     settings.append_lines('common',
-                          '# emencia/django/newsletter/media/edn/ directory (alternative)',
-                          "NEWSLETTER_MEDIA_URL = '/media/'",
-                          "NEWSLETTER_DEFAULT_HEADER_SENDER = 'Your Organization <newsletter@your.domain>'")
+                          "NEWSLETTER_DEFAULT_HEADER_SENDER = 'Your Organization <newsletter@your.domain>'",
+                          "NEWSLETTER_MEDIA_URL = '/media/'  # emencia/django/newsletter/media/edn/ directory (alternative)",
+                          'NEWSLETTER_USE_TINYMCE = True',
+                          'TINYMCE_DEFAULT_CONFIG = {',
+                          "    'height': 450,",
+                          "    'width': 800,",
+                          "    'convert_urls': False,",
+                          "    'plugins': 'table,paste,searchreplace,template',",
+                          "    'theme': 'advanced',",
+                          "    'theme_advanced_toolbar_location': 'top',",
+                          "    'theme_advanced_buttons1': 'bold,italic,underline,forecolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,|,template',",
+                          "    'theme_advanced_buttons3_add': 'tablecontrols',",
+                          '}')
 
     print(adding_settings_for % 'Zinnia Blog')
     settings.append_lines('common',
