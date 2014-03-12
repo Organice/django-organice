@@ -1,0 +1,31 @@
+[main]
+host = https://www.transifex.com
+
+[django-organice-docs.alternatives]
+file_filter = translations/django-organice-docs.alternatives/<lang>.po
+source_lang = en
+
+[django-organice-docs.changelog]
+file_filter = translations/django-organice-docs.changelog/<lang>.po
+source_lang = en
+
+[django-organice-docs.components]
+file_filter = translations/django-organice-docs.components/<lang>.po
+source_lang = en
+
+[django-organice-docs.contributing]
+file_filter = translations/django-organice-docs.contributing/<lang>.po
+source_lang = en
+
+[django-organice-docs.index]
+file_filter = translations/django-organice-docs.index/<lang>.po
+source_lang = en
+
+[django-organice-docs.installation]
+file_filter = translations/django-organice-docs.installation/<lang>.po
+source_lang = en
+
+[django-organice-docs.overview]
+file_filter = translations/django-organice-docs.overview/<lang>.po
+source_lang = en
+
