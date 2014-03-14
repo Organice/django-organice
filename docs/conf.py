@@ -17,15 +17,19 @@ import sys
 import os
 from datetime import date
 
-DOC_ROOT = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(os.path.join(DOC_ROOT, '..'))
-
-import organice
-
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
+try:
+    DOC_ROOT = os.path.abspath(os.path.dirname(__file__))
+except NameError:
+    DOC_ROOT = os.path.abspath('.')
+    print('NOTICE: __file__ not defined, hence guessing that active directory is docs folder: %s' % DOC_ROOT)
+
+PROJECT_ROOT = os.path.abspath(os.path.join(DOC_ROOT, '..'))
+sys.path.insert(0, PROJECT_ROOT)
+
+import organice
 
 # -- General configuration -----------------------------------------------------
 
@@ -75,7 +79,7 @@ version = re.match(r'\d+\.\d+', release).group()
 # directories to ignore when looking for source files.
 exclude_patterns = ['build']
 
-locale_dirs = ['locale/']
+locale_dirs = ['locale']
 gettext_compact = False
 
 # The reST default role (used for this markup: `text`) to use for all documents.

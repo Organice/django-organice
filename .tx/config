@@ -1,31 +1,39 @@
 [main]
 host = https://www.transifex.com
+type = PO
 
 [django-organice-docs.alternatives]
-file_filter = translations/django-organice-docs.alternatives/<lang>.po
+file_filter = docs/locale/<lang>/LC_MESSAGES/alternatives.po
+source_file = docs/build/locale/alternatives.pot
 source_lang = en
 
 [django-organice-docs.changelog]
-file_filter = translations/django-organice-docs.changelog/<lang>.po
+file_filter = docs/locale/<lang>/LC_MESSAGES/changelog.po
+source_file = docs/build/locale/changelog.pot
 source_lang = en
 
 [django-organice-docs.components]
-file_filter = translations/django-organice-docs.components/<lang>.po
+file_filter = docs/locale/<lang>/LC_MESSAGES/components.po
+source_file = docs/build/locale/components.pot
 source_lang = en
 
 [django-organice-docs.contributing]
-file_filter = translations/django-organice-docs.contributing/<lang>.po
+file_filter = docs/locale/<lang>/LC_MESSAGES/contributing.po
+source_file = docs/build/locale/contributing.pot
 source_lang = en
 
 [django-organice-docs.index]
-file_filter = translations/django-organice-docs.index/<lang>.po
+file_filter = docs/locale/<lang>/LC_MESSAGES/index.po
+source_file = docs/build/locale/index.pot
 source_lang = en
 
 [django-organice-docs.installation]
-file_filter = translations/django-organice-docs.installation/<lang>.po
+file_filter = docs/locale/<lang>/LC_MESSAGES/installation.po
+source_file = docs/build/locale/installation.pot
 source_lang = en
 
 [django-organice-docs.overview]
-file_filter = translations/django-organice-docs.overview/<lang>.po
+file_filter = docs/locale/<lang>/LC_MESSAGES/overview.po
+source_file = docs/build/locale/overview.pot
 source_lang = en
 
