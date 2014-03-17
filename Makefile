@@ -55,10 +55,7 @@ docs:
 install:
 	python setup.py install
 
-release:
-	$(MAKE) clean
-	$(MAKE) install
-	$(MAKE) depsgen
+release: clean install depsgen
 	python setup.py sdist upload
 
 tests:
