@@ -13,6 +13,7 @@ Contents:
    overview
    installation
    components
+   configuration
    contributing
    alternatives
    changelog

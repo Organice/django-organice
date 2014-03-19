@@ -6,15 +6,16 @@ from solid_i18n.urls import solid_i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
+from .settings import URL_PATH_ADMIN, URL_PATH_NEWSLETTER, URL_PATH_BLOG
 
 admin.autodiscover()
 
 urlpatterns = solid_i18n_patterns('',
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^newsletter/', include('emencia.django.newsletter.urls.newsletter')),
-    url(r'^newsletter/', include('emencia.django.newsletter.urls.mailing_list')),
-    url(r'^newsletter/track/', include('emencia.django.newsletter.urls.tracking')),
-    url(r'^newsletter/stats/', include('emencia.django.newsletter.urls.statistics')),
-    url(r'^blog/', include('zinnia.urls')),
+    url(r'^' + URL_PATH_ADMIN + '/', include(admin.site.urls)),
+    url(r'^' + URL_PATH_NEWSLETTER + '/', include('emencia.django.newsletter.urls.newsletter')),
+    url(r'^' + URL_PATH_NEWSLETTER + '/', include('emencia.django.newsletter.urls.mailing_list')),
+    url(r'^' + URL_PATH_NEWSLETTER + '/track/', include('emencia.django.newsletter.urls.tracking')),
+    url(r'^' + URL_PATH_NEWSLETTER + '/stats/', include('emencia.django.newsletter.urls.statistics')),
+    url(r'^' + URL_PATH_BLOG + '/', include('zinnia.urls')),
     url(r'^', include('cms.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
