@@ -261,6 +261,20 @@ blockquote:after {
 }
 
 /* Schulnotizen: Issuu Integration (unnoetigen Text ausblenden) */
+.issuuembed {
+	width: 100% !important;
+	height: auto !important;
+	position: relative;
+	padding-bottom: 62.25%;
+	overflow: hidden;
+}
+.issuuembed object {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 .issuuembed.issuu-isrendered span {
 	display: none;
 }
