@@ -185,6 +185,13 @@ LANGUAGES = (
                           "    os.path.join(PROJECT_PATH, 'templates'),",
                           "    os.path.join(PROJECT_PATH, 'templates', 'zinnia'),",
                           ')')
+    settings.delete_var('common', 'TEMPLATE_LOADERS')
+    settings.append_lines('common',
+                          'TEMPLATE_LOADERS = (',
+                          "    'django.template.loaders.filesystem.Loader',",
+                          "    'django.template.loaders.app_directories.Loader',",
+                          "    'apptemplates.Loader',",
+                          ')')
     settings.append_lines('common',
                           'TEMPLATE_CONTEXT_PROCESSORS = (',
                           "    'django.contrib.auth.context_processors.auth',",
