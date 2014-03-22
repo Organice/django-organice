@@ -207,17 +207,25 @@ LANGUAGES = (
     print(adding_settings_for % 'Emencia Newsletter')
     settings.append_lines('common',
                           "NEWSLETTER_DEFAULT_HEADER_SENDER = 'Your Organization <newsletter@your.domain>'",
-                          "NEWSLETTER_MEDIA_URL = '/media/'  # emencia/django/newsletter/media/edn/ directory (alternative)",
                           'NEWSLETTER_USE_TINYMCE = True',
+                          'NEWSLETTER_TEMPLATES = [',
+                          "    { 'title': 'Sample template for newsletter',",
+                          "      'src': '/media/newsletter/templates/sample-template.html',",
+                          "      'description': 'Newsletter template 2014' },",
+                          ']',
                           'TINYMCE_DEFAULT_CONFIG = {',
                           "    'height': 450,",
                           "    'width': 800,",
                           "    'convert_urls': False,",
                           "    'plugins': 'table,paste,searchreplace,template',",
+                          "    'template_templates': NEWSLETTER_TEMPLATES,",
                           "    'theme': 'advanced',",
                           "    'theme_advanced_toolbar_location': 'top',",
-                          "    'theme_advanced_buttons1': 'bold,italic,underline,forecolor,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,|,template',",
-                          "    'theme_advanced_buttons3_add': 'tablecontrols',",
+                          "    'theme_advanced_buttons1': 'template,|,formatselect,' \\",
+                          "        '|,bold,italic,underline,forecolor,backcolor,|,undo,redo,' \\",
+                          "        '|,justifyleft,justifycenter,justifyright,justifyfull,' \\",
+                          "        '|,bullist,numlist,|,outdent,indent,' \\",
+                          "        '|,blockquote,image,hr,link,unlink,|,visualaid,code',",
                           '}')
 
     print(adding_settings_for % 'Zinnia Blog')
