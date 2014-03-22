@@ -174,7 +174,7 @@ LANGUAGES = (
 )""")
     settings.append_lines('common',
                           'CMS_TEMPLATES = (',
-                          "    ('cms_article.html', 'Template for normal content pages'),",
+                          "    ('cms_base.html', 'Template for normal content pages'),",
                           "    ('cms_bookmarks.html', 'Template for the bookmarks page'),",
                           ')',
                           'CMS_USE_TINYMCE = False')
