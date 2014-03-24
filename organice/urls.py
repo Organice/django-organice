@@ -17,5 +17,6 @@ urlpatterns = solid_i18n_patterns('',
     url(r'^' + URL_PATH_NEWSLETTER + '/track/', include('emencia.django.newsletter.urls.tracking')),
     url(r'^' + URL_PATH_NEWSLETTER + '/stats/', include('emencia.django.newsletter.urls.statistics')),
     url(r'^' + URL_PATH_BLOG + '/', include('zinnia.urls')),
+    url(r'^', include('allauth.urls')),
     url(r'^', include('cms.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

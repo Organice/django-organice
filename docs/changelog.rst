@@ -6,8 +6,10 @@ CHANGELOG
 ===
 
 - Project-level Makefile
-- Automation of translation processes with Transifex (documentation only)
-- New options for settings
+- Automation of translation processes with Transifex (for documentation only)
+- New options for settings (see :ref:`config-settings`)
+- Newsletter editor configuration, newsletter template sample
+- User profiles and social login (django-allauth)
 
 :Changes: https://github.com/bittner/django-organice/compare/v0.1...HEAD
 :Packages: https://github.com/bittner/django-organice/blob/v0.2/docs/requirements.txt

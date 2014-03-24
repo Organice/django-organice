@@ -28,7 +28,8 @@ def startproject():
     Starts a new django Organice project by first generating a Django project
     using ``django-admin.py``, and then modifying the project settings.
     """
-    usage_descr = 'django Organice setup. Start getting organiced!'
+    usage_descr = 'django Organice setup. Start getting organiced! ' \
+                  'Your collaboration platform starts here.'
 
     if sys.version_info < (2, 7):
         from optparse import OptionParser  # Deprecated since version 2.7
@@ -149,6 +150,39 @@ def startproject():
                           "    'tinymce',",
                           "    'simple_links',",
                           "    'zinnia',",
+                          "    'allauth',",
+                          "    'allauth.account',",
+                          "    'allauth.socialaccount',",
+                          "#    'allauth.socialaccount.providers.amazon',",
+                          "#    'allauth.socialaccount.providers.angellist',",
+                          "#    'allauth.socialaccount.providers.bitbucket',",
+                          "#    'allauth.socialaccount.providers.bitly',",
+                          "#    'allauth.socialaccount.providers.dropbox',",
+                          "#    'allauth.socialaccount.providers.facebook',",
+                          "#    'allauth.socialaccount.providers.flickr',",
+                          "#    'allauth.socialaccount.providers.feedly',",
+                          "#    'allauth.socialaccount.providers.github',",
+                          "#    'allauth.socialaccount.providers.google',",
+                          "#    'allauth.socialaccount.providers.instagram',",
+                          "#    'allauth.socialaccount.providers.linkedin',",
+                          "#    'allauth.socialaccount.providers.linkedin_oauth2',",
+                          "#    'allauth.socialaccount.providers.openid',",
+                          "#    'allauth.socialaccount.providers.persona',",
+                          "#    'allauth.socialaccount.providers.soundcloud',",
+                          "#    'allauth.socialaccount.providers.stackexchange',",
+                          "#    'allauth.socialaccount.providers.tumblr',",
+                          "#    'allauth.socialaccount.providers.twitch',",
+                          "#    'allauth.socialaccount.providers.twitter',",
+                          "#    'allauth.socialaccount.providers.vimeo',",
+                          "#    'allauth.socialaccount.providers.vk',",
+                          "#    'allauth.socialaccount.providers.weibo',",
+                          ')')
+
+    print(adding_settings_for % 'user profiles and authentication')
+    settings.append_lines('common',
+                          'AUTHENTICATION_BACKENDS = (',
+                          "    'django.contrib.auth.backends.ModelBackend',"
+                          "    'allauth.account.auth_backends.AuthenticationBackend',"
                           ')')
 
     print(adding_settings_for % 'django CMS')
@@ -199,6 +233,8 @@ LANGUAGES = (
                           "    'django.core.context_processors.request',",
                           "    'django.core.context_processors.media',",
                           "    'django.core.context_processors.static',",
+                          "    'allauth.account.context_processors.account',",
+                          "    'allauth.socialaccount.context_processors.socialaccount',",
                           "    'cms.context_processors.media',",
                           "    'sekizai.context_processors.sekizai',",
                           "    'organice.context_processors.expose',",

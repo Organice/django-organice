@@ -29,21 +29,20 @@ Major components of django Organice are:
 - flexible contact pages (cmsplugin)
 - link collection pages
 - full-featured newsletter (Emencia)
-- user profiles (userena)
+- user profiles and social login (allauth)
 - multi-language support
 - multiple websites support
 - database support for PostgreSQL, MySQL, and more
 
 Features on the roadmap include:
 
-- social login (Python Social Auth)
 - group spaces with automatic mailing list (group_name@yoursite.tld)
 - issue list / task management
 - documentation area / wiki (probably by use of CMS functionality)
 - discussion forum / Q&A board (Askbot, Misago)
 - content download for magazine generation
 - unobtrusive, integrated, transparent document and asset management
-- DropBox, OneDrive, Google Drive, iCloud, etc. integration
+- DropBox, OneDrive, Google Drive, iCloud, Ubuntu One, etc. integration
 - fully integrated search (Haystack)
 - web analytics respecting your privacy (Piwik)
 - live chat or chat integration
