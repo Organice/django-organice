@@ -6,19 +6,22 @@ LANGUAGES = en de it
 REQUIREMENTS = docs/requirements.txt
 SHELL = /bin/bash
 
-.PHONY: help clean docs transifex tests
+.PHONY: help bumpver clean develop undevelop docs install uninstall release requirements setuptools tests transifex
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
-	@echo "  bumpver    to bump the version number, commit and tag for releasing"
-	@echo "  clean      to remove build files and folders"
-	@echo "  depsgen    to generate the requirements.txt file in the docs folder (pip freeze)"
-	@echo "  depspurge  to uninstall all dependencies / installed packages (pip uninstall -y)"
-	@echo "  docs       to generate documentation in English and all translated languages"
-	@echo "  install    to install this project including all dependencies (~ pip install)"
-	@echo "  release    to package a new release, and upload it to pypi.org"
-	@echo "  tests      to run all tests manually"
-	@echo "  transifex  to synchronize translation resources with Transifex (upload+download)"
+	@echo "  bumpver       to bump the version number, commit and tag for releasing"
+	@echo "  clean         to remove build files and folders"
+	@echo "  develop       to install all dependencies needed for development/docs/translation"
+	@echo "  undevelop     to uninstall all dependencies needed for development/docs/translation"
+	@echo "  docs          to generate documentation in English and all translated languages"
+	@echo "  install       to install this project including all dependencies (~ pip install)"
+	@echo "  uninstall     to uninstall all dependencies / installed packages (pip uninstall -y)"
+	@echo "  release       to package a new release, and upload it to pypi.org"
+	@echo "  requirements  to generate the requirements.txt file in the docs folder (pip freeze)"
+	@echo "  setuptools    to install setuptools or repair a broken pip installation"
+	@echo "  tests         to run all tests manually"
+	@echo "  transifex     to synchronize translation resources with Transifex (upload+download)"
 
 bumpver:
 	@echo "Not implemented yet. Install pypi package instead: \`pip install bumpversion'"
@@ -30,15 +33,15 @@ clean:
 		[ -d $$DIR ] && rmdir $$DIR || true ; \
 	done
 
-depsgen:
-# NOTE: we must filter out erroneously listed globally installed packages on Ubuntu
-	pip freeze | sed -e '/^argparse/d' -e '/^wsgiref/d' > $(REQUIREMENTS)
-	git diff $(REQUIREMENTS)
+develop: setuptools
+	pip install Sphinx sphinx-intl transifex-client
 
-depspurge:
-	pip freeze | sed 's/==.*$//' | xargs -I PKG pip uninstall -y PKG
+undevelop: setuptools
+	for PKG in docutils Jinja2 MarkupSafe polib Pygments Sphinx sphinx-intl transifex-client ; do \
+		pip uninstall -y $$PKG || true ; \
+	done
 
-docs:
+docs: develop
 	@cd docs && \
 	tx pull --all --force && \
 	sphinx-intl build
@@ -52,16 +55,29 @@ docs:
 	@echo
 	@echo "Build finished. Documentation is in subdirectories ($(LANGUAGES)) of docs/build/html/"
 
-install:
+install: setuptools
 	python setup.py install
 
-release: clean install depsgen
+uninstall:
+	pip freeze | sed 's/==.*$//' | xargs -I PKG pip uninstall -y PKG
+
+release: setuptools clean requirements
 	python setup.py sdist upload
+
+requirements: setuptools undevelop
+# NOTE: we must filter out erroneously listed globally installed packages on Ubuntu
+	pip freeze | sed -e '/^argparse/d' -e '/^wsgiref/d' > $(REQUIREMENTS)
+	git diff $(REQUIREMENTS)
+
+setuptools:
+	python -c 'import setuptools' || \
+	curl -s -S https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py | python
+	rm -f setuptools-*.zip
 
 tests:
 	@echo "Not implemented yet."
 
-transifex:
+transifex: develop
 	@cd docs && tx pull --all --force
 	@$(MAKE) -C docs gettext
 	@cd docs && sphinx-intl update -p build/locale && tx push -s
