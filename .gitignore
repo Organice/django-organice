@@ -1,7 +1,7 @@
 # tools, IDEs, build folders
 /.coverage/
 /.idea/
-/.sass-cache/
+.sass-cache/
 /build/
 /dist/
 /django_organice.egg-info/
