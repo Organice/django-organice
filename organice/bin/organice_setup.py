@@ -181,9 +181,12 @@ def startproject():
     print(adding_settings_for % 'user profiles and authentication')
     settings.append_lines('common',
                           'AUTHENTICATION_BACKENDS = (',
-                          "    'django.contrib.auth.backends.ModelBackend',"
-                          "    'allauth.account.auth_backends.AuthenticationBackend',"
+                          "    'django.contrib.auth.backends.ModelBackend',",
+                          "    'allauth.account.auth_backends.AuthenticationBackend',",
                           ')')
+    settings.set_value('common', 'LOGIN_REDIRECT_URL', '/')
+    settings.set_value('common', 'EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
+    settings.set_value('common', 'SERVER_EMAIL', 'noreply@example.com')
 
     print(adding_settings_for % 'django CMS')
     settings.delete_var('common', 'MIDDLEWARE_CLASSES')
@@ -206,12 +209,12 @@ def startproject():
 LANGUAGES = (
     ('en-us', 'English (United States)'),
 )""")
+    settings.set_value('common', 'CMS_USE_TINYMCE', 'False')
     settings.append_lines('common',
                           'CMS_TEMPLATES = (',
                           "    ('cms_base.html', 'Template for normal content pages'),",
                           "    ('cms_bookmarks.html', 'Template for the bookmarks page'),",
-                          ')',
-                          'CMS_USE_TINYMCE = False')
+                          ')')
     settings.delete_var('common', 'TEMPLATE_DIRS')
     settings.append_lines('common',
                           'TEMPLATE_DIRS = (',
@@ -285,8 +288,8 @@ LANGUAGES = (
     project.add_file('urls', lines=(gen_by_comment, 'from organice.urls import urlpatterns'))
     project.save_files()
 
-    suggest_editing = ('ADMINS', 'TIME_ZONE', 'LANGUAGE_CODE', 'LANGUAGES')
-    suggest_adding = ('SERVER_EMAIL', )
+    suggest_editing = ('ADMINS', 'TIME_ZONE', 'LANGUAGE_CODE', 'LANGUAGES', 'EMAIL_BACKEND', 'SERVER_EMAIL')
+    suggest_adding = ()
     print('Done. Enjoy your organiced day!' + os.linesep)
 
     print('Please visit file `%s` and edit or add the variables: %s' %
