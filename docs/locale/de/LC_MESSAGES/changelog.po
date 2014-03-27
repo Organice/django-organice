@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-24 20:55+0100\n"
-"PO-Revision-Date: 2014-03-24 16:32+0000\n"
+"POT-Creation-Date: 2014-03-27 21:56+0100\n"
+"PO-Revision-Date: 2014-03-27 20:11+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -17,85 +17,85 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 9eec5b4874224798905f7809486a33aa
+# e01ebc25dd1c475fa7eb8dca6018ba96
 #: ../../changelog.rst:3
 msgid "CHANGELOG"
 msgstr ""
 
-# 2ad08720386f4e32acd1800e8efa2264
+# 4a2d953b80014efb842273348b399090
 #: ../../changelog.rst:6
 msgid "0.2"
 msgstr ""
 
-# 2040b2459ad641c19ac6d96b514970aa
+# 663c52e357f943df90324b54becc8fa3
 #: ../../changelog.rst:8
 msgid "Project-level Makefile"
 msgstr ""
 
-# 87ff8ffeeecc44cb9be25cb797dbc984
+# 06cd9623767a4cc0b9efe110d901a570
 #: ../../changelog.rst:9
 msgid ""
 "Automation of translation processes with Transifex (for documentation only)"
 msgstr ""
 
-# 3d048bd1a1994c26a87296762eb30dfe
+# 4669dfef793b408bb86597082a931e36
 #: ../../changelog.rst:10
-msgid "New options for settings (see :ref:`config-settings`)"
+msgid "New options for settings (see :ref:`settings`)"
 msgstr ""
 
-# 31cc42a1b972411c807e7a2f9050ddc1
+# 62b296a03eac435b91e297eebe1ef00c
 #: ../../changelog.rst:11
 msgid "Newsletter editor configuration, newsletter template sample"
 msgstr ""
 
-# ac7cd80acbb84dd8b55ce1cd91fa1343
+# 6ddf0946ada340dfb9eb92b19fcaf27f
 #: ../../changelog.rst:12
 msgid "User profiles and social login (django-allauth)"
 msgstr ""
 
-# a735011c27a74313a16f6c2f386938e3
+# 9636b0b3f9834af5a9e3036700e2c567
 #: ../../changelog.rst:14
 msgid "https://github.com/bittner/django-organice/compare/v0.1...HEAD"
 msgstr ""
 
-# def388118aa6444981eae17fbdddbf4c
+# 8ba5d7e857ef49bf85513d00a40dce00
 #: ../../changelog.rst:15
 msgid ""
 "https://github.com/bittner/django-organice/blob/v0.2/docs/requirements.txt"
 msgstr ""
 
-# 9731228153984aa4a8f7bfd8f68501ca
+# b1b0c55000d5463f9d125ea5fde65766
 #: ../../changelog.rst:18
 msgid "0.1"
 msgstr ""
 
-# 29feca14a9b2430a9bc5b5b450f31d16
+# a0d745e80f7143049ebcd5bff72fe4f5
 #: ../../changelog.rst:20
 msgid "Initial release"
 msgstr ""
 
-# fb3e7ab1b84e418d9f2858bf5b9f7dae
+# fde661d564b1477aa3eed84d7b3439b2
 #: ../../changelog.rst:21
 msgid ""
 "Based on Django 1.5.5, django CMS 2.4.3, Zinnia blog 0.13, Emencia "
 "newsletter 0.3.dev"
 msgstr ""
 
-# de332584abfd424d9b5df641073fc357
+# 881157e533d042ddba3ddec5907bef40
 #: ../../changelog.rst:22
 msgid ""
 "A more natural i18n mechanism than vanilla Django, no language prefix for "
 "default language"
 msgstr ""
 
-# ab503f4d7dd4468691c8d13dc6c9e77b
+# 038b3e4336834840b5623618f4b26f3d
 #: ../../changelog.rst:23
 msgid ""
 "Setup script with project generation, deployment settings, custom templates,"
 " Bootstrap 3"
 msgstr ""
 
-# 186a73e9c8be4e6ea863b53190fafc58
+# b2e75ec3622c4a279cd927ca79da0cbb
 #: ../../changelog.rst:25
 msgid ""
 "https://github.com/bittner/django-organice/blob/v0.1/docs/requirements.txt"

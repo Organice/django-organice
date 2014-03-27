@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
+# Peter Bittner <django@bittner.it>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-24 20:55+0100\n"
-"PO-Revision-Date: 2014-03-19 12:25+0000\n"
+"POT-Creation-Date: 2014-03-27 21:56+0100\n"
+"PO-Revision-Date: 2014-03-27 20:47+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -17,42 +18,42 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 48b60df192e944b49175c0727fe44bdf
+# 9bb06d187a1f4369bf05549403be7269
 #: ../../configuration.rst:3
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguration"
 
-# 898a101cbb404d4c9c50e8b786e34e72
+# 48a2cbba3e80489aab0928f8189a7433
 #: ../../configuration.rst:5
 msgid ""
 "django Organice comes with sensible defaults for almost anything.  Yet "
 "still, you can customize its behavior with the help of the settings listed "
 "in this section."
-msgstr ""
+msgstr "django Organice kommt mit vernünftigen Vorgabewerten für so gut wie Alles.  Darüber hinaus können Sie sein Verhalten über Django settings anpassen, die hier aufgelistet sind."
 
-# 405cf7a8ef7945e9bdb8eff5cc0a118d
+# 521d193c22294edc98e7af55d2515a47
 #: ../../configuration.rst:11
 msgid "Settings"
-msgstr ""
+msgstr "Settings"
 
-# 73fac23ceb234f0ea176d4800fc4ebec
+# 4224b4d080bd4f578ec3c7c083cda626
 #: ../../configuration.rst:13
 msgid ""
 "You may define any of the following options in your project's ``settings`` "
 "to override the default value."
-msgstr ""
+msgstr "Sie können jede der folgenden Optionen in den ``settings`` Ihres Projekts definieren, um den Vorgabewert zu übersteuern."
 
-# aef267254c034143ad2a8e3e1b2d1034
+# b8fa1449ffd5475fbab50096cd8f03f9
 #: ../../configuration.rst:16
 msgid "ORGANICE_URL_PATH_ADMIN"
-msgstr ""
+msgstr "ORGANICE_URL_PATH_ADMIN"
 
-# 03fb08fe665f47d3b522fcf661d135a7
+# 69f7bd7b948d4bdbb7479ddbb5d59331
 #: ../../configuration.rst:17
 msgid "``admin``"
-msgstr ""
+msgstr "``admin``"
 
-# 0468b4708d804e1987d51318700bd7ac
+# 0b69d82da38c4fffba405475caab4ef8
 #: ../../configuration.rst:19
 msgid ""
 "The URL path for accessing the Django Administration backend (e.g. "
@@ -60,17 +61,17 @@ msgid ""
 "white space, no leading or trailing slash."
 msgstr ""
 
-# 2d4bb6c4ec8d4d4b8566ccc369eca700
+# c4fbc64349234fc08c0a8f784df90a7c
 #: ../../configuration.rst:23
 msgid "ORGANICE_URL_PATH_BLOG"
-msgstr ""
+msgstr "ORGANICE_URL_PATH_BLOG"
 
-# d7b8cc6339694848adaf88c88a641364
+# 0607deb3748a48c59447bc6891e06690
 #: ../../configuration.rst:24
 msgid "``blog``"
-msgstr ""
+msgstr "``blog``"
 
-# 30358dead83c454e87ffd7f3c62eec0f
+# 8c33fa4dbee0480c8a30ca7eb11a25f2
 #: ../../configuration.rst:26
 msgid ""
 "The URL path for the blog's start page (e.g. ``www.example.com/blog``).  "
@@ -78,17 +79,17 @@ msgid ""
 "trailing slash."
 msgstr ""
 
-# e06b30871c294118af0c1814b81bbc93
+# 568007b47b5e4033a9029bb81dd6d722
 #: ../../configuration.rst:30
 msgid "ORGANICE_URL_PATH_NEWSLETTER"
-msgstr ""
+msgstr "ORGANICE_URL_PATH_NEWSLETTER"
 
-# 57dcdd281fdf4c7d95d2b91f98126b08
+# 5b6c7b5465654ad39f0aa97629bbfc4d
 #: ../../configuration.rst:31
 msgid "``newsletter``"
-msgstr ""
+msgstr "``newsletter``"
 
-# 9e472d69d17e49199778394240e2d52a
+# ab4af53930da48deb40089c286440fe5
 #: ../../configuration.rst:33
 msgid ""
 "The URL path for accessing newsletter functionality on the front-end (e.g. "

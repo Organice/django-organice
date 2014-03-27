@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-24 20:55+0100\n"
-"PO-Revision-Date: 2014-03-19 11:30+0000\n"
+"POT-Creation-Date: 2014-03-27 21:56+0100\n"
+"PO-Revision-Date: 2014-03-27 20:16+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# c85e40ca68a0433095b3b2e03eb37c20
+# 98900feac68d44b58098c0452a2f5fca
 #: ../../alternatives.rst:3
 msgid "Alternatives to django Organice"
 msgstr "Alternativen zu django Organice"
 
-# e0fc3e7951a34ea7ab614d7022805eb5
+# e1497225b795405d823f65164b65eb75
 #: ../../alternatives.rst:5
 msgid ""
 "With django Organice we strive to make people happy who are not tech or "
@@ -34,62 +34,62 @@ msgid ""
 "habit expert users."
 msgstr "Mit django Organice versuchen wir Menschen glücklich zu machen, die keine Technik- oder Prozessexperten sind.  Menschen, die einfach und unkompliziert zusammenarbeiten wollen, ohne vorher an umfangreichen Schulungen teilgenommen zu haben, nur um das Arbeitsinstrument zu verstehen.  Einfachheit ist der Schlüssel, alles soll selbsterklärend sein, damit die Arbeit leicht von der Hand geht.  Dabei sollen gelegentliche Nutzer genauso glücklich werden wie Experten, die die Plattform täglich nutzen."
 
-# 015442ffdfad4e258e506c779d07002d
+# 34ae602b42bb4200bdc1d484197b0424
 #: ../../alternatives.rst:10
 msgid ""
 "But of course, django Organice doesn't fit it all.  If you feel it can't "
 "satisfy your specific needs it may be a good idea to look at the following "
 "alternatives.  If you happen to know additional offers `drop us a note`_ so "
 "we can make the list more complete."
-msgstr ""
+msgstr "Natürlich kann django Organice nicht für alles die Lösung sein.  Wenn Sie das Gefühl haben, Ihre speziellen Bedürfnisse kann es nicht befriedigen, könnte es sich auszahlen, einen Blick auf die uns bekannten Alternativen zu werfen.  Falls Sie weitere Angebote kennen, `geben Sie uns Bescheid`_, damit wir diese Liste sinnvoll ergänzen können."
 
-# 96a7b73d740248bb837dceba4fc114f2
+# 287008efc07740678380c6e11a0d172e
 #: ../../alternatives.rst:15
 msgid "Software Alternatives"
 msgstr "Software-Alternativen"
 
-# c541f51a0d634b40a506b946464af7ed
-# 69ea0778072c4c618452459bc0d960f1
+# b3b40410b0e74b339e4466bf0130e013
+# 5b695d9760ba48c1a68e96cb4c3ba697
 #: ../../alternatives.rst:17 ../../alternatives.rst:27
 msgid "In alphabetical order."
 msgstr "In alphabetischer Reihenfolge."
 
-# 2e47c01646404e848a9c85a9c557d5a7
+# 769835d18c284575b3966ca35e3035b8
 #: ../../alternatives.rst:19
 msgid "`Bitrix Intranet`_ (PHP, commercial, ships with source code)"
 msgstr "`Bitrix Intranet`_ (PHP, kommerziell, wird mit Quellcode geliefert)"
 
-# 16d20bbfc87a4ad89c057355255c5251
+# 475a032cb3f94f2b8bc794bc578a5da1
 #: ../../alternatives.rst:20
 msgid "Coyo_ (Java/Play, commercial, ships with source code)"
 msgstr "Coyo_ (Java/Play, kommerziell, wird mit Quellcode geliefert)"
 
-# c139837218124015bc1ee84843441c76
+# 337d30eda9ff4c79a48ea50b875f74ea
 #: ../../alternatives.rst:21
 msgid "Fairgate_ (PHP, commercial, Switzerland only)"
 msgstr "Fairgate_ (PHP, kommerziell, nur Schweiz)"
 
-# a9c220a161274130a0341813594dc25f
+# 9a159dc71c0b4eb8b232b51d0e5272a6
 #: ../../alternatives.rst:22
 msgid "`Microsoft SharePoint + Yammer`_ [1]_ (.NET + Rails, commercial)"
 msgstr "`Microsoft SharePoint + Yammer`_ [1]_ (.NET + Rails, kommerziell)"
 
-# 0ae93e8c52854c268c974d813887f6dd
+# c836328226fb4434bf9154bbb0420a71
 #: ../../alternatives.rst:25
 msgid "Cloud Competitors"
 msgstr "Cloud-Mitbewerber"
 
-# 876642ee3bb44387b121bdf072725940
+# cfd1cd796aeb49aa8baad56f80de6e8f
 #: ../../alternatives.rst:29
 msgid "`Bitrix24.com`_ / `Bitrix24.de`_ [1]_"
 msgstr "`Bitrix24.com`_ / `Bitrix24.de`_ [1]_"
 
-# 2902da5331fa4b1da0d3b2266787f88b
+# ac591b17a7e746dcaa80d17508d6c0ad
 #: ../../alternatives.rst:30
 msgid "Igloo_"
 msgstr "Igloo_"
 
-# 739e4fe48c5e4acdaf7084891df8cd75
+# 4b02eba990f14da7b412d8eb199bd86f
 #: ../../alternatives.rst:42
 msgid ""
 "http://intranetsdoneright.blogspot.com/2013/11/what-is-social-intranet.html"
