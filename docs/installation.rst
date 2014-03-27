@@ -98,7 +98,7 @@ Initial Configuration
   - For adding templates to Emencia Newsletter please consult the related section in the `TinyMCE 3.x documentation`_.
 
 4. For sending newsletters to work you must configure a cronjob polling on ``python manage.py send_newsletter``
-   every half an hour.  If that was just Greek to you go ask your server admin for help. She knows!
+   every half an hour.  If that was just Greek to you go ask your server admin for help.  She knows!
 
 Deployment to Production
 ========================

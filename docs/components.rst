@@ -45,7 +45,7 @@ Sending out news or updates to a circle of friends or customers is managed by th
 available from the Django administration interface when you're logged in to your website.  Simply click on
 "Admin > Site Administration" on the django CMS toolbar, and go to the Newsletter section in Django administration.
 
-This component has a couple of powerful features. It's best explained having you watch the interesting French
+This component has a couple of powerful features.  It's best explained having you watch the interesting French
 `overview video`_ from the Emencia website.
 
 
