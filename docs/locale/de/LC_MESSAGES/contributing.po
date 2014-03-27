@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2014, Peter Bittner <django@bittner.it>
+# This file is distributed under the same license as the django Organice package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: django Organice Docs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-24 20:55+0100\n"
+"PO-Revision-Date: 2014-03-12 16:33+0000\n"
+"Last-Translator: Peter Bittner <django@bittner.it>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# 0b284d627de540c18667dea6fdb0a6b6
+#: ../../contributing.rst:3
+msgid "Contributing to django Organice"
+msgstr ""
+
+# 35200f5c998d470eb85ce14c14435fee
+#: ../../contributing.rst:5
+msgid "Official repositories: (kept in sync)"
+msgstr ""
+
+# a9e18688c32a4edc982ad6899d706778
+#: ../../contributing.rst:7
+msgid "Bitbucket: https://bitbucket.org/bittner/django-organice"
+msgstr ""
+
+# 63e865bea98a4acd8c7b9dfe5e8bf69b
+#: ../../contributing.rst:8
+msgid "GitHub: https://github.com/bittner/django-organice"
+msgstr ""
+
+# 0c5845b3a1d4468f9bcd25842b7fd9c6
+#: ../../contributing.rst:10
+msgid ""
+"Fork any of the repositories, make your code changes or additions, and place"
+" a pull request."
+msgstr ""
+
+# e17f40779c094d509689c5d7d4fa25a2
+#: ../../contributing.rst:13
+msgid "Help Wanted"
+msgstr ""
+
+# 8b26b00075004b35a239292f70f09d3d
+#: ../../contributing.rst:15
+msgid "Writing tests"
+msgstr ""
+
+# 0c2f6ed8e4384137ab895684898bb3f8
+#: ../../contributing.rst:16
+msgid "Translations (blog posts, documentation, user interface)"
+msgstr ""
+
+# 83193d50bb5d4d70abb21aa6e4a94731
+#: ../../contributing.rst:19
+msgid "Translation"
+msgstr ""
+
+# d1f3a2b9ac8b4f83833e0da0a5418be9
+#: ../../contributing.rst:21
+msgid ""
+"Translation is done on Transifex_ for both the project text strings and the "
+"documentation."
+msgstr ""
+
+# 9f6f818db8bb4efdbdcf35964b0a8337
+#: ../../contributing.rst:23
+msgid ""
+"The multilingual documentation is written in reStructuredText_ syntax, and "
+"built using Sphinx_. As a translator you can simply jump on Transifex and "
+"get your hands dirty for your language. Some helpful background reading is "
+"available from `Read the Docs`_ and `Transifex support`_."
+msgstr ""
+
+# 2cde70af53f34511a62c4e8bf1a78147
+#: ../../contributing.rst:28
+msgid "Bumping Versions, Package, Release"
+msgstr ""
+
+# 1bb7ea6144e147c5871797390a8af0dd
+#: ../../contributing.rst:30
+msgid ""
+"As for the version numbers of django Organice we use `Semantic Versioning`_."
+msgstr ""
