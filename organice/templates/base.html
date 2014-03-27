@@ -10,8 +10,8 @@
 </head>
 {% addtoblock "css" strip %}
 	<!--[if lt IE 9]>{# IE8 support of HTML5 elements and media queries #}
-	<script src="{% static 'js/html5shiv.js' %}"></script>
-	<script src="{% static 'js/respond.min.js' %}"></script>
+	<script src="{% static 'js/ie/html5shiv-printshiv.js' %}"></script>
+	<script src="{% static 'js/ie/respond.min.js' %}"></script>
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 {% endaddtoblock %}{% addtoblock "js" strip %}
