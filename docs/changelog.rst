@@ -7,7 +7,7 @@ CHANGELOG
 
 - Project-level Makefile
 - Automation of translation processes with Transifex (for documentation only)
-- New options for settings (see :ref:`config-settings`)
+- New options for settings (see :ref:`settings`)
 - Newsletter editor configuration, newsletter template sample
 - User profiles and social login (django-allauth)
 

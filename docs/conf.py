@@ -38,7 +38,13 @@ import organice
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest', 'sphinx.ext.intersphinx', 'sphinx.ext.todo', 'sphinx.ext.coverage']
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.coverage',
+    'sphinx.ext.doctest',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['templates']
@@ -186,21 +192,26 @@ htmlhelp_basename = 'django-organice-doc'
 # -- Options for LaTeX output --------------------------------------------------
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+    # The paper size ('letterpaper' or 'a4paper').
+    'papersize': 'a4paper',
 
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    'pointsize': '11pt',
 
-# Additional stuff for the LaTeX preamble.
-#'preamble': '',
+    # Additional stuff for the LaTeX preamble.
+    'preamble': '',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'django-organice.tex', 'django Organice Documentation',
-   'Peter Bittner \\textless{}django@bittner.it\\textgreater{}', 'manual'),
+    (
+        'index',
+        'django-organice.tex',
+        'django Organice Documentation',
+        'Peter Bittner \\textless{}django@bittner.it\\textgreater{}',
+        'manual'
+    ),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -229,8 +240,13 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'django-organice', 'django Organice Documentation',
-     ['Peter Bittner <django@bittner.it>'], 1)
+    (
+        'index',
+        'django-organice',
+        'django Organice Documentation',
+        ['Peter Bittner <django@bittner.it>'],
+        1
+    ),
 ]
 
 # If true, show URL addresses after external links.
@@ -243,9 +259,15 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'django-organice', 'django Organice Documentation',
-   'Peter Bittner <django@bittner.it>', 'djangoOrganice', 'All-in-one collaboration solution.',
-   'Miscellaneous'),
+    (
+        'index',
+        'django-organice',
+        'django Organice Documentation',
+        'Peter Bittner <django@bittner.it>',
+        'djangoOrganice',
+        'All-in-one collaboration solution.',
+        'Miscellaneous'
+    ),
 ]
 
 # Documents to append as an appendix to all manuals.
@@ -260,7 +282,7 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
-    'python': ('http://docs.python.org/2.7', None),
-    'sphinx': ('http://sphinx.pocoo.org/', None),
-    'django': ('http://docs.djangoproject.com/en/dev/', 'http://docs.djangoproject.com/en/dev/_objects/'),
+    'django': ('http://django.readthedocs.org/en/latest/', None),
+    'python': ('http://python.readthedocs.org/en/latest/', None),
+    'sphinx': ('http://sphinx.readthedocs.org/en/latest/', None),
 }

@@ -5,7 +5,7 @@ Configuration
 django Organice comes with sensible defaults for almost anything.  Yet still, you can customize its behavior with the
 help of the settings listed in this section.
 
-.. _config-settings:
+.. _settings:
 
 Settings
 ========
