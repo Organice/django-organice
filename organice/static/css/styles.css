@@ -3231,14 +3231,12 @@ body {
 #footer {
   margin-top: 0.5em;
 }
-
 #footer p {
   text-align: center;
   font-size: 0.8em;
   margin: 0.5em 0;
   padding: 0;
 }
-
 #footer a {
   color: #008195;
 }
@@ -3249,7 +3247,6 @@ body {
   margin-left: 2.3em;
   z-index: 2;
 }
-
 #aktionsbutton .button {
   position: relative;
   display: block;
@@ -3290,24 +3287,20 @@ body {
   text-indent: 1.25em;
   border-top: 1px solid #fff;
 }
-
 #nav li ul li {
   background-color: #eef6f7;
   text-indent: 2.1em;
 }
-
 #nav li ul li ul li {
   background-color: #f4edd4;
   text-indent: 2.9em;
 }
-
 #nav li a {
   color: #008195;
   width: 100%;
   display: block;
   padding: 0.25em 0;
 }
-
 #nav li a:hover {
   text-decoration: none;
 }
@@ -3328,33 +3321,27 @@ body {
 #content ol {
   padding-left: 2.5em;
 }
-
 #content ol.nobullets,
 #content ul.nobullets {
   list-style: none;
   padding-left: 0.8em;
 }
-
-#content dl.table,
-#content dl.list {
+#content dl.table, #content dl.list {
   /* list-like layout for e.g. Adventsbasar */
   width: 100%;
   overflow: hidden;
 }
-
 #content dl.table dt {
   font-weight: normal;
   float: left;
   width: 35%;
   /* adjust the width; make sure the total of both is 100% */
 }
-
 #content dl.table dd {
   float: left;
   width: 65%;
   /* adjust the width; make sure the total of both is 100% */
 }
-
 #content .side-by-side {
   width: 50% !important;
   float: left;
@@ -3363,60 +3350,45 @@ body {
 #calendar {
   font-size: 0.9em;
   text-align: center;
+  padding: 10px 0px;
 }
-
 #calendar thead {
   display: none;
 }
-
-#calendar {
-  padding: 10px 0px;
-  font-size: 11px;
-}
-
 #calendar caption {
   padding: 4px;
   background-color: #daedf0;
   color: #008195;
 }
-
 #calendar .prev,
 #calendar .next {
   color: #008195;
   font-weight: bold;
 }
-
 #calendar table {
   width: 100%;
   border-spacing: 1px;
   background-color: #daedf0;
 }
-
 #calendar table td {
   text-align: center;
   vertical-align: middle;
   background-color: #bde1e5;
-  color: #FFF;
+  color: #fff;
 }
-
 #calendar table td a,
 #calendar table td a:visited {
   font-weight: bold;
   display: block;
   color: #008195;
 }
-
-#calendar table td.today,
-#calendar table td.today a {
+#calendar table td.today, #calendar table td.today a {
   color: #fff;
   background-color: #008195;
 }
-
-#calendar table td.future,
-#calendar table td.future a {
+#calendar table td.future, #calendar table td.future a {
   color: #008195;
 }
-
 #calendar table td.event {
   border: 1px solid #008195;
 }
@@ -3467,7 +3439,6 @@ q:before,
 blockquote:before {
   content: '\201C';
 }
-
 q:after,
 blockquote:after {
   content: '\201D';
@@ -3481,7 +3452,6 @@ blockquote:after {
   padding-bottom: 62.25%;
   overflow: hidden;
 }
-
 .issuuembed object {
   position: absolute;
   top: 0;
@@ -3526,35 +3496,28 @@ ul.paginator {
   list-style: none;
   padding-left: 1em;
 }
-
 ul.paginator .index {
   padding-right: 0.7em;
 }
-
 ul.paginator li {
   display: inline;
   margin: 0 1em;
 }
-
 ul.paginator li a {
   border: 1px solid;
   padding: 0 0.5em;
 }
 
 /* -- django CMS output -- */
-.plugin_picture.align-left img,
-.plugin_picture.align-right img,
-.plugin_picture.align-center img {
+.plugin_picture.align-left img, .plugin_picture.align-right img, .plugin_picture.align-center img {
   display: block;
   margin-left: auto !important;
   margin-right: auto !important;
 }
-
 .plugin_picture.align-left img {
   float: left;
   margin-left: 0 !important;
 }
-
 .plugin_picture.align-right img {
   float: right;
   margin-right: 0 !important;
@@ -3572,12 +3535,10 @@ ul.paginator li a {
 form label.contact_field {
   display: block;
 }
-
 form label.contact_field + input,
 form label.contact_field + textarea {
   width: 100%;
 }
-
 form .error_msg {
   color: red;
 }

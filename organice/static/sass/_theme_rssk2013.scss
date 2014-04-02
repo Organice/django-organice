@@ -52,15 +52,17 @@ body {
 
 #footer {
 	margin-top: 0.5em;
-}
-#footer p {
-	text-align: center;
-	font-size: 0.8em;
-	margin: 0.5em 0;
-	padding: 0;
-}
-#footer a {
-	color: $brand-primary;
+
+	p {
+		text-align: center;
+		font-size: 0.8em;
+		margin: 0.5em 0;
+		padding: 0;
+	}
+
+	a {
+		color: $brand-primary;
+	}
 }
 
 #aktionsbutton {
@@ -68,18 +70,23 @@ body {
 	margin-top: 0.95em;
 	margin-left: 2.3em;
 	z-index: 2;
-}
-#aktionsbutton .button {
-	position: relative;
-	display: block;
-	behavior: url("js/pngbehavior.htc");
+
+	.button {
+		position: relative;
+		display: block;
+		behavior: url("js/pngbehavior.htc");
+	}
 }
 
-#header img.signet {
-	position: absolute;
-	left: 43%;
-	top: -3px;
-	z-index: 2;
+#header {
+	img {
+		&.signet {
+			position: absolute;
+			left: 43%;
+			top: -3px;
+			z-index: 2;
+		}
+	}
 }
 
 #menu {
@@ -106,23 +113,27 @@ body {
 	background-color: $nav-bg-level-1;
 	text-indent: 1.25em;
 	border-top: 1px solid #fff;
-}
-#nav li ul li {
-	background-color: $nav-bg-level-2;
-	text-indent: 2.1em;
-}
-#nav li ul li ul li {
-	background-color: $nav-bg-level-3;
-	text-indent: 2.9em;
-}
-#nav li a {
-	color: $brand-primary;
-	width: 100%;
-	display: block;
-	padding: 0.25em 0;
-}
-#nav li a:hover {
-	text-decoration: none;
+
+	ul li {
+		background-color: $nav-bg-level-2;
+		text-indent: 2.1em;
+
+		ul li {
+			background-color: $nav-bg-level-3;
+			text-indent: 2.9em;
+		}
+	}
+
+	a {
+		color: $brand-primary;
+		width: 100%;
+		display: block;
+		padding: 0.25em 0;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 .breadcrumb {
@@ -138,86 +149,100 @@ body {
 	color: $breadcrumb-color;
 }
 
-#content ul,
-#content ol {
-	padding-left: 2.5em;
-}
+#content {
+	ul,
+	ol {
+		padding-left: 2.5em;
+	}
 
-#content ol.nobullets,
-#content ul.nobullets {
-	list-style: none;
-	padding-left: 0.8em;
-}
+	ol.nobullets,
+	ul.nobullets {
+		list-style: none;
+		padding-left: 0.8em;
+	}
 
-#content dl.table, /* table-like layout for e.g. Ferientermine */
-#content dl.list { /* list-like layout for e.g. Adventsbasar */
-	width: 100%;
-	overflow: hidden;
-}
-#content dl.table dt {
-	font-weight: normal;
-	float: left;
-	width: 35%; /* adjust the width; make sure the total of both is 100% */
-}
-#content dl.table dd {
-	float: left;
-	width: 65%; /* adjust the width; make sure the total of both is 100% */
-}
+	dl {
+		&.table, /* table-like layout for e.g. Ferientermine */
+		&.list { /* list-like layout for e.g. Adventsbasar */
+			width: 100%;
+			overflow: hidden;
+		}
 
-#content .side-by-side {
-	width: 50% !important;
-	float: left;
+		&.table {
+			dt {
+				font-weight: normal;
+				float: left;
+				width: 35%; /* adjust the width; make sure the total of both is 100% */
+			}
+
+			dd {
+				float: left;
+				width: 65%; /* adjust the width; make sure the total of both is 100% */
+			}
+		}
+	}
+
+	.side-by-side {
+		width: 50% !important;
+		float: left;
+	}
 }
 
 #calendar {
 	font-size: 0.9em;
 	text-align: center;
-}
-#calendar thead {
-	display: none;
-}
-#calendar {
 	padding: 10px 0px;
-	font-size: 11px;
-}
-#calendar caption {
-	padding: 4px;
-	background-color: #daedf0;
-	color: $brand-primary;
-}
-#calendar .prev,
-#calendar .next {
-	color: $brand-primary;
-	font-weight: bold;
-}
-#calendar table {
-	width: 100%;
-	border-spacing: 1px;
-	background-color: #daedf0;
-}
-#calendar table td {
-	text-align: center;
-	vertical-align: middle;
-	background-color: #bde1e5;
-	color: #FFF;
-}
-#calendar table td a,
-#calendar table td a:visited {
-	font-weight: bold;
-	display: block;
-	color: $brand-primary;
-}
-#calendar table td.today,
-#calendar table td.today a {
-	color: #fff;
-	background-color: $brand-primary;
-}
-#calendar table td.future,
-#calendar table td.future a {
-	color: $brand-primary;
-}
-#calendar table td.event {
-	border: 1px solid $brand-primary;
+
+	thead {
+		display: none;
+	}
+
+	caption {
+		padding: 4px;
+		background-color: #daedf0;
+		color: $brand-primary;
+	}
+
+	.prev,
+	.next {
+		color: $brand-primary;
+		font-weight: bold;
+	}
+
+	table {
+		width: 100%;
+		border-spacing: 1px;
+		background-color: #daedf0;
+
+		td {
+			text-align: center;
+			vertical-align: middle;
+			background-color: #bde1e5;
+			color: #fff;
+
+			a,
+			a:visited {
+				font-weight: bold;
+				display: block;
+				color: $brand-primary;
+			}
+
+			&.today,
+			&.today a {
+				color: #fff;
+				background-color: $brand-primary;
+			}
+
+			&.future,
+			&.future a {
+				color: $brand-primary;
+			}
+
+			&.event {
+				border: 1px solid $brand-primary;
+			}
+		}
+	}
 }
 
 h1,
@@ -241,32 +266,40 @@ h5 {
 	margin-top: 1.2em;
 }
 
-h1 > em,
-h2 > em,
-h3 > em,
-h4 > em,
-h5 > em {
-	font-style: normal;
+h1,
+h2,
+h3,
+h4,
+h5 {
+	> em {
+		font-style: normal;
+	}
 }
 
-h1 > em,
-h2 > em {
-	font-weight: bold;
+h1,
+h2 {
+	> em {
+		font-weight: bold;
+	}
 }
 
-h3 > em,
-h4 > em,
-h5 > em {
-	font-weight: normal;
+h3,
+h4,
+h5 {
+	> em {
+		font-weight: normal;
+	}
 }
 
-q:before,
-blockquote:before {
-	content: '\201C';
-}
-q:after,
-blockquote:after {
-	content: '\201D';
+q,
+blockquote {
+	&:before {
+		content: '\201C';
+	}
+
+	&:after {
+		content: '\201D';
+	}
 }
 
 /* Schulnotizen: Issuu Integration (unnoetigen Text ausblenden) */
@@ -276,13 +309,14 @@ blockquote:after {
 	position: relative;
 	padding-bottom: 62.25%;
 	overflow: hidden;
-}
-.issuuembed object {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+
+	object {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 }
 .issuuembed.issuu-isrendered span {
 	display: none;
@@ -314,38 +348,53 @@ blockquote:after {
 	margin: 1em 0 -0.8em 0;
 }
 
-ul.paginator {
-	list-style: none;
-	padding-left: 1em;
-}
-ul.paginator .index {
-	padding-right: 0.7em;
-}
-ul.paginator li {
-	display: inline;
-	margin: 0 1em;
-}
-ul.paginator li a {
-	border: 1px solid;
-	padding: 0 0.5em;
+ul {
+	&.paginator {
+		list-style: none;
+		padding-left: 1em;
+
+		.index {
+			padding-right: 0.7em;
+		}
+
+		li {
+			display: inline;
+			margin: 0 1em;
+
+			a {
+				border: 1px solid;
+				padding: 0 0.5em;
+			}
+		}
+	}
 }
 
 /* -- django CMS output -- */
 
-.plugin_picture.align-left img,
-.plugin_picture.align-right img,
-.plugin_picture.align-center img {
-	display: block;
-	margin-left: auto !important;
-	margin-right: auto !important;
-}
-.plugin_picture.align-left img {
-	float: left;
-	margin-left: 0 !important;
-}
-.plugin_picture.align-right img {
-	float: right;
-	margin-right: 0 !important;
+.plugin_picture {
+	&.align-left,
+	&.align-right,
+	&.align-center {
+		img {
+			display: block;
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+	}
+
+	&.align-left {
+		img {
+			float: left;
+			margin-left: 0 !important;
+		}
+	}
+
+	&.align-right {
+		img {
+			float: right;
+			margin-right: 0 !important;
+		}
+	}
 }
 
 .plugin_file {
@@ -357,15 +406,21 @@ ul.paginator li a {
 }
 
 /* cmsplugin-contact */
-form label.contact_field {
-	display: block;
-}
-form label.contact_field + input,
-form label.contact_field + textarea {
-	width: 100%;
-}
-form .error_msg {
-	color: red;
+form {
+	label {
+		&.contact_field {
+			display: block;
+
+			+ input,
+			+ textarea {
+				width: 100%;
+			}
+		}
+	}
+
+	.error_msg {
+		color: red;
+	}
 }
 
 /* -- customized responsive behavior -- */
