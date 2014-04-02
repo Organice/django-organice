@@ -28,8 +28,8 @@
 				{% block nav %}{% show_menu 0 100 100 100 %}{% endblock nav %}
 			{% endspaceless %}</ul>
 			<div id="content" class="col-xs-12 col-sm-8 col-md-6 col-lg-8">{% block content %}
-				{% block breadcrumbs %}<ul class="breadcrumbs">{% spaceless %}
-					{% show_breadcrumb %}{% endspaceless %}</ul>{% endblock breadcrumbs %}
+				{% block breadcrumb %}<ul class="breadcrumb">{% spaceless %}
+					{% show_breadcrumb %}{% endspaceless %}</ul>{% endblock breadcrumb %}
 			{% endblock content %}</div>
 			<div id="highlights" class="col-xs-12 col-sm-8 col-md-3 col-lg-2 col-sm-push-4 col-md-push-0">{% block highlights %}
 				<div id="calendar" class="hidden-print">{% block calendar %}

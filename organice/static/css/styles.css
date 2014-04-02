@@ -2679,6 +2679,25 @@ pre code {
     right: auto;
   }
 }
+.breadcrumb {
+  padding: 0.5em 1.2em;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: inherit;
+  border-radius: 4px;
+}
+.breadcrumb > li {
+  display: inline-block;
+}
+.breadcrumb > li + li:before {
+  content: "\00BB\00a0";
+  padding: 0 5px;
+  color: #cccccc;
+}
+.breadcrumb > .active {
+  color: #999999;
+}
+
 .jumbotron {
   padding: 30px;
   margin-bottom: 30px;
@@ -3162,7 +3181,7 @@ pre code {
 /*
  * Graceful degredation responsive web design stylesheet
  *
- * @author Peter Bittner <peter.bittner@gmx.net>
+ * @author Peter Bittner <django@bittner.it>
  * @copyright 2013 Rudolf Steiner Schule Kreuzlingen Konstanz
  * @license CC BY-SA 3.0, http://creativecommons.org/licenses/by-sa/3.0/deed.de
  * @url http://www.rssk.ch
@@ -3193,15 +3212,15 @@ body {
   /* IE10+ */
   background: linear-gradient(to bottom, #c7b98e 0%, #efddac 52%, #fff5d8 95%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7b98e', endColorstr='#fff5d8',GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7b98e', endColorstr='#fff5d8', GradientType=0);
   /* IE6-9 */
 }
 
 #container {
-  background-color: #fff;
-  -moz-box-shadow: 0px 3px 18px #333;
-  -webkit-box-shadow: 0px 3px 18px #333;
-  box-shadow: 0px 3px 18px #333;
+  background-color: white;
+  -moz-box-shadow: 0px 3px 18px #333333;
+  -webkit-box-shadow: 0px 3px 18px #333333;
+  box-shadow: 0px 3px 18px #333333;
   -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333');
   /* IE 8 */
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333');
@@ -3293,20 +3312,16 @@ body {
   text-decoration: none;
 }
 
-.breadcrumbs {
-  list-style-type: none;
-  margin: 1.3em 0 0 -2.4em;
+.breadcrumb {
+  margin: -0.2em 0 0 -2.4em;
+}
+.breadcrumb > li + li:before {
+  content: "\00BB";
 }
 
-.breadcrumbs,
-.breadcrumbs a {
+.breadcrumb,
+.breadcrumb a {
   color: #5e5e5e;
-}
-
-.breadcrumbs li {
-  display: inline;
-  margin: 0;
-  padding: 0;
 }
 
 #content ul,

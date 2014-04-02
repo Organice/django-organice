@@ -1,7 +1,7 @@
 /*
  * Graceful degredation responsive web design stylesheet
  *
- * @author Peter Bittner <peter.bittner@gmx.net>
+ * @author Peter Bittner <django@bittner.it>
  * @copyright 2013 Rudolf Steiner Schule Kreuzlingen Konstanz
  * @license CC BY-SA 3.0, http://creativecommons.org/licenses/by-sa/3.0/deed.de
  * @url http://www.rssk.ch
@@ -9,34 +9,44 @@
  * @url http://www.steinerschulekreuzlingen.com
  */
 
+$brand-primary: #008195;
+$breadcrumb-color: #5e5e5e;
+$wallpaper-light: #fff5d8;
+$wallpaper-middle: #efddac;
+$wallpaper-dark: #c7b98e;
+$body-shadow: #333333;
+$nav-bg-level-1: #cee4e7;
+$nav-bg-level-2: #eef6f7;
+$nav-bg-level-3: #f4edd4;
+
 html,
 body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	background: #fff5d8;
-	color: #008195;
+	background: $wallpaper-light;
+	color: $brand-primary;
 }
 
 #gradient {
 	height: 58em;
 	margin: 0 0 2em;
 	/* CSS gradient generated using http://www.colorzilla.com/gradient-editor */
-	background: -moz-linear-gradient(top, #c7b98e 0%, #efddac 52%, #fff5d8 95%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c7b98e), color-stop(52%, #efddac), color-stop(95%, #fff5d8)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #c7b98e 0%, #efddac 52%, #fff5d8 95%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #c7b98e 0%, #efddac 52%, #fff5d8 95%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #c7b98e 0%, #efddac 52%, #fff5d8 95%); /* IE10+ */
-	background: linear-gradient(to bottom, #c7b98e 0%, #efddac 52%, #fff5d8 95%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7b98e', endColorstr='#fff5d8',GradientType=0); /* IE6-9 */
+	background: -moz-linear-gradient(top, $wallpaper-dark 0%, $wallpaper-middle 52%, $wallpaper-light 95%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $wallpaper-dark), color-stop(52%, $wallpaper-middle), color-stop(95%, $wallpaper-light)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, $wallpaper-dark 0%, $wallpaper-middle 52%, $wallpaper-light 95%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, $wallpaper-dark 0%, $wallpaper-middle 52%, $wallpaper-light 95%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, $wallpaper-dark 0%, $wallpaper-middle 52%, $wallpaper-light 95%); /* IE10+ */
+	background: linear-gradient(to bottom, $wallpaper-dark 0%, $wallpaper-middle 52%, $wallpaper-light 95%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$wallpaper-dark}', endColorstr='#{$wallpaper-light}', GradientType=0); /* IE6-9 */
 }
 
 #container {
-	background-color: #fff;
-	-moz-box-shadow: 0px 3px 18px #333;
-	-webkit-box-shadow: 0px 3px 18px #333;
-	box-shadow: 0px 3px 18px #333;
-	-ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333'); /* IE 8 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333'); /* IE 5.5 - 7 */
+	background-color: $body-bg;
+	-moz-box-shadow: 0px 3px 18px $body-shadow;
+	-webkit-box-shadow: 0px 3px 18px $body-shadow;
+	box-shadow: 0px 3px 18px $body-shadow;
+	-ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#{$body-shadow}'); /* IE 8 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#{$body-shadow}'); /* IE 5.5 - 7 */
 	padding-bottom: 1em;
 }
 
@@ -50,7 +60,7 @@ body {
 	padding: 0;
 }
 #footer a {
-	color: #008195;
+	color: $brand-primary;
 }
 
 #aktionsbutton {
@@ -75,7 +85,7 @@ body {
 #menu {
 	border-left: 1px solid #fff;
 	border-right: 1px solid #fff;
-	background-color: #008195;
+	background-color: $brand-primary;
 	height: 1.75em;
 	margin-bottom: 1.8em;
 }
@@ -93,20 +103,20 @@ body {
 	padding: 0;
 }
 #nav li {
-	background-color: #cee4e7;
+	background-color: $nav-bg-level-1;
 	text-indent: 1.25em;
 	border-top: 1px solid #fff;
 }
 #nav li ul li {
-	background-color: #eef6f7;
+	background-color: $nav-bg-level-2;
 	text-indent: 2.1em;
 }
 #nav li ul li ul li {
-	background-color: #f4edd4;
+	background-color: $nav-bg-level-3;
 	text-indent: 2.9em;
 }
 #nav li a {
-	color: #008195;
+	color: $brand-primary;
 	width: 100%;
 	display: block;
 	padding: 0.25em 0;
@@ -115,18 +125,17 @@ body {
 	text-decoration: none;
 }
 
-.breadcrumbs {
-	list-style-type: none;
-	margin: 1.3em 0 0 -2.4em;
+.breadcrumb {
+	margin: -0.2em 0 0 -2.4em;
+	> li {
+		+ li:before {
+			content: "#{$breadcrumb-separator}"; // remove Bootstrap's trailing Unicode space
+		}
+	}
 }
-.breadcrumbs,
-.breadcrumbs a {
-	color: #5e5e5e;
-}
-.breadcrumbs li {
-	display: inline;
-	margin: 0;
-	padding: 0;
+.breadcrumb,
+.breadcrumb a {
+	color: $breadcrumb-color;
 }
 
 #content ul,
@@ -174,11 +183,11 @@ body {
 #calendar caption {
 	padding: 4px;
 	background-color: #daedf0;
-	color: #008195;
+	color: $brand-primary;
 }
 #calendar .prev,
 #calendar .next {
-	color: #008195;
+	color: $brand-primary;
 	font-weight: bold;
 }
 #calendar table {
@@ -196,19 +205,19 @@ body {
 #calendar table td a:visited {
 	font-weight: bold;
 	display: block;
-	color: #008195;
+	color: $brand-primary;
 }
 #calendar table td.today,
 #calendar table td.today a {
 	color: #fff;
-	background-color: #008195;
+	background-color: $brand-primary;
 }
 #calendar table td.future,
 #calendar table td.future a {
-	color: #008195;
+	color: $brand-primary;
 }
 #calendar table td.event {
-	border: 1px solid #008195;
+	border: 1px solid $brand-primary;
 }
 
 h1,
@@ -220,7 +229,7 @@ h2 {
 h3,
 h4,
 h5 {
-	color: #008195;
+	color: $brand-primary;
 	font-weight: bold;
 }
 h4,
@@ -289,7 +298,7 @@ blockquote:after {
 }
 #bookmarks h2,
 .slider .entry.date {
-	border-top: 1px solid #008195;
+	border-top: 1px solid $brand-primary;
 	padding-top: 0.5em;
 }
 #bookmarks p.link {
