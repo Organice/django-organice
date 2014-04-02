@@ -88,9 +88,12 @@ def startproject():
     settings.move_var('common', profiles, 'DATABASES')
     settings.move_var('common', profiles, 'SECRET_KEY')
     settings.move_var('common', profiles, 'WSGI_APPLICATION')
+    settings.delete_var('common', 'SITE_ID')
     settings.insert_lines('common',
                           'import os',
-                          'PROJECT_PATH = os.sep.join(__file__.split(os.sep)[:-3])')
+                          'PROJECT_PATH = os.sep.join(__file__.split(os.sep)[:-3])',
+                          '',
+                          'SITE_ID = 1')
     settings.set_value('common', 'MEDIA_URL', "'/media/'")
     settings.set_value('common', 'MEDIA_ROOT', "os.path.join(PROJECT_PATH, 'media')")
     settings.set_value('common', 'STATIC_ROOT', "os.path.join(PROJECT_PATH, 'static')")
@@ -184,9 +187,9 @@ def startproject():
                           "    'django.contrib.auth.backends.ModelBackend',",
                           "    'allauth.account.auth_backends.AuthenticationBackend',",
                           ')')
-    settings.set_value('common', 'LOGIN_REDIRECT_URL', '/')
-    settings.set_value('common', 'EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
-    settings.set_value('common', 'SERVER_EMAIL', 'noreply@example.com')
+    settings.set_value('common', 'LOGIN_REDIRECT_URL', "'/'")
+    settings.set_value('common', 'EMAIL_BACKEND', "'django.core.mail.backends.console.EmailBackend'")
+    settings.set_value('common', 'SERVER_EMAIL', "'noreply@example.com'")
 
     print(adding_settings_for % 'django CMS')
     settings.delete_var('common', 'MIDDLEWARE_CLASSES')

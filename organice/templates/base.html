@@ -15,16 +15,14 @@
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 {% endaddtoblock %}{% addtoblock "js" strip %}
-	<script type="text/javascript" src="{% static 'js/jquery.pack.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/navigation.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/analytics.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
 {% endaddtoblock %}
 <body>
 <div id="gradient">
 	{% cms_toolbar %}
 	<div id="container" class="container">{% block container %}
 		<div id="header" class="row">{% block header %}{% endblock %}</div>
-		<div id="menu" class="row">{% block menu %}{% endblock %}</div>
+		<div id="menu" class="row">{% block menu %}{% include "profile_dropdown.html" %}{% endblock %}</div>
 		<div id="main" class="row">{% block main %}
 			<ul id="nav" class="col-xs-12 col-sm-4 col-md-3 col-lg-2 hidden-print">{% spaceless %}
 				{% block nav %}{% show_menu 0 100 100 100 %}{% endblock nav %}
