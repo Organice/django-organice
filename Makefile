@@ -28,10 +28,12 @@ help:
 assets: #bootstrap
 	@echo "Building assets..."
 	cd organice/static && compass clean && compass compile
-	cd organice/static/js && uglifyjs -o scripts.js \
-		jquery.js navigation.js \
-		$(shell find $(shell find $(shell gem environment gemdir)/gems/ \
-			-name bootstrap-sass-*)/vendor/assets/javascripts/bootstrap/ -type f | xargs)
+	cd organice/static/js && \
+	BOOTSTRAP_JS_DIR=$(shell find $(shell gem environment gemdir)/gems/ \
+		-name bootstrap-sass-*)/vendor/assets/javascripts/bootstrap/ && \
+	uglifyjs -o scripts.js \
+		{jquery,navigation}.js \
+		$$BOOTSTRAP_JS_DIR/{affix,alert,carousel,dropdown,scrollspy}.js
 
 bootstrap:
 	@echo "Updating your system-wide bootstrap-sass installation... (may require your password)"
