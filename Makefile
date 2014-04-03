@@ -52,7 +52,7 @@ bumpver:
 
 clean:
 	$(MAKE) -C docs clean
-	rm -rf build/ dist/ django_organice.egg-info/ docs/build/ docs/locale/ organice/static/.sass-cache
+	rm -rf build/ dist/ django_organice.egg-info/ docs/build/ organice/static/.sass-cache
 	for DIR in media/ static/ templates/ ; do \
 		[ -d $$DIR ] && rmdir $$DIR || true ; \
 	done
