@@ -58,8 +58,8 @@ def startproject():
     os.chmod('manage.py', mode0755)
 
     print('Creating directories ...')
-    os.mkdir('media')
-    os.mkdir('static')
+    os.mkdir('%s.media' % projectname)
+    os.mkdir('%s.static' % projectname)
     os.mkdir('templates')
     os.mkdir(os.path.join(projectname, 'settings'))
 
@@ -82,22 +82,24 @@ def startproject():
                               'from .common import *')
 
     # out-of-the-box Django values relevant for deployment
-    settings.move_var('common', profiles, 'DEBUG')
-    settings.move_var('common', profiles, 'TEMPLATE_DEBUG')
-    settings.move_var('common', profiles, 'ALLOWED_HOSTS')
-    settings.move_var('common', profiles, 'DATABASES')
-    settings.move_var('common', profiles, 'SECRET_KEY')
-    settings.move_var('common', profiles, 'WSGI_APPLICATION')
     settings.delete_var('common', 'SITE_ID')
     settings.insert_lines('common',
                           'import os',
                           'PROJECT_PATH = os.sep.join(__file__.split(os.sep)[:-3])',
                           '',
                           'SITE_ID = 1')
+    settings.set_value('common', 'MEDIA_ROOT', "os.path.join(PROJECT_PATH, '%s.media')" % projectname)
+    settings.set_value('common', 'STATIC_ROOT', "os.path.join(PROJECT_PATH, '%s.static')" % projectname)
     settings.set_value('common', 'MEDIA_URL', "'/media/'")
-    settings.set_value('common', 'MEDIA_ROOT', "os.path.join(PROJECT_PATH, 'media')")
-    settings.set_value('common', 'STATIC_ROOT', "os.path.join(PROJECT_PATH, 'static')")
     settings.set_value('common', 'USE_I18N', False)
+    settings.move_var('common', profiles, 'DEBUG')
+    settings.move_var('common', profiles, 'TEMPLATE_DEBUG')
+    settings.move_var('common', profiles, 'ALLOWED_HOSTS')
+    settings.move_var('common', profiles, 'DATABASES')
+    settings.move_var('common', profiles, 'MEDIA_ROOT')
+    settings.move_var('common', profiles, 'STATIC_ROOT')
+    settings.move_var('common', profiles, 'SECRET_KEY')
+    settings.move_var('common', profiles, 'WSGI_APPLICATION')
     settings.set_value('staging', 'DEBUG', False)
     settings.set_value('production', 'DEBUG', False)
 
