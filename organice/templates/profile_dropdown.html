@@ -1,22 +1,21 @@
 <div id="profile" class="dropdown pull-right">{% load i18n %}
+{% if user.is_authenticated %}
 	<form method="post" action="{% url 'account_logout' %}" class="logout">
 		{% csrf_token %}
-{# TODO: redirect to current page, or / if restricted #}
-		<input type="hidden" name="{{ redirect_field_name }}" value="{{redirect_field_value}}">
+		<input type="hidden" name="next" value="{{ request.path }}">
 	</form>
 	<a id="profile-label" role="button" data-toggle="dropdown" data-target="#" href="/profile">
 		{% if user.get_avatar_url %}<img src="{{ user.get_avatar_url }}" class="gravatar">{% else %}<span class="glyphicon glyphicon-user gravatar"></span>{% endif %}
-		{% trans "Profile" %}
-		<span class="caret"></span></a>
+		{{ user }} <span class="caret"></span></a>
 	<ul class="dropdown-menu" role="menu" aria-labelledby="profile-label">
-		{% if user.is_authenticated %}
 		<li><a href="{% if user.get_profile_url %}{{ user.get_profile_url }}{% else %}{% url 'admin:index' %}auth/user/{{ user.id }}{% endif %}"
-			   title="{{ user }} ({% firstof user.get_provider 'system' %})">{{ user }}</a></li>
-{# TODO: redirect to current page, or / if restricted #}
-		<li><a href="{% url 'account_logout' %}" class="logout">{% trans "Log out" %}</a></li>
-		{% else %}
-{# TODO: redirect to current page #}
-		<li><a href="{% url 'account_login' %}">{% trans "Login" %}</a></li>
-		{% endif %}
+			   title="{{ user }} ({% firstof user.get_provider 'system' %})"
+				><span class="glyphicon glyphicon-user"></span>  {% trans "User Profile" %}</a></li>
+		<li><a href="{% url 'account_logout' %}?next={{ request.path }}" class="logout"
+				><span class="glyphicon glyphicon-log-out"></span> {% trans "Log out" %}</a></li>
 	</ul>
+{% else %}
+	<a id="profile-label" href="{% url 'account_login' %}?next={{ request.path }}"
+			><span class="glyphicon glyphicon-log-in"></span> {% trans "Login" %}</a>
+{% endif %}
 </div>
