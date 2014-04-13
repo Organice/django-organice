@@ -32,7 +32,7 @@ assets: #bootstrap
 	BOOTSTRAP_JS_DIR=$(shell find $(shell gem environment gemdir)/gems/ \
 		-name bootstrap-sass-*)/vendor/assets/javascripts/bootstrap/ && \
 	uglifyjs -o scripts.js \
-		{jquery,navigation}.js \
+		{jquery,navigation,profile}.js \
 		$$BOOTSTRAP_JS_DIR/{affix,alert,carousel,dropdown,scrollspy}.js
 
 bootstrap:

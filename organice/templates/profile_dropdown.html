@@ -1,7 +1,20 @@
 <div id="profile" class="dropdown pull-right">{% load i18n %}
+	<form method="post" action="{% url 'account_logout' %}" class="logout">
+		{% csrf_token %}
+{# TODO: redirect to current page, or / if restricted #}
+		<input type="hidden" name="{{ redirect_field_name }}" value="{{redirect_field_value}}"/>
+	</form>
+	<img src="{{ user.get_avatar_url }}" class="gravatar">
 	<a id="profile-label" role="button" data-toggle="dropdown" data-target="#" href="/profile">{% trans "Profile" %}
 		<span class="caret"></span></a>
 	<ul class="dropdown-menu" role="menu" aria-labelledby="profile-label">
-		<li>...</li>
+		{% if user.is_authenticated %}
+		<li><a href="{{ user.get_profile_url }}" title="{{ user }} ({{ user.get_provider }})">{{ user }}</a></li>
+{# TODO: redirect to current page, or / if restricted #}
+		<li><a href="{% url 'account_logout' %}" class="logout">{% trans "Logout" %}</a></li>
+		{% else %}
+{# TODO: redirect to current page #}
+		<li><a href="{% url 'account_login' %}">{% trans "Login" %}</a></li>
+		{% endif %}
 	</ul>
 </div>
