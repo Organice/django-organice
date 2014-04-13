@@ -12,10 +12,10 @@
 			   title="{{ user }} ({% firstof user.get_provider 'system' %})"
 				><span class="glyphicon glyphicon-user"></span>  {% trans "User Profile" %}</a></li>
 		<li><a href="{% url 'account_logout' %}?next={{ request.path }}" class="logout"
-				><span class="glyphicon glyphicon-log-out"></span> {% trans "Log out" %}</a></li>
+				><span class="glyphicon glyphicon-off"></span> {% trans "Log out" %}</a></li>
 	</ul>
 {% else %}
 	<a id="profile-label" href="{% url 'account_login' %}?next={{ request.path }}"
-			><span class="glyphicon glyphicon-log-in"></span> {% trans "Login" %}</a>
+			><span class="glyphicon glyphicon-off"></span> {% trans "Login" %}</a>
 {% endif %}
 </div>
