@@ -60,7 +60,7 @@ def startproject():
     print('Creating directories ...')
     os.mkdir('%s.media' % projectname)
     os.mkdir('%s.static' % projectname)
-    os.mkdir('templates')
+    os.mkdir('%s.templates' % projectname)
     os.mkdir(os.path.join(projectname, 'settings'))
 
     print('Converting settings to deployment profiles (%s) ...' % ', '.join(profiles))
@@ -224,8 +224,8 @@ LANGUAGES = (
     settings.append_lines('common',
                           'TEMPLATE_DIRS = (',
                           "    # Don't forget to use absolute paths, not relative paths.",
-                          "    os.path.join(PROJECT_PATH, 'templates'),",
-                          "    os.path.join(PROJECT_PATH, 'templates', 'zinnia'),",
+                          "    os.path.join(PROJECT_PATH, '%s.templates')," % projectname,
+                          "    os.path.join(PROJECT_PATH, '%s.templates', 'zinnia')," % projectname,
                           ')')
     settings.delete_var('common', 'TEMPLATE_LOADERS')
     settings.append_lines('common',
@@ -295,16 +295,18 @@ LANGUAGES = (
 
     suggest_editing = ('ADMINS', 'TIME_ZONE', 'LANGUAGE_CODE', 'LANGUAGES', 'EMAIL_BACKEND', 'SERVER_EMAIL')
     suggest_adding = ()
-    print('Done. Enjoy your organiced day!' + os.linesep)
-
+    print('Done. Enjoy your organiced day!')
+    print('')
     print('Please visit file `%s` and edit or add the variables: %s' %
           (settings.get_file('common').name, ', '.join(suggest_editing + suggest_adding)))
     print('Please visit file `%s` and configure your development database in: %s' %
           (settings.get_file('develop').name, 'DATABASES'))
-    print('See https://docs.djangoproject.com/en/1.5/ref/settings/ for details.' + os.linesep)
-
-    print('To initialize your development database run: `python manage.py syncdb --migrate`')
-    print('You can then run your development server with: `python manage.py runserver`')
+    print('See https://docs.djangoproject.com/en/1.5/ref/settings/ for details.')
+    print('')
+    print('1) To initialize your development database run: `python manage.py syncdb --migrate`')
+    print('2) You can then run your development server with: `python manage.py runserver`')
+    print('3) To prepare your production server you may run: '
+          '`python manage.py collectstatic --link --settings=%s.settings.production`' % projectname)
 
 
 if __name__ == "__main__":
