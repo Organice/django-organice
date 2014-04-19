@@ -84,6 +84,7 @@ def startproject():
     # out-of-the-box Django values relevant for deployment
     settings.delete_var('common', 'SITE_ID')
     settings.insert_lines('common',
+                          '_ = lambda s: s',
                           'import os',
                           'PROJECT_PATH = os.sep.join(__file__.split(os.sep)[:-3])',
                           '',
@@ -210,9 +211,11 @@ def startproject():
                           "    'cms.middleware.language.LanguageCookieMiddleware',",
                           ')')
     # must be set both in order to make solid_i18n work properly
-    settings.set_value('common', 'LANGUAGE_CODE', """'en-us'
+    settings.set_value('common', 'LANGUAGE_CODE', """'en'
 LANGUAGES = (
-    ('en-us', 'English (United States)'),
+    ('en', _('English')),
+    ('de', _('German')),
+    ('it', _('Italian')),
 )""")
     settings.set_value('common', 'CMS_USE_TINYMCE', 'False')
     settings.append_lines('common',
