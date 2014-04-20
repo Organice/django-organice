@@ -19,6 +19,8 @@ Setup script for starting a django Organice project.
 from organice.management.settings import DjangoModuleManager, DjangoSettingsManager
 from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH
 from subprocess import call
+import django.conf
+import django.template
 import os
 import sys
 
@@ -35,17 +37,25 @@ def startproject():
         from optparse import OptionParser  # Deprecated since version 2.7
 
         parser = OptionParser(description=usage_descr)
+        parser.add_option('--platform',
+                          help='create configuration compatible with Organice platform',
+                          action='store_true')
         (options, args) = parser.parse_args()
         if len(args) != 1:
             parser.error('Please specify a projectname')
         projectname = args[0]
+        args_platform = options.platform
     else:
         from argparse import ArgumentParser  # New since version 2.7
 
         parser = ArgumentParser(description=usage_descr)
         parser.add_argument('projectname', help='name of project to create')
+        parser.add_argument('--platform',
+                            help='create configuration compatible with Organice platform',
+                            action='store_true')
         args = parser.parse_args()
         projectname = args.projectname
+        args_platform = args.platform
 
     mode0755 = S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH
     profiles = ('develop', 'staging', 'production')
@@ -295,6 +305,47 @@ LANGUAGES = (
     project = DjangoModuleManager(projectname)
     project.add_file('urls', lines=(gen_by_comment, 'from organice.urls import urlpatterns'))
     project.save_files()
+
+    if args_platform:
+        print('Generating lighttp web server configuration ...')
+        django.conf.settings.configure()
+        conf_template = django.template.Template("""# Lighttp web server configuration
+
+# {{ account }}.organice.io
+$HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
+    # enforce optional custom domain name
+    #$HTTP["host"] != "{{ custom_domain }}" {
+    #    url.redirect = (".*" => "http://{{ custom_domain }}$0")
+    #}
+    fastcgi.server = (
+        "/django.fcgi" => (
+            "main" => (
+                "socket" => env.HOME + "/{{ organice }}/{{ prefix }}{{ account }}.sock",
+                "check-local" => "disable",
+            )
+        ),
+    )
+    alias.url = (
+        "/media/" => env.HOME + "/{{ organice }}/{{ prefix }}{{ account }}.media/",
+        "/static/" => env.HOME + "/{{ organice }}/{{ prefix }}{{ account }}.static/",
+    )
+    url.rewrite-once = (
+        "^(/media/.*)$" => "/$1",
+        "^(/static/.*)$" => "/$1",
+        "^/favicon\.ico$" => "/media/favicon.ico",
+        "^(/.*)$" => "/django.fcgi$1",
+    )
+}
+""")
+        conf_context = django.template.Context({
+            'organice': 'organice',
+            'prefix': '',
+            'account': projectname,
+            'custom_domain': 'www.example.com'
+        })
+        conf_file = open('%s%s.conf' % (conf_context['prefix'], projectname), 'w')
+        conf_file.write(conf_template.render(conf_context))
+        conf_file.close()
 
     suggest_editing = ('ADMINS', 'TIME_ZONE', 'LANGUAGE_CODE', 'LANGUAGES', 'EMAIL_BACKEND', 'SERVER_EMAIL')
     suggest_adding = ()
