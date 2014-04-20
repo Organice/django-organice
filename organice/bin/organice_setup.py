@@ -27,6 +27,7 @@ import sys
 
 # global variables (a class with members would be too verbose) *nirg*
 args = None
+profiles = None
 projectname = None
 settings = None
 
@@ -42,14 +43,23 @@ def _evaluate_command_line():
 
     usage_descr = 'django Organice setup. Start getting organiced! ' \
                   'Your collaboration platform starts here.'
+    help_account = 'Organice account name used as subdomain (default: projectname)'
+    help_domain = 'optional domain name to enforce'
+    help_database = 'database name (for profiles: staging, production)'
+    help_username = 'database user (for profiles: staging, production)'
+    help_password = 'database password (for profiles: staging, production)'
+    help_webserver = 'create appropriate web server configuration (default: %(default)s)'
 
     if sys.version_info < (2, 7):
         from optparse import OptionParser  # Deprecated since version 2.7
 
         parser = OptionParser(description=usage_descr)
-        parser.add_option('--platform',
-                          help='create configuration compatible with Organice platform',
-                          action='store_true')
+        parser.add_option('--account', help=help_account)
+        parser.add_option('--domain', help=help_domain)
+        parser.add_option('--database', help=help_database)
+        parser.add_option('--username', help=help_username)
+        parser.add_option('--password', help=help_password)
+        parser.add_option('--webserver', choices=['lighttp', 'apache'], default='lighttp', help=help_webserver)
         (options, args) = parser.parse_args()
         if len(args) != 1:
             parser.error('Please specify a projectname')
@@ -60,14 +70,18 @@ def _evaluate_command_line():
 
         parser = ArgumentParser(description=usage_descr)
         parser.add_argument('projectname', help='name of project to create')
-        parser.add_argument('--platform',
-                            help='create configuration compatible with Organice platform',
-                            action='store_true')
+        parser.add_argument('--account', help=help_account)
+        parser.add_argument('--domain', help=help_domain)
+        parser.add_argument('--database', help=help_database)
+        parser.add_argument('--username', help=help_username)
+        parser.add_argument('--password', help=help_password)
+        parser.add_argument('--webserver', choices=['lighttp', 'apache'], default='lighttp', help=help_webserver)
         args = parser.parse_args()
         projectname = args.projectname
 
 
 def _create_project():
+    global profiles
     global projectname
     global settings
 
@@ -124,7 +138,6 @@ def _create_project():
     settings.move_var('common', profiles, 'MEDIA_ROOT')
     settings.move_var('common', profiles, 'STATIC_ROOT')
     settings.move_var('common', profiles, 'SECRET_KEY')
-    settings.move_var('common', profiles, 'WSGI_APPLICATION')
     settings.set_value('staging', 'DEBUG', False)
     settings.set_value('production', 'DEBUG', False)
 
@@ -348,10 +361,21 @@ def _generate_urls_conf():
 
 def _generate_webserver_conf():
     global args
+    global profiles
     global projectname
 
-    if args.platform:
+    if args.webserver == 'apache':
+        settings.move_var('common', profiles, 'WSGI_APPLICATION')
+    else:
         print('Generating lighttp web server configuration ...')
+        os.unlink(os.path.join(projectname, 'wsgi.py'))
+        settings.delete_var('common', 'WSGI_APPLICATION')
+        settings.append_lines('common',
+                              '# Override the server-derived value of SCRIPT_NAME',
+                              '# See http://code.djangoproject.com/wiki/BackwardsIncompatibleChanges#lighttpdfastcgiandothers',
+                              "FORCE_SCRIPT_NAME = ''")
+        settings.move_var('common', profiles, 'FORCE_SCRIPT_NAME')
+
         django.conf.settings.configure()
         conf_template = django.template.Template("""# Lighttp web server configuration
 
@@ -430,10 +454,10 @@ def startproject():
     _configure_newsletter()
     _configure_blog()
 
-    settings.save_files()
-
     _generate_urls_conf()
     _generate_webserver_conf()
+
+    settings.save_files()
     _show_final_hints()
 
 
