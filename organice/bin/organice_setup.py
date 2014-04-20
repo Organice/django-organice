@@ -16,6 +16,7 @@
 """
 Setup script for starting a django Organice project.
 """
+from decimal import _ContextManager
 from organice.management.settings import DjangoModuleManager, DjangoSettingsManager
 from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH
 from subprocess import call
@@ -48,6 +49,7 @@ def _evaluate_command_line():
     help_database = 'database name (for profiles: staging, production)'
     help_username = 'database user (for profiles: staging, production)'
     help_password = 'database password (for profiles: staging, production)'
+    help_manage = 'use default single manage.py or use multi-settings variant (default: %(default)s)'
     help_webserver = 'create appropriate web server configuration (default: %(default)s)'
 
     if sys.version_info < (2, 7):
@@ -59,7 +61,8 @@ def _evaluate_command_line():
         parser.add_option('--database', help=help_database)
         parser.add_option('--username', help=help_username)
         parser.add_option('--password', help=help_password)
-        parser.add_option('--webserver', choices=['lighttp', 'apache'], default='lighttp', help=help_webserver)
+        parser.add_option('--manage', choices=['single', 'multi'], default='single', help=help_manage)
+        parser.add_option('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
         (options, args) = parser.parse_args()
         if len(args) != 1:
             parser.error('Please specify a projectname')
@@ -75,12 +78,14 @@ def _evaluate_command_line():
         parser.add_argument('--database', help=help_database)
         parser.add_argument('--username', help=help_username)
         parser.add_argument('--password', help=help_password)
-        parser.add_argument('--webserver', choices=['lighttp', 'apache'], default='lighttp', help=help_webserver)
+        parser.add_argument('--manage', choices=['single', 'multi'], default='single', help=help_manage)
+        parser.add_argument('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
         args = parser.parse_args()
         projectname = args.projectname
 
 
 def _create_project():
+    global args
     global profiles
     global projectname
     global settings
@@ -89,11 +94,26 @@ def _create_project():
     profiles = ('develop', 'staging', 'production')
     filenames = ('__init__', 'common') + profiles
 
+    if args.manage == 'multi':
+        if os.path.isfile('manage.py'):
+            print('Deleting manage.py to allow multi-settings platform setup ...')
+            os.unlink('manage.py')
+
     print('Generating project %s ...' % projectname)
     code = call(['django-admin.py', 'startproject', projectname, '.'])
     if code != 0:
         return code
     os.chmod('manage.py', mode0755)
+
+    if args.manage == 'multi':
+        print('Removing project specific configuration from manage.py ...')
+        with open('manage.py', 'a+') as f:
+            lines = f.readlines()
+            f.seek(0)
+            f.truncate()
+            for line in lines:
+                if not 'import os' in line and not 'DJANGO_SETTINGS_MODULE' in line:
+                    f.write(line)
 
     print('Creating directories ...')
     os.mkdir('%s.media' % projectname)
