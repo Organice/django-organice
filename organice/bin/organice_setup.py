@@ -381,10 +381,6 @@ def _generate_webserver_conf():
 
 # {{ account }}.organice.io
 $HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
-    # enforce optional custom domain name
-    #$HTTP["host"] != "{{ custom_domain }}" {
-    #    url.redirect = (".*" => "http://{{ custom_domain }}$0")
-    #}
     fastcgi.server = (
         "/django.fcgi" => (
             "main" => (
@@ -403,6 +399,10 @@ $HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
         "^/favicon\.ico$" => "/media/favicon.ico",
         "^(/.*)$" => "/django.fcgi$1",
     )
+    # enforce optional custom domain name
+    $HTTP["host"] != "{{ custom_domain }}" {
+        url.redirect = ("^/django.fcgi(.*)$" => "http://{{ custom_domain }}$1")
+    }
 }
 """)
         conf_context = django.template.Context({
