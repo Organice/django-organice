@@ -26,6 +26,7 @@ import sys
 
 
 # global variables (a class with members would be too verbose) *nirg*
+args = None
 projectname = None
 settings = None
 
@@ -37,7 +38,7 @@ def adding_settings_for(section):
 
 def _evaluate_command_line():
     global projectname
-    global args_platform
+    global args
 
     usage_descr = 'django Organice setup. Start getting organiced! ' \
                   'Your collaboration platform starts here.'
@@ -53,7 +54,7 @@ def _evaluate_command_line():
         if len(args) != 1:
             parser.error('Please specify a projectname')
         projectname = args[0]
-        args_platform = options.platform
+        args = options
     else:
         from argparse import ArgumentParser  # New since version 2.7
 
@@ -64,7 +65,6 @@ def _evaluate_command_line():
                             action='store_true')
         args = parser.parse_args()
         projectname = args.projectname
-        args_platform = args.platform
 
 
 def _create_project():
@@ -347,10 +347,10 @@ def _generate_urls_conf():
 
 
 def _generate_webserver_conf():
-    global args_platform
+    global args
     global projectname
 
-    if args_platform:
+    if args.platform:
         print('Generating lighttp web server configuration ...')
         django.conf.settings.configure()
         conf_template = django.template.Template("""# Lighttp web server configuration
