@@ -404,14 +404,14 @@ $HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
     fastcgi.server = (
         "/django.fcgi" => (
             "main" => (
-                "socket" => env.HOME + "/{{ organice }}/{{ prefix }}{{ account }}.sock",
+                "socket" => env.HOME + "/{{ organice }}/{{ projectname }}.sock",
                 "check-local" => "disable",
             )
         ),
     )
     alias.url = (
-        "/media/" => env.HOME + "/{{ organice }}/{{ prefix }}{{ account }}.media/",
-        "/static/" => env.HOME + "/{{ organice }}/{{ prefix }}{{ account }}.static/",
+        "/media/" => env.HOME + "/{{ organice }}/{{ projectname }}.media/",
+        "/static/" => env.HOME + "/{{ organice }}/{{ projectname }}.static/",
     )
     url.rewrite-once = (
         "^(/media/.*)$" => "/$1",
@@ -420,18 +420,19 @@ $HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
         "^(/.*)$" => "/django.fcgi$1",
     )
     # enforce optional custom domain name
-    $HTTP["host"] != "{{ custom_domain }}" {
-        url.redirect = ("^/django.fcgi(.*)$" => "http://{{ custom_domain }}$1")
-    }
+    {{ ignore }}$HTTP["host"] != "{{ custom_domain }}" {
+    {{ ignore }}    url.redirect = ("^/django.fcgi(.*)$" => "http://{{ custom_domain }}$1")
+    {{ ignore }}}
 }
 """)
         conf_context = django.template.Context({
             'organice': 'organice',
-            'prefix': '',
-            'account': projectname,
-            'custom_domain': 'www.example.com'
+            'projectname': projectname,
+            'account': args.account if args.account else projectname,
+            'custom_domain': args.domain if args.domain else 'www.example.com',
+            'ignore': '' if args.domain else '#',
         })
-        conf_file = open('%s%s.conf' % (conf_context['prefix'], projectname), 'w')
+        conf_file = open('%s.conf' % projectname, 'w')
         conf_file.write(conf_template.render(conf_context))
         conf_file.close()
 
