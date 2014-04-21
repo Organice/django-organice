@@ -158,8 +158,13 @@ def _create_project():
     settings.move_var('common', profiles, 'MEDIA_ROOT')
     settings.move_var('common', profiles, 'STATIC_ROOT')
     settings.move_var('common', profiles, 'SECRET_KEY')
-    settings.set_value('staging', 'DEBUG', False)
-    settings.set_value('production', 'DEBUG', False)
+    for prof in ('staging', 'production'):
+        settings.set_value(prof, 'DEBUG', False)
+        settings.set_value_lines(prof, 'ALLOWED_HOSTS',
+                                 '[',
+                                 "    '%s.organice.io'," % args.account if args.account else projectname,
+                                 "    '%s'," % args.domain if args.domain else 'www.example.com',
+                                 ']')
 
 
 def _configure_database():
