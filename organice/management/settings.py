@@ -179,6 +179,9 @@ class DjangoSettingsManager(DjangoModuleManager):
             start, stop = match
             self.__insert(dest, start, stop, var_value + os.linesep)
 
+    def set_value_lines(self, dest, var, *lines):
+        self.set_value(dest, var, os.linesep.join(lines))
+
     def delete_var(self, dest, var):
         """Deletes a variable from a settings file"""
         start, stop = self.find_var(dest, var)
