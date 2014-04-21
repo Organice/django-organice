@@ -172,18 +172,21 @@ def _configure_database():
     global settings
 
     print('Configuring development database ...')
-    DEV_DATABASES = """{
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(PROJECT_PATH, '%s.sqlite'),  # path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',  # Set to empty string for default.
-    }
-}""" % projectname
-    settings.set_value('develop', 'DATABASES', DEV_DATABASES)
+    settings.set_value_lines('develop', 'DATABASES',
+                             '{',
+                             "    'default': {",
+                             "        'ENGINE': 'django.db.backends.sqlite3',"
+                             "  # 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.",
+                             "        'NAME': os.path.join(PROJECT_PATH, '%s.sqlite'),"
+                             "  # path to database file if using sqlite3." % projectname,
+                             '        # The following settings are not used with sqlite3:',
+                             "        'USER': '',",
+                             "        'PASSWORD': '',",
+                             "        'HOST': '',"
+                             "  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.",
+                             "        'PORT': '',  # Set to empty string for default.",
+                             '    }',
+                             '}')
 
 
 def _configure_installed_apps():
@@ -288,13 +291,13 @@ def _configure_cms():
                           "    'cms.middleware.language.LanguageCookieMiddleware',",
                           ')')
     # must be set both in order to make solid_i18n work properly
-    settings.set_value('common', 'LANGUAGE_CODE', """'en'
-LANGUAGES = (
-    ('en', _('English')),
-    ('de', _('German')),
-    ('it', _('Italian')),
-)""")
-    settings.set_value('common', 'CMS_USE_TINYMCE', 'False')
+    settings.set_value_lines('common', 'LANGUAGE_CODE', "'en'",
+                             'LANGUAGES = (',
+                             "    ('en', _('English')),",
+                             "    ('de', _('German')),",
+                             "    ('it', _('Italian')),",
+                             ')')
+    settings.set_value('common', 'CMS_USE_TINYMCE', False)
     settings.append_lines('common',
                           'CMS_TEMPLATES = (',
                           "    ('cms_base.html', 'Template for normal content pages'),",
