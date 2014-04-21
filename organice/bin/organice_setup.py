@@ -46,6 +46,7 @@ def _evaluate_command_line():
                   'Your collaboration platform starts here.'
     help_account = 'Organice account name used as subdomain (default: projectname)'
     help_domain = 'optional domain name to enforce'
+    help_engine = 'database engine (for profiles: staging, production)'
     help_database = 'database name (for profiles: staging, production)'
     help_username = 'database user (for profiles: staging, production)'
     help_password = 'database password (for profiles: staging, production)'
@@ -58,6 +59,7 @@ def _evaluate_command_line():
         parser = OptionParser(description=usage_descr)
         parser.add_option('--account', help=help_account)
         parser.add_option('--domain', help=help_domain)
+        parser.add_option('--engine', choices=['postgresql_psycopg2', 'mysql', 'oracle'], help=help_engine)
         parser.add_option('--database', help=help_database)
         parser.add_option('--username', help=help_username)
         parser.add_option('--password', help=help_password)
@@ -75,6 +77,7 @@ def _evaluate_command_line():
         parser.add_argument('projectname', help='name of project to create')
         parser.add_argument('--account', help=help_account)
         parser.add_argument('--domain', help=help_domain)
+        parser.add_argument('--engine', choices=['postgresql_psycopg2', 'mysql', 'oracle'], help=help_engine)
         parser.add_argument('--database', help=help_database)
         parser.add_argument('--username', help=help_username)
         parser.add_argument('--password', help=help_password)
@@ -168,25 +171,38 @@ def _create_project():
 
 
 def _configure_database():
+    global args
     global projectname
     global settings
 
-    print('Configuring development database ...')
-    settings.set_value_lines('develop', 'DATABASES',
-                             '{',
-                             "    'default': {",
-                             "        'ENGINE': 'django.db.backends.sqlite3',"
-                             "  # 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.",
-                             "        'NAME': os.path.join(PROJECT_PATH, '%s.sqlite'),"
-                             "  # path to database file if using sqlite3." % projectname,
-                             '        # The following settings are not used with sqlite3:',
-                             "        'USER': '',",
-                             "        'PASSWORD': '',",
-                             "        'HOST': '',"
-                             "  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.",
-                             "        'PORT': '',  # Set to empty string for default.",
-                             '    }',
-                             '}')
+    db_template = django.template.Template("""{
+    'default': {
+        'ENGINE': 'django.db.backends.{{ engine }}',  # 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': {{ database|safe }},  # path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': '{{ username|safe }}',
+        'PASSWORD': '{{ password|safe }}',
+        'HOST': '',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',  # Set to empty string for default.
+    }
+}""")
+    db_context = django.template.Context({
+        'engine': 'sqlite3',
+        'database': "os.path.join(PROJECT_PATH, '%s.sqlite')" % projectname,
+        'username': '',
+        'password': '',
+    })
+
+    print('Configuring database for all profiles ...')
+    settings.set_value('develop', 'DATABASES', db_template.render(db_context))
+
+    db_context['engine'] = args.engine if args.engine else ''
+    db_context['database'] = "'%s'" % args.database if args.database else ''
+    db_context['username'] = args.username if args.username else ''
+    db_context['password'] = args.password if args.password else ''
+
+    for prof in ('staging', 'production'):
+        settings.set_value(prof, 'DATABASES', db_template.render(db_context))
 
 
 def _configure_installed_apps():
@@ -404,7 +420,6 @@ def _generate_webserver_conf():
                               "FORCE_SCRIPT_NAME = ''")
         settings.move_var('common', profiles, 'FORCE_SCRIPT_NAME')
 
-        django.conf.settings.configure()
         conf_template = django.template.Template("""# Lighttp web server configuration
 
 # {{ account }}.organice.io
@@ -474,6 +489,7 @@ def startproject():
     global settings
 
     _evaluate_command_line()
+    django.conf.settings.configure()  # for django.template init only
 
     _create_project()
     _configure_database()
