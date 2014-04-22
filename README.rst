@@ -17,8 +17,18 @@ continually tune the compilation to keep the source footprint small, keeping the
 
 See http://organice.io for more information.
 
-Features
-========
+Fundamental Features
+====================
+
+#. Enables everyone to contribute to your content---while retaining your full control.
+#. Continually involves, helps and optimally supports your collaborators by sending out reminders, editing and
+   submission hints to avoid losing traction or interest.
+#. Supports all common collaboration and support patterns (active contribution (create content),
+   passive contribution (report issues, assign tasks), active consumption (search and browse for content),
+   passive consumption (subscribe to notifications)).
+
+Core Components
+===============
 
 Major components of django Organice are:
 
@@ -34,9 +44,12 @@ Major components of django Organice are:
 - multiple websites support
 - database support for PostgreSQL, MySQL, and more
 
-Features on the roadmap include:
+Roadmap
+=======
 
-- group spaces with automatic mailing list (group_name@yoursite.tld)
+We are thrilled to get these awesome features out to you:
+
+- group spaces with automatic mailing list (groupname@example.com)
 - issue list / task management
 - documentation area / wiki (probably by use of CMS functionality)
 - discussion forum / Q&A board (Askbot, Misago)
