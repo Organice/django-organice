@@ -10,11 +10,6 @@ It's a compilation of the best Django packages, preconfigured for getting you st
 the well-known `Django Web framework`_ it's a safe choice for your IT investment providing an easily extensible
 architecture.
 
-Primary goal of the software is to provide an absolutely intuitive, consistent user experience.  Because in fast-paced,
-flexible, probably small-margin businesses you don't have the time to invest in training your staff.  We build on
-promising, reliable Django components, and rather invest in those projects than build source code here.  We expect to
-continually tune the compilation to keep the source footprint small, keeping the project lean and responsive.
-
 See http://organice.io for more information.
 
 Fundamental Features
@@ -23,9 +18,12 @@ Fundamental Features
 #. Enables everyone to contribute to your content---while retaining your full control.
 #. Continually involves, helps and optimally supports your collaborators by sending out reminders, editing and
    submission hints to avoid losing traction or interest.
-#. Supports all common collaboration and support patterns (active contribution (create content),
-   passive contribution (report issues, assign tasks), active consumption (search and browse for content),
-   passive consumption (subscribe to notifications)).
+#. Supports all four common collaboration and support patterns in several ways:
+
+   - *Active contribution* (create content, contribute corrections)
+   - *Passive contribution* (report issues, assign tasks, provide feedback)
+   - *Active consumption* (search and browse for content)
+   - *Passive consumption* (subscribe to notifications)
 
 Core Components
 ===============
