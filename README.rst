@@ -40,7 +40,7 @@ Major components of django Organice are:
 - user profiles and social login (allauth)
 - multi-language support
 - multiple websites support
-- database support for PostgreSQL, MySQL, and more
+- database support for PostgreSQL, MySQL, Oracle, and more
 
 Roadmap
 =======
