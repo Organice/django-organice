@@ -15,15 +15,15 @@ See http://organice.io for more information.
 Fundamental Features
 ====================
 
-#. Enables everyone to contribute to your content---while retaining your full control.
-#. Continually involves, helps and optimally supports your collaborators by sending out reminders, editing and
-   submission hints to avoid losing traction or interest.
-#. Supports all four common collaboration and support patterns in several ways:
+- Enables everyone to contribute to your content---while retaining your full control.
+- Continually involves, helps and optimally supports your collaborators by sending out reminders, editing and
+  submission hints to avoid losing traction or interest.
+- Supports all four common collaboration and support patterns in several ways:
 
-   - *Active contribution* (create content, contribute corrections)
-   - *Passive contribution* (report issues, assign tasks, provide feedback)
-   - *Active consumption* (search and browse for content)
-   - *Passive consumption* (subscribe to notifications)
+  #. *Active contribution* (create content, contribute corrections)
+  #. *Passive contribution* (report issues, assign tasks, provide feedback)
+  #. *Active consumption* (search and browse for content)
+  #. *Passive consumption* (subscribe to notifications)
 
 Core Components
 ===============
