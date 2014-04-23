@@ -1,0 +1,27 @@
+<!DOCTYPE html>{% load staticfiles sekizai_tags %}{% spaceless %}{% block sekizai %}{% endblock %}{% endspaceless %}
+<html>
+<head>{% block head %}{% block meta %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% endblock meta %}<title>{% block title_tag %}
+	{% endblock title_tag %}</title>{% block favicon %}
+	<link rel="icon" type="image/png" href="{% static 'logo.png' %}"><!--[if IE]>
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}"><![endif]-->
+	<link rel="apple-touch-icon" href="{% static 'apple-touch-icon.png' %}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'apple-touch-icon-72x72.png' %}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'apple-touch-icon-114x114.png' %}">
+	{% endblock favicon %}{% endblock head %}{% render_block "css" %}</head>
+<body>{% block body %}
+	<div id="header" class="{% block header_class %}{% endblock %}">{% block header %}{% endblock %}</div>
+	<div id="container" class="{% block container_class %}{% endblock %}">{% block container %}
+		<div id="menu" class="{% block menu_class %}{% endblock %}">{% block menu %}{% endblock %}</div>
+		<div id="main" class="{% block main_class %}{% endblock %}">{% block main %}
+			<ul id="nav" class="{% block nav_class %}{% endblock %}">{% block nav %}{% endblock %}</ul>
+			<div id="content" class="{% block content_class %}{% endblock %}">{% block content %}{% endblock %}</div>
+			<div id="sidebar" class="{% block sidebar_class %}{% endblock %}">{% block sidebar %}{% endblock %}</div>
+		{% endblock main %}</div>
+	{% endblock container %}</div>
+	<div id="footer" class="{% block footer_class %}{% endblock %}">{% block footer %}{% endblock %}</div>
+{% endblock body %}
+{% render_block "js" %}</body>
+</html>

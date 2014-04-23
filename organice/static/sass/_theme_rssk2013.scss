@@ -97,11 +97,16 @@ body {
 	margin-bottom: 1.8em;
 }
 
+#language-label,
+#language-label:hover,
 #profile-label,
 #profile-label:hover {
 	color: #fff;
 	text-decoration: none;
 	padding: 0.7em;
+}
+ul.dropdown-menu {
+	min-width: 80px;
 }
 
 #nav {

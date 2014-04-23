@@ -1,46 +1,51 @@
-<!DOCTYPE html>{% load staticfiles cms_tags menu_tags sekizai_tags zinnia_tags %}
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{% block title_tag %}{% block title %}{% page_attribute page_title %}{% endblock title %} | {{ current_site.name }}{% endblock title_tag %}</title>
-	<link rel="icon" type="image/png" href="{% static 'logo.png' %}"><!--[if IE]>
-	<link rel="shortcut icon" href="{% static 'favicon.ico' %}"><![endif]-->
-	{% render_block "css" %}
-</head>
+{% extends "skeleton.html" %}
+{% load staticfiles cms_tags menu_tags sekizai_tags zinnia_tags %}
+
+{% block sekizai %}
 {% addtoblock "css" strip %}
 	<!--[if lt IE 9]>{# IE8 support of HTML5 elements and media queries #}
 	<script src="{% static 'js/ie/html5shiv-printshiv.js' %}"></script>
 	<script src="{% static 'js/ie/respond.min.js' %}"></script>
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-{% endaddtoblock %}{% addtoblock "js" strip %}
+{% endaddtoblock %}
+{% addtoblock "js" strip %}
 	<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
 {% endaddtoblock %}
-<body>
-<div id="gradient">
+{% endblock sekizai %}
+
+{% block title_tag %}{% block title %}{% page_attribute page_title %}{% endblock title %} | {{ current_site.name }}{% endblock title_tag %}
+
+{% block header_class %}row{% endblock %}
+{% block container_class %}container{% endblock %}
+{% block menu_class %}row{% endblock %}
+{% block main_class %}row{% endblock %}
+{% block nav_class %}col-xs-12 col-sm-4 col-md-3 col-lg-2 hidden-print{% endblock %}
+{% block content_class %}col-xs-12 col-sm-8 col-md-6 col-lg-8{% endblock %}
+{% block sidebar_class %}col-xs-12 col-sm-8 col-md-3 col-lg-2 col-sm-push-4 col-md-push-0{% endblock %}
+{% block footer_class %}row{% endblock %}
+
+{% block body %}{% spaceless %}
 	{% cms_toolbar %}
-	<div id="container" class="container">{% block container %}
-		<div id="header" class="row">{% block header %}{% endblock %}</div>
-		<div id="menu" class="row">{% block menu %}{% include "profile_dropdown.html" %}{% endblock %}</div>
-		<div id="main" class="row">{% block main %}
-			<ul id="nav" class="col-xs-12 col-sm-4 col-md-3 col-lg-2 hidden-print">{% spaceless %}
-				{% block nav %}{% show_menu 0 100 100 100 %}{% endblock nav %}
-			{% endspaceless %}</ul>
-			<div id="content" class="col-xs-12 col-sm-8 col-md-6 col-lg-8">{% block content %}
+{% endspaceless %}{{ block.super }}{% endblock body %}
+
+{% block menu %}{% spaceless %}
+	{% include 'profile_dropdown.html' %}
+	{% language_chooser %}
+{% endspaceless %}{% endblock menu %}
+
+{% block nav %}{% spaceless %}
+	{% show_menu 0 100 100 100 %}
+{% endspaceless %}{% endblock nav %}
+
+{% block content %}
 				{% block breadcrumb %}<ul class="breadcrumb">{% spaceless %}
 					{% show_breadcrumb %}{% endspaceless %}</ul>{% endblock breadcrumb %}
-			{% endblock content %}</div>
-			<div id="highlights" class="col-xs-12 col-sm-8 col-md-3 col-lg-2 col-sm-push-4 col-md-push-0">{% block highlights %}
+{% endblock content %}
+
+{% block sidebar %}
+				<div id="highlights">{% block highlights %}{% endblock %}</div>
 				<div id="calendar" class="hidden-print">{% block calendar %}
 					{% get_calendar_entries %}
 				{% endblock calendar %}</div>
-				<div id="sidebar">{% block sidebar %}{% endblock %}</div>
-			{% endblock highlights %}</div>
-		{% endblock main %}</div>
-	{% endblock container %}</div>
-	<div id="footer" class="row">{% block footer %}{% endblock %}</div>
-	{% render_block "js" %}
-</div>
-</body>
-</html>
+{% endblock sidebar %}

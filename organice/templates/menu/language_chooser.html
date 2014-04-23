@@ -1,0 +1,14 @@
+{% load i18n menu_tags %}{% get_available_languages as languages %}
+{% if languages|length > 1 %}
+<div id="language" class="dropdown pull-right">
+	<a id="language-label" role="button" data-toggle="dropdown" data-target="#" href="./">
+		<span class="glyphicon glyphicon-globe"></span> {{ current_language }} <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu" aria-labelledby="language-label">
+	{% for language in languages %}
+		{% if current_language != language.0 %}
+		<li><a href="{% page_language_url language.0 %}"><span class="glyphicon glyphicon-globe"></span> {{ language.0 }}</a></li>
+		{% endif %}
+	{% endfor %}
+	</ul>
+</div>
+{% endif %}
