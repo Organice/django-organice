@@ -221,6 +221,7 @@ def _configure_installed_apps():
                           "    'django.contrib.staticfiles',",
                           "    'django.contrib.admin',",
                           "    'organice',",
+                          "    'organice_theme',",
                           "    'cms',",
                           "    'mptt',",
                           "    'menus',",

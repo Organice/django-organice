@@ -1,6 +1,0 @@
-<ul class="breadcrumb">{% spaceless %}
-{% for crumb in breadcrumbs %}
-	<li>{% if crumb.url %}<a href="{{ crumb.url }}" title="{{ crumb.name }}">{{ crumb.name }}</a>
-		{% else %}{{ crumb.name|truncatewords:5 }}{% endif %}</li>
-{% endfor %}
-</ul>{% endspaceless %}
