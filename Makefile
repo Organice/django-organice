@@ -83,7 +83,7 @@ install: setuptools
 	python setup.py install
 
 uninstall:
-	pip freeze | sed 's/==.*$//' | xargs -I PKG pip uninstall -y PKG
+	pip freeze | sed 's/==.*$$//' | xargs -I PKG pip uninstall -y PKG
 
 release: setuptools clean requirements
 	python setup.py sdist upload
