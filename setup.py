@@ -31,9 +31,6 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
-    'cmsplugin-contact',
-    'cmsplugin-filer',
-    'cmsplugin-zinnia==0.5.1',
     'django-apptemplates',
     'django-blog-zinnia==0.13',
     'django-cms==2.4.3-support',  # support branch fixes reversion>=1.8 incompatibility
@@ -43,6 +40,9 @@ DEPENDENCIES = [
     'django-simple-links',
     'django-tinymce',
     'django-allauth',
+    'cmsplugin-contact',
+    'cmsplugin-filer',
+    'cmsplugin-zinnia==0.5.1',
     'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
     'PIL',
     'solid_i18n',
