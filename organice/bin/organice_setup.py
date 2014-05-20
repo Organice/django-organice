@@ -220,23 +220,27 @@ def _configure_installed_apps():
                           "    'django.contrib.messages',",
                           "    'django.contrib.staticfiles',",
                           "    'django.contrib.admin',",
-                          "    'organice',",
+                          "#    'organice_theme_add-your-theme-here',",
                           "    'organice_theme',",
+                          "    'organice',",
                           "    'cms',",
                           "    'mptt',",
                           "    'menus',",
                           "    'south',",
                           "    'sekizai',",
                           "    'reversion',",
+                          "    'filer',",
+                          "    'easy_thumbnails',",
                           "    'cms.plugins.text',",
-                          "    'cms.plugins.picture',",
                           "    'cms.plugins.link',",
-                          "    'cms.plugins.teaser',",
-                          "    'cms.plugins.file',",
-                          "    'cms.plugins.video',",
                           "    'cms.plugins.flash',",
                           "    'cms.plugins.googlemap',",
                           "    'cms.plugins.inherit',",
+                          "    'cmsplugin_filer_file',",
+                          "    'cmsplugin_filer_folder',",
+                          "    'cmsplugin_filer_image',",
+                          "    'cmsplugin_filer_teaser',",
+                          "    'cmsplugin_filer_video',",
                           "    'cmsplugin_contact',",
                           "    'cmsplugin_zinnia',",
                           "    'tagging',",
@@ -270,6 +274,7 @@ def _configure_installed_apps():
                           "#    'allauth.socialaccount.providers.vimeo',",
                           "#    'allauth.socialaccount.providers.vk',",
                           "#    'allauth.socialaccount.providers.weibo',",
+                          "#    'allauth.socialaccount.providers.xing',",
                           ')')
 
 
@@ -391,6 +396,7 @@ def _configure_blog():
                           'SOUTH_MIGRATION_MODULES = {',
                           '    # integration of EntryPlaceholder (django CMS) into Zinnia',
                           "    'zinnia': 'organice.migrations.zinnia',",
+                          "    'easy_thumbnails': 'easy_thumbnails.south_migrations',",
                           '}')
 
 

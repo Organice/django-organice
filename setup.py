@@ -32,6 +32,7 @@ CLASSIFIERS = [
 
 DEPENDENCIES = [
     'cmsplugin-contact',
+    'cmsplugin-filer',
     'cmsplugin-zinnia==0.5.1',
     'django-apptemplates',
     'django-blog-zinnia==0.13',
