@@ -165,8 +165,8 @@ def _create_project():
         settings.set_value(prof, 'DEBUG', False)
         settings.set_value_lines(prof, 'ALLOWED_HOSTS',
                                  '[',
-                                 "    '%s.organice.io'," % args.account if args.account else projectname,
-                                 "    '%s'," % args.domain if args.domain else 'www.example.com',
+                                 "    '%s.organice.io'," % (args.account if args.account else projectname),
+                                 "    '%s'," % (args.domain if args.domain else 'www.example.com'),
                                  ']')
 
 
