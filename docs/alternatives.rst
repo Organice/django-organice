@@ -20,6 +20,7 @@ In alphabetical order.
 - Coyo_ (Java/Play, commercial, ships with source code)
 - Fairgate_ (PHP, commercial, Switzerland only)
 - `Microsoft SharePoint + Yammer`_ [1]_ (.NET + Rails, commercial)
+- `Open Atrium`_ (Drupal, open source)
 
 Cloud Competitors
 =================
@@ -35,6 +36,7 @@ In alphabetical order.
 .. _Coyo: https://www.coyoapp.com/
 .. _Fairgate: http://www.pitsolutions.ch/case-studies/php/fairgate-ag/
 .. _`Microsoft SharePoint + Yammer`: http://office.microsoft.com/sharepoint/
+.. _`Open Atrium`: https://drupal.org/project/openatrium
 .. _`Bitrix24.com`: http://bitrix24.com/
 .. _`Bitrix24.de`: http://bitrix24.de/
 .. _Igloo: http://www.igloosoftware.com/
