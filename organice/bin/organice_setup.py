@@ -197,7 +197,7 @@ def _configure_database():
     settings.set_value('develop', 'DATABASES', db_template.render(db_context))
 
     db_context['engine'] = args.engine if args.engine else ''
-    db_context['database'] = "'%s'" % args.database if args.database else ''
+    db_context['database'] = "'%s'" % (args.database if args.database else '')
     db_context['username'] = args.username if args.username else ''
     db_context['password'] = args.password if args.password else ''
 
