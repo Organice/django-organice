@@ -35,16 +35,16 @@ DEPENDENCIES = [
     'django-blog-zinnia==0.13',
     'django-cms==2.4.3-support',  # support branch fixes reversion>=1.8 incompatibility
     'django-mptt==0.5.2',  # necessary due to poor dependency resolution
+    'django-media-tree',
     'django-organice-theme',
     'django-reversion',
     'django-simple-links',
     'django-tinymce',
     'django-allauth',
     'cmsplugin-contact',
-    'cmsplugin-filer',
     'cmsplugin-zinnia==0.5.1',
     'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
-    'PIL',
+    'Pillow',
     'solid_i18n',
 ]
 
