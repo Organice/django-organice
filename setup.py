@@ -37,19 +37,20 @@ DEPENDENCIES = [
     'django-mptt==0.5.2',  # necessary due to poor dependency resolution
     'django-media-tree',
     'django-organice-theme',
-    'django-reversion',
+    'django-reversion==1.8.0',
     'django-simple-links',
     'django-tinymce',
     'django-allauth',
     'cmsplugin-contact',
     'cmsplugin-zinnia==0.5.1',
+    'easy-thumbnails',
     'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
     'Pillow',
     'solid_i18n',
 ]
 
 NON_PYPI_DEP_LINKS = [
-    'git+https://github.com/divio/django-cms.git@babc377#egg=django-cms-2.4.3-support',
+    'git+https://github.com/divio/django-cms.git@fc0b1c0#egg=django-cms-2.4.3-support',
     'git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev',
 ]
 
