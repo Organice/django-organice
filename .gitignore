@@ -4,7 +4,7 @@
 .sass-cache/
 /build/
 /dist/
-/django_organice.egg-info/
+/*.egg-info/
 /docs/build/
 
 # Django and Python

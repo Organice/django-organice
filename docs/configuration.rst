@@ -32,3 +32,10 @@ ORGANICE_URL_PATH_NEWSLETTER
 
 The URL path for accessing newsletter functionality on the front-end (e.g. ``www.example.com/newsletter``).  Must
 be non-empty.  Use an identifier only, no white space, no leading or trailing slash.
+
+ORGANICE_URL_PATH_TODO
+----------------------
+:Default: ``todo``
+
+The URL path for accessing todo list functionality on the front-end (e.g. ``www.example.com/todo``).  Must be
+non-empty.  Use an identifier only, no white space, no leading or trailing slash.

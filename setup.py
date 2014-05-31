@@ -40,13 +40,14 @@ DEPENDENCIES = [
     'django-reversion==1.8.0',
     'django-simple-links',
     'django-tinymce',
+    'django-todo>=1.4.dev',
     'django-allauth',
-    'cmsplugin-contact',
-    'cmsplugin-zinnia==0.5.1',
     'easy-thumbnails',
     'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
     'Pillow',
     'solid_i18n',
+    'cmsplugin-contact',
+    'cmsplugin-zinnia==0.5.1',
 ]
 
 NON_PYPI_DEP_LINKS = [

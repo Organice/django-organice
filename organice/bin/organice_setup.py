@@ -243,6 +243,7 @@ def _configure_installed_apps():
                           "    'cmsplugin_contact',",
                           "    'cmsplugin_zinnia',",
                           "    'tagging',",
+                          "    'todo',",
                           "    'emencia.django.newsletter',",
                           "    'tinymce',",
                           "    'simple_links',",

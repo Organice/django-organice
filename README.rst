@@ -37,7 +37,8 @@ Major components of django Organice are:
 - flexible contact pages (cmsplugin)
 - link collection pages
 - full-featured newsletter (Emencia)
-- user profiles and social login (allauth)
+- todo/issue lists
+- social login and user profiles (allauth)
 - multi-language support
 - multiple websites support
 - database support for PostgreSQL, MySQL, Oracle, and more
@@ -48,7 +49,6 @@ Roadmap
 We are thrilled to get these awesome features out to you:
 
 - group spaces with automatic mailing list (groupname@example.com)
-- issue list / task management
 - documentation area / wiki (probably by use of CMS functionality)
 - discussion forum / Q&A board (Askbot, Misago)
 - content download for magazine generation

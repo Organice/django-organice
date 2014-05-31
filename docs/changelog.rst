@@ -7,16 +7,17 @@ CHANGELOG
 
 - Project-level Makefile
 - Automation of translation processes with Transifex (for documentation only)
-- New options for settings (see :ref:`settings`)
+- New options for settings (``ORGANICE_URL_PATH_``...)
 - Newsletter editor configuration, newsletter template sample
-- User profiles and social login (django-allauth)
+- Added social login and user profiles (django-allauth)
 - Added assets pipeline (bootstrap-sass, Compass, UglifyJS v2)
 - Upgraded jQuery to v1.11.0, template overhaul with Bootstrap
 - Added language selection dropdown menu
 - Migrated theme data (templates, styles, and javascript) and assets pipeline
   to separate projects
 - Generation of server configuration (lighttpd) and more options in organice-setup
-- Rudimentary media management for django CMS (django-filer)
+- Added media management (django-media-tree)
+- Added todo lists (django-todo)
 
 :Changes: https://github.com/bittner/django-organice/compare/v0.1...HEAD
 :Packages: https://github.com/bittner/django-organice/blob/v0.2/docs/requirements.txt
