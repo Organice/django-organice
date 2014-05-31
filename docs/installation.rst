@@ -35,6 +35,10 @@ Installing django Organice
 
   This will pull the latest django Organice package from the Internet and install all dependencies automatically.
 
+  *NOTE:* Since pip 1.5+ external repositories are deprecated and require additional command line switches:
+
+    $ pip install django-organice --allow-external django-cms --allow-unverified django-cms --process-dependency-links
+
   If you're a developer you may want to run django Organice with the latest sources: (don't do this as a user) ::
 
     $ git clone git@github.com:bittner/django-organice.git
