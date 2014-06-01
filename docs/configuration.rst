@@ -39,3 +39,16 @@ ORGANICE_URL_PATH_TODO
 
 The URL path for accessing todo list functionality on the front-end (e.g. ``www.example.com/todo``).  Must be
 non-empty.  Use an identifier only, no white space, no leading or trailing slash.
+
+Third Party Settings
+====================
+
+Analytics Providers
+-------------------
+
+The analytics services supported by ``django-analytical`` are enabled by
+setting various service properties in your settings file.  The properties are
+documented in `their documentation`_.  For security reasons you shouldn't add
+those to your common settings file, but to settings/production.
+
+.. _`their documentation`: https://pythonhosted.org/django-analytical/install.html#enabling-the-services
