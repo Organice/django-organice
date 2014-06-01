@@ -42,6 +42,7 @@ DEPENDENCIES = [
     'django-tinymce',
     'django-todo>=1.4.dev',
     'django-allauth',
+    'django-analytical',
     'easy-thumbnails',
     'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
     'Pillow',

@@ -275,6 +275,7 @@ def _configure_installed_apps():
                           "#    'allauth.socialaccount.providers.vk',",
                           "#    'allauth.socialaccount.providers.weibo',",
                           "#    'allauth.socialaccount.providers.xing',",
+                          "    'analytical',",
                           ')')
 
 

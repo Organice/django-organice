@@ -39,6 +39,7 @@ Major components of django Organice are:
 - full-featured newsletter (Emencia)
 - todo/issue lists
 - social login and user profiles (allauth)
+- generic analytics support (analytical)
 - multi-language support
 - multiple websites support
 - database support for PostgreSQL, MySQL, Oracle, and more
