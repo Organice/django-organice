@@ -18,6 +18,7 @@ CHANGELOG
 - Generation of server configuration (lighttpd) and more options in organice-setup
 - Added media management (django-media-tree)
 - Added todo lists (django-todo)
+- Added generic analytics (django-analytical)
 
 :Changes: https://github.com/bittner/django-organice/compare/v0.1...HEAD
 :Packages: https://github.com/bittner/django-organice/blob/v0.2/docs/requirements.txt

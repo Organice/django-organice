@@ -93,49 +93,53 @@ msgid "Added todo lists (django-todo)"
 msgstr ""
 
 # 48245debc9a64e1aac4160e9a022363e
-#: ../../changelog.rst:22
+#: ../../changelog.rst:23
 msgid "https://github.com/bittner/django-organice/compare/v0.1...HEAD"
 msgstr ""
 
 # 5a11ecbb5dd4415fbe19c3bc493f65ac
-#: ../../changelog.rst:23
+#: ../../changelog.rst:24
 msgid ""
 "https://github.com/bittner/django-organice/blob/v0.2/docs/requirements.txt"
 msgstr ""
 
 # a596b5ee0e65444b857e28fb75d388b2
-#: ../../changelog.rst:26
+#: ../../changelog.rst:27
 msgid "0.1"
 msgstr ""
 
 # 939a9637da3a4b49ac34bfd89f07a0f4
-#: ../../changelog.rst:28
+#: ../../changelog.rst:29
 msgid "Initial release"
 msgstr ""
 
 # d24b90b1b9aa444b9f7e156fe928fb97
-#: ../../changelog.rst:29
+#: ../../changelog.rst:30
 msgid ""
 "Based on Django 1.5.5, django CMS 2.4.3, Zinnia blog 0.13, Emencia "
 "newsletter 0.3.dev"
 msgstr ""
 
 # a32da40d469f4b56afaddcfb2dab0a8f
-#: ../../changelog.rst:30
+#: ../../changelog.rst:31
 msgid ""
 "A more natural i18n mechanism than vanilla Django, no language prefix for "
 "default language"
 msgstr ""
 
 # a1c6f7a01a934527a9b8a6fd2947b7bf
-#: ../../changelog.rst:31
+#: ../../changelog.rst:32
 msgid ""
 "Setup script with project generation, deployment settings, custom templates,"
 " Bootstrap 3"
 msgstr ""
 
 # 7b44f73b2e7b4301a3855bf618da6b1c
-#: ../../changelog.rst:33
+#: ../../changelog.rst:34
 msgid ""
 "https://github.com/bittner/django-organice/blob/v0.1/docs/requirements.txt"
+msgstr ""
+
+#: ../../changelog.rst:21
+msgid "Added generic analytics (django-analytical)"
 msgstr ""
