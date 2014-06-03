@@ -12,8 +12,9 @@ Contents:
 
    overview
    installation
-   components
    configuration
+   themes
+   components
    contributing
    alternatives
    changelog

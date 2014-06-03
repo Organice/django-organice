@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-27 21:56+0100\n"
-"PO-Revision-Date: 2014-03-27 20:56+0000\n"
+"POT-Creation-Date: 2014-06-04 00:59+0200\n"
+"PO-Revision-Date: 2014-06-03 22:57+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# f4ccbb5266a0497d920eceaf987b6995
+# da9a8543e48447059322864a32cc2659
 #: ../../../README.rst:3
 msgid "django Organice"
 msgstr "django Organice"
 
-# 7938425b9a604cd583f6c2c8c05b471c
+# 23c46212a08d49c38bad8f0f08a06fb4
 #: ../../../README.rst:5
 msgid ""
 "All-in-one collaboration solution.  For non-profit organizations, sports "
 "clubs, small to medium-sized businesses. Nice, very nice, http://organice.io"
 msgstr ""
 
-# 589a4dde0ace45f3aec769f2a231d717
+# 165e1585939046698317e165051031f4
 #: ../../../README.rst:8
 msgid ""
 "django Organice is a nice way to run a collaboration platform, an intranet, "
@@ -40,197 +40,243 @@ msgid ""
 "investment providing an easily extensible architecture."
 msgstr ""
 
-# 2d96599b025245a6bf4eecd00bf5ec36
+# 3e32c70ad52d494d956be5d838a6d159
 #: ../../../README.rst:13
-msgid ""
-"Primary goal of the software is to provide an absolutely intuitive, "
-"consistent user experience.  Because in fast-paced, flexible, probably "
-"small-margin businesses you don't have the time to invest in training your "
-"staff.  We build on promising, reliable Django components, and rather invest"
-" in those projects than build source code here.  We expect to continually "
-"tune the compilation to keep the source footprint small, keeping the project"
-" lean and responsive."
-msgstr ""
-
-# 3651a7d8a8b54678b3e8f05569959429
-#: ../../../README.rst:18
 msgid "See http://organice.io for more information."
 msgstr "Auf http://organice.io finden Sie weitere Informationen."
 
-# ee9f8d92e3784b378a02d7fc1e76f4b4
-#: ../../../README.rst:21
-msgid "Features"
-msgstr "Funktionen"
+# 3553409b716f4e1ba9f1cd0d2a3b186b
+#: ../../../README.rst:16
+msgid "Fundamental Features"
+msgstr ""
 
-# 532569e8dc184d56a3d8c3a0f64ce939
+# b304bfbce06a4ebd8836e1e088028e7c
+#: ../../../README.rst:18
+msgid ""
+"Enables everyone to contribute to your content---while retaining your full "
+"control."
+msgstr ""
+
+# d16cb43e7535448c87925f5a781d09d3
+#: ../../../README.rst:19
+msgid ""
+"Continually involves, helps and optimally supports your collaborators by "
+"sending out reminders, editing and submission hints to avoid losing traction"
+" or interest."
+msgstr ""
+
+# 990e2d13b3ee477193239be4c3b55a46
+#: ../../../README.rst:21
+msgid ""
+"Supports all four common collaboration and support patterns in several ways:"
+msgstr ""
+
+# 3a54db994005476a996ef75e6947db95
 #: ../../../README.rst:23
+msgid "*Active contribution* (create content, contribute corrections)"
+msgstr ""
+
+# b20e45420b3b4d1fb3c61d11817046e8
+#: ../../../README.rst:24
+msgid "*Passive contribution* (report issues, assign tasks, provide feedback)"
+msgstr ""
+
+# 030ec9f26d674945bc145ec93207d42c
+#: ../../../README.rst:25
+msgid "*Active consumption* (search and browse for content)"
+msgstr ""
+
+# de2c87a9a31a460cb75aea434aa22bf6
+#: ../../../README.rst:26
+msgid "*Passive consumption* (subscribe to notifications)"
+msgstr ""
+
+# 472309632bd94b3489db2d7ebd97e38c
+#: ../../../README.rst:29
+msgid "Core Components"
+msgstr ""
+
+# 319d152a32744eef90372c8be9d392be
+#: ../../../README.rst:31
 msgid "Major components of django Organice are:"
 msgstr "Wesentliche Komponenten von django Organice sind:"
 
-# 15d080eaab6e4aa68e005ee9fed2d8bc
-#: ../../../README.rst:25
+# 09f0ada865764525a9fe40d008a59af4
+#: ../../../README.rst:33
 msgid "Django Web framework"
 msgstr "Django Web Framework"
 
-# 699669787a9d454089bfcdbe9835a5c7
-#: ../../../README.rst:26
+# 422e95e8000d4a0db68e4577947246c2
+#: ../../../README.rst:34
 msgid "full-featured content management (django CMS)"
 msgstr "leistungsstarkes Content Management (django CMS)"
 
-# 94d1adee0a0240cc90f8b27098fa6cf0
-#: ../../../README.rst:27
+# 20cfa4615888400c97bef622ca0ceef1
+#: ../../../README.rst:35
 msgid "full-featured versatile blog (Zinnia, cmsplugin)"
 msgstr "leistungsstarker, vielseitiger Blog (Zinnia, cmsplugin)"
 
-# 44b50c626619483e9fe1b15ddbfaa309
-#: ../../../README.rst:28
+# 43a0774569a347e7a98026c5341e2756
+#: ../../../README.rst:36
 msgid "events with event calendar (via Zinnia)"
 msgstr "Veranstaltungskalender (via Zinnia)"
 
-# 81f9341867ed43a9b638f441e6f90f63
-#: ../../../README.rst:29
+# 7895ac390d8e42f6b666ca7c4062317b
+#: ../../../README.rst:37
 msgid "flexible contact pages (cmsplugin)"
 msgstr "flexibles Kontaktformular (cmsplugin)"
 
-# 94c3fc549490440a8f507da177d458c7
-#: ../../../README.rst:30
+# 115ae56347354606bea1ce3a76d3a574
+#: ../../../README.rst:38
 msgid "link collection pages"
 msgstr "Seiten für Linksammlungen"
 
-# 4e3e2bfa84014d918eef9c9aecc402cf
-#: ../../../README.rst:31
+# 1f7ce29a03c047febea79a0b4121b5e3
+#: ../../../README.rst:39
 msgid "full-featured newsletter (Emencia)"
 msgstr "leistungsstarker Newsletter (Emencia)"
 
-# d7df00f512b54062a9cdcc182af9f839
-#: ../../../README.rst:32
-msgid "user profiles and social login (allauth)"
+# 61e84959bcb34b4bac0622b24441b257
+#: ../../../README.rst:40
+msgid "todo/issue lists"
 msgstr ""
 
-# f730c6ba183e4c49a787e8e7addffeb3
-#: ../../../README.rst:33
+# 09aefb6f5e6444208b5cf73d722cde10
+#: ../../../README.rst:41
+msgid "social login and user profiles (allauth)"
+msgstr ""
+
+# 821c6b9795cc4853a1f6f1abc13c0de8
+#: ../../../README.rst:42
+msgid "generic analytics support (analytical)"
+msgstr ""
+
+# cc410a870daa41b7880a9321d6ff97b5
+#: ../../../README.rst:43
 msgid "multi-language support"
 msgstr "Mehrsprachenfähigkeit"
 
-# 2ee8828314eb4e97b264d4d9f962843f
-#: ../../../README.rst:34
+# 4ac92e9d32b84bf6b600ef4b8e70bbab
+#: ../../../README.rst:44
 msgid "multiple websites support"
 msgstr "Multi-Websitefähigkeit"
 
-# b28d6d15cccd42019d62f238ed5c4b26
-#: ../../../README.rst:35
-msgid "database support for PostgreSQL, MySQL, and more"
-msgstr "Datenbankunterstützung für PostgreSQL, MySQL u.v.m."
-
-# 7286976547fb4daca90602ce750c0cd3
-#: ../../../README.rst:37
-msgid "Features on the roadmap include:"
-msgstr "Geplante Funktionen sind u.a.:"
-
-# b94d7786532745bb94b44c598cdf2703
-#: ../../../README.rst:39
-msgid "group spaces with automatic mailing list (group_name@yoursite.tld)"
+# 450d503974a5438f84e8eca3db793517
+#: ../../../README.rst:45
+msgid "database support for PostgreSQL, MySQL, Oracle, and more"
 msgstr ""
 
-# 012bf25f18c9483eac1d8dd921baa24e
-#: ../../../README.rst:40
-msgid "issue list / task management"
+# 5f528fcf69da43ffbef8d3b1a6d3e3df
+#: ../../../README.rst:48
+msgid "Roadmap"
 msgstr ""
 
-# 6f55c32b5e2542e18e87daf61ba52f86
-#: ../../../README.rst:41
+# 2d101a9c3ba14adf80fd204a70597041
+#: ../../../README.rst:50
+msgid "We are thrilled to get these awesome features out to you:"
+msgstr ""
+
+# e2347c943fe242cc8ac8f6e23a1780aa
+#: ../../../README.rst:52
+msgid "group spaces with automatic mailing list (groupname@example.com)"
+msgstr ""
+
+# 34f33c5469f84764970dcdce6a499469
+#: ../../../README.rst:53
 msgid "documentation area / wiki (probably by use of CMS functionality)"
 msgstr ""
 
-# 0dedea83d55e499699080e73058ee978
-#: ../../../README.rst:42
+# ac332919483d4df5adae74af61cb45a6
+#: ../../../README.rst:54
 msgid "discussion forum / Q&A board (Askbot, Misago)"
 msgstr ""
 
-# 608fc934681f492c9f2f42ed1ba283c8
-#: ../../../README.rst:43
+# a086fc22e3764c8fa1812567319bd265
+#: ../../../README.rst:55
 msgid "content download for magazine generation"
 msgstr ""
 
-# 4b6bec813fb44064b05040bfd7346a97
-#: ../../../README.rst:44
+# 73621524c29a4989a9a95839d9d2bf85
+#: ../../../README.rst:56
 msgid "unobtrusive, integrated, transparent document and asset management"
 msgstr ""
 
-# f60650b7883440ecbe58620b217837c8
-#: ../../../README.rst:45
-msgid "DropBox, OneDrive, Google Drive, iCloud, Ubuntu One, etc. integration"
+# 8903c494872b480f81f85913618a368f
+#: ../../../README.rst:57
+msgid ""
+"DropBox, ownCloud, Windows OneDrive, Google Drive, Apple iCloud, etc. "
+"integration"
 msgstr ""
 
-# f937f3f84c6549f980802932af019426
-#: ../../../README.rst:46
+# 4c2d8825929c4807bf8f690ab81990ee
+#: ../../../README.rst:58
 msgid "fully integrated search (Haystack)"
 msgstr ""
 
-# 0bc609328e8e4334b9cd14d22c1679a3
-#: ../../../README.rst:47
+# c9412b6e33fb4a7cbb89561a64bc8cd6
+#: ../../../README.rst:59
 msgid "web analytics respecting your privacy (Piwik)"
 msgstr ""
 
-# 0ca5d16f996c4591868989d20a0affab
-#: ../../../README.rst:48
+# 66f4d5f9f09440c0b137190e15dbbd54
+#: ../../../README.rst:60
 msgid "live chat or chat integration"
 msgstr ""
 
-# 68f13a1c9a964e0681b5172d9af44b1f
-#: ../../../README.rst:51
+# 5673c261e4a840949510ba4a517da140
+#: ../../../README.rst:63
 msgid "Who is using django Organice?"
 msgstr "Wer benutzt django Organice?"
 
-# 4dc1cc807cc44947a9f59e22df922957
-#: ../../../README.rst:53
+# b1ca315ccb9f42a2a0d95d5a4a4efc13
+#: ../../../README.rst:65
 msgid "Examples of websites running django Organice:"
 msgstr "Beispiele von Websites, die auf django Organice laufen:"
 
-# a82b126b6d984bac977da8db245b9c02
-#: ../../../README.rst:55
+# 4d2edb7486e04fa5a1c27de52360b948
+#: ../../../README.rst:67
 msgid "`Kreuzlingen Rudolf Steiner school`_"
 msgstr "`Rudolf Steiner Schule Kreuzlingen`_"
 
-# 5ada61afe6d741a39579969d597f3f2b
-#: ../../../README.rst:58
+# f2f588f1cb9b40568242486aa20ce36c
+#: ../../../README.rst:70
 msgid "Download and Contributions"
 msgstr ""
 
-# edef6140b1024ee4bd86564bd179f981
-#: ../../../README.rst:60
+# aed8845be2bf42be99e6e0c42ac2df41
+#: ../../../README.rst:72
 msgid "Official repositories: (kept in sync)"
 msgstr ""
 
-# f9bf7ea81a91444d9fe225d035be8e55
-#: ../../../README.rst:62
+# d0a910dfa7f647d0bd84312e40d7d5c9
+#: ../../../README.rst:74
 msgid "Bitbucket: https://bitbucket.org/bittner/django-organice"
 msgstr "Bitbucket: https://bitbucket.org/bittner/django-organice"
 
-# 842a82af90b042338eaaa828f86b003a
-#: ../../../README.rst:63
+# bf89afaea43347adac75978d4785553e
+#: ../../../README.rst:75
 msgid "GitHub: https://github.com/bittner/django-organice"
 msgstr "GitHub: https://github.com/bittner/django-organice"
 
-# bc363213595a45d69faae72fd17a48e9
-#: ../../../README.rst:66
+# 373f2269190a44db921541512810fb92
+#: ../../../README.rst:78
 msgid "Getting Help"
 msgstr ""
 
-# b0f66c0179f248d8ab5e39d703e3a375
-#: ../../../README.rst:68
+# 20c542e348fa486cb198c1a79b0dce24
+#: ../../../README.rst:80
 msgid "Documentation is available at http://docs.organice.io"
 msgstr "Dokumentation ist verfügbar unter http://docs.organice.io"
 
-# 83b3e19a683e4ef8bf56f27b3a41914c
-#: ../../../README.rst:69
+# c55eb2d26f1242f7aa7f5bdf98f5ac67
+#: ../../../README.rst:81
 msgid ""
 "Questions? Please use StackOverflow_.  Tag your questions with ``django-"
 "organice``."
 msgstr ""
 
-# 75ec4193714e4d68a16aefdef22f6bf8
-#: ../../../README.rst:70
+# ba0cfa29df77452eabb5e36efda64ade
+#: ../../../README.rst:82
 msgid ""
 "Found a bug? Please use either the Bitbucket_ or GitHub_ issue tracker (you "
 "choose)"

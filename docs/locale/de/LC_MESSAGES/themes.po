@@ -1,0 +1,119 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: django Organice 0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-04 00:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../themes.rst:3
+msgid "Themes"
+msgstr ""
+
+#: ../../themes.rst:5
+msgid ""
+"One of the nice things of django Organice is that themes are handled as "
+"separate projects.  In fact, they are pluggable Django apps composed of "
+"assets and templates that you can simply install and activate."
+msgstr ""
+
+#: ../../themes.rst:9
+msgid "Official Themes"
+msgstr ""
+
+#: ../../themes.rst:11
+msgid "Here is a list of django Organice themes officially supported by us:"
+msgstr ""
+
+#: ../../themes.rst:13
+msgid "RSSK Theme: `django-organice-theme-rssk`_"
+msgstr ""
+
+#: ../../themes.rst:14
+msgid "Fullpage Theme: `django-organice-theme-fullpage`_"
+msgstr ""
+
+#: ../../themes.rst:16
+msgid ""
+"If you have a nice theme and would like to include it in this list `let us "
+"know by e-mail`_ or make a pull request on this page of the documentation."
+msgstr ""
+
+#: ../../themes.rst:20
+msgid "Mother Theme"
+msgstr ""
+
+#: ../../themes.rst:22
+msgid ""
+"``django-organice-theme`` is the mother of all themes for django Organice.  "
+"This theme is installed automatically when you install django Organice.  "
+"From the development perspective all themes are derived from the mother "
+"theme, which contains a collection of static files (assets) and templates, "
+"as well as a ``Makefile`` for asset management. The mother theme is composed"
+" of:"
+msgstr ""
+
+#: ../../themes.rst:27
+msgid "`bootstrap-sass`_ (Sass version of Twitter Bootstrap v3)"
+msgstr ""
+
+#: ../../themes.rst:28
+msgid "`Compass`_ (CSS authoring framework using Sass)"
+msgstr ""
+
+#: ../../themes.rst:29
+msgid "`UglifyJS v2`_ (JavaScript minifier)"
+msgstr ""
+
+#: ../../themes.rst:31
+msgid ""
+"The ``Makefile`` also supports you with updating those components on your "
+"development system."
+msgstr ""
+
+#: ../../themes.rst:34
+msgid "Rolling Your Own Theme"
+msgstr ""
+
+#: ../../themes.rst:36
+msgid "Preparations:"
+msgstr ""
+
+#: ../../themes.rst:38
+msgid ""
+"Visit http://organice.io/themes and find a theme that is as close as it gets"
+" of what you want."
+msgstr ""
+
+#: ../../themes.rst:39
+msgid ""
+"Go to that theme's repository page, make a copy of the whole project, and "
+"rename it (e.g. to ``mytheme``)."
+msgstr ""
+
+#: ../../themes.rst:41
+msgid "Loop until you're happy:"
+msgstr ""
+
+#: ../../themes.rst:43
+msgid ""
+"Add or adapt the style sheet (``.scss``), JavaScript (``.js``), and other "
+"files in ``mytheme/static/``."
+msgstr ""
+
+#: ../../themes.rst:44
+msgid ""
+"Run ``make assets`` in order to compile the Sass files to CSS, and combine "
+"and minify both CSS und JavaScript."
+msgstr ""
+
+#: ../../themes.rst:45
+msgid ""
+"Adapt the template files in ``mytheme/templates/``, and test the results on "
+"your development system."
+msgstr ""

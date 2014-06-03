@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-24 20:55+0100\n"
-"PO-Revision-Date: 2014-03-12 22:33+0000\n"
+"POT-Creation-Date: 2014-06-04 00:59+0200\n"
+"PO-Revision-Date: 2014-03-27 20:17+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# fcb4c05786324e95b427b4d3ae08b351
+# 49432751843742c9bb918c05e236f81c
 #: ../../index.rst:6
 msgid "Welcome to django Organice documentation!"
 msgstr "Willkommen zur Dokumentation von django Organice!"
 
-# c279b9df31614f8598ecc86e0866c301
+# e36af922bb4140898e33d2e08a1be3bd
 #: ../../index.rst:8
 msgid "Contents:"
 msgstr "Inhalt:"
 
-# ba3ca75408a24f81afe66322e9c21e42
-#: ../../index.rst:24
+# 12a66e59bc7e4566b8f05247823de21c
+#: ../../index.rst:25
 msgid "Indices and tables"
 msgstr "Verzeichnisse und Tabellen"
 
-# 3c0c3041190d42ea97337aa652eebb8f
-#: ../../index.rst:26
+# 13b350ac71604ef491a5e78bc65cd6f4
+#: ../../index.rst:27
 msgid ":ref:`genindex`"
 msgstr ":ref:`genindex`"
 
-# b279fc6b370b40998d54d3153ba4b45a
-#: ../../index.rst:27
+# 0aaacb90c68f4d5bb7e8c309997c5890
+#: ../../index.rst:28
 msgid ":ref:`modindex`"
 msgstr ":ref:`modindex`"
 
-# a100b64d8cc24e84aa74dc6be35b22d8
-#: ../../index.rst:28
+# d173c3d04b49491e958c5f27ca5a5f51
+#: ../../index.rst:29
 msgid ":ref:`search`"
 msgstr ":ref:`search`"

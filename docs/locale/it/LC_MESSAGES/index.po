@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
+# Tania Monti <tania.monti@gmx.it>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-24 20:55+0100\n"
-"PO-Revision-Date: 2014-03-12 15:29+0000\n"
-"Last-Translator: Peter Bittner <django@bittner.it>\n"
+"POT-Creation-Date: 2014-06-04 00:59+0200\n"
+"PO-Revision-Date: 2014-04-08 07:16+0000\n"
+"Last-Translator: Tania Monti <tania.monti@gmx.it>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/django-organice-docs/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,32 +18,32 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# fcb4c05786324e95b427b4d3ae08b351
+# 49432751843742c9bb918c05e236f81c
 #: ../../index.rst:6
 msgid "Welcome to django Organice documentation!"
-msgstr ""
+msgstr "Benvenuti nella documentazione di django Organice!"
 
-# c279b9df31614f8598ecc86e0866c301
+# e36af922bb4140898e33d2e08a1be3bd
 #: ../../index.rst:8
 msgid "Contents:"
-msgstr ""
+msgstr "Contenuti:"
 
-# ba3ca75408a24f81afe66322e9c21e42
-#: ../../index.rst:24
+# 12a66e59bc7e4566b8f05247823de21c
+#: ../../index.rst:25
 msgid "Indices and tables"
-msgstr ""
+msgstr "Indici e tabelle"
 
-# 3c0c3041190d42ea97337aa652eebb8f
-#: ../../index.rst:26
-msgid ":ref:`genindex`"
-msgstr ""
-
-# b279fc6b370b40998d54d3153ba4b45a
+# 13b350ac71604ef491a5e78bc65cd6f4
 #: ../../index.rst:27
-msgid ":ref:`modindex`"
-msgstr ""
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
 
-# a100b64d8cc24e84aa74dc6be35b22d8
+# 0aaacb90c68f4d5bb7e8c309997c5890
 #: ../../index.rst:28
+msgid ":ref:`modindex`"
+msgstr ":ref:`modindex`"
+
+# d173c3d04b49491e958c5f27ca5a5f51
+#: ../../index.rst:29
 msgid ":ref:`search`"
-msgstr ""
+msgstr ":ref:`search`"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-24 20:55+0100\n"
-"PO-Revision-Date: 2014-03-19 12:25+0000\n"
+"POT-Creation-Date: 2014-06-04 00:59+0200\n"
+"PO-Revision-Date: 2014-06-03 22:57+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/django-organice-docs/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 48b60df192e944b49175c0727fe44bdf
+# 8d70330dae74495fa8c75fa20bc00ae9
 #: ../../configuration.rst:3
 msgid "Configuration"
 msgstr ""
 
-# 898a101cbb404d4c9c50e8b786e34e72
+# 6750de0ca0e2405b97043faffcc63435
 #: ../../configuration.rst:5
 msgid ""
 "django Organice comes with sensible defaults for almost anything.  Yet "
@@ -30,29 +30,29 @@ msgid ""
 "in this section."
 msgstr ""
 
-# 405cf7a8ef7945e9bdb8eff5cc0a118d
+# 85b688fe68884ea9a4df5f56c5807c3a
 #: ../../configuration.rst:11
 msgid "Settings"
 msgstr ""
 
-# 73fac23ceb234f0ea176d4800fc4ebec
+# 5af3b284e2c84e61acdbeecd06e8c78a
 #: ../../configuration.rst:13
 msgid ""
 "You may define any of the following options in your project's ``settings`` "
 "to override the default value."
 msgstr ""
 
-# aef267254c034143ad2a8e3e1b2d1034
+# c71f3c768b434ddcae86400492d005cc
 #: ../../configuration.rst:16
 msgid "ORGANICE_URL_PATH_ADMIN"
 msgstr ""
 
-# 03fb08fe665f47d3b522fcf661d135a7
+# 4416237e08da45dd8591ae482cc9b283
 #: ../../configuration.rst:17
 msgid "``admin``"
 msgstr ""
 
-# 0468b4708d804e1987d51318700bd7ac
+# 6bbb892b46f046c5a120dad4fdddc832
 #: ../../configuration.rst:19
 msgid ""
 "The URL path for accessing the Django Administration backend (e.g. "
@@ -60,17 +60,17 @@ msgid ""
 "white space, no leading or trailing slash."
 msgstr ""
 
-# 2d4bb6c4ec8d4d4b8566ccc369eca700
+# df27906346174cc88e7bc24ed224dadd
 #: ../../configuration.rst:23
 msgid "ORGANICE_URL_PATH_BLOG"
 msgstr ""
 
-# d7b8cc6339694848adaf88c88a641364
+# 9abc1dc2ef1741868ebfc73f5fc26fba
 #: ../../configuration.rst:24
 msgid "``blog``"
 msgstr ""
 
-# 30358dead83c454e87ffd7f3c62eec0f
+# 04c3514a88b4440f902010f93715ef6f
 #: ../../configuration.rst:26
 msgid ""
 "The URL path for the blog's start page (e.g. ``www.example.com/blog``).  "
@@ -78,20 +78,58 @@ msgid ""
 "trailing slash."
 msgstr ""
 
-# e06b30871c294118af0c1814b81bbc93
+# 3755a51c6685443fba8b64f66e762955
 #: ../../configuration.rst:30
 msgid "ORGANICE_URL_PATH_NEWSLETTER"
 msgstr ""
 
-# 57dcdd281fdf4c7d95d2b91f98126b08
+# 58c6a56fe67747e09c875110b0801633
 #: ../../configuration.rst:31
 msgid "``newsletter``"
 msgstr ""
 
-# 9e472d69d17e49199778394240e2d52a
+# 09798e6ef2554537b4f71bebd78059fb
 #: ../../configuration.rst:33
 msgid ""
 "The URL path for accessing newsletter functionality on the front-end (e.g. "
 "``www.example.com/newsletter``).  Must be non-empty.  Use an identifier "
 "only, no white space, no leading or trailing slash."
+msgstr ""
+
+# 03d8e803d4ff43afb7c02c39ae98f67f
+#: ../../configuration.rst:37
+msgid "ORGANICE_URL_PATH_TODO"
+msgstr ""
+
+# 587ea0a1aeec43b580edc46c7408df70
+#: ../../configuration.rst:38
+msgid "``todo``"
+msgstr ""
+
+# 4a04f5821037465595a03bc98dd7efb5
+#: ../../configuration.rst:40
+msgid ""
+"The URL path for accessing todo list functionality on the front-end (e.g. "
+"``www.example.com/todo``).  Must be non-empty.  Use an identifier only, no "
+"white space, no leading or trailing slash."
+msgstr ""
+
+# fd451ae32e1c4a0faf8465c1e0c01c0f
+#: ../../configuration.rst:44
+msgid "Third Party Settings"
+msgstr ""
+
+# 1f6df287ffa94fcf9b34dd79fa2cb39c
+#: ../../configuration.rst:47
+msgid "Analytics Providers"
+msgstr ""
+
+# 5f672b88502444e6bf94630815f44759
+#: ../../configuration.rst:49
+msgid ""
+"The analytics services supported by ``django-analytical`` are enabled by "
+"setting various service properties in your settings file.  The properties "
+"are documented in `their documentation`_.  For security reasons you "
+"shouldn't add those to your common settings file, but to "
+"settings/production."
 msgstr ""

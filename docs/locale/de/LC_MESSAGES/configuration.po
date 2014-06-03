@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-27 21:56+0100\n"
-"PO-Revision-Date: 2014-03-27 20:47+0000\n"
+"POT-Creation-Date: 2014-06-04 00:59+0200\n"
+"PO-Revision-Date: 2014-06-03 22:57+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 9bb06d187a1f4369bf05549403be7269
+# 8d70330dae74495fa8c75fa20bc00ae9
 #: ../../configuration.rst:3
 msgid "Configuration"
 msgstr "Konfiguration"
 
-# 48a2cbba3e80489aab0928f8189a7433
+# 6750de0ca0e2405b97043faffcc63435
 #: ../../configuration.rst:5
 msgid ""
 "django Organice comes with sensible defaults for almost anything.  Yet "
@@ -31,29 +31,29 @@ msgid ""
 "in this section."
 msgstr "django Organice kommt mit vernünftigen Vorgabewerten für so gut wie Alles.  Darüber hinaus können Sie sein Verhalten über Django settings anpassen, die hier aufgelistet sind."
 
-# 521d193c22294edc98e7af55d2515a47
+# 85b688fe68884ea9a4df5f56c5807c3a
 #: ../../configuration.rst:11
 msgid "Settings"
 msgstr "Settings"
 
-# 4224b4d080bd4f578ec3c7c083cda626
+# 5af3b284e2c84e61acdbeecd06e8c78a
 #: ../../configuration.rst:13
 msgid ""
 "You may define any of the following options in your project's ``settings`` "
 "to override the default value."
 msgstr "Sie können jede der folgenden Optionen in den ``settings`` Ihres Projekts definieren, um den Vorgabewert zu übersteuern."
 
-# b8fa1449ffd5475fbab50096cd8f03f9
+# c71f3c768b434ddcae86400492d005cc
 #: ../../configuration.rst:16
 msgid "ORGANICE_URL_PATH_ADMIN"
 msgstr "ORGANICE_URL_PATH_ADMIN"
 
-# 69f7bd7b948d4bdbb7479ddbb5d59331
+# 4416237e08da45dd8591ae482cc9b283
 #: ../../configuration.rst:17
 msgid "``admin``"
 msgstr "``admin``"
 
-# 0b69d82da38c4fffba405475caab4ef8
+# 6bbb892b46f046c5a120dad4fdddc832
 #: ../../configuration.rst:19
 msgid ""
 "The URL path for accessing the Django Administration backend (e.g. "
@@ -61,17 +61,17 @@ msgid ""
 "white space, no leading or trailing slash."
 msgstr ""
 
-# c4fbc64349234fc08c0a8f784df90a7c
+# df27906346174cc88e7bc24ed224dadd
 #: ../../configuration.rst:23
 msgid "ORGANICE_URL_PATH_BLOG"
 msgstr "ORGANICE_URL_PATH_BLOG"
 
-# 0607deb3748a48c59447bc6891e06690
+# 9abc1dc2ef1741868ebfc73f5fc26fba
 #: ../../configuration.rst:24
 msgid "``blog``"
 msgstr "``blog``"
 
-# 8c33fa4dbee0480c8a30ca7eb11a25f2
+# 04c3514a88b4440f902010f93715ef6f
 #: ../../configuration.rst:26
 msgid ""
 "The URL path for the blog's start page (e.g. ``www.example.com/blog``).  "
@@ -79,20 +79,58 @@ msgid ""
 "trailing slash."
 msgstr ""
 
-# 568007b47b5e4033a9029bb81dd6d722
+# 3755a51c6685443fba8b64f66e762955
 #: ../../configuration.rst:30
 msgid "ORGANICE_URL_PATH_NEWSLETTER"
 msgstr "ORGANICE_URL_PATH_NEWSLETTER"
 
-# 5b6c7b5465654ad39f0aa97629bbfc4d
+# 58c6a56fe67747e09c875110b0801633
 #: ../../configuration.rst:31
 msgid "``newsletter``"
 msgstr "``newsletter``"
 
-# ab4af53930da48deb40089c286440fe5
+# 09798e6ef2554537b4f71bebd78059fb
 #: ../../configuration.rst:33
 msgid ""
 "The URL path for accessing newsletter functionality on the front-end (e.g. "
 "``www.example.com/newsletter``).  Must be non-empty.  Use an identifier "
 "only, no white space, no leading or trailing slash."
+msgstr ""
+
+# 03d8e803d4ff43afb7c02c39ae98f67f
+#: ../../configuration.rst:37
+msgid "ORGANICE_URL_PATH_TODO"
+msgstr ""
+
+# 587ea0a1aeec43b580edc46c7408df70
+#: ../../configuration.rst:38
+msgid "``todo``"
+msgstr ""
+
+# 4a04f5821037465595a03bc98dd7efb5
+#: ../../configuration.rst:40
+msgid ""
+"The URL path for accessing todo list functionality on the front-end (e.g. "
+"``www.example.com/todo``).  Must be non-empty.  Use an identifier only, no "
+"white space, no leading or trailing slash."
+msgstr ""
+
+# fd451ae32e1c4a0faf8465c1e0c01c0f
+#: ../../configuration.rst:44
+msgid "Third Party Settings"
+msgstr ""
+
+# 1f6df287ffa94fcf9b34dd79fa2cb39c
+#: ../../configuration.rst:47
+msgid "Analytics Providers"
+msgstr ""
+
+# 5f672b88502444e6bf94630815f44759
+#: ../../configuration.rst:49
+msgid ""
+"The analytics services supported by ``django-analytical`` are enabled by "
+"setting various service properties in your settings file.  The properties "
+"are documented in `their documentation`_.  For security reasons you "
+"shouldn't add those to your common settings file, but to "
+"settings/production."
 msgstr ""
