@@ -289,8 +289,8 @@ def _configure_authentication():
                           "    'allauth.account.auth_backends.AuthenticationBackend',",
                           ')')
     settings.set_value('common', 'LOGIN_REDIRECT_URL', "'/'")
-    settings.set_value('common', 'EMAIL_BACKEND', "'django.core.mail.backends.console.EmailBackend'")
     settings.set_value('common', 'SERVER_EMAIL', "'noreply@example.com'")
+    settings.set_value('develop', 'EMAIL_BACKEND', "'django.core.mail.backends.console.EmailBackend'")
 
 
 def _configure_cms():
