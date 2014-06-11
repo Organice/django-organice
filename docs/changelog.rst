@@ -2,6 +2,8 @@
 CHANGELOG
 =========
 
+:Changes: https://github.com/bittner/django-organice/compare/v0.2...HEAD
+
 0.2
 ===
 
@@ -20,7 +22,7 @@ CHANGELOG
 - Added todo lists (django-todo)
 - Added generic analytics (django-analytical)
 
-:Changes: https://github.com/bittner/django-organice/compare/v0.1...HEAD
+:Changes: https://github.com/bittner/django-organice/compare/v0.1...v0.2
 :Packages: https://github.com/bittner/django-organice/blob/v0.2/docs/requirements.txt
 
 0.1
