@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-04 00:59+0200\n"
+"POT-Creation-Date: 2014-06-11 15:35+0200\n"
 "PO-Revision-Date: 2014-03-27 20:56+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
@@ -17,38 +17,38 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 04719a1cfe2f4df8b368366aa5321c3b
+# ac7cdde60e284263b24a5ce7b132c1a4
 #: ../../components.rst:3
 msgid "User Manual"
 msgstr ""
 
-# e5a379b3e6774c8fb52224571a6c43be
+# e064d909317c4d1ebe907b76daf8f7be
 #: ../../components.rst:5
 msgid "django Organice is composend of the following main components:"
 msgstr ""
 
-# 237d28c849e9456b87d140c869a48ffa
+# f9b559e985874066bbffea4a7b97d532
 #: ../../components.rst:7
 msgid "Content Management (Cms)"
 msgstr ""
 
-# a73ab9675cf445f597160d6f012a8dca
+# 80ff5767b87c436f9282a3dcf651a572
 #: ../../components.rst:8
 msgid "Blog (Zinnia)"
 msgstr ""
 
-# 99770dc69a534f21b1e37867b808fa5d
-# de9901a436f24dda93f25659be303cc7
+# a174b13bd4c14fc1a7ce5329332840be
+# 8371548a2c44477089331a23745f1159
 #: ../../components.rst:9 ../../components.rst:42
 msgid "Newsletter"
 msgstr ""
 
-# 57d2c4160db649b8bb2117f9114d0a1d
+# 6e399928c4a8421a872ab7ff31dea9ce
 #: ../../components.rst:12
 msgid "Content Management"
 msgstr ""
 
-# 02af741a33c74227bd19bee92b481140
+# bb78a3845f294f0288194bdf3cb8bbdc
 #: ../../components.rst:14
 msgid ""
 "Editing your website is not much different from surfing the web.  When "
@@ -58,7 +58,7 @@ msgid ""
 " add and edit content in those areas."
 msgstr ""
 
-# 4d8beeefb42f4f469f1593fd774a4883
+# 830ea826b4394c83916a1e5194402a6a
 #: ../../components.rst:18
 msgid ""
 "You can safely modify content on the page without the website to change.  "
@@ -67,7 +67,7 @@ msgid ""
 "django CMS toolbar to make your version visible to the world."
 msgstr ""
 
-# 626fa193e3d04c0c941bb8d35b7527bb
+# e53c4ecb341b4d9cbf41d30d575cbc53
 #: ../../components.rst:22
 msgid ""
 "For more technical tasks like creating a navigation structure, adding pages,"
@@ -76,12 +76,12 @@ msgid ""
 " out the (slightly outdated) django CMS `video on frontend-editing`_."
 msgstr ""
 
-# 7173959525b8430aadb04da7a183534c
+# 66bde9c8a9754178b0facdc93711742a
 #: ../../components.rst:27
 msgid "Blog"
 msgstr ""
 
-# e26f9b6e5aaf46619f0dfe7726a14fa6
+# f14ae8a48f7445c1afa485c167923fef
 #: ../../components.rst:29
 msgid ""
 "Writing and publishing interesting articles now and then is called "
@@ -91,7 +91,7 @@ msgid ""
 " daily), related entries, RSS feeds, etc."
 msgstr ""
 
-# a8d60e1491934027a6024b1abeefc787
+# d8f7828d739c477597f2f1341de61db7
 #: ../../components.rst:33
 msgid ""
 "On your website you simply go to the Blog area, and click on the \"Add\" "
@@ -103,7 +103,7 @@ msgid ""
 "immediately visible online."
 msgstr ""
 
-# 147bbdf29db148e79d569ff78b1bf9c7
+# 7ea9bc40c07546ac949d0a199b33c4e3
 #: ../../components.rst:38
 msgid ""
 "Note that in django Organice we also use the blog functionality for other "
@@ -111,7 +111,7 @@ msgid ""
 "agendas, job postings, press releases, download lists, etc."
 msgstr ""
 
-# 575a1142d1bd476aa8a2c99bc2f013ad
+# 7573bb346f7c4b47929124976c2843d5
 #: ../../components.rst:44
 msgid ""
 "Sending out news or updates to a circle of friends or customers is managed "
@@ -121,7 +121,7 @@ msgid ""
 "to the Newsletter section in Django administration."
 msgstr ""
 
-# 2f6a0b1252a8495ab687577aeb2370dc
+# 3d0f70543cfa4e1ab0aa583f0c26f0ee
 #: ../../components.rst:48
 msgid ""
 "This component has a couple of powerful features.  It's best explained "

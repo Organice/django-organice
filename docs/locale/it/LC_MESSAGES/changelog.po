@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-04 00:59+0200\n"
-"PO-Revision-Date: 2014-06-03 22:57+0000\n"
+"POT-Creation-Date: 2014-06-11 15:35+0200\n"
+"PO-Revision-Date: 2014-06-11 13:35+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/django-organice-docs/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -17,129 +17,135 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# c60c596bb4e749858234b5fd69dd4a52
+# 0c66118ba355425383947805510772a4
 #: ../../changelog.rst:3
 msgid "CHANGELOG"
 msgstr ""
 
-# 7f6079c86fa04bebade55b861485bb6a
-#: ../../changelog.rst:6
+# fd3bb8a169cb422e9941907773ca7396
+#: ../../changelog.rst:5
+msgid "https://github.com/bittner/django-organice/compare/v0.2...HEAD"
+msgstr ""
+
+# 9ca34fd4a4f74453a10b0d697276d95b
+#: ../../changelog.rst:8
 msgid "0.2"
 msgstr ""
 
-# 0e94c6764fa042bd9b82c3997c3ce66c
-#: ../../changelog.rst:8
+# a101069567cb44e7b9e916cd668e0010
+#: ../../changelog.rst:10
 msgid "Project-level Makefile"
 msgstr ""
 
-# d66c83c778674f32a349d5f01cfc693b
-#: ../../changelog.rst:9
+# 4fa1d475ca0b43f98c8a1f2565a6ace8
+#: ../../changelog.rst:11
 msgid ""
 "Automation of translation processes with Transifex (for documentation only)"
 msgstr ""
 
-# 8f55494f7fdf49c8a9862ac792ce6ce5
-#: ../../changelog.rst:10
+# eedbd9174e44437f8ca3fd24324a9b6b
+#: ../../changelog.rst:12
 msgid "New options for settings (``ORGANICE_URL_PATH_``...)"
 msgstr ""
 
-# b013e732c505479ca335d20ee0b1bca2
-#: ../../changelog.rst:11
+# e992bab05a054a83858d7eec29ba82a1
+#: ../../changelog.rst:13
 msgid "Newsletter editor configuration, newsletter template sample"
 msgstr ""
 
-# 0ec33ff412994956bfb60714887e9f32
-#: ../../changelog.rst:12
+# fc7b4ac83b784036a89bc397c3145286
+#: ../../changelog.rst:14
 msgid "Added social login and user profiles (django-allauth)"
 msgstr ""
 
-# c3e3fe7ec55646a3bb0785f523d2382f
-#: ../../changelog.rst:13
+# bd34feb18f4045b499284cc378584763
+#: ../../changelog.rst:15
 msgid "Added assets pipeline (bootstrap-sass, Compass, UglifyJS v2)"
 msgstr ""
 
-# a6d71017d2cb452c8d87f93a44e3e0ef
-#: ../../changelog.rst:14
+# d455f646c8cf4ed682ae20b3c8e3b6d5
+#: ../../changelog.rst:16
 msgid "Upgraded jQuery to v1.11.0, template overhaul with Bootstrap"
 msgstr ""
 
-# 662bd3dd20d847f9988f8b48a0b78101
-#: ../../changelog.rst:15
+# b9ba88c694014f76817abfbafab058e3
+#: ../../changelog.rst:17
 msgid "Added language selection dropdown menu"
 msgstr ""
 
-# 48efd7bfb94d446ca6ed5082efd8c643
-#: ../../changelog.rst:16
+# 2f23c8c6322c47a29b3269a7bd2f8ed4
+#: ../../changelog.rst:18
 msgid ""
 "Migrated theme data (templates, styles, and javascript) and assets pipeline "
 "to separate projects"
 msgstr ""
 
-# 6b11e2be6583408b82450eae79a464e6
-#: ../../changelog.rst:18
+# 4715a94dd5b340868cff0b2ba41a0109
+#: ../../changelog.rst:20
 msgid ""
 "Generation of server configuration (lighttpd) and more options in organice-"
 "setup"
 msgstr ""
 
-# b50077fdc80942c98030bed9bfcc5e70
-#: ../../changelog.rst:19
+# dcbac8249870448bb0ac6206a16e6f1c
+#: ../../changelog.rst:21
 msgid "Added media management (django-media-tree)"
 msgstr ""
 
-# 567bd7659f05444282dd6c539300582a
-#: ../../changelog.rst:20
+# f200eac8cffa4946b577a36b58b811d3
+#: ../../changelog.rst:22
 msgid "Added todo lists (django-todo)"
 msgstr ""
 
-# 48245debc9a64e1aac4160e9a022363e
+# 133bbc0401eb46139b9d051ec4306db5
 #: ../../changelog.rst:23
-msgid "https://github.com/bittner/django-organice/compare/v0.1...HEAD"
+msgid "Added generic analytics (django-analytical)"
 msgstr ""
 
-# 5a11ecbb5dd4415fbe19c3bc493f65ac
-#: ../../changelog.rst:24
+# 3bc532457e424da8a5d981a11c92c42a
+#: ../../changelog.rst:25
+msgid "https://github.com/bittner/django-organice/compare/v0.1...v0.2"
+msgstr ""
+
+# fbf2150802174ddaa0570033988d1887
+#: ../../changelog.rst:26
 msgid ""
 "https://github.com/bittner/django-organice/blob/v0.2/docs/requirements.txt"
 msgstr ""
 
-# a596b5ee0e65444b857e28fb75d388b2
-#: ../../changelog.rst:27
+# eb71cad42c074c0b89637e2343c7e8e6
+#: ../../changelog.rst:29
 msgid "0.1"
 msgstr ""
 
-# 939a9637da3a4b49ac34bfd89f07a0f4
-#: ../../changelog.rst:29
+# 97c6abfe4af54b42905bb0b248f1cd6b
+#: ../../changelog.rst:31
 msgid "Initial release"
 msgstr ""
 
-# d24b90b1b9aa444b9f7e156fe928fb97
-#: ../../changelog.rst:30
+# f7d87d45651f494f896cc8cc6c4f0b10
+#: ../../changelog.rst:32
 msgid ""
 "Based on Django 1.5.5, django CMS 2.4.3, Zinnia blog 0.13, Emencia "
 "newsletter 0.3.dev"
 msgstr ""
 
-# a32da40d469f4b56afaddcfb2dab0a8f
-#: ../../changelog.rst:31
+# 114e717d61ed4aeca3246803d4289b9e
+#: ../../changelog.rst:33
 msgid ""
 "A more natural i18n mechanism than vanilla Django, no language prefix for "
 "default language"
 msgstr ""
 
-# a1c6f7a01a934527a9b8a6fd2947b7bf
-#: ../../changelog.rst:32
+# 5fb1917a95384a6ea52234e30e5ae0be
+#: ../../changelog.rst:34
 msgid ""
 "Setup script with project generation, deployment settings, custom templates,"
 " Bootstrap 3"
 msgstr ""
 
-# 7b44f73b2e7b4301a3855bf618da6b1c
-#: ../../changelog.rst:34
+# f659d7070ec04c50b8e034258835cc15
+#: ../../changelog.rst:36
 msgid ""
 "https://github.com/bittner/django-organice/blob/v0.1/docs/requirements.txt"
-msgstr ""
-
-#: ../../changelog.rst:21
-msgid "Added generic analytics (django-analytical)"
 msgstr ""
