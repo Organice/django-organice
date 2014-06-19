@@ -10,7 +10,8 @@ from .settings import URL_PATH_ADMIN, URL_PATH_NEWSLETTER, URL_PATH_BLOG, URL_PA
 
 admin.autodiscover()
 
-urlpatterns = solid_i18n_patterns('',
+urlpatterns = solid_i18n_patterns(
+    '',
     url(r'^' + URL_PATH_ADMIN + '/', include(admin.site.urls)),
     url(r'^' + URL_PATH_NEWSLETTER + '/', include('emencia.django.newsletter.urls.newsletter')),
     url(r'^' + URL_PATH_NEWSLETTER + '/', include('emencia.django.newsletter.urls.mailing_list')),

@@ -16,7 +16,6 @@
 """
 Setup script for starting a django Organice project.
 """
-from decimal import _ContextManager
 from organice.management.settings import DjangoModuleManager, DjangoSettingsManager
 from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH
 from subprocess import call
@@ -115,7 +114,7 @@ def _create_project():
             f.seek(0)
             f.truncate()
             for line in lines:
-                if not 'import os' in line and not 'DJANGO_SETTINGS_MODULE' in line:
+                if 'import os' not in line and 'DJANGO_SETTINGS_MODULE' not in line:
                     f.write(line)
 
     print('Creating directories ...')
@@ -428,7 +427,7 @@ def _generate_webserver_conf():
         settings.delete_var('common', 'WSGI_APPLICATION')
         settings.append_lines('common',
                               '# Override the server-derived value of SCRIPT_NAME',
-                              '# See http://code.djangoproject.com/wiki/BackwardsIncompatibleChanges#lighttpdfastcgiandothers',
+                              '# See http://code.djangoproject.com/wiki/BackwardsIncompatibleChanges#lighttpdfastcgiandothers',  # noqa
                               "FORCE_SCRIPT_NAME = ''")
         settings.move_var('common', profiles, 'FORCE_SCRIPT_NAME')
 
