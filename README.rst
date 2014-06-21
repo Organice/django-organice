@@ -40,6 +40,7 @@ Major components of django Organice are:
 - todo/issue lists
 - social login and user profiles (allauth)
 - generic analytics support (analytical)
+- multiple themes (django-organice-theme_)
 - multi-language support
 - multiple websites support
 - database support for PostgreSQL, MySQL, Oracle, and more
@@ -83,6 +84,7 @@ Getting Help
 
 
 .. _`Django Web framework`: https://www.djangoproject.com/
+.. _django-organice-theme: ../../../../bittner/django-organice-theme
 .. _`Kreuzlingen Rudolf Steiner school`: http://www.rssk.ch/
 .. _StackOverflow: http://stackoverflow.com/questions/tagged/django-organice
 .. _Bitbucket: https://bitbucket.org/bittner/django-organice/issues
