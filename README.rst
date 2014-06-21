@@ -84,7 +84,7 @@ Getting Help
 
 
 .. _`Django Web framework`: https://www.djangoproject.com/
-.. _django-organice-theme: ../../../../bittner/django-organice-theme
+.. _django-organice-theme: https://pypi.python.org/pypi/django-organice-theme
 .. _`Kreuzlingen Rudolf Steiner school`: http://www.rssk.ch/
 .. _StackOverflow: http://stackoverflow.com/questions/tagged/django-organice
 .. _Bitbucket: https://bitbucket.org/bittner/django-organice/issues
