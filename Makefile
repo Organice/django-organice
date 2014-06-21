@@ -70,6 +70,7 @@ release: setuptools clean requirements
 requirements: setuptools undevelop
 # NOTE: we must filter out erroneously listed globally installed packages on Ubuntu
 	pip freeze | sed -e '/^argparse/d' -e '/^wsgiref/d' > $(REQUIREMENTS)
+	$(MAKE) develop
 	git diff $(REQUIREMENTS)
 
 setuptools:
