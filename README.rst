@@ -59,6 +59,7 @@ We are thrilled to get these awesome features out to you:
 - fully integrated search (Haystack)
 - web analytics respecting your privacy (Piwik)
 - live chat or chat integration
+- surveys (django-crowdsourcing, ntusurvey)
 
 Who is using django Organice?
 =============================
