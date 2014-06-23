@@ -21,6 +21,7 @@ from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH
 from subprocess import call
 import django.conf
 import django.template
+import errno
 import os
 import sys
 
@@ -30,6 +31,31 @@ args = None
 profiles = None
 projectname = None
 settings = None
+
+
+def safe_delete(filename):
+    """
+    Make a best-effort delete without raising an exception when file didn't
+    exist (no race condition). All other errors raise their usual exception.
+    """
+    try:
+        os.remove(filename)
+    except OSError as e:
+        if e.errno != errno.ENOENT:  # no such file
+            raise  # re-raise exception for any other error
+
+
+def safe_rename(source, target):
+    """
+    Perform a forced rename of a file, overwriting an existing target.
+    If the source file doesn't exist the target is simply deleted.
+    """
+    safe_delete(target)
+    try:
+        os.rename(source, target)
+    except OSError as e:
+        if e.errno != errno.ENOENT:  # no such file
+            raise  # re-raise exception for any other error
 
 
 def adding_settings_for(section):
@@ -88,34 +114,46 @@ def _evaluate_command_line():
 
 def _create_project():
     global args
-    global profiles
     global projectname
-    global settings
 
+    manage_script_name = 'manage.py'
+    manage_delete_name = 'manage.py~deleted'
     mode0755 = S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH
-    profiles = ('develop', 'staging', 'production')
-    filenames = ('__init__', 'common') + profiles
 
     if args.manage == 'multi':
-        if os.path.isfile('manage.py'):
+        if os.path.isfile(manage_script_name):
             print('Deleting manage.py to allow multi-settings platform setup ...')
-            os.unlink('manage.py')
+            safe_rename(manage_script_name, manage_delete_name)
 
     print('Generating project %s ...' % projectname)
     code = call(['django-admin.py', 'startproject', projectname, '.'])
     if code != 0:
-        return code
-    os.chmod('manage.py', mode0755)
+        if args.manage == 'multi':
+            print('Restoring original manage.py ...')
+            safe_rename(manage_delete_name, manage_script_name)
+        raise SystemExit(code)
+    os.chmod(manage_script_name, mode0755)
 
     if args.manage == 'multi':
+        safe_delete(manage_delete_name)
         print('Removing project specific configuration from manage.py ...')
-        with open('manage.py', 'a+') as f:
+        with open(manage_script_name, 'a+') as f:
             lines = f.readlines()
             f.seek(0)
             f.truncate()
             for line in lines:
                 if 'import os' not in line and 'DJANGO_SETTINGS_MODULE' not in line:
                     f.write(line)
+
+
+def _split_project():
+    global args
+    global profiles
+    global projectname
+    global settings
+
+    profiles = ('develop', 'staging', 'production')
+    filenames = ('__init__', 'common') + profiles
 
     print('Creating directories ...')
     os.mkdir('%s.media' % projectname)
@@ -503,6 +541,7 @@ def startproject():
     django.conf.settings.configure()  # for django.template init only
 
     _create_project()
+    _split_project()
     _configure_database()
     _configure_installed_apps()
     _configure_authentication()
