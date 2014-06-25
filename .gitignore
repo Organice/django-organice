@@ -1,6 +1,7 @@
 # tools, IDEs, build folders
 /.coverage/
 /.idea/
+/*.geany
 .sass-cache/
 /build/
 /dist/
