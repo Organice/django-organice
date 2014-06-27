@@ -21,6 +21,7 @@ In alphabetical order.
 - Fairgate_ (PHP, commercial, Switzerland only)
 - `Microsoft SharePoint + Yammer`_ [1]_ (.NET + Rails, commercial)
 - `Open Atrium`_ (Drupal, open source)
+- tendenci_ (Django, open source)
 
 Cloud Competitors
 =================
@@ -37,6 +38,7 @@ In alphabetical order.
 .. _Fairgate: http://www.pitsolutions.ch/case-studies/php/fairgate-ag/
 .. _`Microsoft SharePoint + Yammer`: http://office.microsoft.com/sharepoint/
 .. _`Open Atrium`: https://drupal.org/project/openatrium
+.. _tendenci: http://tendenci.com/features/
 .. _`Bitrix24.com`: http://bitrix24.com/
 .. _`Bitrix24.de`: http://bitrix24.de/
 .. _Igloo: http://www.igloosoftware.com/

@@ -16,14 +16,15 @@ Fundamental Features
 ====================
 
 - Enables everyone to contribute to your content---while retaining your full control.
-- Continually involves, helps and optimally supports your collaborators by sending out reminders, editing and
-  submission hints to avoid losing traction or interest.
 - Supports all four common collaboration and support patterns in several ways:
 
   #. *Active contribution* (create content, contribute corrections)
   #. *Passive contribution* (report issues, assign tasks, provide feedback)
   #. *Active consumption* (search and browse for content)
   #. *Passive consumption* (subscribe to notifications)
+
+- Continually involves, helps and optimally supports your collaborators by sending out reminders, editing and
+  submission hints to avoid losing traction or interest.
 
 Core Components
 ===============
@@ -40,7 +41,7 @@ Major components of django Organice are:
 - todo/issue lists
 - social login and user profiles (allauth)
 - generic analytics support (analytical)
-- multiple themes (django-organice-theme_)
+- multiple themes (available for free at http://organice.io/themes)
 - multi-language support
 - multiple websites support
 - database support for PostgreSQL, MySQL, Oracle, and more
