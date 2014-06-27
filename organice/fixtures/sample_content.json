@@ -1,0 +1,176 @@
+[
+	{
+		"pk": 1,
+		"model": "sites.site",
+		"fields": {
+			"domain": "demo.organice.io",
+			"name": "Organice Demo"
+		}
+	},
+	{
+		"pk": 1,
+		"model": "cms.placeholder",
+		"fields": {
+			"slot": "content",
+			"default_width": null
+		}
+	},
+	{
+		"pk": 2,
+		"model": "cms.placeholder",
+		"fields": {
+			"slot": "content",
+			"default_width": null
+		}
+	},
+	{
+		"pk": 1,
+		"model": "cms.cmsplugin",
+		"fields": {
+			"rght": 2,
+			"changed_date": "2014-06-26T15:12:01.152Z",
+			"parent": null,
+			"language": "en",
+			"level": 0,
+			"creation_date": "2014-06-26T15:11:34.266Z",
+			"lft": 1,
+			"tree_id": 1,
+			"position": 0,
+			"placeholder": 1,
+			"plugin_type": "TextPlugin"
+		}
+	},
+	{
+		"pk": 2,
+		"model": "cms.cmsplugin",
+		"fields": {
+			"rght": 2,
+			"changed_date": "2014-06-26T15:12:07.481Z",
+			"parent": null,
+			"language": "en",
+			"level": 0,
+			"creation_date": "2014-06-26T15:11:34.266Z",
+			"lft": 1,
+			"tree_id": 2,
+			"position": 0,
+			"placeholder": 2,
+			"plugin_type": "TextPlugin"
+		}
+	},
+	{
+		"pk": 1,
+		"model": "cms.page",
+		"fields": {
+			"rght": 2,
+			"navigation_extenders": "",
+			"site": 1,
+			"creation_date": "2014-06-26T15:11:02.770Z",
+			"lft": 1,
+			"in_navigation": true,
+			"reverse_id": null,
+			"login_required": false,
+			"created_by": "admin",
+			"publication_end_date": null,
+			"template": "cms_base.html",
+			"tree_id": 1,
+			"placeholders": [
+				1
+			],
+			"changed_date": "2014-06-26T15:12:07.485Z",
+			"limit_visibility_in_menu": null,
+			"parent": null,
+			"publisher_state": 0,
+			"soft_root": false,
+			"publication_date": "2014-06-26T15:11:04.181Z",
+			"publisher_public": 2,
+			"level": 0,
+			"changed_by": "admin",
+			"publisher_is_draft": true,
+			"published": true
+		}
+	},
+	{
+		"pk": 2,
+		"model": "cms.page",
+		"fields": {
+			"rght": 2,
+			"navigation_extenders": "",
+			"site": 1,
+			"creation_date": "2014-06-26T15:11:09.160Z",
+			"lft": 1,
+			"in_navigation": true,
+			"reverse_id": null,
+			"login_required": false,
+			"created_by": "admin",
+			"publication_end_date": null,
+			"template": "cms_base.html",
+			"tree_id": 2,
+			"placeholders": [
+				2
+			],
+			"changed_date": "2014-06-26T15:12:07.454Z",
+			"limit_visibility_in_menu": null,
+			"parent": null,
+			"publisher_state": 0,
+			"soft_root": false,
+			"publication_date": "2014-06-26T15:11:04.181Z",
+			"publisher_public": 1,
+			"level": 0,
+			"changed_by": "admin",
+			"publisher_is_draft": false,
+			"published": true
+		}
+	},
+	{
+		"pk": 1,
+		"model": "cms.title",
+		"fields": {
+			"menu_title": null,
+			"redirect": null,
+			"meta_keywords": null,
+			"page_title": null,
+			"language": "en",
+			"title": "Home",
+			"has_url_overwrite": false,
+			"application_urls": null,
+			"creation_date": "2014-06-26T15:11:02.784Z",
+			"page": 1,
+			"path": "",
+			"meta_description": null,
+			"slug": "home"
+		}
+	},
+	{
+		"pk": 2,
+		"model": "cms.title",
+		"fields": {
+			"menu_title": null,
+			"redirect": null,
+			"meta_keywords": null,
+			"page_title": null,
+			"language": "en",
+			"title": "Home",
+			"has_url_overwrite": false,
+			"application_urls": null,
+			"creation_date": "2014-06-26T15:11:02.784Z",
+			"page": 2,
+			"path": "",
+			"meta_description": null,
+			"slug": "home"
+		}
+	},
+	{
+		"pk": 1,
+		"model": "text.text",
+		"fields": {
+			"body": "<h1>Welcome to the Organice Demo Site!</h1><p>You can use the User Menu in the right upper corner to log in or register for an account. You can immediately modify the content of this website after logging in.</p>"
+		}
+	},
+	{
+		"pk": 2,
+		"model": "text.text",
+		"fields": {
+			"body": "<h1>Welcome to the Organice Demo Site!</h1><p>You can use the User Menu in the right upper corner to log in or register for an account. You can immediately modify the content of this website after logging in.</p>"
+		}
+	}
+]
