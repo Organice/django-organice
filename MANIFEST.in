@@ -1,6 +1,6 @@
 include LICENSE
 include README.rst
 recursive-include docs *
-recursive-include organice *.py *.html
+recursive-include organice *.py *.html *.json
 prune docs/build
 prune docs/coverage

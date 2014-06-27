@@ -17,3 +17,12 @@ South migrations for integrating Zinnia
     # activate EntryPlaceholder in settings and run
     $ ./manage.py schemamigration zinnia --auto entry_placeholder
 """
+from south.v2 import SchemaMigration
+
+
+class Migration(SchemaMigration):
+    def forwards(self, orm):
+        pass
+
+    def backwards(self, orm):
+        pass
