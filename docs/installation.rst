@@ -71,6 +71,7 @@ Installing django Organice
 6. Initialize your database and start rocking::
 
     $ python manage.py syncdb --migrate
+    $ python manage loaddata organice_sample_content.json  # optional: sample content
     $ python manage.py runserver
 
   You can now point your browser to http://127.0.0.1:8000/ and start developing your project locally.
