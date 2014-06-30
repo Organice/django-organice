@@ -321,13 +321,18 @@ def _configure_authentication():
     global settings
 
     print(adding_settings_for('user profiles and authentication'))
+    settings.delete_var('common', 'SERVER_EMAIL')
+    settings.set_value_lines('common', 'ADMINS',
+                             '(',
+                             "    ('Your Name', 'noreply@example.com'),",
+                             ')',
+                             'SERVER_EMAIL = ADMINS[0][1]')
     settings.append_lines('common',
                           'AUTHENTICATION_BACKENDS = (',
                           "    'django.contrib.auth.backends.ModelBackend',",
                           "    'allauth.account.auth_backends.AuthenticationBackend',",
                           ')')
     settings.set_value('common', 'LOGIN_REDIRECT_URL', "'/'")
-    settings.set_value('common', 'SERVER_EMAIL', "'noreply@example.com'")
     settings.set_value('develop', 'EMAIL_BACKEND', "'django.core.mail.backends.console.EmailBackend'")
 
 
