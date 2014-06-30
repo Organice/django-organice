@@ -71,7 +71,6 @@ Installing django Organice
 6. Initialize your database and start rocking::
 
     $ python manage.py syncdb --migrate
-    $ python manage loaddata organice_sample_content.json  # optional: sample content
     $ python manage.py runserver
 
   You can now point your browser to http://127.0.0.1:8000/ and start developing your project locally.
@@ -91,7 +90,13 @@ Initial Configuration
 #. If you want your site to use a language other than English, or you want to use several languages:  Adapt the values
    of ``LANGUAGE_CODE`` and ``LANGUAGES``, and set ``USE_I18N = True`` in your project settings.
 
-#. Add your first pages, blog posts, and newsletter data:
+#. After installation django Organice is configured, but it's blank without any content.  You can install
+   sample content and other data running one or all of the following commands::
+
+    $ python manage loaddata organice_sample_content  # optional sample content
+    $ python manage loaddata organice_auth_providers  # social auth provider configuration
+
+#. Alternatively, add your first pages, blog posts, and newsletter data manually:
 
   - Add some pages and navigation in the Django administration at Cms > Pages, and publish your changes.
   - Surf your new website, and fill your new pages with content using the front-end editing feature.
@@ -102,7 +107,7 @@ Initial Configuration
   - Finally, add your first newsletter to Newsletter > Newsletters.
   - For adding templates to Emencia Newsletter please consult the related section in the `TinyMCE 3.x documentation`_.
 
-4. For sending newsletters to work you must configure a cronjob polling on ``python manage.py send_newsletter``
+5. For sending newsletters to work you must configure a cronjob polling on ``python manage.py send_newsletter``
    every half an hour.  If that was just Greek to you go ask your server admin for help.  She knows!
 
 Deployment to Production
