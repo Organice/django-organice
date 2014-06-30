@@ -1,0 +1,170 @@
+[
+	{
+		"pk": 1,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "Amazon",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "amazon"
+		}
+	},
+	{
+		"pk": 2,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "Bitbucket",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "bitbucket"
+		}
+	},
+	{
+		"pk": 3,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "Bitly",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "bitly"
+		}
+	},
+	{
+		"pk": 4,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "Dropbox",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "dropbox"
+		}
+	},
+	{
+		"pk": 5,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "GitHub",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "github"
+		}
+	},
+	{
+		"pk": 6,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "Google",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "google"
+		}
+	},
+	{
+		"pk": 7,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "Instagram",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "instagram"
+		}
+	},
+	{
+		"pk": 8,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "LinkedIn (OAuth2)",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "linkedin_oauth2"
+		}
+	},
+	{
+		"pk": 9,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "SoundCloud",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "soundcloud"
+		}
+	},
+	{
+		"pk": 10,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "Stack Exchange",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "stackexchange"
+		}
+	},
+	{
+		"pk": 11,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "Vimeo",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "vimeo"
+		}
+	},
+	{
+		"pk": 12,
+		"model": "socialaccount.socialapp",
+		"fields": {
+			"name": "Xing",
+			"sites": [
+				1
+			],
+			"secret": "xxxx",
+			"client_id": "xxxx",
+			"key": "",
+			"provider": "xing"
+		}
+	}
+]
