@@ -77,6 +77,7 @@ def _evaluate_command_line():
     help_password = 'database password (for profiles: staging, production)'
     help_manage = 'use default single manage.py or use multi-settings variant (default: %(default)s)'
     help_webserver = 'create appropriate web server configuration (default: %(default)s)'
+    help_set = 'set the value of a settings variable in a destination file (this option can be used several times)'
 
     if sys.version_info < (2, 7):
         from optparse import OptionParser  # Deprecated since version 2.7
@@ -90,6 +91,7 @@ def _evaluate_command_line():
         parser.add_option('--password', help=help_password)
         parser.add_option('--manage', choices=['single', 'multi'], default='single', help=help_manage)
         parser.add_option('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
+        parser.add_option('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
         (options, args) = parser.parse_args()
         if len(args) != 1:
             parser.error('Please specify a projectname')
@@ -108,6 +110,7 @@ def _evaluate_command_line():
         parser.add_argument('--password', help=help_password)
         parser.add_argument('--manage', choices=['single', 'multi'], default='single', help=help_manage)
         parser.add_argument('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
+        parser.add_argument('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
         args = parser.parse_args()
         projectname = args.projectname
 
@@ -448,6 +451,17 @@ def _configure_blog():
                           '}')
 
 
+def _configure_set_custom():
+    """
+    Set variable values specified via any ``--set`` command line options.
+    """
+    global args
+    global settings
+
+    for dest, var, value in args.set:
+        settings.set_value(dest, var, value)
+
+
 def _generate_urls_conf():
     global projectname
 
@@ -554,6 +568,7 @@ def startproject():
     _configure_cms()
     _configure_newsletter()
     _configure_blog()
+    _configure_set_custom()
 
     _generate_urls_conf()
     _generate_webserver_conf()
