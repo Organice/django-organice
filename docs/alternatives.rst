@@ -29,6 +29,7 @@ Cloud Competitors
 In alphabetical order.
 
 - `Bitrix24.com`_ / `Bitrix24.de`_ [1]_
+- huddle_
 - Igloo_
 
 
@@ -41,6 +42,7 @@ In alphabetical order.
 .. _tendenci: http://tendenci.com/features/
 .. _`Bitrix24.com`: http://bitrix24.com/
 .. _`Bitrix24.de`: http://bitrix24.de/
+.. _huddle: http://www.huddle.com/
 .. _Igloo: http://www.igloosoftware.com/
 
 .. [1] http://intranetsdoneright.blogspot.com/2013/11/what-is-social-intranet.html
