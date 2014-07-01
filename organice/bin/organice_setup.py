@@ -63,6 +63,14 @@ def adding_settings_for(section):
     return 'Adding settings for %s ...' % section
 
 
+def _print_verbose(vlevel, message):
+    """Print text to stdout in accordance with user-specified verbosity level."""
+    global args
+
+    if args.verbosity >= vlevel:
+        print message
+
+
 def _evaluate_command_line():
     global projectname
     global args
@@ -78,6 +86,7 @@ def _evaluate_command_line():
     help_manage = 'use default single manage.py or use multi-settings variant (default: %(default)s)'
     help_webserver = 'create appropriate web server configuration (default: %(default)s)'
     help_set = 'set the value of a settings variable in a destination file (this option can be used several times)'
+    help_verbosity = 'Verbosity level; 0=minimal output, 1=normal output, 2=verbose output, 3=very verbose output'
 
     if sys.version_info < (2, 7):
         from optparse import OptionParser  # Deprecated since version 2.7
@@ -92,6 +101,7 @@ def _evaluate_command_line():
         parser.add_option('--manage', choices=['single', 'multi'], default='single', help=help_manage)
         parser.add_option('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
         parser.add_option('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
+        parser.add_option('--verbosity', '-v', type=int, choices=range(4), default=3, help=help_verbosity)
         (options, args) = parser.parse_args()
         if len(args) != 1:
             parser.error('Please specify a projectname')
@@ -111,6 +121,7 @@ def _evaluate_command_line():
         parser.add_argument('--manage', choices=['single', 'multi'], default='single', help=help_manage)
         parser.add_argument('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
         parser.add_argument('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
+        parser.add_argument('--verbosity', '-v', type=int, choices=range(4), default=3, help=help_verbosity)
         args = parser.parse_args()
         projectname = args.projectname
 
@@ -125,21 +136,21 @@ def _create_project():
 
     if args.manage == 'multi':
         if os.path.isfile(manage_script_name):
-            print('Deleting manage.py to allow multi-settings platform setup ...')
+            _print_verbose(2, 'Deleting manage.py to allow multi-settings platform setup ...')
             safe_rename(manage_script_name, manage_delete_name)
 
-    print('Generating project %s ...' % projectname)
+    _print_verbose(2, 'Generating project %s ...' % projectname)
     code = call(['django-admin.py', 'startproject', projectname, '.'])
     if code != 0:
         if args.manage == 'multi':
-            print('Restoring original manage.py ...')
+            _print_verbose(1, 'Restoring original manage.py ...')
             safe_rename(manage_delete_name, manage_script_name)
         raise SystemExit(code)
     os.chmod(manage_script_name, mode0755)
 
     if args.manage == 'multi':
         safe_delete(manage_delete_name)
-        print('Removing project specific configuration from manage.py ...')
+        _print_verbose(2, 'Removing project specific configuration from manage.py ...')
         with open(manage_script_name, 'a+') as f:
             lines = f.readlines()
             f.seek(0)
@@ -158,13 +169,13 @@ def _split_project():
     profiles = ('develop', 'staging', 'production')
     filenames = ('__init__', 'common') + profiles
 
-    print('Creating directories ...')
+    _print_verbose(2, 'Creating directories ...')
     os.mkdir('%s.media' % projectname)
     os.mkdir('%s.static' % projectname)
     os.mkdir('%s.templates' % projectname)
     os.mkdir(os.path.join(projectname, 'settings'))
 
-    print('Converting settings to deployment profiles (%s) ...' % ', '.join(profiles))
+    _print_verbose(2, 'Converting settings to deployment profiles (%s) ...' % ', '.join(profiles))
     os.rename(os.path.join(projectname, 'settings.py'),
               os.path.join(projectname, 'settings', 'common.py'))
 
@@ -233,7 +244,7 @@ def _configure_database():
         'password': '',
     })
 
-    print('Configuring database for all profiles ...')
+    _print_verbose(2, 'Configuring database for all profiles ...')
     settings.set_value('develop', 'DATABASES', db_template.render(db_context))
 
     db_context['engine'] = args.engine if args.engine else ''
@@ -248,7 +259,7 @@ def _configure_database():
 def _configure_installed_apps():
     global settings
 
-    print(adding_settings_for('installed apps'))
+    _print_verbose(2, adding_settings_for('installed apps'))
     settings.delete_var('common', 'INSTALLED_APPS')
     settings.append_lines('common',
                           'INSTALLED_APPS = (',
@@ -323,7 +334,7 @@ def _configure_installed_apps():
 def _configure_authentication():
     global settings
 
-    print(adding_settings_for('user profiles and authentication'))
+    _print_verbose(2, adding_settings_for('user profiles and authentication'))
     settings.delete_var('common', 'SERVER_EMAIL')
     settings.set_value_lines('common', 'ADMINS',
                              '(',
@@ -343,7 +354,7 @@ def _configure_cms():
     global projectname
     global settings
 
-    print(adding_settings_for('django CMS'))
+    _print_verbose(2, adding_settings_for('django CMS'))
     settings.delete_var('common', 'MIDDLEWARE_CLASSES')
     settings.append_lines('common',
                           'MIDDLEWARE_CLASSES = (',
@@ -408,7 +419,7 @@ def _configure_cms():
 def _configure_newsletter():
     global settings
 
-    print(adding_settings_for('Emencia Newsletter'))
+    _print_verbose(2, adding_settings_for('Emencia Newsletter'))
     settings.append_lines('common',
                           "NEWSLETTER_DEFAULT_HEADER_SENDER = 'Your Organization <newsletter@your.domain>'",
                           'NEWSLETTER_USE_TINYMCE = True',
@@ -438,7 +449,7 @@ def _configure_newsletter():
 def _configure_blog():
     global settings
 
-    print(adding_settings_for('Zinnia Blog'))
+    _print_verbose(2, adding_settings_for('Zinnia Blog'))
     settings.append_lines('common',
                           '# use plugin system of django-cms in blog entries',
                           "ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'",
@@ -458,14 +469,16 @@ def _configure_set_custom():
     global args
     global settings
 
-    for dest, var, value in args.set:
-        settings.set_value(dest, var, value)
+    if args.set:
+        _print_verbose(2, adding_settings_for(", ".join([v[1] for v in args.set])))
+        for dest, var, value in args.set:
+            settings.set_value(dest, var, value)
 
 
 def _generate_urls_conf():
     global projectname
 
-    print('Configuring project URLs ...')
+    _print_verbose(2, 'Configuring project URLs ...')
     gen_by_comment = '# generated by django Organice'
     project = DjangoModuleManager(projectname)
     project.add_file('urls', lines=(gen_by_comment, 'from organice.urls import urlpatterns'))
@@ -480,7 +493,7 @@ def _generate_webserver_conf():
     if args.webserver == 'apache':
         settings.move_var('common', profiles, 'WSGI_APPLICATION')
     else:
-        print('Generating lighttp web server configuration ...')
+        _print_verbose(2, 'Generating lighttp web server configuration ...')
         os.unlink(os.path.join(projectname, 'wsgi.py'))
         settings.delete_var('common', 'WSGI_APPLICATION')
         settings.append_lines('common',
@@ -536,18 +549,18 @@ def _show_final_hints():
     suggest_editing = ('ADMINS', 'TIME_ZONE', 'LANGUAGE_CODE', 'LANGUAGES', 'EMAIL_BACKEND', 'SERVER_EMAIL')
     suggest_adding = ()
 
-    print('Done. Enjoy your organiced day!')
-    print('')
-    print('Please visit file `%s` and edit or add the variables: %s' %
-          (settings.get_file('common').name, ', '.join(suggest_editing + suggest_adding)))
-    print('Please visit file `%s` and configure your development database in: %s' %
-          (settings.get_file('develop').name, 'DATABASES'))
-    print('See https://docs.djangoproject.com/en/1.5/ref/settings/ for details.')
-    print('')
-    print('1) To initialize your development database run: `python manage.py syncdb --migrate`')
-    print('2) You can then run your development server with: `python manage.py runserver`')
-    print('3) To prepare your production server you may run: '
-          '`python manage.py collectstatic --link --settings=%s.settings.production`' % projectname)
+    _print_verbose(1, 'Done. Enjoy your organiced day!')
+    _print_verbose(2, '')
+    _print_verbose(2, 'Please visit file `%s` and edit or add the variables: %s' %
+                   (settings.get_file('common').name, ", ".join(suggest_editing + suggest_adding)))
+    _print_verbose(2, 'Please visit file `%s` and configure your development database in: %s' %
+                   (settings.get_file('develop').name, 'DATABASES'))
+    _print_verbose(3, 'See https://docs.djangoproject.com/en/1.5/ref/settings/ for details.')
+    _print_verbose(3, '')
+    _print_verbose(3, '1) To initialize your development database run: `python manage.py syncdb --migrate`')
+    _print_verbose(3, '2) You can then run your development server with: `python manage.py runserver`')
+    _print_verbose(3, '3) To prepare your production server you may run: '
+                   '`python manage.py collectstatic --link --settings=%s.settings.production`' % projectname)
 
 
 def startproject():
