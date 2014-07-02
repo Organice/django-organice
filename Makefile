@@ -32,6 +32,7 @@ clean:
 	for DIR in media/ static/ templates/ ; do \
 		[ -d $$DIR ] && rmdir $$DIR || true ; \
 	done
+	find . -name '*.pyc' -exec rm {} \;
 
 develop: setuptools
 	pip install Sphinx sphinx-intl transifex-client flake8
