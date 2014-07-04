@@ -68,7 +68,7 @@ def _print_verbose(vlevel, message):
     global args
 
     if args.verbosity >= vlevel:
-        print message
+        print(message)
 
 
 def _evaluate_command_line():
