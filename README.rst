@@ -1,16 +1,17 @@
-===============
-django Organice
-===============
+===========================
+Welcome to django Organice!
+===========================
 
-All-in-one collaboration solution.  For non-profit organizations, sports clubs, small to medium-sized businesses.
-Nice, very nice, http://organice.io
+All-in-one collaboration solution.  For non-profit organizations, sports clubs, small to
+medium-sized businesses.
 
-django Organice is a nice way to run a collaboration platform, an intranet, and websites for your business.
-It's a compilation of the best Django packages, preconfigured for getting you started quickly.  Being powered by
-the well-known `Django Web framework`_ it's a safe choice for your IT investment providing an easily extensible
-architecture.
+django Organice is a nice way to run a collaboration platform, an intranet, and websites for your
+business.  It's a compilation of the best Django packages, preconfigured for getting you started
+quickly.  Being powered by the well-known `Django Web framework`_ it's a safe choice for your IT
+investment providing an easily extensible architecture.
 
-See http://organice.io for more information.
+
+.. _`Django Web framework`: https://www.djangoproject.com/
 
 Fundamental Features
 ====================
@@ -23,8 +24,8 @@ Fundamental Features
   #. *Active consumption* (search and browse for content)
   #. *Passive consumption* (subscribe to notifications)
 
-- Continually involves, helps and optimally supports your collaborators by sending out reminders, editing and
-  submission hints to avoid losing traction or interest.
+- Continually involves, helps and optimally supports your collaborators by sending out reminders,
+  editing and submission hints to avoid losing traction or interest.
 
 Core Components
 ===============
@@ -69,6 +70,9 @@ Examples of websites running django Organice:
 
 - `Kreuzlingen Rudolf Steiner school`_
 
+
+.. _`Kreuzlingen Rudolf Steiner school`: http://www.rssk.ch/
+
 Download and Contributions
 ==========================
 
@@ -81,13 +85,10 @@ Getting Help
 ============
 
 - Documentation is available at http://docs.organice.io
-- Questions? Please use StackOverflow_.  Tag your questions with ``django-organice``.
-- Found a bug? Please use either the Bitbucket_ or GitHub_ issue tracker (you choose)
+- Questions? Please use `StackOverflow`_.  Tag your questions with ``django-organice``.
+- Found a bug? Please use either the `Bitbucket`_ or `GitHub`_ issue tracker (you choose)
 
 
-.. _`Django Web framework`: https://www.djangoproject.com/
-.. _django-organice-theme: https://pypi.python.org/pypi/django-organice-theme
-.. _`Kreuzlingen Rudolf Steiner school`: http://www.rssk.ch/
-.. _StackOverflow: http://stackoverflow.com/questions/tagged/django-organice
-.. _Bitbucket: https://bitbucket.org/bittner/django-organice/issues
-.. _GitHub: https://github.com/bittner/django-organice/issues
+.. _`StackOverflow`: http://stackoverflow.com/questions/tagged/django-organice
+.. _`Bitbucket`: https://bitbucket.org/bittner/django-organice/issues
+.. _`GitHub`: https://github.com/bittner/django-organice/issues
