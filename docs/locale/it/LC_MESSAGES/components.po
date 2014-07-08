@@ -27,27 +27,6 @@ msgstr ""
 msgid "django Organice is composend of the following main components:"
 msgstr ""
 
-# f9b559e985874066bbffea4a7b97d532
-#: ../../components.rst:7
-msgid "Content Management (Cms)"
-msgstr ""
-
-# 80ff5767b87c436f9282a3dcf651a572
-#: ../../components.rst:8
-msgid "Blog (Zinnia)"
-msgstr ""
-
-# a174b13bd4c14fc1a7ce5329332840be
-# 8371548a2c44477089331a23745f1159
-#: ../../components.rst:9 ../../components.rst:42
-msgid "Newsletter"
-msgstr ""
-
-# 6e399928c4a8421a872ab7ff31dea9ce
-#: ../../components.rst:12
-msgid "Content Management"
-msgstr ""
-
 # bb78a3845f294f0288194bdf3cb8bbdc
 #: ../../components.rst:14
 msgid ""
@@ -74,11 +53,6 @@ msgid ""
 " etc. the django CMS toolbar redirects you to the Django administration "
 "interface.  Want to have an upfront first impression before using it?  Check"
 " out the (slightly outdated) django CMS `video on frontend-editing`_."
-msgstr ""
-
-# 66bde9c8a9754178b0facdc93711742a
-#: ../../components.rst:27
-msgid "Blog"
 msgstr ""
 
 # f14ae8a48f7445c1afa485c167923fef
@@ -128,3 +102,42 @@ msgid ""
 "having you watch the interesting French `overview video`_ from the Emencia "
 "website."
 msgstr ""
+
+#: ../../components.rst:7
+msgid "`Content Management`_ (Cms)"
+msgstr ""
+
+#: ../../components.rst:8
+msgid "`Blog`_ (Zinnia)"
+msgstr ""
+
+#: ../../components.rst:9
+msgid "`Newsletter`_"
+msgstr ""
+
+#: ../../components.rst:12
+msgid "`Content Management`:index:"
+msgstr ""
+
+#: ../../components.rst:27
+msgid "`Blog`:index:"
+msgstr ""
+
+#: ../../components.rst:42
+msgid "`Newsletter`:index:"
+msgstr ""
+
+#~ msgid "Content Management (Cms)"
+#~ msgstr ""
+
+#~ msgid "Blog (Zinnia)"
+#~ msgstr ""
+
+#~ msgid "Newsletter"
+#~ msgstr ""
+
+#~ msgid "Content Management"
+#~ msgstr ""
+
+#~ msgid "Blog"
+#~ msgstr ""

@@ -23,129 +23,146 @@ msgid "CHANGELOG"
 msgstr ""
 
 # fd3bb8a169cb422e9941907773ca7396
-#: ../../changelog.rst:5
+#: ../../changelog.rst:12
 msgid "https://github.com/bittner/django-organice/compare/v0.2...HEAD"
 msgstr ""
 
 # 9ca34fd4a4f74453a10b0d697276d95b
-#: ../../changelog.rst:8
+#: ../../changelog.rst:15
 msgid "0.2"
 msgstr ""
 
 # a101069567cb44e7b9e916cd668e0010
-#: ../../changelog.rst:10
+#: ../../changelog.rst:17
 msgid "Project-level Makefile"
 msgstr ""
 
 # 4fa1d475ca0b43f98c8a1f2565a6ace8
-#: ../../changelog.rst:11
+#: ../../changelog.rst:18
 msgid ""
 "Automation of translation processes with Transifex (for documentation only)"
 msgstr ""
 
 # eedbd9174e44437f8ca3fd24324a9b6b
-#: ../../changelog.rst:12
+#: ../../changelog.rst:19
 msgid "New options for settings (``ORGANICE_URL_PATH_``...)"
 msgstr ""
 
 # e992bab05a054a83858d7eec29ba82a1
-#: ../../changelog.rst:13
+#: ../../changelog.rst:20
 msgid "Newsletter editor configuration, newsletter template sample"
 msgstr ""
 
 # fc7b4ac83b784036a89bc397c3145286
-#: ../../changelog.rst:14
+#: ../../changelog.rst:21
 msgid "Added social login and user profiles (django-allauth)"
 msgstr ""
 
 # bd34feb18f4045b499284cc378584763
-#: ../../changelog.rst:15
+#: ../../changelog.rst:22
 msgid "Added assets pipeline (bootstrap-sass, Compass, UglifyJS v2)"
 msgstr ""
 
 # d455f646c8cf4ed682ae20b3c8e3b6d5
-#: ../../changelog.rst:16
+#: ../../changelog.rst:23
 msgid "Upgraded jQuery to v1.11.0, template overhaul with Bootstrap"
 msgstr ""
 
 # b9ba88c694014f76817abfbafab058e3
-#: ../../changelog.rst:17
+#: ../../changelog.rst:24
 msgid "Added language selection dropdown menu"
 msgstr ""
 
 # 2f23c8c6322c47a29b3269a7bd2f8ed4
-#: ../../changelog.rst:18
+#: ../../changelog.rst:25
 msgid ""
 "Migrated theme data (templates, styles, and javascript) and assets pipeline "
 "to separate projects"
 msgstr ""
 
 # 4715a94dd5b340868cff0b2ba41a0109
-#: ../../changelog.rst:20
+#: ../../changelog.rst:27
 msgid ""
 "Generation of server configuration (lighttpd) and more options in organice-"
 "setup"
 msgstr ""
 
 # dcbac8249870448bb0ac6206a16e6f1c
-#: ../../changelog.rst:21
+#: ../../changelog.rst:28
 msgid "Added media management (django-media-tree)"
 msgstr ""
 
 # f200eac8cffa4946b577a36b58b811d3
-#: ../../changelog.rst:22
+#: ../../changelog.rst:29
 msgid "Added todo lists (django-todo)"
 msgstr ""
 
 # 133bbc0401eb46139b9d051ec4306db5
-#: ../../changelog.rst:23
+#: ../../changelog.rst:30
 msgid "Added generic analytics (django-analytical)"
 msgstr ""
 
 # 3bc532457e424da8a5d981a11c92c42a
-#: ../../changelog.rst:25
+#: ../../changelog.rst:32
 msgid "https://github.com/bittner/django-organice/compare/v0.1...v0.2"
 msgstr ""
 
 # fbf2150802174ddaa0570033988d1887
-#: ../../changelog.rst:26
+#: ../../changelog.rst:33
 msgid ""
 "https://github.com/bittner/django-organice/blob/v0.2/docs/requirements.txt"
 msgstr ""
 
 # eb71cad42c074c0b89637e2343c7e8e6
-#: ../../changelog.rst:29
+#: ../../changelog.rst:36
 msgid "0.1"
 msgstr ""
 
 # 97c6abfe4af54b42905bb0b248f1cd6b
-#: ../../changelog.rst:31
+#: ../../changelog.rst:38
 msgid "Initial release"
 msgstr ""
 
 # f7d87d45651f494f896cc8cc6c4f0b10
-#: ../../changelog.rst:32
+#: ../../changelog.rst:39
 msgid ""
 "Based on Django 1.5.5, django CMS 2.4.3, Zinnia blog 0.13, Emencia "
 "newsletter 0.3.dev"
 msgstr ""
 
 # 114e717d61ed4aeca3246803d4289b9e
-#: ../../changelog.rst:33
+#: ../../changelog.rst:40
 msgid ""
 "A more natural i18n mechanism than vanilla Django, no language prefix for "
 "default language"
 msgstr ""
 
 # 5fb1917a95384a6ea52234e30e5ae0be
-#: ../../changelog.rst:34
+#: ../../changelog.rst:41
 msgid ""
 "Setup script with project generation, deployment settings, custom templates,"
 " Bootstrap 3"
 msgstr ""
 
 # f659d7070ec04c50b8e034258835cc15
-#: ../../changelog.rst:36
+#: ../../changelog.rst:43
 msgid ""
 "https://github.com/bittner/django-organice/blob/v0.1/docs/requirements.txt"
+msgstr ""
+
+#: ../../changelog.rst:6
+msgid "0.3.dev"
+msgstr ""
+
+#: ../../changelog.rst:8
+msgid "Sample content loading using fixtures"
+msgstr ""
+
+#: ../../changelog.rst:9
+msgid ""
+"Integration of Piwik open source analytics (optional via django-analytical)"
+msgstr ""
+
+#: ../../changelog.rst:10
+msgid "Test coverage"
 msgstr ""

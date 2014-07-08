@@ -172,82 +172,61 @@ msgid ""
 msgstr ""
 
 # c55eb85a4ff940b8abec6c8808c67b12
-#: ../../installation.rst:85
+#: ../../installation.rst:86
 msgid "Initial Configuration"
 msgstr ""
 
-# 5f0b500632b447bd80581472ac3bc4dc
-#: ../../installation.rst:87
-msgid ""
-"Follow the instructions given to you by the django Organice installer "
-"``organice-setup`` after setup has completed. You have to adapt some values "
-"in your project settings!"
-msgstr ""
-
-# 66c9ae299990417d9742bd7fc0c9958e
-#: ../../installation.rst:90
-msgid ""
-"If you want your site to use a language other than English, or you want to "
-"use several languages:  Adapt the values of ``LANGUAGE_CODE`` and "
-"``LANGUAGES``, and set ``USE_I18N = True`` in your project settings."
-msgstr ""
-
-# b5142172de2149e8b7a29c60cff7b5f4
-#: ../../installation.rst:93
-msgid "Add your first pages, blog posts, and newsletter data:"
-msgstr ""
-
 # a4f986a377c340a0b59cf3d69ac99215
-#: ../../installation.rst:95
+#: ../../installation.rst:103
 msgid ""
 "Add some pages and navigation in the Django administration at Cms > Pages, "
 "and publish your changes."
 msgstr ""
 
 # 8a74d910443b4fcab959423ba0cff5dc
-#: ../../installation.rst:96
+#: ../../installation.rst:104
 msgid ""
 "Surf your new website, and fill your new pages with content using the front-"
 "end editing feature."
 msgstr ""
 
 # 73d66a7b17b54742a68aecfea5125a2e
-#: ../../installation.rst:97
+#: ../../installation.rst:105
 msgid "Surf to ``/blog/`` on your website, and start adding Blog posts."
 msgstr ""
 
 # 25649e73d0184ca1891b7a43a4ac73b7
-#: ../../installation.rst:98
+#: ../../installation.rst:106
 msgid "Add a user in the Django administration at Newsletter > Contacts."
 msgstr ""
 
 # 0658d74a74214cae9e5677afe9986f2d
-#: ../../installation.rst:99
+#: ../../installation.rst:107
 msgid ""
 "Add ``localhost`` (or appropriate server) to Newsletter > SMTP servers."
 msgstr ""
 
 # 6521cf7b34a84a9dad15ab443ce30f35
-#: ../../installation.rst:100
+#: ../../installation.rst:108
 msgid ""
 "To allow subscribing from the website (from ``/newsletter/subscribe``) add a"
 " list to Newsletter > Mailing lists."
 msgstr ""
 
 # 4494fa7381424825ab8ffc8c3012a263
-#: ../../installation.rst:101
+#: ../../installation.rst:109
 msgid "Finally, add your first newsletter to Newsletter > Newsletters."
 msgstr ""
 
 # fbc64c92d80e4393b17b7fcba9d239a9
-#: ../../installation.rst:102
+#: ../../installation.rst:110
 msgid ""
 "For adding templates to Emencia Newsletter please consult the related "
 "section in the `TinyMCE 3.x documentation`_."
 msgstr ""
 
 # 40fe6a405d874ba78ab6d1cba37dd9c1
-#: ../../installation.rst:104
+#: ../../installation.rst:112
 msgid ""
 "For sending newsletters to work you must configure a cronjob polling on "
 "``python manage.py send_newsletter`` every half an hour.  If that was just "
@@ -255,44 +234,99 @@ msgid ""
 msgstr ""
 
 # 2ea120ff827541c7b6a4e639cd271202
-#: ../../installation.rst:108
+#: ../../installation.rst:116
 msgid "Deployment to Production"
 msgstr ""
 
 # e83ff71964374fd5a16f7dc1a3de73ff
-#: ../../installation.rst:110
+#: ../../installation.rst:118
 msgid ""
 "During the installation ``organice-setup`` prepared 3 different environments"
 " that help you with deployment::"
 msgstr ""
 
-# 5fe586968c6d4946bc5021576b07afbc
-#: ../../installation.rst:120
-msgid ""
-"This modularized setup is described in Solution 2 of Tommy Jarnac's blog on "
-"`Django settings best practices`_ [1]_. The ``develop`` settings are active "
-"by default (for local development), ``common`` is included by all profiles."
-msgstr ""
-
-# a9407211646f4601ad41f2345cfcb2a6
-#: ../../installation.rst:123
-msgid ""
-"For deployment to environments other than ``develop`` the settings module "
-"location must be overridden by setting the Django environment variable "
-"``DJANGO_SETTINGS_MODULE``.  For example, if you use Apache as your Django "
-"web server adapt your Apache configuration file for ``example`` with::"
-msgstr ""
-
 # 7b4036bd179f413ea88f00198aeb3653
-#: ../../installation.rst:131
+#: ../../installation.rst:142
 msgid ""
 "*NOTE:* To test different settings locally you can start the Django "
 "webserver with the ``--settings`` option::"
 msgstr ""
 
 # 19aba29e0db14df99fb15aad3954ebd5
-#: ../../installation.rst:145
+#: ../../installation.rst:156
 msgid ""
 "David Cramer from DISQUS has described a similar solution at "
 "http://justcramer.com/2011/01/13/settings-in-django/"
 msgstr ""
+
+#: ../../installation.rst:88
+msgid ""
+"Follow the instructions given to you by the django Organice installer "
+"``organice-setup`` after setup has completed.  You have to adapt some values"
+" in your project settings!"
+msgstr ""
+
+#: ../../installation.rst:91
+msgid ""
+"If you want your site to use a language other than English, or you want to "
+"use several languages: Adapt the values of :const:`LANGUAGE_CODE` and "
+":const:`LANGUAGES`, and set :const:`USE_I18N = True` in your project "
+"settings."
+msgstr ""
+
+#: ../../installation.rst:95
+msgid ""
+"After installation django Organice is configured, but it's blank without any"
+" content.  You can install sample content and other data running one or all "
+"of the following commands::"
+msgstr ""
+
+#: ../../installation.rst:101
+msgid ""
+"Alternatively, add your first pages, blog posts, and newsletter data "
+"manually:"
+msgstr ""
+
+#: ../../installation.rst:129
+msgid ""
+"This modularized setup is described in Solution 2 of Tommy Jarnac's blog on "
+"`Django settings best practices`_ [1]_.  The ``develop`` settings are active"
+" by default (for local development), ``common`` is included by all profiles."
+msgstr ""
+
+#: ../../installation.rst:133
+msgid ""
+"For deployment to environments other than ``develop`` the settings module "
+"location must be overridden by setting the Django environment variable "
+":const:`DJANGO_SETTINGS_MODULE`.  For example, if you use Apache as your "
+"Django web server adapt your Apache configuration file for ``example`` "
+"with::"
+msgstr ""
+
+#~ msgid ""
+#~ "Follow the instructions given to you by the django Organice installer "
+#~ "``organice-setup`` after setup has completed. You have to adapt some values "
+#~ "in your project settings!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you want your site to use a language other than English, or you want to "
+#~ "use several languages:  Adapt the values of ``LANGUAGE_CODE`` and "
+#~ "``LANGUAGES``, and set ``USE_I18N = True`` in your project settings."
+#~ msgstr ""
+
+#~ msgid "Add your first pages, blog posts, and newsletter data:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This modularized setup is described in Solution 2 of Tommy Jarnac's blog on "
+#~ "`Django settings best practices`_ [1]_. The ``develop`` settings are active "
+#~ "by default (for local development), ``common`` is included by all profiles."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For deployment to environments other than ``develop`` the settings module "
+#~ "location must be overridden by setting the Django environment variable "
+#~ "``DJANGO_SETTINGS_MODULE``.  For example, if you use Apache as your Django "
+#~ "web server adapt your Apache configuration file for ``example`` with::"
+#~ msgstr ""

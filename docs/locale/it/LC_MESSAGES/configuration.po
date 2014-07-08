@@ -42,94 +42,119 @@ msgid ""
 "to override the default value."
 msgstr ""
 
-# adfc58b7a2194b379d826fc4682fd04b
-#: ../../configuration.rst:16
-msgid "ORGANICE_URL_PATH_ADMIN"
-msgstr ""
-
 # 2f3b9ebed5b44f44a076ad55a990df56
-#: ../../configuration.rst:17
+#: ../../configuration.rst:18
 msgid "``admin``"
 msgstr ""
 
-# d5093a2f3bd6468d864f8e9780e8f2ae
-#: ../../configuration.rst:19
-msgid ""
-"The URL path for accessing the Django Administration backend (e.g. "
-"``www.example.com/admin``).  Must be non-empty. Use an identifier only, no "
-"white space, no leading or trailing slash."
-msgstr ""
-
-# 566b026ad2ad4226be1a6d0fa36daa4b
-#: ../../configuration.rst:23
-msgid "ORGANICE_URL_PATH_BLOG"
-msgstr ""
-
 # 5f672b3bc9f14d2db8b5391cc8fbce0b
-#: ../../configuration.rst:24
+#: ../../configuration.rst:25
 msgid "``blog``"
 msgstr ""
 
 # da691f78958340c4bdd9c3614a26a5f0
-#: ../../configuration.rst:26
+#: ../../configuration.rst:27
 msgid ""
 "The URL path for the blog's start page (e.g. ``www.example.com/blog``).  "
 "Must be non-empty.  Use an identifier only, no white space, no leading or "
 "trailing slash."
 msgstr ""
 
-# cdf1d5b616af4e1ba5361d1814a375de
-#: ../../configuration.rst:30
-msgid "ORGANICE_URL_PATH_NEWSLETTER"
-msgstr ""
-
 # fcaac9fcd2774792be84f7674ad04391
-#: ../../configuration.rst:31
+#: ../../configuration.rst:32
 msgid "``newsletter``"
 msgstr ""
 
 # 132a7233c2704c738297a1dfa5a46274
-#: ../../configuration.rst:33
+#: ../../configuration.rst:34
 msgid ""
 "The URL path for accessing newsletter functionality on the front-end (e.g. "
 "``www.example.com/newsletter``).  Must be non-empty.  Use an identifier "
 "only, no white space, no leading or trailing slash."
 msgstr ""
 
-# 12fb179870c8456c98f236b9bd0c7e69
-#: ../../configuration.rst:37
-msgid "ORGANICE_URL_PATH_TODO"
-msgstr ""
-
 # 559e42badf404d4f965cd7d76effd0c4
-#: ../../configuration.rst:38
+#: ../../configuration.rst:40
 msgid "``todo``"
 msgstr ""
 
-# b1ef614f16c142c5becc4f8f6781ffba
-#: ../../configuration.rst:40
-msgid ""
-"The URL path for accessing todo list functionality on the front-end (e.g. "
-"``www.example.com/todo``).  Must be non-empty.  Use an identifier only, no "
-"white space, no leading or trailing slash."
-msgstr ""
-
 # 6b67e1f52cfb4de2a721b373523f8a99
-#: ../../configuration.rst:44
+#: ../../configuration.rst:46
 msgid "Third Party Settings"
 msgstr ""
 
 # b3fdf0b7136648d3ba7d9ce3e073b104
-#: ../../configuration.rst:47
+#: ../../configuration.rst:49
 msgid "Analytics Providers"
 msgstr ""
 
-# 49d3952dfebf4824bf7b7428263429a0
-#: ../../configuration.rst:49
-msgid ""
-"The analytics services supported by ``django-analytical`` are enabled by "
-"setting various service properties in your settings file.  The properties "
-"are documented in `their documentation`_.  For security reasons you "
-"shouldn't add those to your common settings file, but to "
-"settings/production."
+#: ../../configuration.rst:17
+msgid ":const:`ORGANICE_URL_PATH_ADMIN`"
 msgstr ""
+
+#: ../../configuration.rst:20
+msgid ""
+"The URL path for accessing the Django Administration backend (e.g. "
+"``www.example.com/admin``).  Must be non-empty.  Use an identifier only, no "
+"white space, no leading or trailing slash."
+msgstr ""
+
+#: ../../configuration.rst:24
+msgid ":const:`ORGANICE_URL_PATH_BLOG`"
+msgstr ""
+
+#: ../../configuration.rst:31
+msgid ":const:`ORGANICE_URL_PATH_NEWSLETTER`"
+msgstr ""
+
+#: ../../configuration.rst:39
+msgid ":const:`ORGANICE_URL_PATH_TODO`"
+msgstr ""
+
+#: ../../configuration.rst:42
+msgid ""
+"The URL path for accessing todo list functionality on the front-end (e.g. "
+"``www.example.com/todo``). Must be non-empty.  Use an identifier only, no "
+"white space, no leading or trailing slash."
+msgstr ""
+
+#: ../../configuration.rst:51
+msgid ""
+"The `analytics`:index: services supported by ``django-analytical`` are "
+"enabled by setting various service properties in your settings file.  The "
+"properties are documented in `their documentation`_. For security reasons "
+"you shouldn't add those to your common settings file, but to "
+"``settings.production``."
+msgstr ""
+
+#~ msgid "ORGANICE_URL_PATH_ADMIN"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The URL path for accessing the Django Administration backend (e.g. "
+#~ "``www.example.com/admin``).  Must be non-empty. Use an identifier only, no "
+#~ "white space, no leading or trailing slash."
+#~ msgstr ""
+
+#~ msgid "ORGANICE_URL_PATH_BLOG"
+#~ msgstr ""
+
+#~ msgid "ORGANICE_URL_PATH_NEWSLETTER"
+#~ msgstr ""
+
+#~ msgid "ORGANICE_URL_PATH_TODO"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The URL path for accessing todo list functionality on the front-end (e.g. "
+#~ "``www.example.com/todo``).  Must be non-empty.  Use an identifier only, no "
+#~ "white space, no leading or trailing slash."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The analytics services supported by ``django-analytical`` are enabled by "
+#~ "setting various service properties in your settings file.  The properties "
+#~ "are documented in `their documentation`_.  For security reasons you "
+#~ "shouldn't add those to your common settings file, but to "
+#~ "settings/production."
+#~ msgstr ""

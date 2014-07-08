@@ -58,7 +58,7 @@ msgid ""
 msgstr ""
 
 # ff31c451c8cc4d1ab93ddfc805a3d63f
-#: ../../../README.rst:19
+#: ../../../README.rst:26
 msgid ""
 "Continually involves, helps and optimally supports your collaborators by "
 "sending out reminders, editing and submission hints to avoid losing traction"
@@ -66,218 +66,228 @@ msgid ""
 msgstr ""
 
 # b696cf17efee46e993b9a5e906e4f439
-#: ../../../README.rst:21
+#: ../../../README.rst:19
 msgid ""
 "Supports all four common collaboration and support patterns in several ways:"
 msgstr ""
 
 # 502fcf8ca4f94773816565dce4580e94
-#: ../../../README.rst:23
+#: ../../../README.rst:21
 msgid "*Active contribution* (create content, contribute corrections)"
 msgstr ""
 
 # 552a02fe7fa54356b66e443495e19173
-#: ../../../README.rst:24
+#: ../../../README.rst:22
 msgid "*Passive contribution* (report issues, assign tasks, provide feedback)"
 msgstr ""
 
 # b054e458b00a414e8b29169b48896666
-#: ../../../README.rst:25
+#: ../../../README.rst:23
 msgid "*Active consumption* (search and browse for content)"
 msgstr ""
 
 # 1b8f9da5e3aa4e4ba7df6779ed62f2dc
-#: ../../../README.rst:26
+#: ../../../README.rst:24
 msgid "*Passive consumption* (subscribe to notifications)"
 msgstr ""
 
 # d735417681e9415e8bc739a500ba5ac2
-#: ../../../README.rst:29
+#: ../../../README.rst:30
 msgid "Core Components"
 msgstr ""
 
 # 7d68422be88348d0b26fc0460d52b457
-#: ../../../README.rst:31
+#: ../../../README.rst:32
 msgid "Major components of django Organice are:"
 msgstr ""
 
 # 7f81146874c74d49bddfc6f4bff946d0
-#: ../../../README.rst:33
+#: ../../../README.rst:34
 msgid "Django Web framework"
 msgstr ""
 
 # 3831c5d6c4624a398bcf68abda3edd2b
-#: ../../../README.rst:34
+#: ../../../README.rst:35
 msgid "full-featured content management (django CMS)"
 msgstr ""
 
 # 00153ed7aa9948c1a20a43db9afc3846
-#: ../../../README.rst:35
+#: ../../../README.rst:36
 msgid "full-featured versatile blog (Zinnia, cmsplugin)"
 msgstr ""
 
 # dbe975d3b5bc4f6aabeb986497931d28
-#: ../../../README.rst:36
+#: ../../../README.rst:37
 msgid "events with event calendar (via Zinnia)"
 msgstr ""
 
 # f4bd99ccb469403aa77c6941112f95f7
-#: ../../../README.rst:37
+#: ../../../README.rst:38
 msgid "flexible contact pages (cmsplugin)"
 msgstr ""
 
 # 03dd587b5df44eb6afc65291598dd683
-#: ../../../README.rst:38
+#: ../../../README.rst:39
 msgid "link collection pages"
 msgstr ""
 
 # 44483a251e6d4b8e8e9246b0baacff2d
-#: ../../../README.rst:39
+#: ../../../README.rst:40
 msgid "full-featured newsletter (Emencia)"
 msgstr ""
 
 # 55ef43a8a3af4ccca9ea1ca6ba2f0971
-#: ../../../README.rst:40
+#: ../../../README.rst:41
 msgid "todo/issue lists"
 msgstr ""
 
 # e6519ca0598c436a9f58207607d48b8b
-#: ../../../README.rst:41
+#: ../../../README.rst:42
 msgid "social login and user profiles (allauth)"
 msgstr ""
 
 # 0bf2bee7591d4a46a115a67fcf114c70
-#: ../../../README.rst:42
+#: ../../../README.rst:43
 msgid "generic analytics support (analytical)"
 msgstr ""
 
 # cf0446b5f0e946ce9d290254d3dbe0fb
-#: ../../../README.rst:43
+#: ../../../README.rst:46
 msgid "multi-language support"
 msgstr ""
 
 # ee675d447605490d82ce42c4bf3bb248
-#: ../../../README.rst:44
+#: ../../../README.rst:47
 msgid "multiple websites support"
 msgstr ""
 
 # b155e00bc3754652910ccaa9b37275d2
-#: ../../../README.rst:45
+#: ../../../README.rst:48
 msgid "database support for PostgreSQL, MySQL, Oracle, and more"
 msgstr ""
 
 # 9975aae5c48a420784440bfaf94de8f7
-#: ../../../README.rst:48
+#: ../../../README.rst:51
 msgid "Roadmap"
 msgstr ""
 
 # 34438019f1cf4caa815a81468f3021df
-#: ../../../README.rst:50
+#: ../../../README.rst:53
 msgid "We are thrilled to get these awesome features out to you:"
 msgstr ""
 
 # 36d6ed56ea894cc2b548583d1234a218
-#: ../../../README.rst:52
+#: ../../../README.rst:55
 msgid "group spaces with automatic mailing list (groupname@example.com)"
 msgstr ""
 
 # a4a710bb6544479aa9a087faae1acb46
-#: ../../../README.rst:53
+#: ../../../README.rst:56
 msgid "documentation area / wiki (probably by use of CMS functionality)"
 msgstr ""
 
 # 500cec43ab1046dfbf9abb5bc630cdb5
-#: ../../../README.rst:54
+#: ../../../README.rst:57
 msgid "discussion forum / Q&A board (Askbot, Misago)"
 msgstr ""
 
 # 9fd2f8dace2d4af8ad18fd03bf89ab0d
-#: ../../../README.rst:55
+#: ../../../README.rst:58
 msgid "content download for magazine generation"
 msgstr ""
 
 # 054df83f70ac479a8057a23e57ecd9d9
-#: ../../../README.rst:56
+#: ../../../README.rst:59
 msgid "unobtrusive, integrated, transparent document and asset management"
 msgstr ""
 
 # fe69e5235e454c7c8e996acadff19a4b
-#: ../../../README.rst:57
+#: ../../../README.rst:60
 msgid ""
 "DropBox, ownCloud, Windows OneDrive, Google Drive, Apple iCloud, etc. "
 "integration"
 msgstr ""
 
 # 9b1b2c8202a34278a493414e32dd7145
-#: ../../../README.rst:58
+#: ../../../README.rst:61
 msgid "fully integrated search (Haystack)"
 msgstr ""
 
-# eb4fac931f5244c2a5c09474064181f4
-#: ../../../README.rst:59
-msgid "web analytics respecting your privacy (Piwik)"
-msgstr ""
-
 # c8c130f2ba8941a3aefdde2ac0d9f142
-#: ../../../README.rst:60
+#: ../../../README.rst:62
 msgid "live chat or chat integration"
 msgstr ""
 
 # 8f89ac398c4e439c8ba8bc5ff378a1bc
-#: ../../../README.rst:63
+#: ../../../README.rst:66
 msgid "Who is using django Organice?"
 msgstr ""
 
 # 31c91be34c454c73b6c113be81395b31
-#: ../../../README.rst:65
+#: ../../../README.rst:68
 msgid "Examples of websites running django Organice:"
 msgstr ""
 
 # 2ad3e5ad95ba4dc8b53c4a30dabc8619
-#: ../../../README.rst:67
+#: ../../../README.rst:70
 msgid "`Kreuzlingen Rudolf Steiner school`_"
 msgstr ""
 
 # 49475007850e413e88ccce0213248f6f
-#: ../../../README.rst:70
+#: ../../../README.rst:73
 msgid "Download and Contributions"
 msgstr ""
 
 # 2ab2f9906e5346db8fc6f781f015a515
-#: ../../../README.rst:72
+#: ../../../README.rst:75
 msgid "Official repositories: (kept in sync)"
 msgstr ""
 
 # 800ec40701904d85b18c6a1c1065926e
-#: ../../../README.rst:74
+#: ../../../README.rst:77
 msgid "Bitbucket: https://bitbucket.org/bittner/django-organice"
 msgstr ""
 
 # d4be98b1d4d1409dbbf0600d92667d0d
-#: ../../../README.rst:75
+#: ../../../README.rst:78
 msgid "GitHub: https://github.com/bittner/django-organice"
 msgstr ""
 
 # cef4e6ad1cf940dcb6a933087d03385c
-#: ../../../README.rst:78
+#: ../../../README.rst:81
 msgid "Getting Help"
 msgstr ""
 
 # deae12ef66b94eb7a2d2a881e2fd8755
-#: ../../../README.rst:80
+#: ../../../README.rst:83
 msgid "Documentation is available at http://docs.organice.io"
 msgstr ""
 
 # be27faf42d5f4360a3d43382213f0703
-#: ../../../README.rst:81
+#: ../../../README.rst:84
 msgid ""
 "Questions? Please use StackOverflow_.  Tag your questions with ``django-"
 "organice``."
 msgstr ""
 
 # 1fd8122b94e94df8b49669b7f8798304
-#: ../../../README.rst:82
+#: ../../../README.rst:85
 msgid ""
 "Found a bug? Please use either the Bitbucket_ or GitHub_ issue tracker (you "
 "choose)"
 msgstr ""
+
+#: ../../../README.rst:44
+msgid "web analytics respecting your privacy (Piwik integration)"
+msgstr ""
+
+#: ../../../README.rst:45
+msgid "multiple themes (available for free at http://organice.io/themes)"
+msgstr ""
+
+#: ../../../README.rst:63
+msgid "surveys (django-crowdsourcing, ntusurvey)"
+msgstr ""
+
+#~ msgid "web analytics respecting your privacy (Piwik)"
+#~ msgstr ""

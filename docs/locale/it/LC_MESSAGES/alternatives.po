@@ -32,7 +32,9 @@ msgid ""
 " Simplicity is key, everything should be intuitive, getting things done "
 "easily.  Occasional users should be happy to the same extent than daily-"
 "habit expert users."
-msgstr "Con django Organice vogliamo rendere felici tutti quelli che non sono esperti di tecnica o di processi. Quelle persone che vogliono semplicemente collaborare ad un progetto, senza dover partecipare prima a corsi di specializzazione per imparare a capire e utilizzare lo strumento di lavoro. La semplicità è la chiave del successo, tutto deve essere intuitivo, per rendere il lavoro un gioco da ragazzi.\nGli utenti saltuari che utlilizzano la piattaforma di rado dovrebbero sentirsi a loro agio proprio come gli esperti che la usano quotidianamente."
+msgstr ""
+"Con django Organice vogliamo rendere felici tutti quelli che non sono esperti di tecnica o di processi. Quelle persone che vogliono semplicemente collaborare ad un progetto, senza dover partecipare prima a corsi di specializzazione per imparare a capire e utilizzare lo strumento di lavoro. La semplicità è la chiave del successo, tutto deve essere intuitivo, per rendere il lavoro un gioco da ragazzi.\n"
+"Gli utenti saltuari che utlilizzano la piattaforma di rado dovrebbero sentirsi a loro agio proprio come gli esperti che la usano quotidianamente."
 
 # 11dde540459748b991f026a4cbf7ff30
 #: ../../alternatives.rst:10
@@ -41,7 +43,9 @@ msgid ""
 "satisfy your specific needs it may be a good idea to look at the following "
 "alternatives.  If you happen to know additional offers `drop us a note`_ so "
 "we can make the list more complete."
-msgstr "Chiaramente django Organice non è la soluzione ideale per tutto e tutti. \nSe siete dell'opinione che esso non risponda a vostri specifici bisogni, vale la pena dare un'occhiata alle alternative offerte in giro. Se conoscete altre soluzioni valide  `fateci sapere`_ saremo felici di copletare questa lista in modo sensato."
+msgstr ""
+"Chiaramente django Organice non è la soluzione ideale per tutto e tutti. \n"
+"Se siete dell'opinione che esso non risponda a vostri specifici bisogni, vale la pena dare un'occhiata alle alternative offerte in giro. Se conoscete altre soluzioni valide  `fateci sapere`_ saremo felici di copletare questa lista in modo sensato."
 
 # 24ef318ad5364d8f949073366753191c
 #: ../../alternatives.rst:15
@@ -50,7 +54,7 @@ msgstr "Software alternativi"
 
 # 0395fa7b9ef644a7901f47d769636858
 # feb7b31ed1fd4222ab1aa8455119f018
-#: ../../alternatives.rst:17 ../../alternatives.rst:28
+#: ../../alternatives.rst:17 ../../alternatives.rst:29
 msgid "In alphabetical order."
 msgstr "In ordine alfabetico"
 
@@ -58,16 +62,6 @@ msgstr "In ordine alfabetico"
 #: ../../alternatives.rst:19
 msgid "`Bitrix Intranet`_ (PHP, commercial, ships with source code)"
 msgstr "`Bitrix Intranet`_ (PHP, commerciale, fornito con codice sorgente)"
-
-# 620e1c7199fa45ee912613254235b4cc
-#: ../../alternatives.rst:20
-msgid "Coyo_ (Java/Play, commercial, ships with source code)"
-msgstr "Coyo_ (Java/Play, commerciale, fornito con codice sorgente)"
-
-# 29f886dd621a4ed68d7eb8ac021eac1b
-#: ../../alternatives.rst:21
-msgid "Fairgate_ (PHP, commercial, Switzerland only)"
-msgstr "Fairgate_ (PHP, commerciale, solo per la Svizzera)"
 
 # 78c66b44078649b489d832054093a1d0
 #: ../../alternatives.rst:22
@@ -80,22 +74,47 @@ msgid "`Open Atrium`_ (Drupal, open source)"
 msgstr ""
 
 # 6ae8074efb9949b1987adb3241669120
-#: ../../alternatives.rst:26
+#: ../../alternatives.rst:27
 msgid "Cloud Competitors"
 msgstr "Concorrenti soluzioni cloud"
 
 # 293749b9bd3140c8a35f1ea9dd2d42b4
-#: ../../alternatives.rst:30
+#: ../../alternatives.rst:31
 msgid "`Bitrix24.com`_ / `Bitrix24.de`_ [1]_"
 msgstr "`Bitrix24.com`_ / `Bitrix24.de`_ [1]_"
 
-# d4a8a742a8574b05ab3be2dbdbb4a316
-#: ../../alternatives.rst:31
-msgid "Igloo_"
-msgstr "Igloo_"
-
 # 23940e608a874f3dbbbf08092a4214ee
-#: ../../alternatives.rst:44
+#: ../../alternatives.rst:48
 msgid ""
 "http://intranetsdoneright.blogspot.com/2013/11/what-is-social-intranet.html"
-msgstr "http://intranetsdoneright.blogspot.com/2013/11/what-is-social-intranet.html"
+msgstr ""
+"http://intranetsdoneright.blogspot.com/2013/11/what-is-social-intranet.html"
+
+#: ../../alternatives.rst:20
+msgid "`Coyo`_ (Java/Play, commercial, ships with source code)"
+msgstr ""
+
+#: ../../alternatives.rst:21
+msgid "`Fairgate`_ (PHP, commercial, Switzerland only)"
+msgstr ""
+
+#: ../../alternatives.rst:24
+msgid "`tendenci`_ (Django, open source)"
+msgstr ""
+
+#: ../../alternatives.rst:32
+msgid "`huddle`_"
+msgstr ""
+
+#: ../../alternatives.rst:33
+msgid "`Igloo`_"
+msgstr ""
+
+#~ msgid "Coyo_ (Java/Play, commercial, ships with source code)"
+#~ msgstr "Coyo_ (Java/Play, commerciale, fornito con codice sorgente)"
+
+#~ msgid "Fairgate_ (PHP, commercial, Switzerland only)"
+#~ msgstr "Fairgate_ (PHP, commerciale, solo per la Svizzera)"
+
+#~ msgid "Igloo_"
+#~ msgstr "Igloo_"

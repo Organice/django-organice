@@ -18,11 +18,6 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 4e7d23cba39e43d2b056ed4c9e76986d
-#: ../../index.rst:6
-msgid "Welcome to django Organice documentation!"
-msgstr "Benvenuti nella documentazione di django Organice!"
-
 # a8fa6cb45c1a44a7aa155ea947ab7cc3
 #: ../../index.rst:8
 msgid "Contents:"
@@ -38,12 +33,17 @@ msgstr "Indici e tabelle"
 msgid ":ref:`genindex`"
 msgstr ":ref:`genindex`"
 
-# 02334351919b47879799bc5d82887523
-#: ../../index.rst:28
-msgid ":ref:`modindex`"
-msgstr ":ref:`modindex`"
-
 # fd83782f6fba44c9b3de5691a6dc1aca
-#: ../../index.rst:29
+#: ../../index.rst:28
 msgid ":ref:`search`"
 msgstr ":ref:`search`"
+
+#: ../../index.rst:6
+msgid "Welcome to django Organice!"
+msgstr ""
+
+#~ msgid "Welcome to django Organice documentation!"
+#~ msgstr "Benvenuti nella documentazione di django Organice!"
+
+#~ msgid ":ref:`modindex`"
+#~ msgstr ":ref:`modindex`"
