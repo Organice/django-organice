@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-11 15:35+0200\n"
-"PO-Revision-Date: 2014-06-03 22:57+0000\n"
+"POT-Creation-Date: 2014-07-09 00:48+0200\n"
+"PO-Revision-Date: 2014-07-08 22:48+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/django-organice-docs/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 6877e160bb3147f1b712d2d5faf09928
+# 39ed8c16da7c4dafb4267855820aa0c5
 #: ../../configuration.rst:3
 msgid "Configuration"
 msgstr ""
 
-# 16c41291c2ee4dd5828bbf91c11711c2
+# 9d8509a55d6b4d5c8b0a2feb37704225
 #: ../../configuration.rst:5
 msgid ""
 "django Organice comes with sensible defaults for almost anything.  Yet "
@@ -30,68 +30,29 @@ msgid ""
 "in this section."
 msgstr ""
 
-# d0374bce595a43c187b9ac833df77cd3
+# c2795945a72a4e7d8ebe4ea691a09eeb
 #: ../../configuration.rst:11
 msgid "Settings"
 msgstr ""
 
-# 9b97679817a4429d95bdab5f165a84a2
+# 2f56c07662d24394969b0b874d86c91e
 #: ../../configuration.rst:13
 msgid ""
 "You may define any of the following options in your project's ``settings`` "
 "to override the default value."
 msgstr ""
 
-# 2f3b9ebed5b44f44a076ad55a990df56
-#: ../../configuration.rst:18
-msgid "``admin``"
-msgstr ""
-
-# 5f672b3bc9f14d2db8b5391cc8fbce0b
-#: ../../configuration.rst:25
-msgid "``blog``"
-msgstr ""
-
-# da691f78958340c4bdd9c3614a26a5f0
-#: ../../configuration.rst:27
-msgid ""
-"The URL path for the blog's start page (e.g. ``www.example.com/blog``).  "
-"Must be non-empty.  Use an identifier only, no white space, no leading or "
-"trailing slash."
-msgstr ""
-
-# fcaac9fcd2774792be84f7674ad04391
-#: ../../configuration.rst:32
-msgid "``newsletter``"
-msgstr ""
-
-# 132a7233c2704c738297a1dfa5a46274
-#: ../../configuration.rst:34
-msgid ""
-"The URL path for accessing newsletter functionality on the front-end (e.g. "
-"``www.example.com/newsletter``).  Must be non-empty.  Use an identifier "
-"only, no white space, no leading or trailing slash."
-msgstr ""
-
-# 559e42badf404d4f965cd7d76effd0c4
-#: ../../configuration.rst:40
-msgid "``todo``"
-msgstr ""
-
-# 6b67e1f52cfb4de2a721b373523f8a99
-#: ../../configuration.rst:46
-msgid "Third Party Settings"
-msgstr ""
-
-# b3fdf0b7136648d3ba7d9ce3e073b104
-#: ../../configuration.rst:49
-msgid "Analytics Providers"
-msgstr ""
-
+# c52cf485cca44fa3becb81685637ad10
 #: ../../configuration.rst:17
 msgid ":const:`ORGANICE_URL_PATH_ADMIN`"
 msgstr ""
 
+# a23c816354914ca08a040fd279ba7212
+#: ../../configuration.rst:18
+msgid "``admin``"
+msgstr ""
+
+# 547c39dd68bd431fbab267a15e5984dc
 #: ../../configuration.rst:20
 msgid ""
 "The URL path for accessing the Django Administration backend (e.g. "
@@ -99,18 +60,53 @@ msgid ""
 "white space, no leading or trailing slash."
 msgstr ""
 
+# 4fdd77654d154943890f1f20cbab5ca0
 #: ../../configuration.rst:24
 msgid ":const:`ORGANICE_URL_PATH_BLOG`"
 msgstr ""
 
+# 6a7c43cc8f094caca09d14622cdf0dc3
+#: ../../configuration.rst:25
+msgid "``blog``"
+msgstr ""
+
+# 477cdaf5b63c4a529304cdb8546fc515
+#: ../../configuration.rst:27
+msgid ""
+"The URL path for the blog's start page (e.g. ``www.example.com/blog``).  "
+"Must be non-empty.  Use an identifier only, no white space, no leading or "
+"trailing slash."
+msgstr ""
+
+# 49dbbfa52b204f9da39cf0723ed61b52
 #: ../../configuration.rst:31
 msgid ":const:`ORGANICE_URL_PATH_NEWSLETTER`"
 msgstr ""
 
+# 5b72f9005b9f443280678e89d009d2d0
+#: ../../configuration.rst:32
+msgid "``newsletter``"
+msgstr ""
+
+# 6c10ec0d4d7f49848456ebf6024f135d
+#: ../../configuration.rst:34
+msgid ""
+"The URL path for accessing newsletter functionality on the front-end (e.g. "
+"``www.example.com/newsletter``).  Must be non-empty.  Use an identifier "
+"only, no white space, no leading or trailing slash."
+msgstr ""
+
+# f9348269ebbc45b28b2ca435d9f623d1
 #: ../../configuration.rst:39
 msgid ":const:`ORGANICE_URL_PATH_TODO`"
 msgstr ""
 
+# 906897ddeec448dda6949f8d6e15b785
+#: ../../configuration.rst:40
+msgid "``todo``"
+msgstr ""
+
+# 9fdd7c71fd3e42fcad48d63acd425aee
 #: ../../configuration.rst:42
 msgid ""
 "The URL path for accessing todo list functionality on the front-end (e.g. "
@@ -118,6 +114,17 @@ msgid ""
 "white space, no leading or trailing slash."
 msgstr ""
 
+# 1418bee69cfd4ebeb35ef80b3e7a100d
+#: ../../configuration.rst:46
+msgid "Third Party Settings"
+msgstr ""
+
+# 2fe39a4ca4b24f149628294f798bbaea
+#: ../../configuration.rst:49
+msgid "Analytics Providers"
+msgstr ""
+
+# 12ba2b328a674fbebbe2163f741f851c
 #: ../../configuration.rst:51
 msgid ""
 "The `analytics`:index: services supported by ``django-analytical`` are "
@@ -126,35 +133,3 @@ msgid ""
 "you shouldn't add those to your common settings file, but to "
 "``settings.production``."
 msgstr ""
-
-#~ msgid "ORGANICE_URL_PATH_ADMIN"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The URL path for accessing the Django Administration backend (e.g. "
-#~ "``www.example.com/admin``).  Must be non-empty. Use an identifier only, no "
-#~ "white space, no leading or trailing slash."
-#~ msgstr ""
-
-#~ msgid "ORGANICE_URL_PATH_BLOG"
-#~ msgstr ""
-
-#~ msgid "ORGANICE_URL_PATH_NEWSLETTER"
-#~ msgstr ""
-
-#~ msgid "ORGANICE_URL_PATH_TODO"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The URL path for accessing todo list functionality on the front-end (e.g. "
-#~ "``www.example.com/todo``).  Must be non-empty.  Use an identifier only, no "
-#~ "white space, no leading or trailing slash."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The analytics services supported by ``django-analytical`` are enabled by "
-#~ "setting various service properties in your settings file.  The properties "
-#~ "are documented in `their documentation`_.  For security reasons you "
-#~ "shouldn't add those to your common settings file, but to "
-#~ "settings/production."
-#~ msgstr ""

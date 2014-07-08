@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-11 15:35+0200\n"
-"PO-Revision-Date: 2014-03-27 20:17+0000\n"
+"POT-Creation-Date: 2014-07-09 00:48+0200\n"
+"PO-Revision-Date: 2014-07-08 22:48+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,32 +18,48 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# a8fa6cb45c1a44a7aa155ea947ab7cc3
-#: ../../index.rst:8
-msgid "Contents:"
-msgstr "Inhalt:"
-
-# 55311965bb7c4f5faa234a8c5dc2c724
-#: ../../index.rst:25
-msgid "Indices and tables"
-msgstr "Verzeichnisse und Tabellen"
-
-# 30930f9bdc8749078d4625c87a8b8c34
-#: ../../index.rst:27
-msgid ":ref:`genindex`"
-msgstr ":ref:`genindex`"
-
-# fd83782f6fba44c9b3de5691a6dc1aca
-#: ../../index.rst:28
-msgid ":ref:`search`"
-msgstr ":ref:`search`"
-
-#: ../../index.rst:6
+# 099fb47e559f4096aea8437f06d7be16
+#: ../../../README.rst:3
 msgid "Welcome to django Organice!"
 msgstr ""
 
-#~ msgid "Welcome to django Organice documentation!"
-#~ msgstr "Willkommen zur Dokumentation von django Organice!"
+# bff383be56f8434cafa7d968b4c5117e
+#: ../../index.rst:27
+msgid "Indices and tables"
+msgstr "Verzeichnisse und Tabellen"
 
-#~ msgid ":ref:`modindex`"
-#~ msgstr ":ref:`modindex`"
+# 3b3149d242974265b757807429d7434b
+#: ../../index.rst:29
+msgid ":ref:`genindex`"
+msgstr ":ref:`genindex`"
+
+# 921874399d6e4fa3a77623753456db9e
+#: ../../index.rst:30
+msgid ":ref:`search`"
+msgstr ":ref:`search`"
+
+#: ../../../README.rst:5
+msgid ""
+"All-in-one collaboration solution.  For non-profit organizations, sports "
+"clubs, small to medium-sized businesses."
+msgstr ""
+
+#: ../../../README.rst:8
+msgid ""
+"django Organice is a nice way to run a collaboration platform, an intranet, "
+"and websites for your business.  It's a compilation of the best Django "
+"packages, preconfigured for getting you started quickly.  Being powered by "
+"the well-known `Django Web framework`_ it's a safe choice for your IT "
+"investment providing an easily extensible architecture."
+msgstr ""
+
+#: ../../index.rst:7
+msgid "Also available in the cloud.  Nice, very nice, http://organice.io"
+msgstr ""
+
+#: ../../index.rst:11
+msgid "Contents"
+msgstr ""
+
+#~ msgid "Contents:"
+#~ msgstr "Inhalt:"
