@@ -41,6 +41,7 @@ Major components of django Organice are:
 - todo/issue lists
 - social login and user profiles (allauth)
 - generic analytics support (analytical)
+- web analytics respecting your privacy (Piwik integration)
 - multiple themes (available for free at http://organice.io/themes)
 - multi-language support
 - multiple websites support
@@ -58,7 +59,6 @@ We are thrilled to get these awesome features out to you:
 - unobtrusive, integrated, transparent document and asset management
 - DropBox, ownCloud, Windows OneDrive, Google Drive, Apple iCloud, etc. integration
 - fully integrated search (Haystack)
-- web analytics respecting your privacy (Piwik)
 - live chat or chat integration
 - surveys (django-crowdsourcing, ntusurvey)
 

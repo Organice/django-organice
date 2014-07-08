@@ -77,21 +77,23 @@ Installing django Organice
 
   ..
 
-    *NOTE:* If you're planning to create your content locally make sure you use the same database engine for local
-    development and production.  Your plan of moving the whole database content from development to production will
-    give you major headaches otherwise.  And, use Sqlite for evaluating only!
+    *NOTE:* If you're planning to create your content locally make sure you use the same database
+    engine for local development and production.  Your plan of moving the whole database content
+    from development to production will give you major headaches otherwise.  And, use Sqlite for
+    evaluating only!
 
 Initial Configuration
 =====================
 
-#. Follow the instructions given to you by the django Organice installer ``organice-setup`` after setup has completed.
-   You have to adapt some values in your project settings!
+#. Follow the instructions given to you by the django Organice installer ``organice-setup`` after
+   setup has completed.  You have to adapt some values in your project settings!
 
-#. If you want your site to use a language other than English, or you want to use several languages:  Adapt the values
-   of ``LANGUAGE_CODE`` and ``LANGUAGES``, and set ``USE_I18N = True`` in your project settings.
+#. If you want your site to use a language other than English, or you want to use several languages:
+   Adapt the values of :const:`LANGUAGE_CODE` and :const:`LANGUAGES`, and set
+   :const:`USE_I18N = True` in your project settings.
 
-#. After installation django Organice is configured, but it's blank without any content.  You can install
-   sample content and other data running one or all of the following commands::
+#. After installation django Organice is configured, but it's blank without any content.  You can
+   install sample content and other data running one or all of the following commands::
 
     $ python manage loaddata organice_sample_content  # optional sample content
     $ python manage loaddata organice_auth_providers  # social auth provider configuration
@@ -113,7 +115,8 @@ Initial Configuration
 Deployment to Production
 ========================
 
-During the installation ``organice-setup`` prepared 3 different environments that help you with deployment::
+During the installation ``organice-setup`` prepared 3 different environments that help you with
+deployment::
 
     example
     ├── settings
@@ -123,12 +126,14 @@ During the installation ``organice-setup`` prepared 3 different environments tha
     │   ├── staging.py
     │   └── production.py
 
-This modularized setup is described in Solution 2 of Tommy Jarnac's blog on `Django settings best practices`_ [1]_.
-The ``develop`` settings are active by default (for local development), ``common`` is included by all profiles.
+This modularized setup is described in Solution 2 of Tommy Jarnac's blog on `Django settings best
+practices`_ [1]_.  The ``develop`` settings are active by default (for local development),
+``common`` is included by all profiles.
 
-For deployment to environments other than ``develop`` the settings module location must be overridden by setting the
-Django environment variable ``DJANGO_SETTINGS_MODULE``.  For example, if you use Apache as your Django web server
-adapt your Apache configuration file for ``example`` with::
+For deployment to environments other than ``develop`` the settings module location must be
+overridden by setting the Django environment variable :const:`DJANGO_SETTINGS_MODULE`.  For example,
+if you use Apache as your Django web server adapt your Apache configuration file for ``example``
+with::
 
     SetEnv DJANGO_SETTINGS_MODULE example.settings.production
 

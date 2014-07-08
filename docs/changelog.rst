@@ -2,6 +2,13 @@
 CHANGELOG
 =========
 
+0.3.dev
+=======
+
+- Sample content loading using fixtures
+- Integration of Piwik open source analytics (optional via django-analytical)
+- Test coverage
+
 :Changes: https://github.com/bittner/django-organice/compare/v0.2...HEAD
 
 0.2

@@ -4,12 +4,12 @@ User Manual
 
 django Organice is composend of the following main components:
 
-1. Content Management (Cms)
-#. Blog (Zinnia)
-#. Newsletter
+#. `Content Management`_ (Cms)
+#. `Blog`_ (Zinnia)
+#. `Newsletter`_
 
-Content Management
-==================
+`Content Management`:index:
+===========================
 
 Editing your website is not much different from surfing the web.  When you're logged in to your website you will have
 the django CMS toolbar on top of the page.  Slide the "Edit mode" button to the "ON" state, and some elements of the
@@ -23,8 +23,8 @@ For more technical tasks like creating a navigation structure, adding pages, etc
 to the Django administration interface.  Want to have an upfront first impression before using it?  Check out the
 (slightly outdated) django CMS `video on frontend-editing`_.
 
-Blog
-====
+`Blog`:index:
+=============
 
 Writing and publishing interesting articles now and then is called "blogging".  It's very similar to the usual editing
 of your website, but still it's different because you get more features as a natural add-on:  Categories, tagging,
@@ -38,8 +38,8 @@ which is not available with an intermediate draft step:  All your changes are im
 Note that in django Organice we also use the blog functionality for other use cases that are very similar to the usual
 blogging, such as event agendas, job postings, press releases, download lists, etc.
 
-Newsletter
-==========
+`Newsletter`:index:
+===================
 
 Sending out news or updates to a circle of friends or customers is managed by the Newsletter component, which is
 available from the Django administration interface when you're logged in to your website.  Simply click on

@@ -17,11 +17,11 @@ Software Alternatives
 In alphabetical order.
 
 - `Bitrix Intranet`_ (PHP, commercial, ships with source code)
-- Coyo_ (Java/Play, commercial, ships with source code)
-- Fairgate_ (PHP, commercial, Switzerland only)
+- `Coyo`_ (Java/Play, commercial, ships with source code)
+- `Fairgate`_ (PHP, commercial, Switzerland only)
 - `Microsoft SharePoint + Yammer`_ [1]_ (.NET + Rails, commercial)
 - `Open Atrium`_ (Drupal, open source)
-- tendenci_ (Django, open source)
+- `tendenci`_ (Django, open source)
 
 Cloud Competitors
 =================
@@ -29,20 +29,20 @@ Cloud Competitors
 In alphabetical order.
 
 - `Bitrix24.com`_ / `Bitrix24.de`_ [1]_
-- huddle_
-- Igloo_
+- `huddle`_
+- `Igloo`_
 
 
 .. _`drop us a note`: info@organice.io
 .. _`Bitrix Intranet`: http://www.bitrixsoft.com/products/intranet/
-.. _Coyo: https://www.coyoapp.com/
-.. _Fairgate: http://www.pitsolutions.ch/case-studies/php/fairgate-ag/
+.. _`Coyo`: https://www.coyoapp.com/
+.. _`Fairgate`: http://www.pitsolutions.ch/case-studies/php/fairgate-ag/
 .. _`Microsoft SharePoint + Yammer`: http://office.microsoft.com/sharepoint/
 .. _`Open Atrium`: https://drupal.org/project/openatrium
-.. _tendenci: http://tendenci.com/features/
+.. _`tendenci`: http://tendenci.com/features/
 .. _`Bitrix24.com`: http://bitrix24.com/
 .. _`Bitrix24.de`: http://bitrix24.de/
-.. _huddle: http://www.huddle.com/
-.. _Igloo: http://www.igloosoftware.com/
+.. _`huddle`: http://www.huddle.com/
+.. _`Igloo`: http://www.igloosoftware.com/
 
 .. [1] http://intranetsdoneright.blogspot.com/2013/11/what-is-social-intranet.html
