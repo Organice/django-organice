@@ -36,14 +36,15 @@ clean:
 
 develop: setuptools
 	pip install Sphinx sphinx-intl transifex-client flake8
+	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null || \
 	flake8 --install-hook
 
 undevelop: setuptools
 	for PKG in docutils Jinja2 MarkupSafe polib Pygments Sphinx sphinx-intl transifex-client flake8 pyflakes pep8 mccabe ; do \
 		pip uninstall -y $$PKG || true ; \
 	done
-	HOOK=.git/hooks/pre-commit && \
-	grep 'flake8\.hooks' $$HOOK &> /dev/null && rm $$HOOK || true
+	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null && \
+	rm $$HOOK || true
 
 docs: develop
 	@cd docs && \
