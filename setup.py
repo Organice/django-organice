@@ -15,8 +15,10 @@
 # limitations under the License.
 
 from setuptools import setup, find_packages
+from setuptools.command.test import test as TestCommand
 import os
 import organice
+import sys
 
 
 CLASSIFIERS = [
@@ -58,6 +60,20 @@ NON_PYPI_DEP_LINKS = [
 
 ROOT_PATH = os.path.dirname(__file__)
 
+
+class PyTest(TestCommand):
+
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = ['tests', '--quiet', '--strict']
+        self.test_suite = True
+
+    def run_tests(self):
+        import pytest
+        errno = pytest.main(self.test_args)
+        sys.exit(errno)
+
+
 setup(
     name='django-organice',
     version=organice.__version__,
@@ -79,6 +95,9 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
+
+    tests_require=['pytest'],
+    cmdclass={'test': PyTest},
 
     entry_points="""
         [console_scripts]

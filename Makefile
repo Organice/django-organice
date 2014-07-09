@@ -28,19 +28,19 @@ bumpver:
 
 clean:
 	$(MAKE) -C docs clean
-	rm -rf build/ dist/ django_organice.egg-info/ docs/build/ organice/static/.sass-cache
+	find . -name '*.pyc' -exec rm {} \;
+	rm -rf build/ dist/ django_organice.egg-info/ docs/build/ organice/static/.sass-cache tests/__pycache__/
 	for DIR in media/ static/ templates/ ; do \
 		[ -d $$DIR ] && rmdir $$DIR || true ; \
 	done
-	find . -name '*.pyc' -exec rm {} \;
 
 develop: setuptools
-	pip install Sphinx sphinx-intl transifex-client flake8
+	pip install Sphinx sphinx-intl transifex-client flake8 pytest
 	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null || \
 	flake8 --install-hook
 
 undevelop: setuptools
-	for PKG in docutils Jinja2 MarkupSafe polib Pygments Sphinx sphinx-intl transifex-client flake8 pyflakes pep8 mccabe ; do \
+	for PKG in docutils Jinja2 MarkupSafe polib Pygments Sphinx sphinx-intl transifex-client flake8 pyflakes pep8 mccabe pytest py ; do \
 		pip uninstall -y $$PKG || true ; \
 	done
 	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null && \
@@ -81,7 +81,7 @@ setuptools:
 	rm -f setuptools-*.zip
 
 tests:
-	@echo "Not implemented yet."
+	python setup.py test
 
 transifex: develop
 	@cd docs && tx pull --all --force
