@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-09 00:48+0200\n"
+"POT-Creation-Date: 2014-07-09 01:33+0200\n"
 "PO-Revision-Date: 2014-07-08 22:48+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/django-organice-docs/language/it/)\n"
@@ -71,25 +71,32 @@ msgid ""
 "the documentation."
 msgstr ""
 
-# 9af954afb1e645b09d72ebaa9763a024
-#: ../../contributing.rst:23
-msgid ""
-"The multilingual documentation is written in `reStructuredText`_ syntax, and"
-" built using `Sphinx`_. As a `translator`:index: you can simply jump on "
-"`Transifex`:index: and get your hands dirty for your language. Some helpful "
-"background reading is available from `Read the Docs`_ and `Transifex "
-"support`_."
-msgstr ""
-
 # a1243554cd004c2b8b9f57e2702a7915
-#: ../../contributing.rst:28
+#: ../../contributing.rst:29
 msgid "Bumping Versions, Package, Release"
 msgstr ""
 
 # e84abab778a442cb9de85959e18096e3
-#: ../../contributing.rst:30
+#: ../../contributing.rst:31
 msgid ""
 "As for the `version numbers`:index: of django Organice we use `Semantic "
 "Versioning`_.  Changes from one to the next `release`:index: are documented "
 "in the :doc:`changelog`."
 msgstr ""
+
+#: ../../contributing.rst:23
+msgid ""
+"The multilingual documentation is written in `reStructuredText`_ syntax, and"
+" built using `Sphinx`_. As a `translator`:index: you can simply jump on "
+"`Transifex`:index: and get your hands dirty for your language.  Some helpful"
+" background reading is available from `Read the Docs`_ and `Transifex "
+"support`_."
+msgstr ""
+
+#~ msgid ""
+#~ "The multilingual documentation is written in `reStructuredText`_ syntax, and"
+#~ " built using `Sphinx`_. As a `translator`:index: you can simply jump on "
+#~ "`Transifex`:index: and get your hands dirty for your language. Some helpful "
+#~ "background reading is available from `Read the Docs`_ and `Transifex "
+#~ "support`_."
+#~ msgstr ""

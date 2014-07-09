@@ -21,8 +21,9 @@ Translation
 Translation is done on `Transifex`_ for both the project text strings and the documentation.
 
 The multilingual documentation is written in `reStructuredText`_ syntax, and built using `Sphinx`_.
-As a `translator`:index: you can simply jump on `Transifex`:index: and get your hands dirty for your language.
-Some helpful background reading is available from `Read the Docs`_ and `Transifex support`_.
+As a `translator`:index: you can simply jump on `Transifex`:index: and get your hands dirty for
+your language.  Some helpful background reading is available from `Read the Docs`_ and
+`Transifex support`_.
 
 Bumping Versions, Package, Release
 ==================================
