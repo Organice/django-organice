@@ -23,13 +23,13 @@ class DjangoModuleManager(object):
     """
     Utility class to modify and write files in a Python module.
     """
-    __path = ''
-    __file = {}
-    __data = {}
 
     def __init__(self, projectname, *modulename):
         """Constructor, computes and creates physical base path for module"""
         self.__path = os.path.join(projectname, *modulename)
+        self.__file = {}
+        self.__data = {}
+
         if not os.path.exists(self.__path):
             os.makedirs(self.__path)
 
