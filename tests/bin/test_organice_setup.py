@@ -1,25 +1,35 @@
 from os import rmdir, stat, unlink
 from os.path import exists, join
+from pytest import fixture
 from shutil import rmtree
 from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH, ST_MODE
 from subprocess import call
 
 
 class TestOrganiceSetup():
-    """Test class for testing the startproject() function"""
+    """Tests for the startproject() function"""
     project_name = 'test_project'
     project_manage_script = 'manage.py'
 
-    def test_00_setup(self, tmpdir):
-        """test setup --> ``__enter__(self)`` not accepted by py.test"""
-        self.old_dir = tmpdir.chdir()
+    @fixture(scope="module")
+    def setup(self, request):
+        """test setup"""
 
-    def test_01_create_project(self):
+        @request.addfinalizer
+        def teardown():
+            """test teardown"""
+            rmtree(self.project_name)
+            for suffix in ('media', 'static', 'templates'):
+                rmdir(self.project_name + '.' + suffix)
+            unlink('manage.py')
+
+    def test_01_create_project(self, tmpdir, setup):
         """
         - does setup command execute and finish?
         - does manage script exist, and is it executable?
         """
         mode0755 = oct(S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH)
+        tmpdir.chdir()
         exit_code = call(['organice-setup', '--verbosity=0', self.project_name])
         assert exit_code == 0
         assert exists(self.project_manage_script)
@@ -103,10 +113,3 @@ class TestOrganiceSetup():
         """
         # TODO: implement as described in def comment
         pass
-
-    def test_99_teardown(self):
-        """test teardown --> ``__exit__(self, type, value, traceback)`` not accepted by py.test"""
-        rmtree(self.project_name)
-        for suffix in ('media', 'static', 'templates'):
-            rmdir(self.project_name + '.' + suffix)
-        unlink('manage.py')
