@@ -1,98 +1,112 @@
-from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH, ST_MODE
-from os import stat, rmdir, unlink
+from os import rmdir, stat, unlink
 from os.path import exists, join
 from shutil import rmtree
+from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH, ST_MODE
 from subprocess import call
 
 
-def test_startproject(tmpdir):
-    # TEST _create_project():
-    # - does setup command execute and finish?
-    # - does manage script exist, and is it executable?
+class TestOrganiceSetup():
+    """Test class for testing the startproject() function"""
     project_name = 'test_project'
     project_manage_script = 'manage.py'
-    mode0755 = oct(S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH)
-    exit_code = call(['organice-setup', '--verbosity=0', project_name])
-    assert exit_code == 0
-    assert exists(project_manage_script)
-    file_mode = oct(stat(project_manage_script)[ST_MODE])[-4:]
-    assert file_mode == mode0755
 
-    # TEST _split_project():
-    # - are subdirectories accessible as modules?
-    # - do profiles exist?
-    project_module = join(project_name, '__init__.py')
-    project_settings_module = join(project_name, 'settings', '__init__.py')
-    project_settings_common_file = join(project_name, 'settings', 'common.py')
-    project_settings_develop_file = join(project_name, 'settings', 'develop.py')
-    project_settings_staging_file = join(project_name, 'settings', 'staging.py')
-    project_settings_production_file = join(project_name, 'settings', 'production.py')
-    assert exists(project_module)
-    assert exists(project_settings_module)
-    assert exists(project_settings_common_file)
-    assert exists(project_settings_develop_file)
-    assert exists(project_settings_staging_file)
-    assert exists(project_settings_production_file)
-    for profile in (project_settings_staging_file, project_settings_production_file):
+    def test_00_setup(self, tmpdir):
+        """test setup --> ``__enter__(self)`` not accepted by py.test"""
+        self.old_dir = tmpdir.chdir()
+
+    def test_01_create_project(self):
+        """
+        - does setup command execute and finish?
+        - does manage script exist, and is it executable?
+        """
+        mode0755 = oct(S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH)
+        exit_code = call(['organice-setup', '--verbosity=0', self.project_name])
+        assert exit_code == 0
+        assert exists(self.project_manage_script)
+        file_mode = oct(stat(self.project_manage_script)[ST_MODE])[-4:]
+        assert file_mode == mode0755
+
+    def test_02_split_project(self):
+        """
+        - are subdirectories accessible as modules?
+        - do profiles exist?
+        """
+        project_module = join(self.project_name, '__init__.py')
+        project_settings_module = join(self.project_name, 'settings', '__init__.py')
+        project_settings_common_file = join(self.project_name, 'settings', 'common.py')
+        project_settings_develop_file = join(self.project_name, 'settings', 'develop.py')
+        project_settings_staging_file = join(self.project_name, 'settings', 'staging.py')
+        project_settings_production_file = join(self.project_name, 'settings', 'production.py')
+        assert exists(project_module)
+        assert exists(project_settings_module)
+        assert exists(project_settings_common_file)
+        assert exists(project_settings_develop_file)
+        assert exists(project_settings_staging_file)
+        assert exists(project_settings_production_file)
+        for profile in (project_settings_staging_file, project_settings_production_file):
+            # TODO: replace by import module and attribute tests
+            content = open(profile).read()
+            assert content.find(
+                "ALLOWED_HOSTS = \n[\n    '%(subdomain)s.organice.io',\n    '%(domain)s'," %
+                {
+                    'subdomain': self.project_name,
+                    'domain': 'www.example.com',
+                })
+            assert content.find('DEBUG = ')
+            assert content.find('TEMPLATE_DEBUG = ')
+            assert content.find('ALLOWED_HOSTS = [\n')
+            assert content.find('DATABASES = {\n')
+            assert content.find('MEDIA_ROOT = ')
+            assert content.find('STATIC_ROOT = ')
+            assert content.find('SECRET_KEY = ')
+
+    def test_03_configure_database(self):
+        pass
+
+    def test_04_configure_installed_apps(self):
+        pass
+
+    def test_05_configure_authentication(self):
+        pass
+
+    def test_06_configure_cms(self):
+        pass
+
+    def test_07_configure_newsletter(self):
+        pass
+
+    def test_08_configure_blog(self):
+        pass
+
+    def test_09_configure_set_custom(self):
+        """could be optional"""
+        pass
+
+    def test_10_generate_urls_conf(self):
         # TODO: replace by import module and attribute tests
-        content = open(profile).read()
-        assert content.find(
-            "ALLOWED_HOSTS = \n[\n    '%(subdomain)s.organice.io',\n    '%(domain)s'," %
-            {
-                'subdomain': project_name,
-                'domain': 'www.example.com',
-            })
-        assert content.find('DEBUG = ')
-        assert content.find('TEMPLATE_DEBUG = ')
-        assert content.find('ALLOWED_HOSTS = [\n')
-        assert content.find('DATABASES = {\n')
-        assert content.find('MEDIA_ROOT = ')
-        assert content.find('STATIC_ROOT = ')
-        assert content.find('SECRET_KEY = ')
+        project_urls_file = join(self.project_name, 'urls.py')
+        assert exists(project_urls_file)
+        assert open(project_urls_file).read() == '# generated by django Organice\n' \
+                                                 'from organice.urls import urlpatterns\n'
 
-    # TEST _configure_database():
-    pass
+    def test_11_generate_webserver_conf(self):
+        """
+        if called with "--webserver apache":
+        - does file ``join(self.project_name, 'wsgi.py')`` exist?
+        - is :const:WSGI_APPLICATION available in all profiles?
+        - optional: test content of file
+        elif called with "--webserver lighttp":
+        - is file ``join(self.project_name, 'wsgi.py')`` deleted?
+        - is :const:APPLICATION removed from common settings?
+        - is empty value :const:FORCE_SCRIPT_NAME available in all profiles?
+        - does file ``project_name + '.conf'`` and contain correct values? (...)
+        """
+        # TODO: implement as described in def comment
+        pass
 
-    # TEST _configure_installed_apps():
-    pass
-
-    # TEST _configure_authentication():
-    pass
-
-    # TEST _configure_cms():
-    pass
-
-    # TEST _configure_newsletter():
-    pass
-
-    # TEST _configure_blog():
-    pass
-
-    # TEST _configure_set_custom():  # could be optional
-    pass
-
-    # TEST _generate_urls_conf():
-    # TODO: replace by import module and attribute tests
-    project_urls_file = join(project_name, 'urls.py')
-    assert exists(project_urls_file)
-    assert open(project_urls_file).read() == '# generated by django Organice\n' \
-                                             'from organice.urls import urlpatterns\n'
-
-    # TEST _generate_webserver_conf():
-    # TODO: implement as follows
-    # if called with "--webserver apache":
-    # - does file ``join(project_name, 'wsgi.py')`` exist?
-    # - is :const:WSGI_APPLICATION available in all profiles?
-    # - optional: test content of file
-    # elif called with "--webserver lighttp":
-    # - is file ``join(project_name, 'wsgi.py')`` deleted?
-    # - is :const:APPLICATION removed from common settings?
-    # - is empty value :const:FORCE_SCRIPT_NAME available in all profiles?
-    # - does file ``project_name + '.conf'`` and contain correct values? (...)
-    pass
-
-    # cleanup
-    rmtree(project_name)
-    for suffix in ('media', 'static', 'templates'):
-        rmdir(project_name + '.' + suffix)
-    unlink('manage.py')
+    def test_99_teardown(self):
+        """test teardown --> ``__exit__(self, type, value, traceback)`` not accepted by py.test"""
+        rmtree(self.project_name)
+        for suffix in ('media', 'static', 'templates'):
+            rmdir(self.project_name + '.' + suffix)
+        unlink('manage.py')
