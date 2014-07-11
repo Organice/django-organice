@@ -62,7 +62,6 @@ ROOT_PATH = os.path.dirname(__file__)
 
 
 class PyTest(TestCommand):
-
     def finalize_options(self):
         TestCommand.finalize_options(self)
         self.test_args = ['tests', '--quiet', '--strict']
@@ -98,7 +97,6 @@ setup(
 
     tests_require=['pytest'],
     cmdclass={'test': PyTest},
-
     entry_points="""
         [console_scripts]
         organice-setup=organice.bin.organice_setup:startproject

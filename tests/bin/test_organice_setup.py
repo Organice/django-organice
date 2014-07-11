@@ -4,12 +4,17 @@ from pytest import fixture
 from shutil import rmtree
 from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH, ST_MODE
 from subprocess import call
+from ..utils import probe_values_in_tuple
 
 
 class TestOrganiceSetup():
     """Tests for the startproject() function"""
     project_name = 'test_project'
     project_manage_script = 'manage.py'
+    project_settings_common_file = join(project_name, 'settings', 'common.py')
+    project_settings_develop_file = join(project_name, 'settings', 'develop.py')
+    project_settings_staging_file = join(project_name, 'settings', 'staging.py')
+    project_settings_production_file = join(project_name, 'settings', 'production.py')
 
     @fixture(scope="module")
     def setup(self, request):
@@ -43,50 +48,119 @@ class TestOrganiceSetup():
         """
         project_module = join(self.project_name, '__init__.py')
         project_settings_module = join(self.project_name, 'settings', '__init__.py')
-        project_settings_common_file = join(self.project_name, 'settings', 'common.py')
-        project_settings_develop_file = join(self.project_name, 'settings', 'develop.py')
-        project_settings_staging_file = join(self.project_name, 'settings', 'staging.py')
-        project_settings_production_file = join(self.project_name, 'settings', 'production.py')
         assert exists(project_module)
         assert exists(project_settings_module)
-        assert exists(project_settings_common_file)
-        assert exists(project_settings_develop_file)
-        assert exists(project_settings_staging_file)
-        assert exists(project_settings_production_file)
-        for profile in (project_settings_staging_file, project_settings_production_file):
-            # TODO: replace by import module and attribute tests
+        assert exists(self.project_settings_common_file)
+        assert exists(self.project_settings_develop_file)
+        assert exists(self.project_settings_staging_file)
+        assert exists(self.project_settings_production_file)
+        for profile in (self.project_settings_staging_file,
+                        self.project_settings_production_file):
             content = open(profile).read()
-            assert content.find(
-                "ALLOWED_HOSTS = \n[\n    '%(subdomain)s.organice.io',\n    '%(domain)s'," %
-                {
-                    'subdomain': self.project_name,
-                    'domain': 'www.example.com',
-                })
-            assert content.find('DEBUG = ')
-            assert content.find('TEMPLATE_DEBUG = ')
-            assert content.find('ALLOWED_HOSTS = [\n')
-            assert content.find('DATABASES = {\n')
-            assert content.find('MEDIA_ROOT = ')
-            assert content.find('STATIC_ROOT = ')
-            assert content.find('SECRET_KEY = ')
+            assert "ALLOWED_HOSTS = [\n" \
+                   "    '%(subdomain)s.organice.io',\n" \
+                   "    '%(domain)s',\n" \
+                   "]\n" % {
+                       'subdomain': self.project_name,
+                       'domain': 'www.example.com',
+                   } in content
+            assert 'DEBUG = ' in content
+            assert 'TEMPLATE_DEBUG = ' in content
+            assert 'ALLOWED_HOSTS = [\n' in content
+            assert 'DATABASES = {\n' in content
+            assert 'MEDIA_ROOT = ' in content
+            assert 'STATIC_ROOT = ' in content
+            assert 'SECRET_KEY = ' in content
 
     def test_03_configure_database(self):
-        pass
+        # TODO: evaluate (args.database if args.database else '') for staging and production
+        db_engine = {
+            self.project_settings_develop_file: "sqlite3",
+            self.project_settings_staging_file: "",
+            self.project_settings_production_file: "",
+        }
+        for profile in (self.project_settings_develop_file,
+                        self.project_settings_staging_file,
+                        self.project_settings_production_file):
+            content = open(profile).read()
+            assert ("DATABASES = {\n"
+                    "    'default': {\n"
+                    "        'ENGINE': 'django.db.backends.%s'," %
+                    db_engine[profile]) in content
 
     def test_04_configure_installed_apps(self):
-        pass
+        content = open(self.project_settings_common_file).read()
+        required_apps = {
+            'organice',
+            'organice_theme',
+            'cms',
+            'zinnia',
+            'emencia.django.newsletter',
+            'todo',
+            'media_tree',
+            'analytical',
+            'allauth',
+            'allauth.account',
+            'allauth.socialaccount',
+            'allauth.socialaccount.providers.facebook',
+        }
+        probe_values_in_tuple(content, 'INSTALLED_APPS', required_apps)
 
     def test_05_configure_authentication(self):
-        pass
+        common_settings = open(self.project_settings_common_file).read()
+        assert 'SERVER_EMAIL = ADMINS[0][1]' in common_settings
+        assert "AUTHENTICATION_BACKENDS = (\n" \
+               "    'django.contrib.auth.backends.ModelBackend',\n" \
+               "    'allauth.account.auth_backends.AuthenticationBackend',\n" \
+               ")\n" in common_settings
+        assert "LOGIN_REDIRECT_URL = '/'\n" in common_settings
+
+        develop_settings = open(self.project_settings_develop_file).read()
+        assert "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'" \
+               in develop_settings
 
     def test_06_configure_cms(self):
-        pass
+        common_settings = open(self.project_settings_common_file).read()
+        required_middleware = {
+            'django.contrib.auth.middleware.AuthenticationMiddleware',
+            'solid_i18n.middleware.SolidLocaleMiddleware',
+            'cms.middleware.page.CurrentPageMiddleware',
+            'cms.middleware.user.CurrentUserMiddleware',
+            'cms.middleware.toolbar.ToolbarMiddleware',
+            'cms.middleware.language.LanguageCookieMiddleware',
+        }
+        required_loaders = {
+            'apptemplates.Loader',
+        }
+        required_ctx = {
+            'allauth.account.context_processors.account',
+            'allauth.socialaccount.context_processors.socialaccount',
+            'cms.context_processors.media',
+            'sekizai.context_processors.sekizai',
+            'organice.context_processors.expose',
+        }
+        required_mediatree = {
+            'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',
+        }
+        assert probe_values_in_tuple(common_settings, 'MIDDLEWARE_CLASSES', required_middleware)
+        assert probe_values_in_tuple(common_settings, 'TEMPLATE_LOADERS', required_loaders)
+        assert probe_values_in_tuple(common_settings, 'TEMPLATE_CONTEXT_PROCESSORS', required_ctx)
+        assert probe_values_in_tuple(common_settings, 'MEDIA_TREE_MEDIA_BACKENDS',
+                                     required_mediatree)
 
     def test_07_configure_newsletter(self):
-        pass
+        common_settings = open(self.project_settings_common_file).read()
+        assert "NEWSLETTER_DEFAULT_HEADER_SENDER = " in common_settings
+        assert "NEWSLETTER_USE_TINYMCE = True" in common_settings
+        assert "NEWSLETTER_TEMPLATES = [\n" in common_settings
+        assert "TINYMCE_DEFAULT_CONFIG = {\n" in common_settings
 
     def test_08_configure_blog(self):
-        pass
+        common_settings = open(self.project_settings_common_file).read()
+        assert "ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'" \
+               in common_settings
+        assert "ZINNIA_WYSIWYG = 'wymeditor'" in common_settings
+        assert "SOUTH_MIGRATION_MODULES = {" in common_settings
 
     def test_09_configure_set_custom(self):
         """could be optional"""
