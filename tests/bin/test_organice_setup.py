@@ -177,6 +177,10 @@ class TestOrganiceSetup():
     def test_11_generate_webserver_conf(self):
         wsgi_conf = join(self.project_name, 'wsgi.py')
         lighttp_conf = self.project_name + '.conf'
+        conf_values = {
+            'project': self.project_name,
+            'domain': 'www.example.com',
+        }
 
         if True:  # TODO: if called with "--webserver apache":
             assert exists(wsgi_conf)
@@ -188,10 +192,16 @@ class TestOrganiceSetup():
         elif False:  # TODO: elif called with "--webserver lighttp":
             assert not exists(wsgi_conf)
             assert exists(lighttp_conf)
-            assert '$HTTP["host"] =~ "^(%(subdomain)s.organice.io|%(domain)s)$" {\n' % {
-                'subdomain': self.project_name,
-                'domain': 'www.example.com',
-            } in lighttp_conf
+            for line in [
+                '$HTTP["host"] =~ "^(%(project)s.organice.io|%(domain)s)$" {\n',
+                '                "socket" => env.HOME + "/organice/%(project)s.sock",\n',
+                '        "/media/" => env.HOME + "/organice/%(project)s.media/",\n',
+                '        "/static/" => env.HOME + "/organice/%(project)s.static/",\n',
+                '$HTTP["host"] != "{{ custom_domain }}" {\n',
+                '    url.redirect = ("^/django.fcgi(.*)$" => "http://%(domain)s$1")\n',
+            ]:
+                assert (line % conf_values) in lighttp_conf
+
             for profile in (self.project_settings_develop_file,
                             self.project_settings_staging_file,
                             self.project_settings_production_file):
