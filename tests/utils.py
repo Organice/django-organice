@@ -13,20 +13,17 @@ def probe_values_in_tuple(content, tuple_key, required_values):
     """
     try:
         start_pos = content.find("%s = (\n" % tuple_key)
-        assert start_pos != -1
+        assert start_pos != -1, "Tuple not found: %s" % tuple_key
         stop_pos = 1 + content.find("\n)\n", start_pos)
-        assert stop_pos > start_pos
+        assert stop_pos > start_pos, "End of tuple not found: %s" % tuple_key
 
         tuple = content[start_pos:stop_pos]
         for val in required_values:
             val_line = ("    '%s',\n" % val)
-            assert val_line in tuple
+            assert val_line in tuple, "Not found in tuple %s: %s" % (tuple_key, val)
         return True
     except AssertionError as ae:
-        message = ae.args[0]
-        start_pos = message.find("'")
-        stop_pos = message.find(r',\n" in ')
-        print("Not found in tuple: %s" % message[start_pos:stop_pos])
+        print(ae.message)
         return False
 
 
