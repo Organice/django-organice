@@ -2,6 +2,8 @@
 Welcome to django Organice!
 ===========================
 
+|latest-version| |travis-develop|
+
 All-in-one collaboration solution.  For non-profit organizations, sports clubs, small to
 medium-sized businesses.
 
@@ -11,6 +13,12 @@ quickly.  Being powered by the well-known `Django Web framework`_ it's a safe ch
 investment providing an easily extensible architecture.
 
 
+.. |latest-version| image:: https://pypip.in/v/django-organice/badge.png
+   :alt: Latest version on PyPI
+   :target: https://pypi.python.org/pypi/django-organice/
+.. |travis-develop| image:: https://travis-ci.org/bittner/django-organice.svg?branch=develop
+   :alt: Build Status - develop branch
+   :target: https://travis-ci.org/bittner/django-organice
 .. _`Django Web framework`: https://www.djangoproject.com/
 
 Fundamental Features
