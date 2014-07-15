@@ -4,7 +4,7 @@ from pytest import fixture
 from shutil import rmtree
 from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH, ST_MODE
 from subprocess import call
-from ..utils import probe_values_in_tuple, pytest_generate_tests
+from ..utils import probe_values_in_tuple, pytest_generate_tests  # noqa
 
 
 def settings_file_for(project, profile):

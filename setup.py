@@ -33,10 +33,11 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
+    'Django==1.5.8',  # necessary due to poor dependency resolution (setuptools)
     'django-apptemplates',
     'django-blog-zinnia==0.13',
     'django-cms==2.4.3-support',  # support branch fixes reversion>=1.8 incompatibility
-    'django-mptt==0.5.2',  # necessary due to poor dependency resolution
+    'django-mptt==0.5.2',  # necessary due to poor dependency resolution (pip)
     'django-media-tree',
     'django-organice-theme',
     'django-reversion==1.8.0',

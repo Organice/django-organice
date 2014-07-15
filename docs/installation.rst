@@ -14,7 +14,13 @@ understanding is sufficient.
 `Requirements`:index:
 =====================
 
-- Python 2.6 or higher
+- Python 2.6 or 2.7
+
+.. NOTE::
+
+   Python 3.x is not supported yet due to dependencies on several packages not running on Python3
+   out-of-the-box (``emencia-django-newsletter``, ``easy-thumbnails``, ``django-analytical``,
+   ``django-media-tree``, ``django-cms`` 2.4.3).
 
 All other `dependencies`:index: are resolved by the django Organice installer.  Most of those
 dependencies are intentionally not pinned on their version number to allow a liberal upgrade path.
