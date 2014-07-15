@@ -100,7 +100,7 @@ class TestOrganiceSetup(object):
 
     def test_04_configure_installed_apps(self, project_name, cmd_args):
         common_settings = open(settings_file_for(project_name, 'common')).read()
-        required_apps = {
+        required_apps = [
             'organice',
             'organice_theme',
             'cms',
@@ -113,7 +113,7 @@ class TestOrganiceSetup(object):
             'allauth.account',
             'allauth.socialaccount',
             'allauth.socialaccount.providers.facebook',
-        }
+        ]
         assert probe_values_in_tuple(common_settings, 'INSTALLED_APPS', required_apps)
 
     def test_05_configure_authentication(self, project_name, cmd_args):
@@ -131,27 +131,27 @@ class TestOrganiceSetup(object):
 
     def test_06_configure_cms(self, project_name, cmd_args):
         common_settings = open(settings_file_for(project_name, 'common')).read()
-        required_middleware = {
+        required_middleware = [
             'django.contrib.auth.middleware.AuthenticationMiddleware',
             'solid_i18n.middleware.SolidLocaleMiddleware',
             'cms.middleware.page.CurrentPageMiddleware',
             'cms.middleware.user.CurrentUserMiddleware',
             'cms.middleware.toolbar.ToolbarMiddleware',
             'cms.middleware.language.LanguageCookieMiddleware',
-        }
-        required_loaders = {
+        ]
+        required_loaders = [
             'apptemplates.Loader',
-        }
-        required_ctx = {
+        ]
+        required_ctx = [
             'allauth.account.context_processors.account',
             'allauth.socialaccount.context_processors.socialaccount',
             'cms.context_processors.media',
             'sekizai.context_processors.sekizai',
             'organice.context_processors.expose',
-        }
-        required_mediatree = {
+        ]
+        required_mediatree = [
             'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',
-        }
+        ]
         assert probe_values_in_tuple(common_settings, 'MIDDLEWARE_CLASSES', required_middleware)
         assert probe_values_in_tuple(common_settings, 'TEMPLATE_LOADERS', required_loaders)
         assert probe_values_in_tuple(common_settings, 'TEMPLATE_CONTEXT_PROCESSORS', required_ctx)
