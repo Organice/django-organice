@@ -101,7 +101,7 @@ def _evaluate_command_line():
         parser.add_option('--manage', choices=['single', 'multi'], default='single', help=help_manage)
         parser.add_option('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
         parser.add_option('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
-        parser.add_option('--verbosity', '-v', type=int, choices=range(4), default=3, help=help_verbosity)
+        parser.add_option('--verbosity', '-v', type=int, default=3, help=help_verbosity)
         (options, args) = parser.parse_args()
         if len(args) != 1:
             parser.error('Please specify a projectname')
