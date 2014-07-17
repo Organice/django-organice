@@ -12,6 +12,7 @@ help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  bumpver       to bump the version number, commit and tag for releasing"
 	@echo "  clean         to remove build files and folders"
+	@echo "  coverage      to generate and display a test coverage report"
 	@echo "  develop       to install all dependencies needed for development/docs/translation"
 	@echo "  undevelop     to uninstall all dependencies needed for development/docs/translation"
 	@echo "  docs          to generate documentation in English and all translated languages"
@@ -29,13 +30,18 @@ bumpver:
 clean:
 	$(MAKE) -C docs clean
 	find . -name '*.pyc' -exec rm {} \;
-	rm -rf build/ dist/ django_organice.egg-info/ docs/build/ organice/static/.sass-cache tests/__pycache__/
+	rm -rf build/ dist/ django_organice.egg-info/ docs/build/ organice/static/.sass-cache tests/__pycache__/ .coverage
 	for DIR in media/ static/ templates/ ; do \
 		[ -d $$DIR ] && rmdir $$DIR || true ; \
 	done
 
+coverage:
+	coverage run setup.py test &> /dev/null && \
+	coverage report || \
+	echo 'Coverage generation failed. (Try `make develop`)'
+
 develop: setuptools
-	pip install Sphinx sphinx-intl transifex-client flake8 pytest
+	pip install Sphinx sphinx-intl transifex-client flake8 pytest coverage
 	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null || \
 	flake8 --install-hook
 

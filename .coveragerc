@@ -1,0 +1,5 @@
+[run]
+source = organice
+omit = organice/migrations/*
+[report]
+show_missing = True

@@ -13,7 +13,7 @@ install:
 before_script:
   - flake8
 script:
-  - make tests
+  - python setup.py test
 after_success:
   - coveralls
 notifications:
