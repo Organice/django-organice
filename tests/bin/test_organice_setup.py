@@ -123,6 +123,7 @@ class TestOrganiceSetup(object):
                "    'django.contrib.auth.backends.ModelBackend',\n" \
                "    'allauth.account.auth_backends.AuthenticationBackend',\n" \
                ")\n" in common_settings
+        assert "ACCOUNT_AUTHENTICATION_METHOD = 'email'\n" in common_settings
         assert "ACCOUNT_EMAIL_REQUIRED = True\n" in common_settings
         assert "ACCOUNT_USERNAME_REQUIRED = False\n" in common_settings
         assert "LOGIN_REDIRECT_URL = '/'\n" in common_settings
