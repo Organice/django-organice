@@ -127,6 +127,8 @@ class TestOrganiceSetup(object):
         assert "ACCOUNT_EMAIL_REQUIRED = True\n" in common_settings
         assert "ACCOUNT_USERNAME_REQUIRED = False\n" in common_settings
         assert "LOGIN_REDIRECT_URL = '/'\n" in common_settings
+        assert "LOGIN_URL = '/login'\n" in common_settings
+        assert "LOGOUT_URL = '/logout'\n" in common_settings
 
         develop_settings = open(settings_file_for(project_name, 'develop')).read()
         assert "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'" \
