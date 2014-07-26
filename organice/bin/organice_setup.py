@@ -346,6 +346,8 @@ def _configure_authentication():
                           "    'django.contrib.auth.backends.ModelBackend',",
                           "    'allauth.account.auth_backends.AuthenticationBackend',",
                           ')')
+    settings.set_value('common', 'ACCOUNT_EMAIL_REQUIRED', True)
+    settings.set_value('common', 'ACCOUNT_USERNAME_REQUIRED', False)
     settings.set_value('common', 'LOGIN_REDIRECT_URL', "'/'")
     settings.set_value('develop', 'EMAIL_BACKEND', "'django.core.mail.backends.console.EmailBackend'")
 
