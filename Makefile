@@ -87,7 +87,7 @@ setuptools:
 	rm -f setuptools-*.zip
 
 tests:
-	py.test --strict --verbose -x tests
+	py.test --junitxml=unittests.xml --strict --verbose -x tests
 
 transifex: develop
 	@cd docs && tx pull --all --force

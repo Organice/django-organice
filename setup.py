@@ -65,7 +65,7 @@ ROOT_PATH = os.path.dirname(__file__)
 class PyTest(TestCommand):
     def finalize_options(self):
         TestCommand.finalize_options(self)
-        self.test_args = ['tests', '--strict', '--verbose', '-x']
+        self.test_args = ['tests', '--junitxml=unittests.xml', '--strict', '--verbose', '-x']
         self.test_suite = True
 
     def run_tests(self):
