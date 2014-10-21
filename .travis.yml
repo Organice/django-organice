@@ -15,7 +15,6 @@ before_script:
   - mkdir -p shippable/testresults
   - flake8
 script:
-  - python setup.py test
   - coverage run setup.py test
 after_success:
   - coverage report
