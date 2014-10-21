@@ -20,7 +20,7 @@ script:
 after_success:
   - coverage report
   - coverage xml
-  - coveralls -v
+  - coveralls
   - mv coverage.xml shippable/codecoverage/
   - mv unittests.xml shippable/testresults/
 notifications:
