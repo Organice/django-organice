@@ -19,4 +19,4 @@ __author__ = 'Peter Bittner'
 __email__ = 'django@bittner.it'
 
 __url__ = 'http://organice.io/'
-__license__ = 'Apache License, Version 2.0'
+__license__ = 'Apache License 2.0'
