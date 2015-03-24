@@ -13,7 +13,7 @@ quickly.  Being powered by the well-known `Django Web framework`_ it's a safe ch
 investment providing an easily extensible architecture.
 
 
-.. |latest-version| image:: https://pypip.in/v/django-organice/badge.png
+.. |latest-version| image:: https://img.shields.io/pypi/v/django-organice.svg?style=flat
    :alt: Latest version on PyPI
    :target: https://pypi.python.org/pypi/django-organice/
 .. |travis-develop| image:: https://travis-ci.org/bittner/django-organice.svg?branch=develop
