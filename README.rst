@@ -2,7 +2,7 @@
 Welcome to django Organice!
 ===========================
 
-|latest-version| |travis-develop|
+|latest-version| |downloads| |travis-develop| |license|
 
 All-in-one collaboration solution.  For non-profit organizations, sports clubs, small to
 medium-sized businesses.
@@ -13,12 +13,18 @@ quickly.  Being powered by the well-known `Django Web framework`_ it's a safe ch
 investment providing an easily extensible architecture.
 
 
-.. |latest-version| image:: https://img.shields.io/pypi/v/django-organice.svg?style=flat
+.. |latest-version| image:: https://img.shields.io/pypi/v/django-organice.svg
    :alt: Latest version on PyPI
-   :target: https://pypi.python.org/pypi/django-organice/
+   :target: https://pypi.python.org/pypi/django-organice
+.. |downloads| image:: https://img.shields.io/pypi/dm/django-organice.svg
+   :alt: Monthly downloads from PyPI
+   :target: https://pypi.python.org/pypi/django-organice
 .. |travis-develop| image:: https://travis-ci.org/bittner/django-organice.svg?branch=develop
-   :alt: Build Status - develop branch
+   :alt: Build status - develop branch
    :target: https://travis-ci.org/bittner/django-organice
+.. |license| image:: https://img.shields.io/pypi/l/django-organice.svg
+   :alt: Software license
+   :target: https://www.apache.org/licenses/LICENSE-2.0.html
 .. _`Django Web framework`: https://www.djangoproject.com/
 
 Fundamental Features
