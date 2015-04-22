@@ -21,7 +21,7 @@ investment providing an easily extensible architecture.
    :target: https://pypi.python.org/pypi/django-organice
 .. |travis-develop| image:: https://travis-ci.org/bittner/django-organice.svg?branch=develop
    :alt: Build status - develop branch
-   :target: https://travis-ci.org/bittner/django-organice
+   :target: https://travis-ci.org/Organice/django-organice
 .. |license| image:: https://img.shields.io/pypi/l/django-organice.svg
    :alt: Software license
    :target: https://www.apache.org/licenses/LICENSE-2.0.html
