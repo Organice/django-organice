@@ -19,7 +19,7 @@ investment providing an easily extensible architecture.
 .. |downloads| image:: https://img.shields.io/pypi/dm/django-organice.svg
    :alt: Monthly downloads from PyPI
    :target: https://pypi.python.org/pypi/django-organice
-.. |travis-develop| image:: https://travis-ci.org/bittner/django-organice.svg?branch=develop
+.. |travis-develop| image:: https://travis-ci.org/Organice/django-organice.svg?branch=develop
    :alt: Build status - develop branch
    :target: https://travis-ci.org/Organice/django-organice
 .. |license| image:: https://img.shields.io/pypi/l/django-organice.svg
@@ -92,8 +92,8 @@ Download and Contributions
 
 Official repositories: (kept in sync)
 
-#. Bitbucket: https://bitbucket.org/bittner/django-organice
-#. GitHub: https://github.com/bittner/django-organice
+#. Bitbucket: https://bitbucket.org/organice/django-organice
+#. GitHub: https://github.com/organice/django-organice
 
 Getting Help
 ============
@@ -104,5 +104,5 @@ Getting Help
 
 
 .. _`StackOverflow`: http://stackoverflow.com/questions/tagged/django-organice
-.. _`Bitbucket`: https://bitbucket.org/bittner/django-organice/issues
-.. _`GitHub`: https://github.com/bittner/django-organice/issues
+.. _`Bitbucket`: https://bitbucket.org/organice/django-organice/issues
+.. _`GitHub`: https://github.com/organice/django-organice/issues
