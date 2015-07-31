@@ -2,7 +2,7 @@
 Welcome to django Organice!
 ===========================
 
-|latest-version| |downloads| |travis-develop| |license|
+|latest-version| |downloads| |travis-develop| |health| |license|
 
 All-in-one collaboration solution.  For non-profit organizations, sports clubs, small to
 medium-sized businesses.
@@ -22,6 +22,9 @@ investment providing an easily extensible architecture.
 .. |travis-develop| image:: https://travis-ci.org/Organice/django-organice.svg?branch=develop
    :alt: Build status - develop branch
    :target: https://travis-ci.org/Organice/django-organice
+.. |health| image:: https://landscape.io/github/Organice/django-organice/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/Organice/django-organice/master
+   :alt: Code Health
 .. |license| image:: https://img.shields.io/pypi/l/django-organice.svg
    :alt: Software license
    :target: https://www.apache.org/licenses/LICENSE-2.0.html
