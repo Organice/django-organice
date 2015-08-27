@@ -1,8 +1,9 @@
-# https://travis-ci.org/bittner/django-organice
+# https://app.shippable.com/projects/544620bbb904a4b21567c427
 language: python
 python:
-  - "2.6"
-  - "2.7"
+  - 2.7
+  - 3.3
+  - 3.4
 cache:
   directories:
     - $HOME/.pip-cache/
@@ -20,8 +21,8 @@ after_success:
   - coverage report
   - coverage xml
   - coveralls
-  - mv coverage.xml shippable/codecoverage/
-  - mv unittests.xml shippable/testresults/
+  - mv -v coverage.xml shippable/codecoverage/
+  - mv -v unittests.xml shippable/testresults/
 notifications:
   slack:
     rooms:

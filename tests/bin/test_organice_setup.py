@@ -1,4 +1,4 @@
-from os import rmdir, stat, unlink
+from os import getcwd, rmdir, stat, unlink
 from os.path import exists, join
 from pytest import fixture
 from shutil import rmtree
@@ -26,6 +26,7 @@ def setup(request, project_name):
             for suffix in ('media', 'static', 'templates'):
                 rmdir(project_name + '.' + suffix)
             unlink(project_name + '.conf')
+            rmdir(getcwd())
         except:
             pass
 
