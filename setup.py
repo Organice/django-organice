@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2014 Peter Bittner <django@bittner.it>
+# Copyright 2014-2015 Peter Bittner <django@bittner.it>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,30 +33,39 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
-    'Django==1.5.8',  # necessary due to poor dependency resolution (setuptools)
     'django-apptemplates',
-    'django-blog-zinnia==0.13',
-    'django-cms==2.4.3-support',  # support branch fixes reversion>=1.8 incompatibility
-    'django-mptt==0.5.2',  # necessary due to poor dependency resolution (pip)
+    'django-blog-zinnia',
+    'django-cms',
+    'djangocms-file',
+    'djangocms-flash',
+    'djangocms-googlemap',
+    'djangocms-grid',
+    'djangocms-inherit',
+    'djangocms-link',
+    'djangocms-oembed',
+    'djangocms-picture',
+    'djangocms-table',
+    'djangocms-teaser',
+    'djangocms-video',
+    'django-form-designer',
     'django-media-tree',
     'django-organice-theme',
-    'django-reversion==1.8.0',
     'django-simple-links',
     'django-tinymce',
-    'django-todo>=1.4.dev',
+    'django-todo',
     'django-allauth',
     'django-analytical',
     'easy-thumbnails',
     'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
     'Pillow',
     'solid_i18n',
-    'cmsplugin-contact',
-    'cmsplugin-zinnia==0.5.1',
+    'cmsplugin-zinnia',
 ]
 
 NON_PYPI_DEP_LINKS = [
-    'git+https://github.com/divio/django-cms.git@1cf3c9a#egg=django-cms-2.4.3-support',
     'git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev',
+    'git+https://github.com/samluescher/django-form-designer.git#egg=django-form-designer',
+    'git+https://github.com/samluescher/django-media-tree@b69c508#egg=django-media-tree',  # treebeard feature branch
 ]
 
 ROOT_PATH = os.path.dirname(__file__)
@@ -65,7 +74,7 @@ ROOT_PATH = os.path.dirname(__file__)
 class PyTest(TestCommand):
     def finalize_options(self):
         TestCommand.finalize_options(self)
-        self.test_args = ['tests', '--junitxml=unittests.xml', '--strict', '--verbose', '-x']
+        self.test_args = []
         self.test_suite = True
 
     def run_tests(self):

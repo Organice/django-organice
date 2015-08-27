@@ -7,8 +7,15 @@
 .sass-cache/
 /build/
 /dist/
+/*.egg/
 /*.egg-info/
 /docs/build/
+
+# test projects and data
+/manage.py
+/test_project_default/
+/test_project_lighttp/
+/unittests.xml
 
 # Django and Python
 /static/
@@ -17,4 +24,3 @@
 
 # Virtualenv magic, see https://gist.github.com/bittner/8830745
 .venv
-

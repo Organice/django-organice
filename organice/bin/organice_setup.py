@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2014 Peter Bittner <django@bittner.it>
+# Copyright 2014-2015 Peter Bittner <django@bittner.it>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,13 +17,15 @@
 Setup script for starting a django Organice project.
 """
 from organice.management.settings import DjangoModuleManager, DjangoSettingsManager
+
+from argparse import ArgumentParser
 from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH
 from subprocess import call
+
 import django.conf
 import django.template
 import errno
 import os
-import sys
 
 
 # global variables (a class with members would be too verbose) *nirg*
@@ -88,42 +90,20 @@ def _evaluate_command_line():
     help_set = 'set the value of a settings variable in a destination file (this option can be used several times)'
     help_verbosity = 'Verbosity level; 0=minimal output, 1=normal output, 2=verbose output, 3=very verbose output'
 
-    if sys.version_info < (2, 7):
-        from optparse import OptionParser  # Deprecated since version 2.7
-
-        parser = OptionParser(description=usage_descr)
-        parser.add_option('--account', help=help_account)
-        parser.add_option('--domain', help=help_domain)
-        parser.add_option('--engine', choices=['postgresql_psycopg2', 'mysql', 'oracle'], help=help_engine)
-        parser.add_option('--database', help=help_database)
-        parser.add_option('--username', help=help_username)
-        parser.add_option('--password', help=help_password)
-        parser.add_option('--manage', choices=['single', 'multi'], default='single', help=help_manage)
-        parser.add_option('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
-        parser.add_option('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
-        parser.add_option('--verbosity', '-v', type=int, default=3, help=help_verbosity)
-        (options, args) = parser.parse_args()
-        if len(args) != 1:
-            parser.error('Please specify a projectname')
-        projectname = args[0]
-        args = options
-    else:
-        from argparse import ArgumentParser  # New since version 2.7
-
-        parser = ArgumentParser(description=usage_descr)
-        parser.add_argument('projectname', help='name of project to create')
-        parser.add_argument('--account', help=help_account)
-        parser.add_argument('--domain', help=help_domain)
-        parser.add_argument('--engine', choices=['postgresql_psycopg2', 'mysql', 'oracle'], help=help_engine)
-        parser.add_argument('--database', help=help_database)
-        parser.add_argument('--username', help=help_username)
-        parser.add_argument('--password', help=help_password)
-        parser.add_argument('--manage', choices=['single', 'multi'], default='single', help=help_manage)
-        parser.add_argument('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
-        parser.add_argument('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
-        parser.add_argument('--verbosity', '-v', type=int, choices=range(4), default=3, help=help_verbosity)
-        args = parser.parse_args()
-        projectname = args.projectname
+    parser = ArgumentParser(description=usage_descr)
+    parser.add_argument('projectname', help='name of project to create')
+    parser.add_argument('--account', help=help_account)
+    parser.add_argument('--domain', help=help_domain)
+    parser.add_argument('--engine', choices=['postgresql_psycopg2', 'mysql', 'oracle'], help=help_engine)
+    parser.add_argument('--database', help=help_database)
+    parser.add_argument('--username', help=help_username)
+    parser.add_argument('--password', help=help_password)
+    parser.add_argument('--manage', choices=['single', 'multi'], default='single', help=help_manage)
+    parser.add_argument('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
+    parser.add_argument('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
+    parser.add_argument('--verbosity', '-v', type=int, choices=range(4), default=3, help=help_verbosity)
+    args = parser.parse_args()
+    projectname = args.projectname
 
 
 def _create_project():
@@ -206,7 +186,6 @@ def _split_project():
     settings.set_value('common', 'MEDIA_URL', "'/media/'")
     settings.set_value('common', 'USE_I18N', False)
     settings.move_var('common', profiles, 'DEBUG')
-    settings.move_var('common', profiles, 'TEMPLATE_DEBUG')
     settings.move_var('common', profiles, 'ALLOWED_HOSTS')
     settings.move_var('common', profiles, 'DATABASES')
     settings.move_var('common', profiles, 'MEDIA_ROOT')
@@ -292,7 +271,7 @@ def _configure_installed_apps():
                           "    'media_tree.contrib.cms_plugins.media_tree_gallery',",
                           "    'media_tree.contrib.cms_plugins.media_tree_slideshow',",
                           "    'media_tree.contrib.cms_plugins.media_tree_listing',",
-                          "    'cmsplugin_contact',",
+                          "    'form_designer.contrib.cms_plugins.form_designer_form',",
                           "    'cmsplugin_zinnia',",
                           "    'tagging',",
                           "    'todo',",
@@ -564,7 +543,7 @@ def _show_final_hints():
                    (settings.get_file('common').name, ", ".join(suggest_editing + suggest_adding)))
     _print_verbose(2, 'Please visit file `%s` and configure your development database in: %s' %
                    (settings.get_file('develop').name, 'DATABASES'))
-    _print_verbose(3, 'See https://docs.djangoproject.com/en/1.5/ref/settings/ for details.')
+    _print_verbose(3, 'See https://docs.djangoproject.com/en/1.8/ref/settings/ for details.')
     _print_verbose(3, '')
     _print_verbose(3, '1) To initialize your development database run: `python manage.py syncdb --migrate`')
     _print_verbose(3, '2) You can then run your development server with: `python manage.py runserver`')

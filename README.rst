@@ -1,8 +1,8 @@
-===========================
-Welcome to django Organice!
-===========================
+================================
+django Organice |latest-version|
+================================
 
-|latest-version| |downloads| |travis-develop| |health| |license|
+|travis-ci| |health| |downloads| |license|
 
 All-in-one collaboration solution.  For non-profit organizations, sports clubs, small to
 medium-sized businesses.
@@ -16,19 +16,19 @@ investment providing an easily extensible architecture.
 .. |latest-version| image:: https://img.shields.io/pypi/v/django-organice.svg
    :alt: Latest version on PyPI
    :target: https://pypi.python.org/pypi/django-organice
-.. |downloads| image:: https://img.shields.io/pypi/dm/django-organice.svg
-   :alt: Monthly downloads from PyPI
-   :target: https://pypi.python.org/pypi/django-organice
-.. |travis-develop| image:: https://travis-ci.org/Organice/django-organice.svg?branch=develop
-   :alt: Build status - develop branch
+.. |travis-ci| image:: https://travis-ci.org/Organice/django-organice.svg
+   :alt: Build status
    :target: https://travis-ci.org/Organice/django-organice
 .. |health| image:: https://landscape.io/github/Organice/django-organice/master/landscape.svg?style=flat
    :target: https://landscape.io/github/Organice/django-organice/master
-   :alt: Code Health
+   :alt: Code health
+.. |downloads| image:: https://img.shields.io/pypi/dm/django-organice.svg
+   :alt: Monthly downloads from PyPI
+   :target: https://pypi.python.org/pypi/django-organice
 .. |license| image:: https://img.shields.io/pypi/l/django-organice.svg
    :alt: Software license
    :target: https://www.apache.org/licenses/LICENSE-2.0.html
-.. _`Django Web framework`: https://www.djangoproject.com/
+.. _Django Web framework: https://www.djangoproject.com/
 
 Fundamental Features
 ====================
@@ -85,10 +85,9 @@ Who is using django Organice?
 
 Examples of websites running django Organice:
 
-- `Kreuzlingen Rudolf Steiner school`_
-
-
-.. _`Kreuzlingen Rudolf Steiner school`: http://www.rssk.ch/
+- `Organice.io website <http://organice.io/>`_
+- `Organice demo site <http://demo.organice.io/>`_
+- `Kreuzlingen Rudolf Steiner school <http://www.rssk.ch/>`_
 
 Download and Contributions
 ==========================
@@ -106,6 +105,6 @@ Getting Help
 - Found a bug? Please use either the `Bitbucket`_ or `GitHub`_ issue tracker (you choose)
 
 
-.. _`StackOverflow`: http://stackoverflow.com/questions/tagged/django-organice
-.. _`Bitbucket`: https://bitbucket.org/organice/django-organice/issues
-.. _`GitHub`: https://github.com/organice/django-organice/issues
+.. _StackOverflow: http://stackoverflow.com/questions/tagged/django-organice
+.. _Bitbucket: https://bitbucket.org/organice/django-organice/issues
+.. _GitHub: https://github.com/organice/django-organice/issues
