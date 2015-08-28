@@ -545,7 +545,7 @@ def _show_final_hints():
                    (settings.get_file('develop').name, 'DATABASES'))
     _print_verbose(3, 'See https://docs.djangoproject.com/en/1.8/ref/settings/ for details.')
     _print_verbose(3, '')
-    _print_verbose(3, '1) To initialize your development database run: `python manage.py syncdb --migrate`')
+    _print_verbose(3, '1) To initialize your development database run: `python manage.py migrate`')
     _print_verbose(3, '2) You can then run your development server with: `python manage.py runserver`')
     _print_verbose(3, '3) To prepare your production server you may run: '
                    '`python manage.py collectstatic --link --settings=%s.settings.production`' % projectname)
