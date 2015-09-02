@@ -1,5 +1,5 @@
 #
-# Copyright 2014 Peter Bittner <django@bittner.it>
+# Copyright 2014-2015 Peter Bittner <django@bittner.it>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ class DjangoModuleManager(object):
 
     def add_file(self, module, data=None, lines=None):
         """
-        Adds a Python file (identified by its module name) in the module.
+        Add a Python file (identified by its module name) in the module.
         If the related .py file doesn't exist an empty file is created.
         """
         file = open(os.path.join(self.__path, module + '.py'), 'a+')
@@ -47,11 +47,11 @@ class DjangoModuleManager(object):
             self.append_lines(module, *lines)
 
     def get_file(self, module):
-        """Returns the file object for a module file"""
+        """Return the file object for a module file"""
         return self.__file[module]
 
     def save_files(self):
-        """Writes all changes to disk"""
+        """Write all changes to disk"""
         for module, file in self.__file.items():
             data = self.__data[module]
             file.seek(0)
@@ -59,23 +59,33 @@ class DjangoModuleManager(object):
             file.write(data)
 
     def get_data(self, module):
-        """Returns the data contained in the module file"""
+        """Return the data contained in the module file"""
         return self.__data[module]
 
     def set_data(self, module, data):
-        """Sets the data contained in the module file"""
+        """Set the data contained in the module file"""
         self.__data[module] = data
 
     def append_data(self, module, chunk):
-        """Appends a chunk of data to the module file"""
+        """Append a chunk of data to the module file"""
         self.__data[module] += chunk
 
     def append_lines(self, module, *lines):
-        """Appends lines of text to the module file"""
+        """Append lines of text to the module file"""
         if len(self.__data[module]) > 0:
             self.append_data(module, os.linesep)
         for data in lines:
             self.append_data(module, data + os.linesep)
+
+    def remove_line(self, module, line):
+        """Remove a matching line of text from the module file"""
+        self.replace_line(module, line, None)
+
+    def replace_line(self, module, old, new):
+        """Replace a matching line of text by some new text in the module file"""
+        self.__data[module] = \
+            self.__data[module].replace(old + os.linesep,
+                                        new + os.linesep if new else '')
 
 
 class DjangoSettingsManager(DjangoModuleManager):
@@ -93,7 +103,7 @@ class DjangoSettingsManager(DjangoModuleManager):
 
     def find_var(self, src, var, comments=True):
         """
-        Returns (start, stop) position of a match, or NO_MATCH i.e. (0, 0).
+        Return (start, stop) position of a match, or NO_MATCH i.e. (0, 0).
         A match is a variable including optional leading comment lines.  If
         comments is set to False the match strictly starts with the variable.
         """
@@ -114,10 +124,11 @@ class DjangoSettingsManager(DjangoModuleManager):
 
     def __find_endofvalue(self, data, start):
         """
-        Identifies value type (str, tuple, list, dict) and returns end index.
+        Identify value type (str, tuple, list, dict) and return end index.
         """
         delimiters = {
             '"""': (r'"""', r'"""'),
+            "'''": (r"'''", r"'''"),
             '"': (r'"', r'"'),
             "'": (r"'", r"'"),
             '(': (r'\(', r'\)'),
@@ -126,7 +137,7 @@ class DjangoSettingsManager(DjangoModuleManager):
         }
 
         delim = data[start:start + 3]
-        if delim != '"""':
+        if delim != '"""' and delim != "'''":
             delim = delim[0]
 
         delim_length = len(delim)
@@ -160,17 +171,22 @@ class DjangoSettingsManager(DjangoModuleManager):
         super(DjangoSettingsManager, self).set_data(dest, data[:start] + chunk + data[stop:])
 
     def insert_lines(self, dest, *lines):
-        """Finds position after first comment and inserts the data"""
-        pattern = re.compile(r'(\s*#.*\n)*')
-        match = pattern.search(super(DjangoSettingsManager, self).get_data(dest))
+        """Find position after first comment and/or docstring, and insert the data"""
+        dest_data = super(DjangoSettingsManager, self).get_data(dest)
+        re_comments = r'(\s*#.*\n)*'
+        pattern = re.compile(re_comments + r'\s*')
+        match = pattern.search(dest_data)
         start, stop = self.NO_MATCH if match is None else match.span()
+        next3chars = dest_data[stop:stop + 3]
+        if next3chars == '"""' or next3chars == "'''":
+            stop = self.__find_endofvalue(dest_data, stop)
         chunk = ''
         for data in lines:
             chunk += data + os.linesep
         self.__insert(dest, stop, stop, chunk)
 
     def set_value(self, dest, var, value):
-        """Replaces or adds a variable in a settings file"""
+        """Replace or add a variable in a settings file"""
         var_value = '%s = %s' % (var, value)
         match = self.find_var(dest, var, False)
         if match == self.NO_MATCH:
@@ -183,19 +199,19 @@ class DjangoSettingsManager(DjangoModuleManager):
         self.set_value(dest, var, os.linesep.join(lines))
 
     def delete_var(self, dest, var):
-        """Deletes a variable from a settings file"""
+        """Delete a variable from a settings file"""
         start, stop = self.find_var(dest, var)
         data = super(DjangoSettingsManager, self).get_data(dest)
         super(DjangoSettingsManager, self).set_data(dest, data[:start] + data[stop:])
 
     def copy_var(self, src, destinations, var):
-        """Copies a variable from one settings file to one or more others"""
+        """Copy a variable from one settings file to one or more others"""
         start, stop = self.find_var(src, var)
         data = super(DjangoSettingsManager, self).get_data(src)[start:stop]
         for dest in destinations:
             super(DjangoSettingsManager, self).append_data(dest, data)
 
     def move_var(self, src, destinations, var):
-        """Moves a variable from one settings file to one or more others"""
+        """Move a variable from one settings file to one or more others"""
         self.copy_var(src, destinations, var)
         self.delete_var(src, var)

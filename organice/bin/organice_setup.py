@@ -177,12 +177,12 @@ def _split_project():
     settings.delete_var('common', 'SITE_ID')
     settings.insert_lines('common',
                           '_ = lambda s: s',
-                          'import os',
-                          'PROJECT_PATH = os.sep.join(__file__.split(os.sep)[:-3])',
                           '',
                           'SITE_ID = 1')
-    settings.set_value('common', 'MEDIA_ROOT', "os.path.join(PROJECT_PATH, '%s.media')" % projectname)
-    settings.set_value('common', 'STATIC_ROOT', "os.path.join(PROJECT_PATH, '%s.static')" % projectname)
+    settings.replace_line('common', 'import os', 'from os.path import abspath, dirname, join')
+    settings.set_value('common', 'BASE_DIR', 'dirname(dirname(dirname(abspath(__file__))))')
+    settings.set_value('common', 'MEDIA_ROOT', "join(BASE_DIR, '%s.media')" % projectname)
+    settings.set_value('common', 'STATIC_ROOT', "join(BASE_DIR, '%s.static')" % projectname)
     settings.set_value('common', 'MEDIA_URL', "'/media/'")
     settings.set_value('common', 'USE_I18N', False)
     settings.move_var('common', profiles, 'DEBUG')
@@ -218,7 +218,7 @@ def _configure_database():
 }""")
     db_context = django.template.Context({
         'engine': 'sqlite3',
-        'database': "os.path.join(PROJECT_PATH, '%s.sqlite')" % projectname,
+        'database': "join(BASE_DIR, '%s.sqlite')" % projectname,
         'username': '',
         'password': '',
     })
@@ -257,6 +257,7 @@ def _configure_installed_apps():
                           "    'mptt',",
                           "    'menus',",
                           "    'sekizai',",
+                          "    'treebeard',",
                           "    'easy_thumbnails',",
                           "    'media_tree',",
                           "    'djangocms_file',",
@@ -271,11 +272,11 @@ def _configure_installed_apps():
                           "    'media_tree.contrib.cms_plugins.media_tree_gallery',",
                           "    'media_tree.contrib.cms_plugins.media_tree_slideshow',",
                           "    'media_tree.contrib.cms_plugins.media_tree_listing',",
-                          "    'form_designer.contrib.cms_plugins.form_designer_form',",
+                          "    # 'form_designer.contrib.cms_plugins.form_designer_form',",
                           "    'cmsplugin_zinnia',",
                           "    'tagging',",
                           "    'todo',",
-                          "    'emencia.django.newsletter',",
+                          "    # 'emencia.django.newsletter',",
                           "    'tinymce',",
                           "    'simple_links',",
                           "    'zinnia',",
@@ -367,12 +368,12 @@ def _configure_cms():
                           "    ('cms_base.html', 'Template for normal content pages'),",
                           "    ('cms_bookmarks.html', 'Template for the bookmarks page'),",
                           ')')
-    settings.delete_var('common', 'TEMPLATE_DIRS')
+    # TODO: Fix for Django 1.8 (must be in TEMPLATES = ...) -- BEGIN --
     settings.append_lines('common',
                           'TEMPLATE_DIRS = (',
                           "    # Don't forget to use absolute paths, not relative paths.",
-                          "    os.path.join(PROJECT_PATH, '%s.templates')," % projectname,
-                          "    os.path.join(PROJECT_PATH, '%s.templates', 'zinnia')," % projectname,
+                          "    join(BASE_DIR, '%s.templates')," % projectname,
+                          "    join(BASE_DIR, '%s.templates', 'zinnia')," % projectname,
                           ')')
     settings.delete_var('common', 'TEMPLATE_LOADERS')
     settings.append_lines('common',
@@ -394,6 +395,7 @@ def _configure_cms():
                           "    'sekizai.context_processors.sekizai',",
                           "    'organice.context_processors.expose',",
                           ')')
+    # TODO: Fix for Django 1.8 (must be in TEMPLATES = ...) -- END --
     settings.append_lines('common',
                           'MEDIA_TREE_MEDIA_BACKENDS = (',
                           "    'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',",

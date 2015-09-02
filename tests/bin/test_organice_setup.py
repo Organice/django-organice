@@ -110,7 +110,7 @@ class TestOrganiceSetup(object):
             'organice_theme',
             'cms',
             'zinnia',
-            'emencia.django.newsletter',
+            # 'emencia.django.newsletter',
             'todo',
             'media_tree',
             'analytical',
@@ -232,3 +232,7 @@ class TestOrganiceSetup(object):
                             settings_file_for(project_name, 'production')):
                 content = open(profile).read()
                 assert 'WSGI_APPLICATION = ' in content
+
+    def test_12_system_check(self, project_name, cmd_args):
+        exit_code = call(['python', 'manage.py', 'check'])
+        assert exit_code == 0, 'Validation of Django project failed. See output for details.'

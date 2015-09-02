@@ -9,6 +9,7 @@
 /dist/
 /*.egg/
 /*.egg-info/
+/*.eggs/
 /docs/build/
 
 # test projects and data
