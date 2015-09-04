@@ -320,7 +320,8 @@ def _configure_authentication():
                              '(',
                              "    ('Your Name', 'noreply@example.com'),",
                              ')',
-                             'SERVER_EMAIL = ADMINS[0][1]')
+                             'SERVER_EMAIL = ADMINS[0][1]',
+                             'DEFAULT_FROM_EMAIL = SERVER_EMAIL')
     settings.append_lines('common',
                           'AUTHENTICATION_BACKENDS = (',
                           "    'django.contrib.auth.backends.ModelBackend',",
