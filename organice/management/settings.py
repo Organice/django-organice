@@ -169,6 +169,10 @@ class DjangoSettingsManager(DjangoModuleManager):
         data = super(DjangoSettingsManager, self).get_data(dest)
         super(DjangoSettingsManager, self).set_data(dest, data[:start] + chunk + data[stop:])
 
+    def append_to_list(self, dest, settings_path, *items):
+        """Append one or more list items to a list identified by a hierarchy"""
+        pass
+
     def insert_lines(self, dest, *lines):
         """Find position after first comment and/or docstring, and insert the data"""
         dest_data = super(DjangoSettingsManager, self).get_data(dest)

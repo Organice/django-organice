@@ -153,6 +153,7 @@ class TestOrganiceSetup(object):
             'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',
         ]
         required_ctx = [
+            'django.contrib.auth.context_processors.auth',
             'allauth.account.context_processors.account',
             'allauth.socialaccount.context_processors.socialaccount',
             'cms.context_processors.media',

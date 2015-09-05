@@ -335,6 +335,33 @@ def _configure_authentication():
     settings.set_value('develop', 'EMAIL_BACKEND', "'django.core.mail.backends.console.EmailBackend'")
 
 
+def _configure_templates():
+    global projectname
+    global settings
+
+    _print_verbose(2, adding_settings_for('Django templates'))
+    settings.append_to_list('common',
+                            ["TEMPLATES = [", "{", "'DIRS': ["],
+                            "join(BASE_DIR, '%s.templates')" % projectname,
+                            "join(BASE_DIR, '%s.templates', 'zinnia')" % projectname)
+    settings.append_to_list('common',
+                            ["TEMPLATES = [", "{", "'OPTIONS': [", "'context_processors': ["],
+                            "'django.core.context_processors.i18n'",
+                            "'django.core.context_processors.request'",
+                            "'django.core.context_processors.media'",
+                            "'django.core.context_processors.static'",
+                            "'allauth.account.context_processors.account'",
+                            "'allauth.socialaccount.context_processors.socialaccount'",
+                            "'cms.context_processors.media'",
+                            "'sekizai.context_processors.sekizai'",
+                            "'organice.context_processors.expose'")
+    settings.append_to_list('common',
+                            ["TEMPLATES = [", "{", "'OPTIONS': ["],
+                            "# 'debug': True"
+                            "# 'string_if_invalid': '|INVALID) %s (INVALID|'"
+                            "# see https://docs.djangoproject.com/en/1.8/ref/settings/#template-string-if-invalid")
+
+
 def _configure_cms():
     global projectname
     global settings
@@ -368,34 +395,6 @@ def _configure_cms():
                           "    ('cms_base.html', 'Template for normal content pages'),",
                           "    ('cms_bookmarks.html', 'Template for the bookmarks page'),",
                           ')')
-    # TODO: Fix for Django 1.8 (must be in TEMPLATES = ...) -- BEGIN --
-    settings.append_lines('common',
-                          'TEMPLATE_DIRS = (',
-                          "    # Don't forget to use absolute paths, not relative paths.",
-                          "    join(BASE_DIR, '%s.templates')," % projectname,
-                          "    join(BASE_DIR, '%s.templates', 'zinnia')," % projectname,
-                          ')')
-    settings.delete_var('common', 'TEMPLATE_LOADERS')
-    settings.append_lines('common',
-                          'TEMPLATE_LOADERS = (',
-                          "    'django.template.loaders.filesystem.Loader',",
-                          "    'django.template.loaders.app_directories.Loader',",
-                          "    'apptemplates.Loader',",
-                          ')')
-    settings.append_lines('common',
-                          'TEMPLATE_CONTEXT_PROCESSORS = (',
-                          "    'django.contrib.auth.context_processors.auth',",
-                          "    'django.core.context_processors.i18n',",
-                          "    'django.core.context_processors.request',",
-                          "    'django.core.context_processors.media',",
-                          "    'django.core.context_processors.static',",
-                          "    'allauth.account.context_processors.account',",
-                          "    'allauth.socialaccount.context_processors.socialaccount',",
-                          "    'cms.context_processors.media',",
-                          "    'sekizai.context_processors.sekizai',",
-                          "    'organice.context_processors.expose',",
-                          ')')
-    # TODO: Fix for Django 1.8 (must be in TEMPLATES = ...) -- END --
     settings.append_lines('common',
                           'MEDIA_TREE_MEDIA_BACKENDS = (',
                           "    'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',",
@@ -568,6 +567,7 @@ def startproject():
     _configure_database()
     _configure_installed_apps()
     _configure_authentication()
+    _configure_templates()
     _configure_cms()
     _configure_newsletter()
     _configure_blog()
