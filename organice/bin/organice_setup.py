@@ -193,8 +193,7 @@ def _split_project():
     settings.move_var('common', profiles, 'SECRET_KEY')
     for prof in ('staging', 'production'):
         settings.set_value(prof, 'DEBUG', False)
-        settings.set_value_lines(prof, 'ALLOWED_HOSTS',
-                                 '[',
+        settings.set_value_lines(prof, 'ALLOWED_HOSTS', '[',
                                  "    '%s.organice.io'," % (args.account if args.account else projectname),
                                  "    '%s'," % (args.domain if args.domain else 'www.example.com'),
                                  ']')

@@ -93,6 +93,15 @@ class DjangoSettingsManager(DjangoModuleManager):
     Utility class which allows moving and copying variables in-between several
     settings files in the project's ``settings/`` folder.
     """
+    DELIMITERS = {
+        '"""': (r'"""', r'"""'),
+        "'''": (r"'''", r"'''"),
+        '"': (r'"', r'"'),
+        "'": (r"'", r"'"),
+        '(': (r'\(', r'\)'),
+        '[': (r'\[', r'\]'),
+        '{': (r'\{', r'\}'),
+    }
     NO_MATCH = (0, 0)
 
     def __init__(self, projectname, *filenames):
@@ -126,16 +135,6 @@ class DjangoSettingsManager(DjangoModuleManager):
         """
         Identify value type (str, tuple, list, dict) and return end index.
         """
-        delimiters = {
-            '"""': (r'"""', r'"""'),
-            "'''": (r"'''", r"'''"),
-            '"': (r'"', r'"'),
-            "'": (r"'", r"'"),
-            '(': (r'\(', r'\)'),
-            '[': (r'\[', r'\]'),
-            '{': (r'\{', r'\}'),
-        }
-
         delim = data[start:start + 3]
         if delim != '"""' and delim != "'''":
             delim = delim[0]
@@ -143,7 +142,7 @@ class DjangoSettingsManager(DjangoModuleManager):
         delim_length = len(delim)
         stop = start + delim_length
         try:
-            open_delim, close_delim = delimiters[delim]
+            open_delim, close_delim = self.DELIMITERS[delim]
             # TODO: ignore matches in comments and strings
             open_pattern = re.compile(open_delim)
             close_pattern = re.compile(close_delim + r'[ ]*,?[ ]*\n?')

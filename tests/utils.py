@@ -1,11 +1,16 @@
 """
-Test helper functions
+Helper functions for tests
 """
+DELIMITERS = {
+    '(': ')',
+    '[': ']',
+    '{': '}',
+}
 
 
 def probe_values_in_tuple(content, tuple_key, required_values):
     """
-    Tests a tuple for required values, extracting the tuple beforehand.
+    Test a tuple for required values, extracting the tuple beforehand.
     :param content: content string containing the tuple attribute (e.g. Django settings)
     :param tuple_key: attribute name of the tuple
     :param required_values: list or tuple of values for testing the tuple
@@ -21,6 +26,34 @@ def probe_values_in_tuple(content, tuple_key, required_values):
         for val in required_values:
             val_line = ("    '%s',\n" % val)
             assert val_line in tuple, "Not found in tuple %s: %s" % (tuple_key, val)
+        return True
+    except AssertionError as ae:
+        print(ae.message)
+        return False
+
+
+def probe_values_in_list(content, settings_path, required_values):
+    """
+    Test a list for required values, extracting the list beforehand.
+    :param content: content string containing the list attribute (e.g. Django settings)
+    :param settings_path: attribute hierarchy list to find the list
+    :param required_values: list or tuple of values for testing the list
+    :return: None (asserts in case of failure)
+    """
+    block = content
+    try:
+        for indent_level, key in enumerate(settings_path):
+            closing_token = DELIMITERS[key[len(key) - 1]]
+            indentation = indent_level * 4 * ' '
+            start_pos = block.find("%s%s" % (indentation, key))
+            assert start_pos != -1, "Key not found: %s" % key
+            stop_pos = 1 + block.find("\n%s%s" % (indentation, closing_token), start_pos)
+            assert stop_pos > start_pos, "End of block not found: %s" % key
+            block = block[start_pos:stop_pos]
+
+        for val in required_values:
+            val_line = ("%s'%s',\n" % (indentation, val))
+            assert val_line in block, "Not found in block %s: %s" % (key, val)
         return True
     except AssertionError as ae:
         print(ae.message)

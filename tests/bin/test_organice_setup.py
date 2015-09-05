@@ -4,7 +4,7 @@ from pytest import fixture
 from shutil import rmtree
 from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH, ST_MODE
 from subprocess import call
-from ..utils import probe_values_in_tuple
+from ..utils import probe_values_in_tuple, probe_values_in_list
 from ..utils import pytest_generate_tests  # noqa
 
 
@@ -149,8 +149,8 @@ class TestOrganiceSetup(object):
             'cms.middleware.toolbar.ToolbarMiddleware',
             'cms.middleware.language.LanguageCookieMiddleware',
         ]
-        required_loaders = [
-            'apptemplates.Loader',
+        required_mediatree = [
+            'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',
         ]
         required_ctx = [
             'allauth.account.context_processors.account',
@@ -159,14 +159,15 @@ class TestOrganiceSetup(object):
             'sekizai.context_processors.sekizai',
             'organice.context_processors.expose',
         ]
-        required_mediatree = [
-            'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',
-        ]
         assert probe_values_in_tuple(common_settings, 'MIDDLEWARE_CLASSES', required_middleware)
-        assert probe_values_in_tuple(common_settings, 'TEMPLATE_LOADERS', required_loaders)
-        assert probe_values_in_tuple(common_settings, 'TEMPLATE_CONTEXT_PROCESSORS', required_ctx)
         assert probe_values_in_tuple(common_settings, 'MEDIA_TREE_MEDIA_BACKENDS',
                                      required_mediatree)
+        assert probe_values_in_list(common_settings, [
+            "TEMPLATES = [",
+            "{",
+            "'OPTIONS': {",
+            "'context_processors': [",
+            ], required_ctx)
 
     def test_07_configure_newsletter(self, project_name, cmd_args):
         common_settings = open(settings_file_for(project_name, 'common')).read()
