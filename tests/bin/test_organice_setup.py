@@ -150,10 +150,7 @@ class TestOrganiceSetup(object):
             'organice.context_processors.expose',
         ]
         assert probe_values_in_list(common_settings, [
-            "TEMPLATES = [",
-            "{",
-            "'OPTIONS': {",
-            "'context_processors': [",
+            "TEMPLATES = [", "{", "'OPTIONS': {", "'context_processors': ["
             ], required_ctx)
 
     def test_07_configure_cms(self, project_name, cmd_args):

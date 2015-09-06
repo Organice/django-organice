@@ -123,7 +123,7 @@ class DjangoSettingsManager(DjangoModuleManager):
         """
         Return (start, stop) position of a match, or NO_MATCH i.e. (0, 0).
         A match is a value block of a certain data type (usually a list or a
-        tuple), including its opening and closing delimiter.  Assumes clean
+        tuple), excluding its opening and closing delimiter.  Assumes clean
         indentation (4 spaces) for each level, starting at level 0.
         """
         data = super(DjangoSettingsManager, self).get_data(src)
@@ -136,10 +136,16 @@ class DjangoSettingsManager(DjangoModuleManager):
         for indent_level, key in enumerate(settings_path):
             closing_token = DjangoSettingsManager.DELIMITERS[key[len(key) - 1]]
             indentation = DjangoSettingsManager._indentation_by(indent_level)
-            start = data.find("%s%s" % (indentation, key), start, stop)
+
+            needle = "%s%s" % (indentation, key)
+            start = data.find(needle, start, stop)
             assert start != -1, "Key not found: %s" % key
-            stop = 1 + data.find("\n%s%s" % (indentation, closing_token), start, stop)
-            assert stop > start, "End of block not found: %s" % key
+            start += len(needle)
+
+            needle = "\n%s%s" % (indentation, closing_token)
+            stop = start if data[start] == closing_token \
+                else 1 + data.find(needle, start, stop)
+            assert stop >= start, "End of block not found: %s" % key
         return (start, stop)
 
     def find_var(self, src, var, comments=True):
@@ -203,7 +209,16 @@ class DjangoSettingsManager(DjangoModuleManager):
 
     def append_to_list(self, dest, settings_path, *items):
         """Append one or more list items to a list identified by a hierarchy"""
-        pass
+        start, stop = self.find_block(dest, settings_path)
+        indentation = self._indentation_by(len(settings_path))
+        chunk = ''
+        if start == stop:
+            chunk += os.linesep
+        for line in items:
+            chunk += indentation + line + ',' + os.linesep
+        if start == stop:
+            chunk += self._indentation_by(len(settings_path) - 1)
+        self.__insert(dest, stop, stop, chunk)
 
     def insert_lines(self, dest, *lines):
         """Find position after first comment and/or docstring, and insert the data"""

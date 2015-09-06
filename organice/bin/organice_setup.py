@@ -345,7 +345,7 @@ def _configure_templates():
                             "join(BASE_DIR, '%s.templates')" % projectname,
                             "join(BASE_DIR, '%s.templates', 'zinnia')" % projectname)
     settings.append_to_list('common',
-                            ["TEMPLATES = [", "{", "'OPTIONS': [", "'context_processors': ["],
+                            ["TEMPLATES = [", "{", "'OPTIONS': {", "'context_processors': ["],
                             "'django.core.context_processors.i18n'",
                             "'django.core.context_processors.request'",
                             "'django.core.context_processors.media'",
@@ -356,10 +356,10 @@ def _configure_templates():
                             "'sekizai.context_processors.sekizai'",
                             "'organice.context_processors.expose'")
     settings.append_to_list('common',
-                            ["TEMPLATES = [", "{", "'OPTIONS': ["],
-                            "# 'debug': True"
-                            "# 'string_if_invalid': '|INVALID) %s (INVALID|'"
-                            "# see https://docs.djangoproject.com/en/1.8/ref/settings/#template-string-if-invalid")
+                            ["TEMPLATES = [", "{", "'OPTIONS': {"],
+                            "# 'debug': True",
+                            "# 'string_if_invalid': '|INVALID) %s (INVALID|'",
+                            "# see https://docs.djangoproject.com/en/1.8/ref/settings/#template-string-if-invalid ")
 
 
 def _configure_cms():
