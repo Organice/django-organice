@@ -113,7 +113,7 @@ class DjangoSettingsManager(DjangoModuleManager):
         """Constructor, adds settings files (named without path and extension)"""
         super(DjangoSettingsManager, self).__init__(projectname, 'settings')
         for module in filenames:
-            super(DjangoSettingsManager, self).add_file(module)
+            self.add_file(module)
 
     @staticmethod
     def _indentation_by(indent_level):
@@ -126,7 +126,7 @@ class DjangoSettingsManager(DjangoModuleManager):
         tuple), excluding its opening and closing delimiter.  Assumes clean
         indentation (4 spaces) for each level, starting at level 0.
         """
-        data = super(DjangoSettingsManager, self).get_data(src)
+        data = self.get_data(src)
         return DjangoSettingsManager._find_block(data, settings_path)
 
     @staticmethod
@@ -154,7 +154,7 @@ class DjangoSettingsManager(DjangoModuleManager):
         A match is a variable including optional leading comment lines.  If
         comments is set to False the match strictly starts with the variable.
         """
-        data = super(DjangoSettingsManager, self).get_data(src)
+        data = self.get_data(src)
 
         # variable incl. leading comments, until after trailing equal sign
         # and optional line continuation mark (backslash)
@@ -204,8 +204,8 @@ class DjangoSettingsManager(DjangoModuleManager):
         return stop
 
     def __insert(self, dest, start, stop, chunk):
-        data = super(DjangoSettingsManager, self).get_data(dest)
-        super(DjangoSettingsManager, self).set_data(dest, data[:start] + chunk + data[stop:])
+        data = self.get_data(dest)
+        self.set_data(dest, data[:start] + chunk + data[stop:])
 
     def append_to_list(self, dest, settings_path, *items):
         """Append one or more list items to a list identified by a hierarchy"""
@@ -222,7 +222,7 @@ class DjangoSettingsManager(DjangoModuleManager):
 
     def insert_lines(self, dest, *lines):
         """Find position after first comment and/or docstring, and insert the data"""
-        dest_data = super(DjangoSettingsManager, self).get_data(dest)
+        dest_data = self.get_data(dest)
         re_comments = r'(\s*#.*\n)*'
         pattern = re.compile(re_comments + r'\s*')
         match = pattern.search(dest_data)
@@ -251,15 +251,15 @@ class DjangoSettingsManager(DjangoModuleManager):
     def delete_var(self, dest, var):
         """Delete a variable from a settings file"""
         start, stop = self.find_var(dest, var)
-        data = super(DjangoSettingsManager, self).get_data(dest)
-        super(DjangoSettingsManager, self).set_data(dest, data[:start] + data[stop:])
+        data = self.get_data(dest)
+        self.set_data(dest, data[:start] + data[stop:])
 
     def copy_var(self, src, destinations, var):
         """Copy a variable from one settings file to one or more others"""
         start, stop = self.find_var(src, var)
-        data = super(DjangoSettingsManager, self).get_data(src)[start:stop]
+        data = self.get_data(src)[start:stop]
         for dest in destinations:
-            super(DjangoSettingsManager, self).append_data(dest, data)
+            self.append_data(dest, data)
 
     def move_var(self, src, destinations, var):
         """Move a variable from one settings file to one or more others"""
