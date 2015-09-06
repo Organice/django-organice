@@ -94,6 +94,11 @@ class DjangoSettingsManager(DjangoModuleManager):
     settings files in the project's ``settings/`` folder.
     """
     DELIMITERS = {
+        '(': ')',
+        '[': ']',
+        '{': '}',
+    }
+    REGEX_DELIMS = {
         '"""': (r'"""', r'"""'),
         "'''": (r"'''", r"'''"),
         '"': (r'"', r'"'),
@@ -109,6 +114,33 @@ class DjangoSettingsManager(DjangoModuleManager):
         super(DjangoSettingsManager, self).__init__(projectname, 'settings')
         for module in filenames:
             super(DjangoSettingsManager, self).add_file(module)
+
+    @staticmethod
+    def _indentation_by(indent_level):
+        return indent_level * 4 * ' '
+
+    def find_block(self, src, settings_path):
+        """
+        Return (start, stop) position of a match, or NO_MATCH i.e. (0, 0).
+        A match is a value block of a certain data type (usually a list or a
+        tuple), including its opening and closing delimiter.  Assumes clean
+        indentation (4 spaces) for each level, starting at level 0.
+        """
+        data = super(DjangoSettingsManager, self).get_data(src)
+        return DjangoSettingsManager._find_block(data, settings_path)
+
+    @staticmethod
+    def _find_block(data, settings_path):
+        start, stop = 0, len(data)
+
+        for indent_level, key in enumerate(settings_path):
+            closing_token = DjangoSettingsManager.DELIMITERS[key[len(key) - 1]]
+            indentation = DjangoSettingsManager._indentation_by(indent_level)
+            start = data.find("%s%s" % (indentation, key), start, stop)
+            assert start != -1, "Key not found: %s" % key
+            stop = 1 + data.find("\n%s%s" % (indentation, closing_token), start, stop)
+            assert stop > start, "End of block not found: %s" % key
+        return (start, stop)
 
     def find_var(self, src, var, comments=True):
         """
@@ -142,7 +174,7 @@ class DjangoSettingsManager(DjangoModuleManager):
         delim_length = len(delim)
         stop = start + delim_length
         try:
-            open_delim, close_delim = self.DELIMITERS[delim]
+            open_delim, close_delim = self.REGEX_DELIMS[delim]
             # TODO: ignore matches in comments and strings
             open_pattern = re.compile(open_delim)
             close_pattern = re.compile(close_delim + r'[ ]*,?[ ]*\n?')

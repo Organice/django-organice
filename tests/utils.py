@@ -1,11 +1,7 @@
 """
 Helper functions for tests
 """
-DELIMITERS = {
-    '(': ')',
-    '[': ']',
-    '{': '}',
-}
+from organice.management.settings import DjangoSettingsManager
 
 
 def probe_values_in_tuple(content, tuple_key, required_values):
@@ -40,20 +36,16 @@ def probe_values_in_list(content, settings_path, required_values):
     :param required_values: list or tuple of values for testing the list
     :return: None (asserts in case of failure)
     """
-    block = content
+    last_index = len(settings_path) - 1
+    indentation = DjangoSettingsManager._indentation_by(last_index)
     try:
-        for indent_level, key in enumerate(settings_path):
-            closing_token = DELIMITERS[key[len(key) - 1]]
-            indentation = indent_level * 4 * ' '
-            start_pos = block.find("%s%s" % (indentation, key))
-            assert start_pos != -1, "Key not found: %s" % key
-            stop_pos = 1 + block.find("\n%s%s" % (indentation, closing_token), start_pos)
-            assert stop_pos > start_pos, "End of block not found: %s" % key
-            block = block[start_pos:stop_pos]
+        start, stop = DjangoSettingsManager._find_block(content, settings_path)
+        block = content[start:stop]
 
         for val in required_values:
             val_line = ("%s'%s',\n" % (indentation, val))
-            assert val_line in block, "Not found in block %s: %s" % (key, val)
+            assert val_line in block, "Not found in block %s: %s" % \
+                (settings_path[last_index], val)
         return True
     except AssertionError as ae:
         print(ae.message)
