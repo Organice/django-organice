@@ -3,6 +3,7 @@
 /*.geany
 
 # build files and folders
+/.cache/
 /.coverage
 .sass-cache/
 /build/

@@ -112,7 +112,7 @@ class TestOrganiceSetup(object):
             'zinnia',
             # 'emencia.django.newsletter',
             'todo',
-            'media_tree',
+            # 'media_tree',
             'analytical',
             'allauth',
             'allauth.account',
@@ -142,21 +142,32 @@ class TestOrganiceSetup(object):
     def test_06_configure_templates(self, project_name, cmd_args):
         common_settings = open(settings_file_for(project_name, 'common')).read()
         required_ctx = [
+            'django.template.context_processors.request',
             'django.contrib.auth.context_processors.auth',
-            'allauth.account.context_processors.account',
-            'allauth.socialaccount.context_processors.socialaccount',
-            'cms.context_processors.media',
+            'cms.context_processors.cms_settings',
             'sekizai.context_processors.sekizai',
             'organice.context_processors.expose',
+        ]
+        required_loaders = [
+            'apptemplates.Loader',
+            'django.template.loaders.filesystem.Loader',
+            'django.template.loaders.app_directories.Loader',
         ]
         assert probe_values_in_list(common_settings, [
             "TEMPLATES = [", "{", "'OPTIONS': {", "'context_processors': ["
             ], required_ctx)
+        assert probe_values_in_list(common_settings, [
+            "TEMPLATES = [", "{", "'OPTIONS': {", "'loaders': ["
+            ], required_loaders)
 
     def test_07_configure_cms(self, project_name, cmd_args):
         common_settings = open(settings_file_for(project_name, 'common')).read()
         required_middleware = [
+            'django.contrib.sessions.middleware.SessionMiddleware',
+            'django.contrib.messages.middleware.MessageMiddleware',
             'django.contrib.auth.middleware.AuthenticationMiddleware',
+            'django.middleware.common.CommonMiddleware',
+            'django.middleware.csrf.CsrfViewMiddleware',
             'solid_i18n.middleware.SolidLocaleMiddleware',
             'cms.middleware.page.CurrentPageMiddleware',
             'cms.middleware.user.CurrentUserMiddleware',
@@ -179,10 +190,13 @@ class TestOrganiceSetup(object):
 
     def test_09_configure_blog(self, project_name, cmd_args):
         common_settings = open(settings_file_for(project_name, 'common')).read()
+        required_migrations = [
+            "zinnia': 'organice.migrations.zinnia"
+        ]
         assert "ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'" \
                in common_settings
         assert "ZINNIA_WYSIWYG = 'wymeditor'" in common_settings
-        assert "SOUTH_MIGRATION_MODULES = {" in common_settings
+        assert probe_values_in_list(common_settings, ["MIGRATION_MODULES = {"], required_migrations)
 
     def test_10_configure_set_custom(self, project_name, cmd_args):
         settings = open(settings_file_for(project_name, 'develop')).read()
@@ -238,3 +252,15 @@ class TestOrganiceSetup(object):
     def test_13_system_check(self, project_name, cmd_args):
         exit_code = call(['python', 'manage.py', 'check'])
         assert exit_code == 0, 'Validation of Django project failed. See output for details.'
+
+    def test_14_init_database(self, project_name, cmd_args):
+        """NOTE: This is the first test that takes significantly more time to complete"""
+        # TODO: move this and subsequent calls to management command
+        exit_code = call(['python', 'manage.py', 'migrate'])
+        assert exit_code == 0, 'Initialization of project database failed. See output for details.'
+
+    def test_15_populate_database(self, project_name, cmd_args):
+        # TODO: fix fixture 'organice_sample_content' and add it to the list below
+        for fixture_file in ['organice_auth_providers']:
+            exit_code = call(['python', 'manage.py', 'loaddata', fixture_file])
+            assert exit_code == 0, 'Loading fixture `%s` into database failed.' % fixture

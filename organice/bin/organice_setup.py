@@ -241,6 +241,24 @@ def _configure_installed_apps():
     settings.delete_var('common', 'INSTALLED_APPS')
     settings.append_lines('common',
                           'INSTALLED_APPS = (',
+                          "    # 'organice_theme_add-your-theme-here',",
+                          "    'organice_theme',",
+                          "    'organice',",
+                          "    'cms',",
+                          "    # 'mptt',",
+                          "    'menus',",
+                          "    'sekizai',",
+                          "    'treebeard',",
+                          "    'easy_thumbnails',",
+                          "    'djangocms_admin_style',",
+                          "    'djangocms_file',",
+                          "    'djangocms_flash',",
+                          "    'djangocms_googlemap',",
+                          "    'djangocms_inherit',",
+                          "    'djangocms_link',",
+                          "    'djangocms_picture',",
+                          "    'djangocms_teaser',",
+                          "    'djangocms_video',",
                           "    'django_comments',",
                           "    'django.contrib.auth',",
                           "    'django.contrib.contenttypes',",
@@ -249,28 +267,11 @@ def _configure_installed_apps():
                           "    'django.contrib.messages',",
                           "    'django.contrib.staticfiles',",
                           "    'django.contrib.admin',",
-                          "    # 'organice_theme_add-your-theme-here',",
-                          "    'organice_theme',",
-                          "    'organice',",
-                          "    'cms',",
-                          "    'mptt',",
-                          "    'menus',",
-                          "    'sekizai',",
-                          "    'treebeard',",
-                          "    'easy_thumbnails',",
-                          "    'media_tree',",
-                          "    'djangocms_file',",
-                          "    'djangocms_flash',",
-                          "    'djangocms_googlemap',",
-                          "    'djangocms_inherit',",
-                          "    'djangocms_picture',",
-                          "    'djangocms_teaser',",
-                          "    'djangocms_video',",
-                          "    'djangocms_link',",
-                          "    'media_tree.contrib.cms_plugins.media_tree_image',",
-                          "    'media_tree.contrib.cms_plugins.media_tree_gallery',",
-                          "    'media_tree.contrib.cms_plugins.media_tree_slideshow',",
-                          "    'media_tree.contrib.cms_plugins.media_tree_listing',",
+                          "    # 'media_tree',",
+                          "    # 'media_tree.contrib.cms_plugins.media_tree_image',",
+                          "    # 'media_tree.contrib.cms_plugins.media_tree_gallery',",
+                          "    # 'media_tree.contrib.cms_plugins.media_tree_slideshow',",
+                          "    # 'media_tree.contrib.cms_plugins.media_tree_listing',",
                           "    # 'form_designer.contrib.cms_plugins.form_designer_form',",
                           "    'cmsplugin_zinnia',",
                           "    'tagging',",
@@ -340,24 +341,32 @@ def _configure_templates():
     global settings
 
     _print_verbose(2, adding_settings_for('Django templates'))
+    settings.delete_from_list('common',
+                              ["TEMPLATES = [", "{"],
+                              "'APP_DIRS': True")
     settings.append_to_list('common',
                             ["TEMPLATES = [", "{", "'DIRS': ["],
                             "join(BASE_DIR, '%s.templates')" % projectname,
                             "join(BASE_DIR, '%s.templates', 'zinnia')" % projectname)
     settings.append_to_list('common',
                             ["TEMPLATES = [", "{", "'OPTIONS': {", "'context_processors': ["],
-                            "'django.core.context_processors.i18n'",
-                            "'django.core.context_processors.request'",
-                            "'django.core.context_processors.media'",
-                            "'django.core.context_processors.static'",
-                            "'allauth.account.context_processors.account'",
-                            "'allauth.socialaccount.context_processors.socialaccount'",
-                            "'cms.context_processors.media'",
+                            "'django.template.context_processors.i18n'",
+                            "'django.template.context_processors.media'",
+                            "'django.template.context_processors.static'",
                             "'sekizai.context_processors.sekizai'",
+                            "'cms.context_processors.cms_settings'",
                             "'organice.context_processors.expose'")
     settings.append_to_list('common',
                             ["TEMPLATES = [", "{", "'OPTIONS': {"],
-                            "# 'debug': True",
+                            "'loaders': []")
+    settings.append_to_list('common',
+                            ["TEMPLATES = [", "{", "'OPTIONS': {", "'loaders': ["],
+                            "'apptemplates.Loader'",
+                            "'django.template.loaders.filesystem.Loader'",
+                            "'django.template.loaders.app_directories.Loader'")
+    settings.append_to_list('common',
+                            ["TEMPLATES = [", "{", "'OPTIONS': {"],
+                            "'debug': True",
                             "# 'string_if_invalid': '|INVALID) %s (INVALID|'",
                             "# see https://docs.djangoproject.com/en/1.8/ref/settings/#template-string-if-invalid ")
 
@@ -367,21 +376,14 @@ def _configure_cms():
     global settings
 
     _print_verbose(2, adding_settings_for('django CMS'))
-    settings.delete_var('common', 'MIDDLEWARE_CLASSES')
-    settings.append_lines('common',
-                          'MIDDLEWARE_CLASSES = (',
-                          "    'django.contrib.sessions.middleware.SessionMiddleware',",
-                          "    'django.contrib.messages.middleware.MessageMiddleware',",
-                          "    'django.contrib.auth.middleware.AuthenticationMiddleware',",
-                          "    'solid_i18n.middleware.SolidLocaleMiddleware',",
-                          "    'django.middleware.common.CommonMiddleware',",
-                          "    'django.middleware.doc.XViewMiddleware',",
-                          "    'django.middleware.csrf.CsrfViewMiddleware',",
-                          "    'cms.middleware.page.CurrentPageMiddleware',",
-                          "    'cms.middleware.user.CurrentUserMiddleware',",
-                          "    'cms.middleware.toolbar.ToolbarMiddleware',",
-                          "    'cms.middleware.language.LanguageCookieMiddleware',",
-                          ')')
+    settings.append_to_list('common',
+                            ['MIDDLEWARE_CLASSES = ('],
+                            "'django.middleware.locale.LocaleMiddleware'",
+                            "'solid_i18n.middleware.SolidLocaleMiddleware'",
+                            "'cms.middleware.page.CurrentPageMiddleware'",
+                            "'cms.middleware.user.CurrentUserMiddleware'",
+                            "'cms.middleware.toolbar.ToolbarMiddleware'",
+                            "'cms.middleware.language.LanguageCookieMiddleware'")
     # must be set both in order to make solid_i18n work properly
     settings.set_value_lines('common', 'LANGUAGE_CODE', "'en'",
                              'LANGUAGES = (',
@@ -399,6 +401,18 @@ def _configure_cms():
                           'MEDIA_TREE_MEDIA_BACKENDS = (',
                           "    'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',",
                           ')')
+    settings.append_lines('common',
+                          'MIGRATION_MODULES = {',
+                          "    'djangocms_file': 'djangocms_file.migrations_django',",
+                          "    'djangocms_flash': 'djangocms_flash.migrations_django',",
+                          "    'djangocms_googlemap': 'djangocms_googlemap.migrations_django',",
+                          "    'djangocms_inherit': 'djangocms_inherit.migrations_django',",
+                          "    'djangocms_link': 'djangocms_link.migrations_django',",
+                          "    'djangocms_picture': 'djangocms_picture.migrations_django',",
+                          "    'djangocms_teaser': 'djangocms_teaser.migrations_django',",
+                          "    'djangocms_video': 'djangocms_video.migrations_django',",
+                          "    'zinnia': 'organice.migrations.zinnia',",
+                          '}')
 
 
 def _configure_newsletter():
@@ -443,12 +457,6 @@ def _configure_blog():
                           '# use plugin system of django-cms in blog entries',
                           "ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'",
                           "ZINNIA_WYSIWYG = 'wymeditor'")
-    settings.append_lines('common',
-                          'SOUTH_MIGRATION_MODULES = {',
-                          '    # integration of EntryPlaceholder (django CMS) into Zinnia',
-                          "    'zinnia': 'organice.migrations.zinnia',",
-                          "    'easy_thumbnails': 'easy_thumbnails.south_migrations',",
-                          '}')
 
 
 def _configure_set_custom():
@@ -547,8 +555,11 @@ def _show_final_hints():
     _print_verbose(3, 'See https://docs.djangoproject.com/en/1.8/ref/settings/ for details.')
     _print_verbose(3, '')
     _print_verbose(3, '1) To initialize your development database run: `python manage.py migrate`')
-    _print_verbose(3, '2) You can then run your development server with: `python manage.py runserver`')
-    _print_verbose(3, '3) To prepare your production server you may run: '
+    _print_verbose(3, '2) Create a super user for administration, and optionally load some sample data:')
+    _print_verbose(3, '  `python manage.py createsuperuser '
+                      '&& python manage.py loaddata organice_auth_providers organice_sample_content`')
+    _print_verbose(3, '3) You can then run your development server with: `python manage.py runserver`')
+    _print_verbose(3, '4) To prepare your production server you may run: '
                    '`python manage.py collectstatic --link --settings=%s.settings.production`' % projectname)
 
 

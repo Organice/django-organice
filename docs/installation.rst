@@ -120,8 +120,8 @@ Initial Configuration
 #. After installation django Organice is configured, but it's blank without any content.  You can
    install sample content and other data running one or all of the following commands::
 
-    $ python manage loaddata organice_sample_content  # optional sample content
-    $ python manage loaddata organice_auth_providers  # social auth provider configuration
+    $ python manage.py loaddata organice_sample_content  # optional sample content
+    $ python manage.py loaddata organice_auth_providers  # social auth provider configuration
 
 #. Alternatively, add your first pages, blog posts, and newsletter data manually:
 

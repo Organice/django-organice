@@ -1,1 +1,1 @@
-"""South migrations for django Organice"""
+"""Database migrations for django Organice"""

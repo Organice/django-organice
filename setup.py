@@ -48,8 +48,8 @@ DEPENDENCIES = [
     'djangocms-table',
     'djangocms-teaser',
     'djangocms-video',
-    'django-form-designer',
-    'django-media-tree',
+    # 'django-form-designer',
+    # 'django-media-tree',
     'django-organice-theme',
     'django-simple-links',
     'django-tinymce',
@@ -57,7 +57,7 @@ DEPENDENCIES = [
     'django-allauth',
     'django-analytical',
     'easy-thumbnails',
-    'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
+    # 'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
     'Pillow',
     'solid_i18n',
     'cmsplugin-zinnia',

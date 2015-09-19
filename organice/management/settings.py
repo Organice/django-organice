@@ -220,6 +220,18 @@ class DjangoSettingsManager(DjangoModuleManager):
             chunk += self._indentation_by(len(settings_path) - 1)
         self.__insert(dest, stop, stop, chunk)
 
+    def delete_from_list(self, dest, settings_path, *items):
+        """Remove list items from a list identified by a hierarchy"""
+        start, stop = self.find_block(dest, settings_path)
+        indentation = self._indentation_by(len(settings_path))
+        data = self.get_data(dest)
+        block = data[start:stop]
+        # TODO: make work for a value being a list/tuple (works for single, self-contained lines only atm)
+        for line in items:
+            chunk = indentation + line + ',' + os.linesep
+            block = block.replace(chunk, '')
+        self.set_data(dest, data[:start] + block + data[stop:])
+
     def insert_lines(self, dest, *lines):
         """Find position after first comment and/or docstring, and insert the data"""
         dest_data = self.get_data(dest)
