@@ -6,6 +6,7 @@
 /.cache/
 /.coverage
 .sass-cache/
+/.tox/
 /build/
 /dist/
 /*.egg/
