@@ -223,16 +223,17 @@ class TestOrganiceSetup(object):
             assert exists(lighttp_conf)
 
             content = open(lighttp_conf).read()
-            for line in [
-                '$HTTP["host"] =~ "^(%(project)s.organice.io|%(domain)s)$" {\n',
-                '                "socket" => env.HOME + "/organice/%(project)s.sock",\n',
-                '        "/media/" => env.HOME + "/organice/%(project)s.media/",\n',
-                '        "/static/" => env.HOME + "/organice/%(project)s.static/",\n',
-                '$HTTP["host"] != "%(domain)s" {\n',
-                '    url.redirect = ("^/django.fcgi(.*)$" => "http://%(domain)s$1")\n',
+            for required_line in [
+                r'$HTTP["host"] =~ "^(%(project)s.organice.io|%(domain)s)$" {',
+                r'                "socket" => env.HOME + "/organice/%(project)s.sock",',
+                r'        "/media/" => env.HOME + "/organice/%(project)s.media/",',
+                r'        "/static/" => env.HOME + "/organice/%(project)s.static/",',
+                r'        "^/favicon\.ico$" => "/media/favicon.ico",',
+                r'$HTTP["host"] != "%(domain)s" {',
+                r'    url.redirect = ("^/django.fcgi(.*)$" => "http://%(domain)s$1")',
             ]:
-                line = (line % conf_values)
-                assert line in content
+                line = (required_line % conf_values) + '\n'
+                assert line in content, 'Missing in lighttp configuration: %s' % line.strip()
 
             for profile in (settings_file_for(project_name, 'develop'),
                             settings_file_for(project_name, 'staging'),
