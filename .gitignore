@@ -5,6 +5,7 @@
 # build files and folders
 /.cache/
 /.coverage
+/coverage.xml
 .sass-cache/
 /.tox/
 /build/
