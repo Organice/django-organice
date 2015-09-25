@@ -2,7 +2,7 @@
 django Organice |latest-version|
 ================================
 
-|travis-ci| |health| |downloads| |license|
+|travis-ci| |health| |downloads| |license| |gitter|
 
 All-in-one collaboration solution.  For non-profit organizations, sports clubs, small to
 medium-sized businesses.
@@ -28,6 +28,9 @@ investment providing an easily extensible architecture.
 .. |license| image:: https://img.shields.io/pypi/l/django-organice.svg
    :alt: Software license
    :target: https://www.apache.org/licenses/LICENSE-2.0.html
+.. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
+   :alt: Gitter chat room
+   :target: https://gitter.im/Organice
 .. _Django Web framework: https://www.djangoproject.com/
 
 Fundamental Features
@@ -103,8 +106,10 @@ Getting Help
 - Documentation is available at http://docs.organice.io
 - Questions? Please use `StackOverflow`_.  Tag your questions with ``django-organice``.
 - Found a bug? Please use either the `Bitbucket`_ or `GitHub`_ issue tracker (you choose)
+- Need support? You're welcome to use our `Gitter chat room`_.
 
 
 .. _StackOverflow: http://stackoverflow.com/questions/tagged/django-organice
 .. _Bitbucket: https://bitbucket.org/organice/django-organice/issues
 .. _GitHub: https://github.com/organice/django-organice/issues
+.. _Gitter chat room: https://gitter.im/Organice
