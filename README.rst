@@ -30,7 +30,7 @@ investment providing an easily extensible architecture.
    :target: https://www.apache.org/licenses/LICENSE-2.0.html
 .. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
    :alt: Gitter chat room
-   :target: https://gitter.im/Organice
+   :target: https://gitter.im/Organice/chat
 .. _Django Web framework: https://www.djangoproject.com/
 
 Fundamental Features
@@ -112,4 +112,4 @@ Getting Help
 .. _StackOverflow: http://stackoverflow.com/questions/tagged/django-organice
 .. _Bitbucket: https://bitbucket.org/organice/django-organice/issues
 .. _GitHub: https://github.com/organice/django-organice/issues
-.. _Gitter chat room: https://gitter.im/Organice
+.. _Gitter chat room: https://gitter.im/Organice/chat
