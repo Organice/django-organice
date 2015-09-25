@@ -1,23 +1,22 @@
-# https://app.shippable.com/projects/544620bbb904a4b21567c427
 language: python
-python:
-  - 2.7
+env:  # generate list with: $ tox -l | xargs -I ITEM echo "  - TOXENV="ITEM
+  - TOXENV=py27
+  - TOXENV=py32
+  - TOXENV=py33
+  - TOXENV=py34
 install:
-  - python setup.py install
-  - pip install flake8
-  - pip install coveralls
+  - pip install flake8 tox coveralls
 before_script:
-  - mkdir -p shippable/codecoverage
-  - mkdir -p shippable/testresults
   - flake8
+  - mkdir -p shippable/{codecoverage,testresults}
 script:
-  - coverage run setup.py test
+  - tox
 after_success:
   - coverage report
   - coverage xml
-  - coveralls
   - mv -v coverage.xml shippable/codecoverage/
   - mv -v unittests.xml shippable/testresults/
+  - coveralls || true
 notifications:
   slack:
     rooms:

@@ -31,7 +31,7 @@ clean:
 	$(MAKE) -C docs clean
 	find . -name '*.pyc' -exec rm {} \;
 	rm -rf build/ dist/ django_organice.egg-info/ docs/build/ organice/static/.sass-cache tests/__pycache__/ .coverage
-	rm -rf manage.py test_project_default{,.media,.static,.templates} unittests.xml *.egg/
+	rm -rf manage.py test_project_default{,.media,.static,.templates} coverage.xml unittests.xml *.egg/
 	for DIR in media/ static/ templates/ ; do \
 		[ -d $$DIR ] && rmdir $$DIR || true ; \
 	done
