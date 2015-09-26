@@ -1,8 +1,8 @@
 from os import getcwd, rmdir, stat, unlink
-from os.path import exists, join
+from os.path import exists, isfile, join
 from pytest import fixture
 from shutil import rmtree
-from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH, ST_MODE
+from stat import S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IXGRP, S_IROTH, S_IXOTH
 from subprocess import call
 from ..utils import probe_values_in_tuple, probe_values_in_list
 from ..utils import pytest_generate_tests  # noqa
@@ -46,15 +46,15 @@ class TestOrganiceSetup(object):
         - does setup command execute and finish?
         - does manage script exist, and is it executable?
         """
-        mode0755 = oct(S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH)
+        mode0755 = oct(S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH)[-3:]
         manage_script = 'manage.py'
         tmpdir.chdir()
         exit_code = call(['organice-setup',
                           '--set', 'develop', 'TEST_SETTING_01', "'test value'",
                           '--verbosity=0'] + cmd_args + [project_name])
         assert exit_code == 0
-        assert exists(manage_script)
-        file_mode = oct(stat(manage_script)[ST_MODE])[-4:]
+        assert isfile(manage_script)
+        file_mode = oct(stat(manage_script).st_mode)[-3:]
         assert file_mode == mode0755
 
     def test_02_split_project(self, project_name, cmd_args):
