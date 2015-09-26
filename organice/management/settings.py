@@ -38,9 +38,10 @@ class DjangoModuleManager(object):
         Add a Python file (identified by its module name) in the module.
         If the related .py file doesn't exist an empty file is created.
         """
-        file = open(os.path.join(self.__path, module + '.py'), 'a+')  # pylint: disable=redefined-builtin
-        self.__file[module] = file
-        self.__data[module] = '' if data or lines else file.read()
+        thefile = open(os.path.join(self.__path, module + '.py'), 'a+')
+        thefile.seek(0)  # needed in `Python 3 <http://bugs.python.org/issue22651>`_
+        self.__file[module] = thefile
+        self.__data[module] = '' if data or lines else thefile.read()
         if data:
             self.set_data(module, data)
         if lines:
@@ -52,11 +53,11 @@ class DjangoModuleManager(object):
 
     def save_files(self):
         """Write all changes to disk"""
-        for module, file in self.__file.items():  # pylint: disable=redefined-builtin
+        for module, thefile in self.__file.items():
             data = self.__data[module]
-            file.seek(0)
-            file.truncate()
-            file.write(data)
+            thefile.seek(0)
+            thefile.truncate()
+            thefile.write(data)
 
     def get_data(self, module):
         """Return the data contained in the module file"""
