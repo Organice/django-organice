@@ -17,9 +17,7 @@
 
 # test projects and data
 /manage.py
-/test_project_default/
-/test_project_lighttp/
-/test_project_settings/
+/test_project_*/
 /unittests.xml
 
 # Django and Python

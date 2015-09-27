@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='entry',
             name='content_placeholder',
-            field=cms.models.fields.PlaceholderField(slotname=b'content', editable=False, to='cms.Placeholder', null=True),
+            field=cms.models.fields.PlaceholderField(slotname='content', editable=False, to='cms.Placeholder', null=True),
         ),
     ]
