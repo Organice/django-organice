@@ -1,9 +1,10 @@
 language: python
-python: 3.4
-env:  # generate list with: $ tox -l | xargs -I ITEM echo "  - TOXENV="ITEM
-  - TOXENV=py27
-  - TOXENV=py33
-  - TOXENV=py34
+python:
+  - "2.7"
+  - "3.3"
+  - "3.4"
+env:
+  - TOXENV=py$(echo $TRAVIS_PYTHON_VERSION | sed 's/\.//')
 install:
   - pip install flake8 tox coverage==3.7.1 coveralls
 before_script:
