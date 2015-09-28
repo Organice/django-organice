@@ -1,0 +1,27 @@
+django-apptemplates
+django-blog-zinnia
+django-cms
+djangocms-file
+djangocms-flash
+djangocms-googlemap
+djangocms-grid
+djangocms-inherit
+djangocms-link
+djangocms-oembed
+djangocms-picture
+djangocms-table
+djangocms-teaser
+djangocms-video
+# django-form-designer
+# django-media-tree
+django-organice-theme
+django-simple-links
+django-tinymce
+django-todo
+django-allauth
+django-analytical
+easy-thumbnails
+# emencia.django.newsletter>=0.3.dev  # v0.2 depends on tagging (which breaks django-tagging)
+Pillow
+solid_i18n
+cmsplugin-zinnia

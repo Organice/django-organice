@@ -5,6 +5,7 @@ CHANGELOG
 0.3
 ===
 
+- Added Python 3 support
 - Switched from develop/master model to feature branching model (default branch: ``master``)
 - Migrated project to Django 1.8 and django CMS 3
 - Added sample content loading (using fixtures)
@@ -13,7 +14,7 @@ CHANGELOG
 - Started with continuous builds (Travis-CI, Shippable)
 
 :Changes: https://github.com/bittner/django-organice/compare/v0.2...v0.3
-:Dependencies: https://github.com/bittner/django-organice/blob/v0.3/docs/requirements.txt
+:Dependencies: https://github.com/bittner/django-organice/blob/v0.3/requirements.txt
 
 0.2
 ===

@@ -14,12 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from os.path import dirname, join
+from pip.req import parse_requirements
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
-import os
 import organice
 import sys
-
 
 CLASSIFIERS = [
     'Development Status :: 3 - Alpha',
@@ -35,43 +35,14 @@ CLASSIFIERS = [
     'Topic :: Office/Business :: Groupware',
 ]
 
-DEPENDENCIES = [
-    'django-apptemplates',
-    'django-blog-zinnia',
-    'django-cms',
-    'djangocms-file',
-    'djangocms-flash',
-    'djangocms-googlemap',
-    'djangocms-grid',
-    'djangocms-inherit',
-    'djangocms-link',
-    'djangocms-oembed',
-    'djangocms-picture',
-    'djangocms-table',
-    'djangocms-teaser',
-    'djangocms-video',
-    # 'django-form-designer',
-    # 'django-media-tree',
-    'django-organice-theme',
-    'django-simple-links',
-    'django-tinymce',
-    'django-todo',
-    'django-allauth',
-    'django-analytical',
-    'easy-thumbnails',
-    # 'emencia.django.newsletter>=0.3.dev',  # v0.2 depends on tagging (which breaks django-tagging)
-    'Pillow',
-    'solid_i18n',
-    'cmsplugin-zinnia',
-]
+reqs_gen = parse_requirements('requirements.txt', session=False)
+REQUIREMENTS = [str(reqs.req) for reqs in reqs_gen]
 
 NON_PYPI_DEP_LINKS = [
     'git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev',
     'git+https://github.com/samluescher/django-form-designer.git#egg=django-form-designer',
     'git+https://github.com/samluescher/django-media-tree@b69c508#egg=django-media-tree',  # treebeard feature branch
 ]
-
-ROOT_PATH = os.path.dirname(__file__)
 
 
 class PyTest(TestCommand):
@@ -92,6 +63,10 @@ class PyTest(TestCommand):
         sys.exit(errno)
 
 
+def read_file(*pathname):
+    return open(join(dirname(__file__), *pathname)).read()
+
+
 setup(
     name='django-organice',
     version=organice.__version__,
@@ -102,13 +77,13 @@ setup(
 
     description='All-in-one collaboration solution providing an intuitive, consistent user experience.',
     long_description='\n'.join([
-        open(os.path.join(ROOT_PATH, 'README.rst')).read(),
-        open(os.path.join(ROOT_PATH, 'docs', 'changelog.rst')).read()
+        read_file('README.rst'),
+        read_file('docs', 'changelog.rst')
     ]),
     keywords='cms, collaboration, blog, newsletter, django, python',
 
     classifiers=CLASSIFIERS,
-    install_requires=DEPENDENCIES,
+    install_requires=REQUIREMENTS,
     dependency_links=NON_PYPI_DEP_LINKS,
     packages=find_packages(),
     include_package_data=True,
