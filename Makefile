@@ -42,7 +42,7 @@ coverage:
 	echo 'Coverage generation failed. (Try `make develop`)'
 
 develop: setuptools
-	pip install Sphinx sphinx-intl transifex-client flake8 pytest tox coverage
+	pip install Sphinx sphinx-intl transifex-client==0.11b3 flake8 pytest tox coverage
 	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null || \
 	flake8 --install-hook
 
