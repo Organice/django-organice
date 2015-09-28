@@ -2,7 +2,6 @@ language: python
 python: 3.4
 env:  # generate list with: $ tox -l | xargs -I ITEM echo "  - TOXENV="ITEM
   - TOXENV=py27
-  - TOXENV=py32
   - TOXENV=py33
   - TOXENV=py34
 install:
