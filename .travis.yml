@@ -9,7 +9,7 @@ before_script:
   - flake8
   - mkdir -p shippable/{codecoverage,testresults}
 script:
-  - tox -e py$(echo $TRAVIS_PYTHON_VERSION | sed 's/\.//')
+  - tox -e py${TRAVIS_PYTHON_VERSION/\./}
 after_success:
   - coverage report
   - coverage xml
