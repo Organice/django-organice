@@ -17,7 +17,9 @@ All-in-one collaboration solution providing an intuitive, consistent user experi
 __version__ = '0.3.dev1'
 
 __author__ = 'Peter Bittner'
-__email__ = 'django@bittner.it'
+__author_email__ = 'django@bittner.it'
+__maintainer__ = __author__
+__maintainer_email__ = __author_email__
 
 __url__ = 'http://organice.io/'
 __license__ = 'Apache License 2.0'
