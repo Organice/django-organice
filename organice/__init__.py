@@ -11,9 +11,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+"""
+All-in-one collaboration solution providing an intuitive, consistent user experience.
+"""
 __version__ = '0.3.dev1'
-__revision__ = '<<--git-commit-hash-->>'
 
 __author__ = 'Peter Bittner'
 __email__ = 'django@bittner.it'

@@ -35,9 +35,6 @@ CLASSIFIERS = [
     'Topic :: Office/Business :: Groupware',
 ]
 
-reqs_gen = parse_requirements('requirements.txt', session=False)
-REQUIREMENTS = [str(reqs.req) for reqs in reqs_gen]
-
 NON_PYPI_DEP_LINKS = [
     'git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev',
     'git+https://github.com/samluescher/django-form-designer.git#egg=django-form-designer',
@@ -67,6 +64,12 @@ def read_file(*pathname):
     return open(join(dirname(__file__), *pathname)).read()
 
 
+def read_requirements():
+    filepath = join(dirname(__file__), 'requirements.txt')
+    generator = parse_requirements(filepath, session=False)
+    return [str(requirement.req) for requirement in generator]
+
+
 setup(
     name='django-organice',
     version=organice.__version__,
@@ -75,7 +78,7 @@ setup(
     url=organice.__url__,
     license=organice.__license__,
 
-    description='All-in-one collaboration solution providing an intuitive, consistent user experience.',
+    description=organice.__doc__.strip(),
     long_description='\n'.join([
         read_file('README.rst'),
         read_file('docs', 'changelog.rst')
@@ -83,7 +86,7 @@ setup(
     keywords='cms, collaboration, blog, newsletter, django, python',
 
     classifiers=CLASSIFIERS,
-    install_requires=REQUIREMENTS,
+    install_requires=read_requirements(),
     dependency_links=NON_PYPI_DEP_LINKS,
     packages=find_packages(),
     include_package_data=True,
