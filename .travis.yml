@@ -16,7 +16,6 @@ after_success:
   - mv -v coverage.xml shippable/codecoverage/
   - mv -v unittests.xml shippable/testresults/
   - coveralls || true
-  - pip freeze
 notifications:
   slack:
     rooms:
