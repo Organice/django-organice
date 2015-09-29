@@ -92,14 +92,15 @@ setup(
     classifiers=CLASSIFIERS,
     install_requires=read_requirements(),
     dependency_links=NON_PYPI_DEP_LINKS,
-    packages=find_packages(),
+    packages=find_packages(exclude=['docs', 'tests']),
     include_package_data=True,
     zip_safe=False,
 
     tests_require=['pytest'],
     cmdclass={'test': PyTest},
-    entry_points="""
-        [console_scripts]
-        organice-setup=organice.bin.organice_setup:startproject
-    """,
+    entry_points={
+        'console_scripts': [
+            'organice-setup = organice.bin.organice_setup:startproject',
+        ],
+    },
 )
