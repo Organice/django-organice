@@ -26,7 +26,7 @@ You can run tests locally before pushing using ``tox`` or ``setup.py test``, e.g
 
     $ tox               # run all tests against all supported Python versions
     $ tox -e py34,py27  # run all tests against Python 3.4 and 2.7 only
-    $ ./setup.py test -a tests/management  # only run management tests against default python
+    $ ./setup.py -q test -a tests/management  # only run management tests against default python
 
 Source code is supposed to satisfy ``flake8`` default rules (with the exception of line length,
 which can be up to 120 characters long).  A pre-commit hook for Git is installed automatically
