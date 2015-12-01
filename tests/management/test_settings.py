@@ -20,7 +20,7 @@ def test_create_module():
 
 
 def test_read_module():
-    """Read a subodule (file) in an existing module."""
+    """Read a submodule (file) in an existing module."""
     module = DjangoModuleManager('test_project_settings', 'kitchen')
     module.add_file('cook')
     thefile = module.get_file('cook')
