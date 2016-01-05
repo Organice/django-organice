@@ -3,7 +3,7 @@
 /*.geany
 
 # build files and folders
-/.cache/
+.cache/
 /.coverage
 /coverage.xml
 .sass-cache/
@@ -23,6 +23,7 @@
 # Django and Python
 /static/
 /media/
+__pycache__/
 *.py[cod]
 
 # Virtualenv magic, see https://gist.github.com/bittner/8830745

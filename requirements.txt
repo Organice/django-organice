@@ -11,6 +11,7 @@ djangocms-oembed
 djangocms-picture
 djangocms-table
 djangocms-teaser
+djangocms-text-ckeditor
 djangocms-video
 # django-form-designer
 # django-media-tree

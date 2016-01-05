@@ -258,6 +258,7 @@ def _configure_installed_apps():
                           "    'djangocms_link',",
                           "    'djangocms_picture',",
                           "    'djangocms_teaser',",
+                          "    'djangocms_text_ckeditor',",
                           "    'djangocms_video',",
                           "    'django_comments',",
                           "    'django.contrib.auth',",

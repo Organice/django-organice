@@ -18,7 +18,8 @@ from os.path import dirname, join
 from pip.req import parse_requirements
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
-import organice
+
+import organice as package
 import sys
 
 CLASSIFIERS = [
@@ -74,15 +75,15 @@ def read_requirements():
 
 setup(
     name='django-organice',
-    version=organice.__version__,
-    author=organice.__author__,
-    author_email=organice.__author_email__,
-    maintainer=organice.__maintainer__,
-    maintainer_email=organice.__maintainer_email__,
-    url=organice.__url__,
-    license=organice.__license__,
+    version=package.__version__,
+    author=package.__author__,
+    author_email=package.__author_email__,
+    maintainer=package.__maintainer__,
+    maintainer_email=package.__maintainer_email__,
+    url=package.__url__,
+    license=package.__license__,
 
-    description=organice.__doc__.strip(),
+    description=package.__doc__.strip(),
     long_description='\n'.join([
         read_file('README.rst'),
         read_file('docs', 'changelog.rst')
