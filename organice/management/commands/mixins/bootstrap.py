@@ -12,7 +12,7 @@ class BootstrapCommandMixin(object):
 
     def bootstrap_command(self):
         """
-        Bootstrap the Organice database
+        Initialize the Organice database and create some sample data
         """
         self.stdout.write(_('Initialize database ...'))
         call_command('migrate')

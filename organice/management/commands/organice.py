@@ -1,7 +1,7 @@
 """
 Management commands for django Organice.
 """
-from django.core.management.base import LabelCommand
+from django.core.management.base import CommandError, LabelCommand
 from django.utils.translation import ugettext as _
 
 from .mixins.bootstrap import BootstrapCommandMixin
@@ -49,7 +49,6 @@ class Command(BootstrapCommandMixin, LabelCommand):
         """
         Add help text to our argparse command. Overrides method of LabelCommand.
         """
-        self.parser = parser
         parser.add_argument('args', metavar=self.label, nargs='+', help=self.commands_help)
 
     def handle_label(self, label, **options):
@@ -57,4 +56,4 @@ class Command(BootstrapCommandMixin, LabelCommand):
             self.label_commands[label]()
         except KeyError:
             msg = _('Invalid command: {}. Use --help for detailed usage.')
-            self.parser.error(msg.format(label))
+            raise CommandError(msg.format(label))
