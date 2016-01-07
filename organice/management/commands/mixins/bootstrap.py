@@ -1,62 +1,29 @@
 """
-Management commands for django Organice.
+A label command (sub-command) for the Organice management command.
 """
-from django.core.management.base import BaseCommand
-from django.core.management import call_command
 from django.contrib.auth.models import User
+from django.core.management import call_command
 from django.utils.translation import ugettext as _
-from cms.api import add_plugin, create_page
-from cms.models import Title
+
+from ._helper import add_cms_page
 
 
-def create_user(username, email='testuser@organice.io'):
-    print(u"Creating user {} with password {} ...".format(username, username))
-    try:
-        User.objects.get(username=username).delete()
-        print(u"Warning: deleted existing user {} first.".format(username))
-    except User.DoesNotExist:
-        pass
-    User.objects.create_user(username, email, username).save()
+class BootstrapCommandMixin(object):
 
-
-def delete_page(title):
-    """Delete all pages with the given title."""
-    while len(Title.objects.filter(title=title)):
-        # Pain! filter, because django CMS creates 2 titles for each page
-        page = Title.objects.filter(title=title).first().page
-        print(u"Warning: deleting existing page {} first ...".format(title))
-        page.delete()
-        # TODO: Check, are plugins deleted automatically? (cascading)
-
-
-def add_cms_page(title, template='cms_base.html', parent=None, lang='en', plugins=()):
-    """
-    Create or recreate a CMS page including a content plugins with content in them.
-    """
-    print(u"Creating page {} ...".format(title))
-    delete_page(title)
-    page = create_page(title, template, language=lang, in_navigation=True, parent=parent)
-    placeholder = page.placeholders.get(slot='content')
-    for plugin, body in plugins:
-        add_plugin(placeholder, plugin, lang, body=body)
-    page.publish(lang)
-    return page
-
-
-class Command(BaseCommand):
-    help = 'Organice management commands.'
-
-    def handle(self, *args, **options):
-        self.stdout.write('Initialize database ...')
+    def bootstrap_command(self):
+        """
+        Bootstrap the Organice database
+        """
+        self.stdout.write(_('Initialize database ...'))
         call_command('migrate')
 
-        self.stdout.write('Create admin user ...')
+        self.stdout.write(_('Create admin user ...'))
         call_command('createsuperuser', '--username', 'admin', '--email', 'you@example.com', '--noinput')
         u = User.objects.get(username='admin')
         u.set_password('admin')
         u.save()
 
-        self.stdout.write('Generate menu structure and pages ...')
+        self.stdout.write(_('Generate menu structure and pages ...'))
         add_cms_page(_('Home'), plugins=[
             ('TextPlugin', "<h1>Welcome to the Organice Demo Site!</h1>"
                            "<p>You can use the User Menu in the right upper corner to log in or register for an"
@@ -177,4 +144,4 @@ class Command(BaseCommand):
         # self.stdout.write('Generate provider data for social authentication ...')
         # TODO: generate auth providers instead of loading fixtures
 
-        self.stdout.write('Have an organiced day!')
+        self.stdout.write(_('Have an organiced day!'))
