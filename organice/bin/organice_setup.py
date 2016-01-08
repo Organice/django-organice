@@ -549,11 +549,10 @@ def _show_final_hints():
     _print_verbose(3, 'See https://docs.djangoproject.com/en/1.8/ref/settings/ for details.')
     _print_verbose(3, '')
     _print_verbose(3, '1) To initialize your development database run: `python manage.py migrate`')
-    _print_verbose(3, '2) Create a super user for administration, and optionally load some sample data:')
-    _print_verbose(3, '  `python manage.py createsuperuser '
-                      '&& python manage.py loaddata organice_auth_providers organice_sample_content`')
-    _print_verbose(3, '3) You can then run your development server with: `python manage.py runserver`')
-    _print_verbose(3, '4) To prepare your production server you may run: '
+    _print_verbose(3, '   Alternatively, you can run `python manage.py organice bootstrap socialauth`,')
+    _print_verbose(3, '   which will initialize your database with sample content and configuration.')
+    _print_verbose(3, '2) You can then run your development server with: `python manage.py runserver`')
+    _print_verbose(3, '3) To prepare your production server you may run: '
                    '`python manage.py collectstatic --link --settings=%s.settings.production`' % projectname)
 
 
