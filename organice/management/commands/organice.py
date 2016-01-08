@@ -5,9 +5,10 @@ from django.core.management.base import CommandError, LabelCommand
 from django.utils.translation import ugettext as _
 
 from .mixins.bootstrap import BootstrapCommandMixin
+from .mixins.socialauth import SocialauthCommandMixin
 
 
-class Command(BootstrapCommandMixin, LabelCommand):
+class Command(SocialauthCommandMixin, BootstrapCommandMixin, LabelCommand):
     label = 'command'
 
     @property
@@ -18,38 +19,38 @@ class Command(BootstrapCommandMixin, LabelCommand):
         """
         tail = '_command'
         commands = {
-            func[:len(tail) + 1]: getattr(self, func)
+            func[:-len(tail)]: getattr(self, func)
             for func in dir(self.__class__) if func.endswith(tail)
         }
         return commands
 
     @property
-    def commands_labels(self):
+    def cmd_labels(self):
         """A string-ified list of labels for all available commands"""
-        return ', '.join(self.label_commands)
+        return ', '.join(sorted(self.label_commands))
 
     @property
-    def commands_help(self):
+    def cmd_help(self):
         """A string-ified list of commands and their docstrings"""
         cmd_help = ['{} ({})'.format(label, func.__doc__.strip())
                     for label, func in self.label_commands.items()]
-        return ', '.join(cmd_help)
+        return ', '.join(sorted(cmd_help))
 
     @property
     def help(self):
         help = _('Organice management commands: {}')
-        return help.format(self.commands_labels)
+        return help.format(self.cmd_labels)
 
     @property
     def missing_args_message(self):
         msg = _('Please use one of the commands: {}. Use --help for more details.')
-        return msg.format(self.commands_labels)
+        return msg.format(self.cmd_labels)
 
     def add_arguments(self, parser):
         """
         Add help text to our argparse command. Overrides method of LabelCommand.
         """
-        parser.add_argument('args', metavar=self.label, nargs='+', help=self.commands_help)
+        parser.add_argument('args', metavar=self.label, nargs='+', help=self.cmd_help)
 
     def handle_label(self, label, **options):
         try:
