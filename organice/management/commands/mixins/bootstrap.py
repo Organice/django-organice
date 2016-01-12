@@ -6,11 +6,12 @@ from django.contrib.sites.models import Site
 from django.core.management import call_command
 from django.utils.translation import ugettext as _
 
-from ._helper import add_cms_page
+from ._helper import add_blog_category, add_blog_entry, add_cms_page
 
 
 class BootstrapCommandMixin(object):
 
+    # TODO: bootstrap = initdb + initauth + initcms + initblog
     def bootstrap_command(self):
         """
         Initialize the Organice database and create some sample data
@@ -41,7 +42,7 @@ class BootstrapCommandMixin(object):
             # }),
         ])
         about_page = \
-            add_cms_page(_('About Us'), plugins=[
+            add_cms_page(_('About Us'), slug='about', plugins=[
                 ('TextPlugin', "<h1>About Us</h1>"
                                "<p>We are Demo Company. The greatest place on earth! That's what we are.</p>"),
             ])
@@ -65,7 +66,7 @@ class BootstrapCommandMixin(object):
                            "<p>We're always looking for great talents."
                            " Do you also want to be part of a world-class team?</p>"),
         ])
-        add_cms_page(_('Contact Us'), parent=about_page, plugins=[
+        add_cms_page(_('Contact Us'), slug='contact', parent=about_page, plugins=[
             ('TextPlugin', "<h1>Office</h1>"
                            "<p>Demo Company street, 1a<br>12345 Isles of Scilly</p>"
                            "<p>Phone: +123 4567-890</p>"),
@@ -100,54 +101,75 @@ class BootstrapCommandMixin(object):
                            "<p>Recreational programs for retired professionals and hobbyists.</p>"),
         ])
 
-        # self.stdout.write('Generate blog content ...')
-        # zinnia.Category({
-        #     "description": "Articles that are displayed in the Events section of our website.",
-        #     "title": "Events",
-        #     "slug": "events",
-        # })
-        # zinnia.Category({
-        #     "description": "Quotes about us in newspapers, or press releases."
-        #                    " These articles are listed in the Press section of our website.",
-        #     "title": "Press",
-        #     "slug": "press",
-        # })
-        # zinnia.Category({
-        #     "description": "Job vacancies. Because everyone wants to work with us!",
-        #     "title": "Jobs",
-        #     "slug": "jobs",
-        # })
+        self.stdout.write('Generate blog content ...')
+        add_blog_category(
+            slug='events', title=_('Events'),
+            description=_("Articles that are displayed in the Events section of our website."))
+        add_blog_category(
+            slug='press', title=_('Press'),
+            description=_("Quotes about us in newspapers, or press releases."
+                          " These articles are listed in the Press section of our website."))
+        category_jobs = add_blog_category(
+            slug='jobs', title=_('Jobs'),
+            description=_("Job vacancies. Because everyone wants to work with us!"))
+
+        add_blog_entry(slug='office-manager', title=_('Office Manager'),
+                       categories=[category_jobs], tags='awesome, backoffice',
+                       excerpt="We're looking for you. The best office manager (f/m) for a world-class team.",
+                       plugins=[
+            ('TextPlugin', "<p>We're looking for you."
+                           " The best <strong>office manager (f/m)</strong> for a world-class team.</p>"
+                           "<h3>Your Responsibilities</h3>"
+                           "<ul>"
+                           "<li>Answer phone calls, emails, and snail mail</li>"
+                           "<li>Prepare our meetings facilities</li>"
+                           "<li>Coordinate facility management staff</li>"
+                           "<li>Be the nicest person in town -- <em>even when your boss has a bad day!</em></li>"
+                           "</ul>"
+                           "<h3>Your Qualifications</h3>"
+                           "<ul>"
+                           "<li>You're multilingual, ideally grown bilingual</li>"
+                           "<li>You love communicating -- <em>\"small talk\" is your middle name!</em></li>"
+                           "<li>You're funny, you're structured, and a computer freak</li>"
+                           "</ul>"
+                           "<p>Do you find yourself in this job description? Then we should talk!</p>"
+                           "<p>Send your CV to <strong>jobs@example.com</strong></p>"
+                           "<h2>Who We Are</h2>"
+                           "<p>Demo Company is the leader in selling dreams and promises."
+                           " What makes us different is we keep those promises.</p>"
+                           "<p>Find more vacancies on our <a href=\"/about/jobs/\">jobs page</a>!</p>"),
+        ])
+        # PlaceholderEntry.objects.get_or_create(
+        #     slug='office-manager', title=_('Office Manager'),
+        #     excerpt=_("We're looking for you. The best office manager (f/m) for a world-class team."),
+        # content=_("<p>We're looking for you."
+        #           " The best <strong>office manager (f/m)</strong> for a world-class team.</p>"
+        #           "<h3>Your Responsibilities</h3>"
+        #           "<ul>"
+        #           "<li>Answer phone calls, emails, and snail mail</li>"
+        #           "<li>Prepare our meetings facilities</li>"
+        #           "<li>Coordinate facility management staff</li>"
+        #           "<li>Be the nicest person in town -- <em>even when your boss has a bad day!</em></li>"
+        #           "</ul>"
+        #           "<h3>Your Qualifications</h3>"
+        #           "<ul>"
+        #           "<li>You're multilingual, ideally grown bilingual</li>"
+        #           "<li>You love communicating -- <em>\"small talk\" is your middle name!</em></li>"
+        #           "<li>You're funny, you're structured, and a computer freak</li>"
+        #           "</ul>"
+        #           "<p>Do you find yourself in this job description? Then we should talk!</p>"
+        #           "<p>Send your CV to <strong>jobs@example.com</strong></p>"
+        #           "<h2>Who We Are</h2>"
+        #           "<p>Demo Company is the leader in selling dreams and promises."
+        #           " What makes us different is we keep those promises.</p>"
+        #           "<p>Find more vacancies on our <a href=\"/about/jobs/\">jobs page</a>!</p>"))
         # zinnia.Entry({
         #     "content_template": "zinnia/_entry_detail.html",
         #     "detail_template": "entry_detail.html",
         #     "excerpt": "We're looking for you. The best office manager (f/m) for a world-class team.",
         #     "title": "Office Manager",
-        #     "content": "<p>We're looking for you."
-        #                " The best <strong>office manager (f/m)</strong> for a world-class team.</p>"
-        #                "<h3>Your Responsibilities</h3>"
-        #                "<ul>"
-        #                "<li>Answer phone calls, emails, and snail mail</li>"
-        #                "<li>Prepare our meetings facilities</li>"
-        #                "<li>Coordinate facility management staff</li>"
-        #                "<li>Be the nicest person in town -- <em>even when your boss has a bad day!</em></li>"
-        #                "</ul>"
-        #                "<h3>Your Qualifications</h3>"
-        #                "<ul>"
-        #                "<li>You're multilingual, ideally grown bilingual</li>"
-        #                "<li>You love communicating -- <em>\"small talk\" is your middle name!</em></li>"
-        #                "<li>You're funny, you're structured, and a computer freak</li>"
-        #                "</ul>"
-        #                "<p>Do you find yourself in this job description? Then we should talk!</p>"
-        #                "<p>Send your CV to <strong>jobs@example.com</strong></p>"
-        #                "<h2>Who We Are</h2>"
-        #                "<p>Demo Company is the leader in selling dreams and promises."
-        #                " What makes us different is we keep those promises.</p>"
-        #                "<p>Find more vacancies on our <a href="/about/jobs/">jobs page</a>!</p>",
         #     "slug": "office-manager",
         # })
         # Link({'mailto': 'jobs@example.com')
-
-        # self.stdout.write('Generate provider data for social authentication ...')
-        # TODO: generate auth providers instead of loading fixtures
 
         self.stdout.write(_('Have an organiced day!'))

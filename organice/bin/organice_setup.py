@@ -245,7 +245,7 @@ def _configure_installed_apps():
                           "    'organice_theme',",
                           "    'organice',",
                           "    'cms',",
-                          "    # 'mptt',",
+                          "    'mptt',",
                           "    'menus',",
                           "    'sekizai',",
                           "    'treebeard',",

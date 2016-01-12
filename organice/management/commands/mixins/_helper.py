@@ -1,7 +1,12 @@
+from django.contrib.auth.models import User
+from django.contrib.sites.models import Site
+from django.utils.translation import ugettext as _
+
 from cms.api import add_plugin, create_page
 from cms.models import Title
-from django.contrib.auth.models import User
-from django.utils.translation import ugettext as _
+from cmsplugin_zinnia.placeholder import EntryPlaceholder
+from zinnia.managers import PUBLISHED
+from zinnia.models.category import Category
 
 
 def create_user(username, email='testuser@organice.io'):
@@ -24,15 +29,46 @@ def delete_page(title):
         # TODO: Check, are plugins deleted automatically? (cascading)
 
 
-def add_cms_page(title, template='cms_base.html', parent=None, lang='en', plugins=()):
+def add_cms_page(title, slug=None, template='cms_base.html', parent=None, lang='en', plugins=()):
     """
-    Create or recreate a CMS page including a content plugins with content in them.
+    Create or recreate a CMS page including content plugins with content in them.
     """
-    print(_('Creating page {} ...').format(title))
+    print(_('Creating CMS page {} ...').format(title))
     delete_page(title)
-    page = create_page(title, template, language=lang, in_navigation=True, parent=parent)
+    page = create_page(title=title, template=template, language=lang,
+                       slug=slug, in_navigation=True, parent=parent)
     placeholder = page.placeholders.get(slot='content')
     for plugin, body in plugins:
         add_plugin(placeholder, plugin, lang, body=body)
     page.publish(lang)
     return page
+
+
+def add_blog_category(slug, title, description=None):
+    """
+    Create or recreate a blog category.
+    """
+    print(_('Creating blog category {} ...').format(title))
+    category, created = Category.objects.get_or_create(slug=slug, title=title, description=description)
+    return category
+
+
+def add_blog_entry(slug, title, excerpt=None, lang='en', categories=(), tags=None, plugins=()):
+    """
+    Create or recreate a blog entry including content plugins with content in them.
+    """
+    class Entry(EntryPlaceholder):
+        class Meta():
+            db_table = 'zinnia_entry'
+
+    print(_('Creating blog entry {} ...').format(title))
+    entry, created = Entry.objects.get_or_create(slug=slug, title=title, excerpt=excerpt, status=PUBLISHED)
+    entry.sites = Site.objects.all()
+    for cat in categories:
+        entry.categories.add(cat)
+    if tags:
+        entry.tags = tags
+    for plugin, body in plugins:
+        add_plugin(entry.content_placeholder, plugin, lang, body=body)
+    entry.save()
+    return entry
