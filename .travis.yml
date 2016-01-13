@@ -19,4 +19,4 @@ after_success:
 notifications:
   slack:
     rooms:
-      - organice:uPGToVwXE2IYAwn4hFFudPJ5#notifications
+      - organice:2v4ZfYaW6KonOr5RyJqjyU92#notifications

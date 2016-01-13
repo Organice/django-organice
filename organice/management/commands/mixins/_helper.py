@@ -61,7 +61,7 @@ def add_blog_entry(slug, title, excerpt=None, lang='en', categories=(), tags=Non
     Create or recreate a blog entry including content plugins with content in them.
     """
     class Entry(EntryPlaceholder):
-        class Meta():
+        class Meta:
             db_table = 'zinnia_entry'
 
     print(_('Creating blog entry {} ...').format(title))
