@@ -488,8 +488,8 @@ def _generate_webserver_conf():
         settings.delete_var('common', 'WSGI_APPLICATION')
         settings.append_lines('common',
                               '# Override the server-derived value of SCRIPT_NAME',
-                              '# See http://code.djangoproject.com/wiki/'
-                              + 'BackwardsIncompatibleChanges#lighttpdfastcgiandothers',
+                              '# See http://code.djangoproject.com/wiki/' +
+                              'BackwardsIncompatibleChanges#lighttpdfastcgiandothers',
                               "FORCE_SCRIPT_NAME = ''")
         settings.move_var('common', profiles, 'FORCE_SCRIPT_NAME')
 
