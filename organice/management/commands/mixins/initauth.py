@@ -5,9 +5,9 @@ from allauth.socialaccount.models import SocialApp
 from django.utils.translation import ugettext as _
 
 
-class SocialauthCommandMixin(object):
+class InitauthCommandMixin(object):
 
-    def socialauth_command(self):
+    def initauth_command(self):
         """
         Initialize social auth providers with generic data
         """

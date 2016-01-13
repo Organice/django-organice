@@ -5,10 +5,23 @@ from django.core.management.base import CommandError, LabelCommand
 from django.utils.translation import ugettext as _
 
 from .mixins.bootstrap import BootstrapCommandMixin
-from .mixins.socialauth import SocialauthCommandMixin
+from .mixins.initauth import InitauthCommandMixin
+from .mixins.initblog import InitblogCommandMixin
+from .mixins.initcms import InitcmsCommandMixin
+from .mixins.initdb import InitdbCommandMixin
 
 
-class Command(SocialauthCommandMixin, BootstrapCommandMixin, LabelCommand):
+class Command(InitauthCommandMixin,
+              InitblogCommandMixin,
+              InitcmsCommandMixin,
+              InitdbCommandMixin,
+              BootstrapCommandMixin,
+              LabelCommand):
+    """
+    A management command with quite a few label commands.
+    Each included mixin provides a label command, implemented as
+    ``<label>_command()`` function in that class.
+    """
     label = 'command'
 
     @property
