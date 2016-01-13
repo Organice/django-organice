@@ -17,6 +17,4 @@ after_success:
   - mv -v unittests.xml shippable/testresults/
   - coveralls || true
 notifications:
-  slack:
-    rooms:
-      - organice:2v4ZfYaW6KonOr5RyJqjyU92#notifications
+  slack: organice:2v4ZfYaW6KonOr5RyJqjyU92
