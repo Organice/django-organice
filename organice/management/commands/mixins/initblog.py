@@ -12,7 +12,7 @@ class InitblogCommandMixin(object):
         """
         Create sample blog entries
         """
-        self.stdout.write('Generate blog content ...')
+        self.stdout.write(_('Generate blog content ...'))
 
         add_blog_category(
             slug='events', title=_('Events'),
@@ -29,31 +29,30 @@ class InitblogCommandMixin(object):
                        categories=[category_jobs], tags='awesome, backoffice',
                        excerpt="We're looking for you. The best office manager (f/m) for a world-class team.",
                        plugins=[
-            ('TextPlugin', "<p>We're looking for you."
-                           " The best <strong>office manager (f/m)</strong> for a world-class team.</p>"
-                           "<h3>Your Responsibilities</h3>"
-                           "<ul>"
-                           "<li>Answer phone calls, emails, and snail mail</li>"
-                           "<li>Prepare our meetings facilities</li>"
-                           "<li>Coordinate facility management staff</li>"
-                           "<li>Be the nicest person in town -- <em>even when your boss has a bad day!</em></li>"
-                           "</ul>"
-                           "<h3>Your Qualifications</h3>"
-                           "<ul>"
-                           "<li>You're multilingual, ideally grown bilingual</li>"
-                           "<li>You love communicating -- <em>\"small talk\" is your middle name!</em></li>"
-                           "<li>You're funny, you're structured, and a computer freak</li>"
-                           "</ul>"
-                           "<p>Do you find yourself in this job description? Then we should talk!</p>"
-                           "<p>Send your CV to <strong>jobs@example.com</strong></p>"
-                           "<h2>Who We Are</h2>"
-                           "<p>Demo Company is the leader in selling dreams and promises."
-                           " What makes us different is we keep those promises.</p>"
-                           "<p>Find more vacancies on our <a href=\"/about/jobs/\">jobs page</a>!</p>"),
+            ('TextPlugin', {
+                'body': "<p>We're looking for you."
+                        " The best <strong>office manager (f/m)</strong> for a world-class team.</p>\n"
+                        "<h3>Your Responsibilities</h3>\n"
+                        "<ul>\n"
+                        "<li>Answer phone calls, emails, and snail mail</li>\n"
+                        "<li>Prepare our meetings facilities</li>\n"
+                        "<li>Coordinate facility management staff</li>\n"
+                        "<li>Be the nicest person in town &mdash;"
+                        " <em>even when your boss has a bad day!</em></li>\n"
+                        "</ul>\n"
+                        "<h3>Your Qualifications</h3>\n"
+                        "<ul>\n"
+                        "<li>You're multilingual, ideally grown bilingual</li>\n"
+                        "<li>You love communicating &mdash;"
+                        " <em>&ldquo;small talk&rdquo; is your middle name!</em></li>\n"
+                        "<li>You're funny, you're structured, and a computer freak</li>\n"
+                        "</ul>\n"
+                        "<p>Do you find yourself in this job description? Then we should talk!</p>\n"
+                        "<p>Send your CV to <strong>jobs@example.com</strong></p>\n"
+                        "<h2>Who We Are</h2>\n"
+                        "<p>Demo Company is the leader in selling dreams and promises."
+                        " What makes us different is we keep those promises.</p>\n"
+                        "<p>Find more vacancies on our <a href=\"/about/jobs/\">jobs page</a>!</p>\n",
+            }),
         ])
-        # TODO:
-        # zinnia.Entry({
-        #     "content_template": "zinnia/_entry_detail.html",
-        #     "detail_template": "entry_detail.html",
-        # })
-        # Link({'mailto': 'jobs@example.com')
+        # TODO: Link({'mailto': 'jobs@example.com'}) inside TextPlugin

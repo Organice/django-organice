@@ -41,8 +41,8 @@ def add_cms_page(title, slug=None, template='cms_base.html', parent=None, lang='
     page = create_page(title=title, template=template, language=lang,
                        slug=slug, in_navigation=True, parent=parent)
     placeholder = page.placeholders.get(slot='content')
-    for plugin, body in plugins:
-        add_plugin(placeholder, plugin, lang, body=body)
+    for plugin, fieldset in plugins:
+        add_plugin(placeholder, plugin, lang, **fieldset)
     page.publish(lang)
     return page
 
@@ -71,7 +71,7 @@ def add_blog_entry(slug, title, excerpt=None, lang='en', categories=(), tags=Non
         entry.categories.add(cat)
     if tags:
         entry.tags = tags
-    for plugin, body in plugins:
-        add_plugin(entry.content_placeholder, plugin, lang, body=body)
+    for plugin, fieldset in plugins:
+        add_plugin(entry.content_placeholder, plugin, lang, **fieldset)
     entry.save()
     return entry
