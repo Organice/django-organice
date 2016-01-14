@@ -1,6 +1,7 @@
 """
 Helper functions for our management command mixins.
 """
+from django.apps import apps
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from django.utils.translation import ugettext as _
@@ -60,17 +61,12 @@ def add_blog_entry(slug, title, excerpt=None, lang='en', categories=(), tags=Non
     """
     Create or recreate a blog entry including content plugins with content in them.
     """
-    class Entry(EntryPlaceholder):
-        class Meta:
-            db_table = 'zinnia_entry'
-
     print(_('Creating blog entry {} ...').format(title))
-    entry, created = Entry.objects.get_or_create(slug=slug, title=title, excerpt=excerpt, status=PUBLISHED)
+    Entry = apps.get_model('zinnia', 'entry')
+    entry, created = Entry.objects.get_or_create(
+            slug=slug, title=title, excerpt=excerpt, tags=tags, status=PUBLISHED)
     entry.sites = Site.objects.all()
-    for cat in categories:
-        entry.categories.add(cat)
-    if tags:
-        entry.tags = tags
+    entry.categories.add(*categories)
     for plugin, fieldset in plugins:
         add_plugin(entry.content_placeholder, plugin, lang, **fieldset)
     entry.save()
