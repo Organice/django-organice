@@ -8,7 +8,6 @@ from django.utils.translation import ugettext as _
 
 from cms.api import add_plugin, create_page
 from cms.models import Title
-from cmsplugin_zinnia.placeholder import EntryPlaceholder
 from zinnia.managers import PUBLISHED
 from zinnia.models.category import Category
 

@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2014, Peter Bittner <django@bittner.it>
+# Copyright (C) 2016, Peter Bittner <django@bittner.it>
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
@@ -7,22 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-09 00:48+0200\n"
+"POT-Creation-Date: 2016-01-15 01:01+0100\n"
 "PO-Revision-Date: 2014-07-08 22:48+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/django-organice-docs/language/it/)\n"
+"Language-Team: Italian (http://www.transifex.com/organice/django-organice-docs/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 39ed8c16da7c4dafb4267855820aa0c5
 #: ../../configuration.rst:3
 msgid "Configuration"
 msgstr ""
 
-# 9d8509a55d6b4d5c8b0a2feb37704225
 #: ../../configuration.rst:5
 msgid ""
 "django Organice comes with sensible defaults for almost anything.  Yet "
@@ -30,29 +28,24 @@ msgid ""
 "in this section."
 msgstr ""
 
-# c2795945a72a4e7d8ebe4ea691a09eeb
 #: ../../configuration.rst:11
 msgid "Settings"
 msgstr ""
 
-# 2f56c07662d24394969b0b874d86c91e
 #: ../../configuration.rst:13
 msgid ""
 "You may define any of the following options in your project's ``settings`` "
 "to override the default value."
 msgstr ""
 
-# c52cf485cca44fa3becb81685637ad10
 #: ../../configuration.rst:17
 msgid ":const:`ORGANICE_URL_PATH_ADMIN`"
 msgstr ""
 
-# a23c816354914ca08a040fd279ba7212
 #: ../../configuration.rst:18
 msgid "``admin``"
 msgstr ""
 
-# 547c39dd68bd431fbab267a15e5984dc
 #: ../../configuration.rst:20
 msgid ""
 "The URL path for accessing the Django Administration backend (e.g. "
@@ -60,17 +53,14 @@ msgid ""
 "white space, no leading or trailing slash."
 msgstr ""
 
-# 4fdd77654d154943890f1f20cbab5ca0
 #: ../../configuration.rst:24
 msgid ":const:`ORGANICE_URL_PATH_BLOG`"
 msgstr ""
 
-# 6a7c43cc8f094caca09d14622cdf0dc3
 #: ../../configuration.rst:25
 msgid "``blog``"
 msgstr ""
 
-# 477cdaf5b63c4a529304cdb8546fc515
 #: ../../configuration.rst:27
 msgid ""
 "The URL path for the blog's start page (e.g. ``www.example.com/blog``).  "
@@ -78,17 +68,14 @@ msgid ""
 "trailing slash."
 msgstr ""
 
-# 49dbbfa52b204f9da39cf0723ed61b52
 #: ../../configuration.rst:31
 msgid ":const:`ORGANICE_URL_PATH_NEWSLETTER`"
 msgstr ""
 
-# 5b72f9005b9f443280678e89d009d2d0
 #: ../../configuration.rst:32
 msgid "``newsletter``"
 msgstr ""
 
-# 6c10ec0d4d7f49848456ebf6024f135d
 #: ../../configuration.rst:34
 msgid ""
 "The URL path for accessing newsletter functionality on the front-end (e.g. "
@@ -96,17 +83,14 @@ msgid ""
 "only, no white space, no leading or trailing slash."
 msgstr ""
 
-# f9348269ebbc45b28b2ca435d9f623d1
 #: ../../configuration.rst:39
 msgid ":const:`ORGANICE_URL_PATH_TODO`"
 msgstr ""
 
-# 906897ddeec448dda6949f8d6e15b785
 #: ../../configuration.rst:40
 msgid "``todo``"
 msgstr ""
 
-# 9fdd7c71fd3e42fcad48d63acd425aee
 #: ../../configuration.rst:42
 msgid ""
 "The URL path for accessing todo list functionality on the front-end (e.g. "
@@ -114,17 +98,14 @@ msgid ""
 "white space, no leading or trailing slash."
 msgstr ""
 
-# 1418bee69cfd4ebeb35ef80b3e7a100d
 #: ../../configuration.rst:46
 msgid "Third Party Settings"
 msgstr ""
 
-# 2fe39a4ca4b24f149628294f798bbaea
 #: ../../configuration.rst:49
 msgid "Analytics Providers"
 msgstr ""
 
-# 12ba2b328a674fbebbe2163f741f851c
 #: ../../configuration.rst:51
 msgid ""
 "The `analytics`:index: services supported by ``django-analytical`` are "

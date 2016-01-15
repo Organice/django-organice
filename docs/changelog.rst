@@ -7,14 +7,14 @@ CHANGELOG
 
 - Added Python 3 support
 - Switched from develop/master model to feature branching model (default branch: ``master``)
-- Migrated project to Django 1.8 and django CMS 3
-- Added sample content loading (using fixtures)
+- Migrated project to Django 1.8.8 and django CMS 3.2
+- Added sample content loading (first using fixtures, later converted to management command)
 - Integration of Piwik open source analytics (optional via django-analytical)
 - Added some test coverage, finally!
 - Started with continuous builds (Travis-CI, Shippable)
 
-:Changes: https://github.com/bittner/django-organice/compare/v0.2...v0.3
-:Dependencies: https://github.com/bittner/django-organice/blob/v0.3/requirements.txt
+:Changes: https://github.com/Organice/django-organice/compare/v0.2...v0.3
+:Dependencies: https://github.com/Organice/django-organice/blob/v0.3/requirements.txt
 
 0.2
 ===
@@ -34,8 +34,8 @@ CHANGELOG
 - Added todo lists (django-todo)
 - Added generic analytics (django-analytical)
 
-:Changes: https://github.com/bittner/django-organice/compare/v0.1...v0.2
-:Dependencies: https://github.com/bittner/django-organice/blob/v0.2/docs/requirements.txt
+:Changes: https://github.com/Organice/django-organice/compare/v0.1...v0.2
+:Dependencies: https://github.com/Organice/django-organice/blob/v0.2/docs/requirements.txt
 
 0.1
 ===
@@ -45,4 +45,4 @@ CHANGELOG
 - A more natural i18n mechanism than vanilla Django, no language prefix for default language
 - Setup script with project generation, deployment settings, custom templates, Bootstrap 3
 
-:Dependencies: https://github.com/bittner/django-organice/blob/v0.1/docs/requirements.txt
+:Dependencies: https://github.com/Organice/django-organice/blob/v0.1/docs/requirements.txt

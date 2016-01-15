@@ -4,8 +4,8 @@ Contributing to django Organice
 
 Official repositories: (kept in sync)
 
-#. `Bitbucket`:index:: https://bitbucket.org/bittner/django-organice
-#. `GitHub`:index:: https://github.com/bittner/django-organice
+#. `Bitbucket`:index:: https://bitbucket.org/organice/django-organice
+#. `GitHub`:index:: https://github.com/Organice/django-organice
 
 Fork any of the repositories, make your code changes or additions, and place a pull request.
 

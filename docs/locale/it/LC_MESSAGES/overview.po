@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2014, Peter Bittner <django@bittner.it>
+# Copyright (C) 2016, Peter Bittner <django@bittner.it>
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
@@ -8,260 +8,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-09 00:48+0200\n"
-"PO-Revision-Date: 2014-07-08 22:48+0000\n"
+"POT-Creation-Date: 2016-01-15 01:01+0100\n"
+"PO-Revision-Date: 2016-01-14 23:22+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/django-organice-docs/language/it/)\n"
+"Language-Team: Italian (http://www.transifex.com/organice/django-organice-docs/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 062e460e7c814280b43cca31240ae2e3
-#: ../../../README.rst:17
-msgid "Fundamental Features"
-msgstr ""
-
-# 1dedcfe4fc7b4477b3e65226a9ea8800
-#: ../../../README.rst:19
-msgid ""
-"Enables everyone to contribute to your content---while retaining your full "
-"control."
-msgstr ""
-
-# 21114c22b9814602aae837bc477d47db
-#: ../../../README.rst:20
-msgid ""
-"Supports all four common collaboration and support patterns in several ways:"
-msgstr ""
-
-# 2bb80f0a49144e1eb40f5b560c9464cb
-#: ../../../README.rst:22
-msgid "*Active contribution* (create content, contribute corrections)"
-msgstr ""
-
-# 643efd57c1804c869dd74331ad4cf4ba
-#: ../../../README.rst:23
-msgid "*Passive contribution* (report issues, assign tasks, provide feedback)"
-msgstr ""
-
-# cb1e3a08ba3c4e3f84fd94848b650524
-#: ../../../README.rst:24
-msgid "*Active consumption* (search and browse for content)"
-msgstr ""
-
-# 48ee79753d5b48dfa506fd852cef1b7f
-#: ../../../README.rst:25
-msgid "*Passive consumption* (subscribe to notifications)"
-msgstr ""
-
-# 3041920cf78e4314be6f33e5b447610a
-#: ../../../README.rst:27
-msgid ""
-"Continually involves, helps and optimally supports your collaborators by "
-"sending out reminders, editing and submission hints to avoid losing traction"
-" or interest."
-msgstr ""
-
-# ad8e4ea8303b4786b51750dc66a47c5f
-#: ../../../README.rst:31
-msgid "Core Components"
-msgstr ""
-
-# dc880ea5c951401782538bd6ad2bbccb
-#: ../../../README.rst:33
-msgid "Major components of django Organice are:"
-msgstr ""
-
-# 8d8b97031f5e47008731ea4bb3bb8ac3
-#: ../../../README.rst:35
-msgid "Django Web framework"
-msgstr ""
-
-# f5ce1ce75e524c10816f2845ddacb1b7
-#: ../../../README.rst:36
-msgid "full-featured content management (django CMS)"
-msgstr ""
-
-# 390648a00d574fb29472fc1e49c999d1
-#: ../../../README.rst:37
-msgid "full-featured versatile blog (Zinnia, cmsplugin)"
-msgstr ""
-
-# 9dc110641adb494499f21ef286442f90
-#: ../../../README.rst:38
-msgid "events with event calendar (via Zinnia)"
-msgstr ""
-
-# c74f13f4f26c450baa89f0b7440ba5cd
-#: ../../../README.rst:39
-msgid "flexible contact pages (cmsplugin)"
-msgstr ""
-
-# e351ef06c075425ca671ef332a4335bb
-#: ../../../README.rst:40
-msgid "link collection pages"
-msgstr ""
-
-# e7f1358afd4a40569d704b303367452d
-#: ../../../README.rst:41
-msgid "full-featured newsletter (Emencia)"
-msgstr ""
-
-# 3f1a41339e7d403c86077c72f723482a
-#: ../../../README.rst:42
-msgid "todo/issue lists"
-msgstr ""
-
-# cfc5202c56e0453fac30309574074602
-#: ../../../README.rst:43
-msgid "social login and user profiles (allauth)"
-msgstr ""
-
-# b0a222ff6bd94bd7b83c7bf21730581c
-#: ../../../README.rst:44
-msgid "generic analytics support (analytical)"
-msgstr ""
-
-# 48ca7e854fc0407c86e05eaecf2dd982
-#: ../../../README.rst:45
-msgid "web analytics respecting your privacy (Piwik integration)"
-msgstr ""
-
-# 178bb5d7573f4fc89627473eebdc97a1
-#: ../../../README.rst:46
-msgid "multiple themes (available for free at http://organice.io/themes)"
-msgstr ""
-
-# f4cce7d76a26408ea3c40deb8e76a895
-#: ../../../README.rst:47
-msgid "multi-language support"
-msgstr ""
-
-# 9cba7a00712f4455914b243c6e4c6ca7
-#: ../../../README.rst:48
-msgid "multiple websites support"
-msgstr ""
-
-# e5101ac937c04d06889f292247928b72
-#: ../../../README.rst:49
-msgid "database support for PostgreSQL, MySQL, Oracle, and more"
-msgstr ""
-
-# 3fe9aeb3c5164558b7c32150757c55a6
-#: ../../../README.rst:52
-msgid "Roadmap"
-msgstr ""
-
-# aced5ad2d42542ef816d1736f654d22a
-#: ../../../README.rst:54
-msgid "We are thrilled to get these awesome features out to you:"
-msgstr ""
-
-# dcdf75effcda4b59863d8259bc327318
-#: ../../../README.rst:56
-msgid "group spaces with automatic mailing list (groupname@example.com)"
-msgstr ""
-
-# 797e9678e71445bf8a03b2250e756bdd
-#: ../../../README.rst:57
-msgid "documentation area / wiki (probably by use of CMS functionality)"
-msgstr ""
-
-# bfd8c0dec399480e83ec8f303be8e511
-#: ../../../README.rst:58
-msgid "discussion forum / Q&A board (Askbot, Misago)"
-msgstr ""
-
-# 57aac74b7a014354ab96d39395773d54
-#: ../../../README.rst:59
-msgid "content download for magazine generation"
-msgstr ""
-
-# 52cf0240d7804e509594d5d9f1e2bb83
-#: ../../../README.rst:60
-msgid "unobtrusive, integrated, transparent document and asset management"
-msgstr ""
-
-# f765bf4da2a440059f9fdc9e77306fa6
-#: ../../../README.rst:61
-msgid ""
-"DropBox, ownCloud, Windows OneDrive, Google Drive, Apple iCloud, etc. "
-"integration"
-msgstr ""
-
-# b4f30b82b02f4c438fb62cc56665ff80
-#: ../../../README.rst:62
-msgid "fully integrated search (Haystack)"
-msgstr ""
-
-# 72c59dc67ead46758088c9cbc4edd758
-#: ../../../README.rst:63
-msgid "live chat or chat integration"
-msgstr ""
-
-# aa3ffd0f0d6c49f590d65e10aad01649
-#: ../../../README.rst:64
-msgid "surveys (django-crowdsourcing, ntusurvey)"
-msgstr ""
-
-# 25b3c1a3d2b048028b67dd6e62774fce
-#: ../../../README.rst:67
-msgid "Who is using django Organice?"
-msgstr ""
-
-# 8e2afbe633ec43ab8b7181446e1acd9d
-#: ../../../README.rst:69
-msgid "Examples of websites running django Organice:"
-msgstr ""
-
-# a06e213abbb544da8c8102a05c2c9fe2
-#: ../../../README.rst:71
-msgid "`Kreuzlingen Rudolf Steiner school`_"
-msgstr ""
-
-# 752d013d1c91454e98acb1a04d8bba4e
-#: ../../../README.rst:77
-msgid "Download and Contributions"
-msgstr ""
-
-# 393c9328b97c455880e589114ffa66b6
-#: ../../../README.rst:79
-msgid "Official repositories: (kept in sync)"
-msgstr ""
-
-# f56615523b1d4139a810948d026ebff9
-#: ../../../README.rst:81
-msgid "Bitbucket: https://bitbucket.org/bittner/django-organice"
-msgstr ""
-
-# dc8a0f467b104606a8ce8b5a56896279
-#: ../../../README.rst:82
-msgid "GitHub: https://github.com/bittner/django-organice"
-msgstr ""
-
-# 8ce63aa5f69847da85a10e3b9dd44a4b
-#: ../../../README.rst:85
-msgid "Getting Help"
-msgstr ""
-
-# 44a7a3a2fdb844c3a2b8ff183338c9bb
-#: ../../../README.rst:87
-msgid "Documentation is available at http://docs.organice.io"
-msgstr ""
-
 #: ../../../README.rst:3
-msgid "Welcome to django Organice!"
+msgid "django Organice |latest-version|"
 msgstr ""
 
 #: ../../../README.rst:5
+msgid "|travis-ci| |health| |downloads| |license| |gitter|"
+msgstr ""
+
+#: ../../../README.rst:7
 msgid ""
 "All-in-one collaboration solution.  For non-profit organizations, sports "
 "clubs, small to medium-sized businesses."
 msgstr ""
 
-#: ../../../README.rst:8
+#: ../../../README.rst:10
 msgid ""
 "django Organice is a nice way to run a collaboration platform, an intranet, "
 "and websites for your business.  It's a compilation of the best Django "
@@ -270,43 +41,214 @@ msgid ""
 "investment providing an easily extensible architecture."
 msgstr ""
 
-#: ../../../README.rst:88
+#: ../../../README.rst:37
+msgid "Fundamental Features"
+msgstr ""
+
+#: ../../../README.rst:39
+msgid ""
+"Enables everyone to contribute to your content---while retaining your full "
+"control."
+msgstr ""
+
+#: ../../../README.rst:40
+msgid ""
+"Supports all four common collaboration and support patterns in several ways:"
+msgstr ""
+
+#: ../../../README.rst:42
+msgid "*Active contribution* (create content, contribute corrections)"
+msgstr ""
+
+#: ../../../README.rst:43
+msgid "*Passive contribution* (report issues, assign tasks, provide feedback)"
+msgstr ""
+
+#: ../../../README.rst:44
+msgid "*Active consumption* (search and browse for content)"
+msgstr ""
+
+#: ../../../README.rst:45
+msgid "*Passive consumption* (subscribe to notifications)"
+msgstr ""
+
+#: ../../../README.rst:47
+msgid ""
+"Continually involves, helps and optimally supports your collaborators by "
+"sending out reminders, editing and submission hints to avoid losing traction"
+" or interest."
+msgstr ""
+
+#: ../../../README.rst:51
+msgid "Core Components"
+msgstr ""
+
+#: ../../../README.rst:53
+msgid "Major components of django Organice are:"
+msgstr ""
+
+#: ../../../README.rst:55
+msgid "Django Web framework"
+msgstr ""
+
+#: ../../../README.rst:56
+msgid "full-featured content management (django CMS)"
+msgstr ""
+
+#: ../../../README.rst:57
+msgid "full-featured versatile blog (Zinnia, cmsplugin)"
+msgstr ""
+
+#: ../../../README.rst:58
+msgid "events with event calendar (via Zinnia)"
+msgstr ""
+
+#: ../../../README.rst:59
+msgid "flexible contact pages (cmsplugin)"
+msgstr ""
+
+#: ../../../README.rst:60
+msgid "link collection pages"
+msgstr ""
+
+#: ../../../README.rst:61
+msgid "full-featured newsletter (Emencia)"
+msgstr ""
+
+#: ../../../README.rst:62
+msgid "todo/issue lists"
+msgstr ""
+
+#: ../../../README.rst:63
+msgid "social login and user profiles (allauth)"
+msgstr ""
+
+#: ../../../README.rst:64
+msgid "generic analytics support (analytical)"
+msgstr ""
+
+#: ../../../README.rst:65
+msgid "web analytics respecting your privacy (Piwik integration)"
+msgstr ""
+
+#: ../../../README.rst:66
+msgid "multiple themes (available for free at http://organice.io/themes)"
+msgstr ""
+
+#: ../../../README.rst:67
+msgid "multi-language support"
+msgstr ""
+
+#: ../../../README.rst:68
+msgid "multiple websites support"
+msgstr ""
+
+#: ../../../README.rst:69
+msgid "database support for PostgreSQL, MySQL, Oracle, and more"
+msgstr ""
+
+#: ../../../README.rst:72
+msgid "Roadmap"
+msgstr ""
+
+#: ../../../README.rst:74
+msgid "We are thrilled to get these awesome features out to you:"
+msgstr ""
+
+#: ../../../README.rst:76
+msgid "group spaces with automatic mailing list (groupname@example.com)"
+msgstr ""
+
+#: ../../../README.rst:77
+msgid "documentation area / wiki (probably by use of CMS functionality)"
+msgstr ""
+
+#: ../../../README.rst:78
+msgid "discussion forum / Q&A board (Askbot, Misago)"
+msgstr ""
+
+#: ../../../README.rst:79
+msgid "content download for magazine generation"
+msgstr ""
+
+#: ../../../README.rst:80
+msgid "unobtrusive, integrated, transparent document and asset management"
+msgstr ""
+
+#: ../../../README.rst:81
+msgid ""
+"DropBox, ownCloud, Windows OneDrive, Google Drive, Apple iCloud, etc. "
+"integration"
+msgstr ""
+
+#: ../../../README.rst:82
+msgid "fully integrated search (Haystack)"
+msgstr ""
+
+#: ../../../README.rst:83
+msgid "live chat or chat integration"
+msgstr ""
+
+#: ../../../README.rst:84
+msgid "surveys (django-crowdsourcing, ntusurvey)"
+msgstr ""
+
+#: ../../../README.rst:87
+msgid "Who is using django Organice?"
+msgstr ""
+
+#: ../../../README.rst:89
+msgid "Examples of websites running django Organice:"
+msgstr ""
+
+#: ../../../README.rst:91
+msgid "`Organice.io website <http://organice.io/>`_"
+msgstr ""
+
+#: ../../../README.rst:92
+msgid "`Organice demo site <http://demo.organice.io/>`_"
+msgstr ""
+
+#: ../../../README.rst:93
+msgid "`Kreuzlingen Rudolf Steiner school <http://www.rssk.ch/>`_"
+msgstr ""
+
+#: ../../../README.rst:96
+msgid "Download and Contributions"
+msgstr ""
+
+#: ../../../README.rst:98
+msgid "Official repositories: (kept in sync)"
+msgstr ""
+
+#: ../../../README.rst:100
+msgid "Bitbucket: https://bitbucket.org/organice/django-organice"
+msgstr ""
+
+#: ../../../README.rst:101
+msgid "GitHub: https://github.com/organice/django-organice"
+msgstr ""
+
+#: ../../../README.rst:104
+msgid "Getting Help"
+msgstr ""
+
+#: ../../../README.rst:106
+msgid "Documentation is available at http://docs.organice.io"
+msgstr ""
+
+#: ../../../README.rst:107
 msgid ""
 "Questions? Please use `StackOverflow`_.  Tag your questions with ``django-"
 "organice``."
 msgstr ""
 
-#: ../../../README.rst:89
+#: ../../../README.rst:108
 msgid ""
 "Found a bug? Please use either the `Bitbucket`_ or `GitHub`_ issue tracker "
 "(you choose)"
 msgstr ""
 
-#~ msgid "django Organice"
-#~ msgstr "django Organice"
-
-#~ msgid ""
-#~ "All-in-one collaboration solution.  For non-profit organizations, sports "
-#~ "clubs, small to medium-sized businesses. Nice, very nice, http://organice.io"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "django Organice is a nice way to run a collaboration platform, an intranet, "
-#~ "and websites for your business. It's a compilation of the best Django "
-#~ "packages, preconfigured for getting you started quickly.  Being powered by "
-#~ "the well-known `Django Web framework`_ it's a safe choice for your IT "
-#~ "investment providing an easily extensible architecture."
-#~ msgstr ""
-
-#~ msgid "See http://organice.io for more information."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Questions? Please use StackOverflow_.  Tag your questions with ``django-"
-#~ "organice``."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Found a bug? Please use either the Bitbucket_ or GitHub_ issue tracker (you "
-#~ "choose)"
-#~ msgstr ""
+#: ../../../README.rst:109
+msgid "Need support? You're welcome to use our `Gitter chat room`_."
+msgstr ""

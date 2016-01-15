@@ -14,12 +14,7 @@ understanding is sufficient.
 `Requirements`:index:
 =====================
 
-- Python 2.7
-
-.. NOTE::
-
-   Python 3.x is not supported yet due to dependencies on some packages not running on Python3
-   out-of-the-box (``emencia-django-newsletter``, ``easy-thumbnails``, ``django-media-tree``).
+- Python 2.7, 3.3, or 3.4
 
 All other `dependencies`:index: are resolved by the django Organice installer.  Most of those
 dependencies are intentionally not pinned on their version number to allow a liberal upgrade path.
@@ -50,25 +45,16 @@ Installing django Organice
    This will pull the latest django Organice package from the Internet and `install`:index: all
    dependencies automatically.
 
-.. NOTE::
-
-   Since pip 1.5+ external repositories are deprecated and require additional command line
-   switches::
-
-    $ pip install django-organice --allow-external django-cms --allow-unverified django-cms --process-dependency-links
-
-..
-
    If you're a developer you may want to run django Organice with the latest sources: (don't do this
    as a user) ::
 
-    $ git clone git@github.com:bittner/django-organice.git
+    $ git clone https://github.com/Organice/django-organice.git
     $ cd django-organice
     $ python setup.py install
 
    or, alternatively, using pip::
 
-    $ pip install git+https://github.com/bittner/django-organice.git#egg=django-organice
+    $ pip install git+https://github.com/Organice/django-organice.git#egg=django-organice
 
 3. Install the adapter suitable for your `database`:index: (PostgreSQL ``psycopg2``, MySQL
    ``MySQL-python``, Oracle ``cx_Oracle``, `etc.`_), e.g. ::
@@ -89,9 +75,17 @@ Installing django Organice
    the `Django documentation`_ on settings if you're not familiar with it.  The ``develop`` settings
    are used by your project by default (local development), ``common`` is included in all profiles.
 
-6. Initialize your database and start rocking::
+6. Initialize your database::
 
-    $ python manage.py syncdb --migrate
+    $ python manage.py organice bootstrap
+
+   This will prepare the database and add some sample content.   If you'd rather wish to start with
+   a clean database run to ``migrate`` only instead::
+
+    $ python manage.py migrate
+
+7. Start your Django project::
+
     $ python manage.py runserver
 
    You can now point your browser to http://127.0.0.1:8000/ and start developing your project
@@ -117,11 +111,13 @@ Initial Configuration
    Adapt the values of :const:`LANGUAGE_CODE` and :const:`LANGUAGES`, and set
    :const:`USE_I18N = True` in your project settings.
 
-#. After installation django Organice is configured, but it's blank without any content.  You can
-   install sample content and other data running one or all of the following commands::
+#. After installation django Organice is configured, unless you ran the ``bootstrap`` management
+   command the database is blank without any content.  You can sample content and other data
+   running one or all of the following commands::
 
-    $ python manage.py loaddata organice_sample_content  # optional sample content
-    $ python manage.py loaddata organice_auth_providers  # social auth provider configuration
+    $ python manage.py organice initauth  # prepare social auth provider configuration
+    $ python manage.py organice initcms   # add pages for your website
+    $ python manage.py organice initblog  # add blog categories and posts
 
 #. Alternatively, add your first pages, blog posts, and newsletter data manually:
 

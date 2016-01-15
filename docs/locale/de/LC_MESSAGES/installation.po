@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2014, Peter Bittner <django@bittner.it>
+# Copyright (C) 2016, Peter Bittner <django@bittner.it>
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
@@ -7,238 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-09 01:33+0200\n"
-"PO-Revision-Date: 2014-07-08 22:48+0000\n"
+"POT-Creation-Date: 2016-01-15 01:01+0100\n"
+"PO-Revision-Date: 2016-01-15 00:01+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
+"Language-Team: German (http://www.transifex.com/organice/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 73da58ffd783476092cb5841f3181f1b
 #: ../../installation.rst:3
 msgid "Installation"
-msgstr ""
-
-# 0c54060bdc0248508fa323eaa37a6c82
-#: ../../installation.rst:17
-msgid "Python 2.6 or higher"
-msgstr ""
-
-# f9184ca0343a441080f259985b44b48a
-#: ../../installation.rst:24
-msgid "Recommended for installation"
-msgstr ""
-
-# 7fdda418ebe346bea9d612cd352bed9f
-#: ../../installation.rst:26
-msgid "pip"
-msgstr ""
-
-# 88f33f85ec944c66ba9bd957a9eaf2ad
-#: ../../installation.rst:27
-msgid "virtualenv"
-msgstr ""
-
-# 772d5d470a034573bbc61dee219ed2b7
-#: ../../installation.rst:28
-msgid "virtualenvwrapper"
-msgstr ""
-
-# ef8b19a390b6472a943de64d2217dbd9
-#: ../../installation.rst:31
-msgid "Installing django Organice"
-msgstr ""
-
-# 7f7463d7adeb4b46bf0001caf6ccdbe8
-#: ../../installation.rst:38
-msgid ""
-"The prompt will change to something like ``(example)~$`` to reflect that "
-"your new virtual environment is active."
-msgstr ""
-
-# 40142b57f0ee4e229e289b24f51fa366
-#: ../../installation.rst:41
-msgid "The easiest way is using ``pip`` for installation::"
-msgstr ""
-
-# 084b8dcb29324591a8f717ff68088b4d
-#: ../../installation.rst:57
-msgid ""
-"If you're a developer you may want to run django Organice with the latest "
-"sources: (don't do this as a user) ::"
-msgstr ""
-
-# 05430fe77b774f1bbe5fa76dc8a2d8cc
-#: ../../installation.rst:64
-msgid "or, alternatively, using pip::"
-msgstr ""
-
-# cb81a62b9edc498d83977a7e90921c5a
-#: ../../installation.rst:73
-msgid "The Django project recommends PostgreSQL."
-msgstr ""
-
-# a65c59e5baf84ec8888f70a6ee226bd2
-#: ../../installation.rst:79
-msgid ""
-"Run the Organice setup command to create your new project: (e.g. *example*) "
-"::"
-msgstr ""
-
-# ddaa687b165c40ab831e446dbdd0eb7b
-#: ../../installation.rst:83
-msgid ""
-"Edit your settings in ``example/settings/common.py``, "
-"``example/settings/develop.py``, etc.  See the `Django documentation`_ on "
-"settings if you're not familiar with it.  The ``develop`` settings are used "
-"by your project by default (local development), ``common`` is included in "
-"all profiles."
-msgstr ""
-
-# b27798dca5d940b18043414703234786
-#: ../../installation.rst:87
-msgid "Initialize your database and start rocking::"
-msgstr ""
-
-# 74dd83e1262841ba8326aa11b6919e83
-#: ../../installation.rst:92
-msgid ""
-"You can now point your browser to http://127.0.0.1:8000/ and start "
-"developing your project locally."
-msgstr ""
-
-# 8d314179c37f442b8751336151f1ff64
-#: ../../installation.rst:106
-msgid "Initial Configuration"
-msgstr ""
-
-# 317fa637edb3489d86eae452cb10561b
-#: ../../installation.rst:108
-msgid ""
-"Follow the instructions given to you by the django Organice installer "
-"``organice-setup`` after setup has completed.  You have to adapt some values"
-" in your project settings!"
-msgstr ""
-
-# c305d9a352be445ea06ffa76c949bba4
-#: ../../installation.rst:111
-msgid ""
-"If you want your site to use a language other than English, or you want to "
-"use several languages: Adapt the values of :const:`LANGUAGE_CODE` and "
-":const:`LANGUAGES`, and set :const:`USE_I18N = True` in your project "
-"settings."
-msgstr ""
-
-# 416c8953f7404de99bb69a18d94b99b8
-#: ../../installation.rst:115
-msgid ""
-"After installation django Organice is configured, but it's blank without any"
-" content.  You can install sample content and other data running one or all "
-"of the following commands::"
-msgstr ""
-
-# 474f6a46ff9c4ff4975e2715ec34939b
-#: ../../installation.rst:121
-msgid ""
-"Alternatively, add your first pages, blog posts, and newsletter data "
-"manually:"
-msgstr ""
-
-# 654cc88419e94997aa261db7b52499e1
-#: ../../installation.rst:123
-msgid ""
-"Add some pages and navigation in the Django administration at Cms > Pages, "
-"and publish your changes."
-msgstr ""
-
-# 7e468a9657254f88a5114999f43566b6
-#: ../../installation.rst:125
-msgid ""
-"Surf your new website, and fill your new pages with content using the front-"
-"end editing feature."
-msgstr ""
-
-# 17f9c1a7d1f5479fb7efe13b6d090c24
-#: ../../installation.rst:127
-msgid "Surf to ``/blog/`` on your website, and start adding Blog posts."
-msgstr ""
-
-# 4b0660dcc26d48ebb2652a914581d7da
-#: ../../installation.rst:128
-msgid "Add a user in the Django administration at Newsletter > Contacts."
-msgstr ""
-
-# 35cf8ccf4e33421cbac374389cb324d1
-#: ../../installation.rst:129
-msgid ""
-"Add ``localhost`` (or appropriate server) to Newsletter > SMTP servers."
-msgstr ""
-
-# 5946318f8f234d64a4aec8eae9025ce1
-#: ../../installation.rst:130
-msgid ""
-"To allow subscribing from the website (from ``/newsletter/subscribe``) add a"
-" list to Newsletter > Mailing lists."
-msgstr ""
-
-# 9ad3fd85fe044c85a33bc9de3242b473
-#: ../../installation.rst:132
-msgid "Finally, add your first newsletter to Newsletter > Newsletters."
-msgstr ""
-
-# 9241fe41cf3e42f2a78dcf4b5b40a698
-#: ../../installation.rst:133
-msgid ""
-"For adding templates to Emencia Newsletter please consult the related "
-"section in the `TinyMCE 3.x documentation`_."
-msgstr ""
-
-# 9f8ddbb4f61a4655895956f51b191c72
-#: ../../installation.rst:136
-msgid ""
-"For sending newsletters to work you must configure a cronjob polling on "
-"``python manage.py send_newsletter`` every half an hour.  If that was just "
-"Greek to you go ask your server admin for help.  She knows!"
-msgstr ""
-
-# 1c1157a14121497ea5c8da4ab768fd75
-#: ../../installation.rst:143
-msgid "Deployment to Production"
-msgstr ""
-
-# 74039ce5473d4da8bd51a794a77ded45
-#: ../../installation.rst:145
-msgid ""
-"During the installation ``organice-setup`` prepared 3 different environments"
-" that help you with deployment::"
-msgstr ""
-
-# 5e00d569279248e59b45f6091fa3a7db
-#: ../../installation.rst:156
-msgid ""
-"This modularized setup is described in Solution 2 of Tommy Jarnac's blog on "
-"`Django settings best practices`_ [1]_.  The ``develop`` settings are active"
-" by default (for local development), ``common`` is included by all profiles."
-msgstr ""
-
-# 16183792407a4e9fae5be91b99b4bda8
-#: ../../installation.rst:160
-msgid ""
-"For deployment to environments other than ``develop`` the settings module "
-"location must be overridden by setting the Django environment variable "
-":const:`DJANGO_SETTINGS_MODULE`.  For example, if you use Apache as your "
-"Django web server adapt your Apache configuration file for ``example`` "
-"with::"
-msgstr ""
-
-# 59412c35fdb54e33aab6b3fda8b6904e
-#: ../../installation.rst:176
-msgid ""
-"David Cramer from DISQUS has described a similar solution at "
-"http://justcramer.com/2011/01/13/settings-in-django/"
 msgstr ""
 
 #: ../../installation.rst:5
@@ -253,6 +33,10 @@ msgstr ""
 msgid "`Requirements`:index:"
 msgstr ""
 
+#: ../../installation.rst:17
+msgid "Python 2.7, 3.3, or 3.4"
+msgstr ""
+
 #: ../../installation.rst:19
 msgid ""
 "All other `dependencies`:index: are resolved by the django Organice "
@@ -261,10 +45,40 @@ msgid ""
 "dependencies are documented in the :doc:`changelog` for each release."
 msgstr ""
 
+#: ../../installation.rst:24
+msgid "Recommended for installation"
+msgstr ""
+
+#: ../../installation.rst:26
+msgid "pip"
+msgstr ""
+
+#: ../../installation.rst:27
+msgid "virtualenv"
+msgstr ""
+
+#: ../../installation.rst:28
+msgid "virtualenvwrapper"
+msgstr ""
+
+#: ../../installation.rst:31
+msgid "Installing django Organice"
+msgstr ""
+
 #: ../../installation.rst:33
 msgid ""
 "We recommend preparing a `virtual environment`:index: for running django "
 "Organice::"
+msgstr ""
+
+#: ../../installation.rst:38
+msgid ""
+"The prompt will change to something like ``(example)~$`` to reflect that "
+"your new virtual environment is active."
+msgstr ""
+
+#: ../../installation.rst:41
+msgid "The easiest way is using ``pip`` for installation::"
 msgstr ""
 
 #: ../../installation.rst:45
@@ -273,26 +87,69 @@ msgid ""
 "`install`:index: all dependencies automatically."
 msgstr ""
 
-#: ../../installation.rst:50
+#: ../../installation.rst:48
 msgid ""
-"Since pip 1.5+ external repositories are deprecated and require additional "
-"command line switches::"
+"If you're a developer you may want to run django Organice with the latest "
+"sources: (don't do this as a user) ::"
 msgstr ""
 
-#: ../../installation.rst:68
+#: ../../installation.rst:55
+msgid "or, alternatively, using pip::"
+msgstr ""
+
+#: ../../installation.rst:59
 msgid ""
 "Install the adapter suitable for your `database`:index: (PostgreSQL "
 "``psycopg2``, MySQL ``MySQL-python``, Oracle ``cx_Oracle``, `etc.`_), e.g. "
 "::"
 msgstr ""
 
-#: ../../installation.rst:77
+#: ../../installation.rst:64
+msgid "The Django project recommends PostgreSQL."
+msgstr ""
+
+#: ../../installation.rst:68
 msgid ""
 "You can skip this step if you decide to use SQLite, e.g. for evaluation "
 "purposes."
 msgstr ""
 
-#: ../../installation.rst:97
+#: ../../installation.rst:70
+msgid ""
+"Run the Organice setup command to create your new project: (e.g. *example*) "
+"::"
+msgstr ""
+
+#: ../../installation.rst:74
+msgid ""
+"Edit your settings in ``example/settings/common.py``, "
+"``example/settings/develop.py``, etc.  See the `Django documentation`_ on "
+"settings if you're not familiar with it.  The ``develop`` settings are used "
+"by your project by default (local development), ``common`` is included in "
+"all profiles."
+msgstr ""
+
+#: ../../installation.rst:78
+msgid "Initialize your database::"
+msgstr ""
+
+#: ../../installation.rst:82
+msgid ""
+"This will prepare the database and add some sample content.   If you'd "
+"rather wish to start with a clean database run to ``migrate`` only instead::"
+msgstr ""
+
+#: ../../installation.rst:87
+msgid "Start your Django project::"
+msgstr ""
+
+#: ../../installation.rst:91
+msgid ""
+"You can now point your browser to http://127.0.0.1:8000/ and start "
+"developing your project locally."
+msgstr ""
+
+#: ../../installation.rst:96
 msgid ""
 "If you're planning to create your content locally make sure you use the same"
 " database engine for local development and production.  Your plan of moving "
@@ -300,56 +157,121 @@ msgid ""
 "major headaches otherwise.  And, use Sqlite for evaluating only!"
 msgstr ""
 
-#: ../../installation.rst:169
+#: ../../installation.rst:105
+msgid "Initial Configuration"
+msgstr ""
+
+#: ../../installation.rst:107
+msgid ""
+"Follow the instructions given to you by the django Organice installer "
+"``organice-setup`` after setup has completed.  You have to adapt some values"
+" in your project settings!"
+msgstr ""
+
+#: ../../installation.rst:110
+msgid ""
+"If you want your site to use a language other than English, or you want to "
+"use several languages: Adapt the values of :const:`LANGUAGE_CODE` and "
+":const:`LANGUAGES`, and set :const:`USE_I18N = True` in your project "
+"settings."
+msgstr ""
+
+#: ../../installation.rst:114
+msgid ""
+"After installation django Organice is configured, unless you ran the "
+"``bootstrap`` management command the database is blank without any content."
+"  You can sample content and other data running one or all of the following "
+"commands::"
+msgstr ""
+
+#: ../../installation.rst:122
+msgid ""
+"Alternatively, add your first pages, blog posts, and newsletter data "
+"manually:"
+msgstr ""
+
+#: ../../installation.rst:124
+msgid ""
+"Add some pages and navigation in the Django administration at Cms > Pages, "
+"and publish your changes."
+msgstr ""
+
+#: ../../installation.rst:126
+msgid ""
+"Surf your new website, and fill your new pages with content using the front-"
+"end editing feature."
+msgstr ""
+
+#: ../../installation.rst:128
+msgid "Surf to ``/blog/`` on your website, and start adding Blog posts."
+msgstr ""
+
+#: ../../installation.rst:129
+msgid "Add a user in the Django administration at Newsletter > Contacts."
+msgstr ""
+
+#: ../../installation.rst:130
+msgid ""
+"Add ``localhost`` (or appropriate server) to Newsletter > SMTP servers."
+msgstr ""
+
+#: ../../installation.rst:131
+msgid ""
+"To allow subscribing from the website (from ``/newsletter/subscribe``) add a"
+" list to Newsletter > Mailing lists."
+msgstr ""
+
+#: ../../installation.rst:133
+msgid "Finally, add your first newsletter to Newsletter > Newsletters."
+msgstr ""
+
+#: ../../installation.rst:134
+msgid ""
+"For adding templates to Emencia Newsletter please consult the related "
+"section in the `TinyMCE 3.x documentation`_."
+msgstr ""
+
+#: ../../installation.rst:137
+msgid ""
+"For sending newsletters to work you must configure a cronjob polling on "
+"``python manage.py send_newsletter`` every half an hour.  If that was just "
+"Greek to you go ask your server admin for help.  She knows!"
+msgstr ""
+
+#: ../../installation.rst:144
+msgid "Deployment to Production"
+msgstr ""
+
+#: ../../installation.rst:146
+msgid ""
+"During the installation ``organice-setup`` prepared 3 different environments"
+" that help you with deployment::"
+msgstr ""
+
+#: ../../installation.rst:157
+msgid ""
+"This modularized setup is described in Solution 2 of Tommy Jarnac's blog on "
+"`Django settings best practices`_ [1]_.  The ``develop`` settings are active"
+" by default (for local development), ``common`` is included by all profiles."
+msgstr ""
+
+#: ../../installation.rst:161
+msgid ""
+"For deployment to environments other than ``develop`` the settings module "
+"location must be overridden by setting the Django environment variable "
+":const:`DJANGO_SETTINGS_MODULE`.  For example, if you use Apache as your "
+"Django web server adapt your Apache configuration file for ``example`` "
+"with::"
+msgstr ""
+
+#: ../../installation.rst:170
 msgid ""
 "To test different settings locally you can start the Django webserver with "
 "the ``--settings`` option::"
 msgstr ""
 
-#~ msgid ""
-#~ "This document assumes you are familiar with basic Python and Django "
-#~ "development and their tools_. If not, please read up on pip_, virtualenv_, "
-#~ "and virtualenvwrapper_ first.  A basic understanding is sufficient."
-#~ msgstr ""
-
-#~ msgid "Requirements"
-#~ msgstr ""
-
-#~ msgid "All other dependencies are resolved by the django Organice installer."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "We recommend preparing a virtual environment for running django Organice::"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "This will pull the latest django Organice package from the Internet and "
-#~ "install all dependencies automatically."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "*NOTE:* Since pip 1.5+ external repositories are deprecated and require "
-#~ "additional command line switches::"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Install the adapter suitable for your database (PostgreSQL ``psycopg2``, "
-#~ "MySQL ``MySQL-python``, Oracle ``cx_Oracle``, `etc.`_), e.g. ::"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "*NOTE:* You can skip this step if you decide to use SQLite, e.g. for "
-#~ "evaluation purposes."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "*NOTE:* If you're planning to create your content locally make sure you use "
-#~ "the same database engine for local development and production.  Your plan of"
-#~ " moving the whole database content from development to production will give "
-#~ "you major headaches otherwise.  And, use Sqlite for evaluating only!"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "*NOTE:* To test different settings locally you can start the Django "
-#~ "webserver with the ``--settings`` option::"
-#~ msgstr ""
+#: ../../installation.rst:177
+msgid ""
+"David Cramer from DISQUS has described a similar solution at "
+"http://justcramer.com/2011/01/13/settings-in-django/"
+msgstr ""

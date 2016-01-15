@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2014, Peter Bittner <django@bittner.it>
+# Copyright (C) 2016, Peter Bittner <django@bittner.it>
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
@@ -7,84 +7,102 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-09 01:33+0200\n"
-"PO-Revision-Date: 2014-07-08 22:48+0000\n"
+"POT-Creation-Date: 2016-01-15 01:01+0100\n"
+"PO-Revision-Date: 2016-01-15 00:01+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/django-organice-docs/language/de/)\n"
+"Language-Team: German (http://www.transifex.com/organice/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# 63bd4144328243a99b7a52f1acc0cfa6
 #: ../../contributing.rst:3
 msgid "Contributing to django Organice"
 msgstr ""
 
-# 4c06edd7c5fa4c369fd26c04713b60c3
 #: ../../contributing.rst:5
 msgid "Official repositories: (kept in sync)"
 msgstr ""
 
-# 67fc6f633dc7422a98a918ab154bd0c9
 #: ../../contributing.rst:7
-msgid "`Bitbucket`:index:: https://bitbucket.org/bittner/django-organice"
+msgid "`Bitbucket`:index:: https://bitbucket.org/organice/django-organice"
 msgstr ""
 
-# 38159c41eb7340ceae976be258f38e19
 #: ../../contributing.rst:8
-msgid "`GitHub`:index:: https://github.com/bittner/django-organice"
+msgid "`GitHub`:index:: https://github.com/Organice/django-organice"
 msgstr ""
 
-# 6f3344cfc8ba428c8eae8b4c1dbaf39f
 #: ../../contributing.rst:10
 msgid ""
 "Fork any of the repositories, make your code changes or additions, and place"
 " a pull request."
 msgstr ""
 
-# c9e49604077f4cda89f8081a42d825f9
 #: ../../contributing.rst:13
+msgid "How To Get Started"
+msgstr ""
+
+#: ../../contributing.rst:15
+msgid ""
+"After cloning your own fork from Bitbucket or GitHub make sure you have "
+"created and activated a virtual environment for development, then run ``make"
+" develop`` to install packages that help you with your development tasks "
+"(tools for testing, translation, docs generation)."
+msgstr ""
+
+#: ../../contributing.rst:20
+msgid "Guidelines"
+msgstr ""
+
+#: ../../contributing.rst:22
+msgid ""
+"The primary interpreter target to develop against is **Python 3**.  Ideally,"
+" use the highest one the `Django package`_ integrated into our project is "
+"compatible with (3.4, at the moment).  All other supported Python versions "
+"are tested by the `integration server`_ as soon as you place the pull "
+"request. You can run tests locally before pushing using ``tox`` or "
+"``setup.py test``, e.g. ::"
+msgstr ""
+
+#: ../../contributing.rst:31
+msgid ""
+"Source code is supposed to satisfy ``flake8`` default rules (with the "
+"exception of line length, which can be up to 120 characters long).  A pre-"
+"commit hook for Git is installed automatically for your convenience when you"
+" run ``make develop``, so you shouldn't even be able to commit when "
+"``flake8`` is not passing.  Additional static analysis is conducted by the "
+"`QA server`_, and you should make sure that code health goes up (or stays "
+"the same) with each contribution."
+msgstr ""
+
+#: ../../contributing.rst:43
 msgid "Help Wanted"
 msgstr ""
 
-# abdb2d2dc37e4287839c15ca31a25702
-#: ../../contributing.rst:15
-msgid "Writing tests"
+#: ../../contributing.rst:45
+msgid "Writing tests (unit tests, BDD tests)"
 msgstr ""
 
-# 85ef0ad3a2bc4b5e99f98da31433e65b
-#: ../../contributing.rst:16
+#: ../../contributing.rst:46
+msgid "New features on the roadmap (see README)"
+msgstr ""
+
+#: ../../contributing.rst:47
 msgid "Translations (blog posts, documentation, user interface)"
 msgstr ""
 
-# 4840ce6d030e4dbd86f388808bf4c06e
-#: ../../contributing.rst:19
+#: ../../contributing.rst:50
 msgid "Translation"
 msgstr ""
 
-# ff168ef94cdd4addabcb88277ba1d3bd
-#: ../../contributing.rst:21
+#: ../../contributing.rst:52
 msgid ""
 "Translation is done on `Transifex`_ for both the project text strings and "
 "the documentation."
 msgstr ""
 
-# a1243554cd004c2b8b9f57e2702a7915
-#: ../../contributing.rst:29
-msgid "Bumping Versions, Package, Release"
-msgstr ""
-
-# e84abab778a442cb9de85959e18096e3
-#: ../../contributing.rst:31
-msgid ""
-"As for the `version numbers`:index: of django Organice we use `Semantic "
-"Versioning`_.  Changes from one to the next `release`:index: are documented "
-"in the :doc:`changelog`."
-msgstr ""
-
-#: ../../contributing.rst:23
+#: ../../contributing.rst:54
 msgid ""
 "The multilingual documentation is written in `reStructuredText`_ syntax, and"
 " built using `Sphinx`_. As a `translator`:index: you can simply jump on "
@@ -93,10 +111,13 @@ msgid ""
 "support`_."
 msgstr ""
 
-#~ msgid ""
-#~ "The multilingual documentation is written in `reStructuredText`_ syntax, and"
-#~ " built using `Sphinx`_. As a `translator`:index: you can simply jump on "
-#~ "`Transifex`:index: and get your hands dirty for your language. Some helpful "
-#~ "background reading is available from `Read the Docs`_ and `Transifex "
-#~ "support`_."
-#~ msgstr ""
+#: ../../contributing.rst:67
+msgid "Bumping Versions, Package, Release"
+msgstr ""
+
+#: ../../contributing.rst:69
+msgid ""
+"As for the `version numbers`:index: of django Organice we use `Semantic "
+"Versioning`_.  Changes from one to the next `release`:index: are documented "
+"in the :doc:`changelog`."
+msgstr ""

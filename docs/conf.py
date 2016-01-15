@@ -60,7 +60,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'django Organice'
-copyright = '%s, %s <%s>' % (date.today().year, organice.__author__, organice.__email__)
+copyright = '%s, %s <%s>' % (date.today().year, organice.__author__, organice.__author_email__)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
