@@ -16,7 +16,7 @@ CHANGELOG
 - Started with continuous builds (Travis-CI, Shippable)
 
 :Changes: https://github.com/Organice/django-organice/compare/v0.2...v0.3
-:Dependencies: https://github.com/Organice/django-organice/blob/v0.3/requirements.txt
+:Dependencies: https://github.com/Organice/django-organice/blob/v0.3/docs/requirements.txt
 
 0.2
 ===

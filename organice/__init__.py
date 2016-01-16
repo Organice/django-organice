@@ -22,4 +22,4 @@ __maintainer__ = __author__
 __maintainer_email__ = __author_email__
 
 __url__ = 'http://organice.io/'
-__license__ = 'Apache License 2.0'
+__license__ = 'Apache 2.0'

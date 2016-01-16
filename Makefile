@@ -42,13 +42,13 @@ coverage:
 	echo 'Coverage generation failed. (Try `make develop`)'
 
 develop: setuptools
-	pip install Sphinx sphinx-intl transifex-client==0.11b3 flake8 pytest tox coverage
+	pip install -q Sphinx sphinx-intl transifex-client flake8 pytest tox coverage
 	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null || \
 	flake8 --install-hook
 
 undevelop: setuptools
-	for PKG in docutils Jinja2 MarkupSafe polib Pygments Sphinx sphinx-intl transifex-client flake8 pyflakes pep8 mccabe pytest py ; do \
-		pip uninstall -y $$PKG || true ; \
+	for PKG in snowballstemmer pytz babel MarkupSafe Jinja2 sphinx-rtd-theme six docutils Pygments alabaster Sphinx click sphinx-intl urllib3 transifex-client pep8 pyflakes mccabe flake8 py pytest virtualenv pluggy tox coverage ; do \
+		pip uninstall -q -y $$PKG || true ; \
 	done
 	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null && \
 	rm $$HOOK || true
@@ -78,7 +78,7 @@ release: setuptools clean requirements
 
 requirements: setuptools undevelop
 # NOTE: we must filter out erroneously listed globally installed packages on Ubuntu
-	pip freeze | sed -e '/^argparse/d' -e '/^wsgiref/d' > $(REQUIREMENTS)
+	pip freeze | sed -e '/^django-organice==/d' > $(REQUIREMENTS)
 	$(MAKE) develop
 	git diff $(REQUIREMENTS)
 

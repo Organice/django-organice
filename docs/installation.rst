@@ -17,8 +17,15 @@ understanding is sufficient.
 - Python 2.7, 3.3, or 3.4
 
 All other `dependencies`:index: are resolved by the django Organice installer.  Most of those
-dependencies are intentionally not pinned on their version number to allow a liberal upgrade path.
-Confirmed, working dependencies are documented in the :doc:`changelog` for each release.
+dependencies are intentionally not pinned on their version number to allow a liberal upgrade
+path.  This means you will get more up-to-date packages installed, but they may break your setup
+or not install at all.
+
+Confirmed, working dependencies are documented in the :doc:`changelog` for each release.  If
+anything goes wrong during the installation described below try installing those requirements
+in your virtual environment *before* you install ``django-organice``::
+
+    $ pip install -r docs/requirements.txt
 
 Recommended for installation
 ----------------------------
