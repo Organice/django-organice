@@ -78,6 +78,7 @@ release: setuptools clean requirements
 
 requirements: setuptools undevelop
 # NOTE: we must filter out erroneously listed globally installed packages on Ubuntu
+	pip install -q -r requirements.txt
 	pip freeze | sed -e '/^django-organice==/d' > $(REQUIREMENTS)
 	$(MAKE) develop
 	git diff $(REQUIREMENTS)
