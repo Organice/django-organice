@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
-# Peter Bittner <django@bittner.it>, 2014
+# Peter Bittner <django@bittner.it>, 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 01:01+0100\n"
-"PO-Revision-Date: 2016-01-14 23:22+0000\n"
+"POT-Creation-Date: 2016-01-16 04:07+0100\n"
+"PO-Revision-Date: 2016-01-16 02:27+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/organice/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,17 +20,17 @@ msgstr ""
 
 #: ../../../README.rst:3
 msgid "django Organice |latest-version|"
-msgstr ""
+msgstr "django Organice |latest-version|"
 
 #: ../../../README.rst:5
 msgid "|travis-ci| |health| |downloads| |license| |gitter|"
-msgstr ""
+msgstr "|travis-ci| |health| |downloads| |license| |gitter|"
 
 #: ../../../README.rst:7
 msgid ""
 "All-in-one collaboration solution.  For non-profit organizations, sports "
 "clubs, small to medium-sized businesses."
-msgstr ""
+msgstr "Die Kollaborationslösung, die alles kann.  Für Non-Profit-Organisationen, Sportvereine, kleine bis mittlere Unternehmen."
 
 #: ../../../README.rst:10
 msgid ""
@@ -39,15 +39,15 @@ msgid ""
 "packages, preconfigured for getting you started quickly.  Being powered by "
 "the well-known `Django Web framework`_ it's a safe choice for your IT "
 "investment providing an easily extensible architecture."
-msgstr ""
+msgstr "Mit django Organice gehen Sie den angenehmen Weg, eine Kollaborationsplatform, ein Intranet und Websites für Ihr Geschäft zu betreiben.  Es ist eine Zusammenstellung der besten Django-Pakete, vorkonfiguriert, damit Sie sofort durchstarten können.  Mit dem bekannten `Django Web framework`_ unter der Motorhaube treffen Sie eine sichere Wahl für Ihr IT-Investment, das Ihnen eine leicht erweiterbare Architektur bietet."
 
 #: ../../index.rst:7
 msgid "Also available in the cloud.  Nice, very nice, http://organice.io"
-msgstr ""
+msgstr "Auch in der Cloud verfügbar.  Nice, very nice, http://organice.io"
 
 #: ../../index.rst:11
 msgid "Contents"
-msgstr ""
+msgstr "Inhalt"
 
 #: ../../index.rst:27
 msgid "Indices and tables"

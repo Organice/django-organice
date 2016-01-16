@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
+# Peter Bittner <django@bittner.it>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 01:01+0100\n"
-"PO-Revision-Date: 2016-01-15 00:01+0000\n"
+"POT-Creation-Date: 2016-01-16 04:07+0100\n"
+"PO-Revision-Date: 2016-01-16 02:39+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/organice/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -19,29 +20,29 @@ msgstr ""
 
 #: ../../contributing.rst:3
 msgid "Contributing to django Organice"
-msgstr ""
+msgstr "Bei django Organice mitarbeiten"
 
 #: ../../contributing.rst:5
 msgid "Official repositories: (kept in sync)"
-msgstr ""
+msgstr "Offizielle Repositories: (synchronisiert)"
 
 #: ../../contributing.rst:7
 msgid "`Bitbucket`:index:: https://bitbucket.org/organice/django-organice"
-msgstr ""
+msgstr "`Bitbucket`:index:: https://bitbucket.org/organice/django-organice"
 
 #: ../../contributing.rst:8
 msgid "`GitHub`:index:: https://github.com/Organice/django-organice"
-msgstr ""
+msgstr "`GitHub`:index:: https://github.com/Organice/django-organice"
 
 #: ../../contributing.rst:10
 msgid ""
 "Fork any of the repositories, make your code changes or additions, and place"
 " a pull request."
-msgstr ""
+msgstr "Forken Sie eines der Repositories, machen Sie Ihre Änderungen oder fügen Sie neuen Code hinzu, und eröffnen Sie einen Pull Request."
 
 #: ../../contributing.rst:13
 msgid "How To Get Started"
-msgstr ""
+msgstr "Wie fange ich an?"
 
 #: ../../contributing.rst:15
 msgid ""
@@ -49,11 +50,11 @@ msgid ""
 "created and activated a virtual environment for development, then run ``make"
 " develop`` to install packages that help you with your development tasks "
 "(tools for testing, translation, docs generation)."
-msgstr ""
+msgstr "Nach dem Klonen Ihres eigenen Forks von Bitbucket oder GitHub stellen Sie sicher, dass Sie ein Virtual Environment für die Entwicklung erstellt und aktiviert haben, dann führen Sie ``make develop`` aus, um die Packages zu installieren, die Ihnen bei der Entwicklung helfen (Testwerkzeuge, Übersetzungstools, Dokumentationsgeneratoren)."
 
 #: ../../contributing.rst:20
 msgid "Guidelines"
-msgstr ""
+msgstr "Richtlinien"
 
 #: ../../contributing.rst:22
 msgid ""
@@ -63,7 +64,7 @@ msgid ""
 "are tested by the `integration server`_ as soon as you place the pull "
 "request. You can run tests locally before pushing using ``tox`` or "
 "``setup.py test``, e.g. ::"
-msgstr ""
+msgstr "Der primäre Ziel-Interpreter für die Entwicklung ist **Python 3**.  Am besten verwenden Sie die höchste Versionsnummer, die mit dem in das Projekt integrierten `Django package`_ kompatibel ist (momentan 3.4).  Alle anderen unterstützten Python-Versionen werden vom `integration server`_ getestet, sobald Sie einen Pull Request eröffnen.  Sie können Tests mittels ``tox`` oder ``setup.py test`` lokal ausführen, bevor Sie pushen, z.B. ::"
 
 #: ../../contributing.rst:31
 msgid ""
@@ -74,33 +75,33 @@ msgid ""
 "``flake8`` is not passing.  Additional static analysis is conducted by the "
 "`QA server`_, and you should make sure that code health goes up (or stays "
 "the same) with each contribution."
-msgstr ""
+msgstr "Der Quellcode soll die ``flake8`` Standardregeln erfüllen (mit Ausnahme der Zeilenlänge, die bis zu 120 Zeichen betragen darf).  Ein pre-commit hook für Git wird der Einfachheit halber automatisch installiert, wenn Sie ``make develop`` ausführen, somit sollte es nicht einmal möglich sein zu committen, wenn ``flake8`` nicht erfolgreich durchläuft.  Zusätzliche statische Analyse wird am `QA server`_ durchgeführt und Sie sollten sicherstellen, dass dort der Gesundheitsindikator für den Quellcode mit jedem Beitrag nach oben geht (oder gleichbleibt)."
 
 #: ../../contributing.rst:43
 msgid "Help Wanted"
-msgstr ""
+msgstr "Unterstützung gesucht"
 
 #: ../../contributing.rst:45
 msgid "Writing tests (unit tests, BDD tests)"
-msgstr ""
+msgstr "Schreiben von Tests (Unit Tests, BDD-Tests)"
 
 #: ../../contributing.rst:46
 msgid "New features on the roadmap (see README)"
-msgstr ""
+msgstr "Neue Features auf der Roadmap (siehe README)"
 
 #: ../../contributing.rst:47
 msgid "Translations (blog posts, documentation, user interface)"
-msgstr ""
+msgstr "Übersetzungen (Blog-Einträge, Dokumentation, Benutzeroberfläche)"
 
 #: ../../contributing.rst:50
 msgid "Translation"
-msgstr ""
+msgstr "Übersetzung"
 
 #: ../../contributing.rst:52
 msgid ""
 "Translation is done on `Transifex`_ for both the project text strings and "
 "the documentation."
-msgstr ""
+msgstr "Die Übersetzung wird sowohl für die Texte im Quellcode als auch die Dokumentation mit `Transifex`_ durchgeführt."
 
 #: ../../contributing.rst:54
 msgid ""
@@ -109,15 +110,15 @@ msgid ""
 "`Transifex`:index: and get your hands dirty for your language.  Some helpful"
 " background reading is available from `Read the Docs`_ and `Transifex "
 "support`_."
-msgstr ""
+msgstr "Die mehrsprachige Dokumentation ist in `reStructuredText`_ Syntax geschrieben und wird mit `Sphinx`_ gebaut.  Als `Übersetzer`:index: können Sie einfach auf `Transifex`:index: gehen und anfangen, sich für Ihre Sprache ins Zeug zu legen.  Einige hilfreiche Hintergrundinformationen gibt es auf `Read the Docs`_ und im `Transifex support`_ zu lesen."
 
 #: ../../contributing.rst:67
 msgid "Bumping Versions, Package, Release"
-msgstr ""
+msgstr "Versionen erstellen, Packaging, Releases"
 
 #: ../../contributing.rst:69
 msgid ""
 "As for the `version numbers`:index: of django Organice we use `Semantic "
 "Versioning`_.  Changes from one to the next `release`:index: are documented "
 "in the :doc:`changelog`."
-msgstr ""
+msgstr "Hinsichtlich der `Versionsnummern`:index: von django Organice verwenden wir `Semantic Versioning`_.  Änderungen von einem zum nächsten `Release`:index: werden im :doc:`changelog` dokumentiert."

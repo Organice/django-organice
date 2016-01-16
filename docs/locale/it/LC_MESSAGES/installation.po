@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 01:01+0100\n"
-"PO-Revision-Date: 2016-01-15 00:01+0000\n"
+"POT-Creation-Date: 2016-01-16 04:07+0100\n"
+"PO-Revision-Date: 2016-01-16 03:07+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: Italian (http://www.transifex.com/organice/django-organice-docs/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -178,10 +178,10 @@ msgstr ""
 
 #: ../../installation.rst:114
 msgid ""
-"After installation django Organice is configured, unless you ran the "
+"After installation django Organice is configured, but unless you ran the "
 "``bootstrap`` management command the database is blank without any content."
-"  You can sample content and other data running one or all of the following "
-"commands::"
+"  You can add some sample content and other data running one or all of the "
+"following commands::"
 msgstr ""
 
 #: ../../installation.rst:122
@@ -270,7 +270,13 @@ msgid ""
 "the ``--settings`` option::"
 msgstr ""
 
-#: ../../installation.rst:177
+#: ../../installation.rst:175
+msgid ""
+"Finally, make sure you also have consulted the `deployment checklist`_ of "
+"the Django project and follow their best practices."
+msgstr ""
+
+#: ../../installation.rst:180
 msgid ""
 "David Cramer from DISQUS has described a similar solution at "
 "http://justcramer.com/2011/01/13/settings-in-django/"

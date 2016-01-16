@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
-# Peter Bittner <django@bittner.it>, 2014
+# Peter Bittner <django@bittner.it>, 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 01:01+0100\n"
-"PO-Revision-Date: 2016-01-14 23:22+0000\n"
+"POT-Creation-Date: 2016-01-16 04:07+0100\n"
+"PO-Revision-Date: 2016-01-16 02:57+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/organice/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgid ""
 "can't satisfy your specific needs it may be a good idea to look at the "
 "following alternatives.  If you happen to know additional offers `drop us a "
 "note`_ so we can make the list more complete."
-msgstr ""
+msgstr "Natürlich kann django Organice nicht für alles die Lösung sein. Wenn Sie das Gefühl haben, Ihre speziellen Bedürfnisse kann es nicht befriedigen, könnte es sich auszahlen, einen Blick auf die uns bekannten Alternativen zu werfen. Falls Sie weitere Angebote kennen, `drop us a note`_, damit wir diese Liste sinnvoll ergänzen können."
 
 #: ../../alternatives.rst:15
 msgid "Software Alternatives"
@@ -54,11 +54,11 @@ msgstr "`Bitrix Intranet`_ (PHP, kommerziell, wird mit Quellcode geliefert)"
 
 #: ../../alternatives.rst:20
 msgid "`Coyo`_ (Java/Play, commercial, ships with source code)"
-msgstr ""
+msgstr "`Coyo`_ (Java/Play, kommerziell, wird mit Quellcode geliefert)"
 
 #: ../../alternatives.rst:21
 msgid "`Fairgate`_ (PHP, commercial, Switzerland only)"
-msgstr ""
+msgstr "`Fairgate`_ (PHP, kommerziell, nur in der Schweiz)"
 
 #: ../../alternatives.rst:22
 msgid "`Microsoft SharePoint + Yammer`_ [1]_ (.NET + Rails, commercial)"
@@ -66,19 +66,19 @@ msgstr "`Microsoft SharePoint + Yammer`_ [1]_ (.NET + Rails, kommerziell)"
 
 #: ../../alternatives.rst:23
 msgid "`Odoo`_ (Python, open source)"
-msgstr ""
+msgstr "`Odoo`_ (Python, Open Source)"
 
 #: ../../alternatives.rst:24
 msgid "`Open Atrium`_ (Drupal, open source)"
-msgstr ""
+msgstr "`Open Atrium`_ (Drupal, Open Source)"
 
 #: ../../alternatives.rst:25
 msgid "`teamraum Enterprise`_ (Django, commercial)"
-msgstr ""
+msgstr "`teamraum Enterprise`_ (Django, kommerziell)"
 
 #: ../../alternatives.rst:26
 msgid "`tendenci`_ (Django, open source)"
-msgstr ""
+msgstr "`tendenci`_ (Django, Open Source)"
 
 #: ../../alternatives.rst:29
 msgid "Cloud Competitors"
@@ -90,19 +90,19 @@ msgstr "`Bitrix24.com`_ / `Bitrix24.de`_ [1]_"
 
 #: ../../alternatives.rst:34
 msgid "`huddle`_"
-msgstr ""
+msgstr "`huddle`_"
 
 #: ../../alternatives.rst:35
 msgid "`Igloo`_"
-msgstr ""
+msgstr "`Igloo`_"
 
 #: ../../alternatives.rst:36
 msgid "`Odoo`_"
-msgstr ""
+msgstr "`Odoo`_"
 
 #: ../../alternatives.rst:37
 msgid "`teamraum`_"
-msgstr ""
+msgstr "`teamraum`_"
 
 #: ../../alternatives.rst:55
 msgid ""

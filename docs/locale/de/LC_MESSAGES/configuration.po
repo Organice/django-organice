@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
-# Peter Bittner <django@bittner.it>, 2014
+# Peter Bittner <django@bittner.it>, 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 01:01+0100\n"
-"PO-Revision-Date: 2014-07-08 22:48+0000\n"
+"POT-Creation-Date: 2016-01-16 04:07+0100\n"
+"PO-Revision-Date: 2016-01-16 02:37+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/organice/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr "Sie können jede der folgenden Optionen in den ``settings`` Ihres Projek
 
 #: ../../configuration.rst:17
 msgid ":const:`ORGANICE_URL_PATH_ADMIN`"
-msgstr ""
+msgstr ":const:`ORGANICE_URL_PATH_ADMIN`"
 
 #: ../../configuration.rst:18
 msgid "``admin``"
@@ -52,11 +52,11 @@ msgid ""
 "The URL path for accessing the Django Administration backend (e.g. "
 "``www.example.com/admin``).  Must be non-empty.  Use an identifier only, no "
 "white space, no leading or trailing slash."
-msgstr ""
+msgstr "Der URL-Pfad zum Erreichen der Django Administrationsoberfläche (z.B. ``www.example.com/admin``).  Muss nicht-leer sein.  Benutzen Sie einen durchgehenden Bezeichner, kein Abstand, kein Schrägstrich am Anfang oder Ende."
 
 #: ../../configuration.rst:24
 msgid ":const:`ORGANICE_URL_PATH_BLOG`"
-msgstr ""
+msgstr ":const:`ORGANICE_URL_PATH_BLOG`"
 
 #: ../../configuration.rst:25
 msgid "``blog``"
@@ -67,11 +67,11 @@ msgid ""
 "The URL path for the blog's start page (e.g. ``www.example.com/blog``).  "
 "Must be non-empty.  Use an identifier only, no white space, no leading or "
 "trailing slash."
-msgstr ""
+msgstr "Der URL-Pfad zum Erreichen der Blog-Startseite (z.B. ``www.example.com/blog``).  Muss nicht-leer sein.  Benutzen Sie einen durchgehenden Bezeichner, kein Abstand, kein Schrägstrich am Anfang oder Ende."
 
 #: ../../configuration.rst:31
 msgid ":const:`ORGANICE_URL_PATH_NEWSLETTER`"
-msgstr ""
+msgstr ":const:`ORGANICE_URL_PATH_NEWSLETTER`"
 
 #: ../../configuration.rst:32
 msgid "``newsletter``"
@@ -82,30 +82,30 @@ msgid ""
 "The URL path for accessing newsletter functionality on the front-end (e.g. "
 "``www.example.com/newsletter``).  Must be non-empty.  Use an identifier "
 "only, no white space, no leading or trailing slash."
-msgstr ""
+msgstr "Der URL-Pfad zum Erreichen der Newsletter-Funktionalität am Front-end (z.B. ``www.example.com/newsletter``).  Muss nicht-leer sein.  Benutzen Sie einen durchgehenden Bezeichner, kein Abstand, kein Schrägstrich am Anfang oder Ende."
 
 #: ../../configuration.rst:39
 msgid ":const:`ORGANICE_URL_PATH_TODO`"
-msgstr ""
+msgstr ":const:`ORGANICE_URL_PATH_TODO`"
 
 #: ../../configuration.rst:40
 msgid "``todo``"
-msgstr ""
+msgstr "``todo``"
 
 #: ../../configuration.rst:42
 msgid ""
 "The URL path for accessing todo list functionality on the front-end (e.g. "
 "``www.example.com/todo``). Must be non-empty.  Use an identifier only, no "
 "white space, no leading or trailing slash."
-msgstr ""
+msgstr "Der URL-Pfad zum Erreichen der Todo-Listen-Funktionalität am Front-end (z.B. ``www.example.com/todo``). Muss nicht-leer sein.  Benutzen Sie einen durchgehenden Bezeichner, kein Abstand, kein Schrägstrich am Anfang oder Ende."
 
 #: ../../configuration.rst:46
 msgid "Third Party Settings"
-msgstr ""
+msgstr "Settings von Dritt-Apps"
 
 #: ../../configuration.rst:49
 msgid "Analytics Providers"
-msgstr ""
+msgstr "Analytics-Provider"
 
 #: ../../configuration.rst:51
 msgid ""
@@ -114,4 +114,4 @@ msgid ""
 "properties are documented in `their documentation`_. For security reasons "
 "you shouldn't add those to your common settings file, but to "
 "``settings.production``."
-msgstr ""
+msgstr "Die von ``django-analytical`` unterstützten `Analytics`:index: Services werden durch das Setzen unterschiedlicher Service-Eigenschaften in Ihrer settings-Datei aktiviert.  Die Eigenschaften sind in `their documentation`_ dokumentiert.  Aus Sicherheitsgründen sollten Sie diese nicht zu Ihrer common Settings-Datei hinzufügen, sondern zu ``settings.production``."

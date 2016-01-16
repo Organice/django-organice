@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 01:01+0100\n"
-"PO-Revision-Date: 2016-01-14 23:37+0000\n"
+"POT-Creation-Date: 2016-01-16 04:07+0100\n"
+"PO-Revision-Date: 2016-01-16 03:01+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: Italian (http://www.transifex.com/organice/django-organice-docs/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -27,143 +27,155 @@ msgid "0.3"
 msgstr ""
 
 #: ../../changelog.rst:8
-msgid "Added Python 3 support"
+msgid ""
+"Disabled Mediatree component (needs upgrade to Python 3) -- *planned for "
+"v0.4*"
 msgstr ""
 
 #: ../../changelog.rst:9
+msgid ""
+"Disabled Newsletter component (needs upgrade to Python 3) -- *planned for "
+"v0.4*"
+msgstr ""
+
+#: ../../changelog.rst:10
+msgid "Added Python 3 support"
+msgstr ""
+
+#: ../../changelog.rst:11
 msgid ""
 "Switched from develop/master model to feature branching model (default "
 "branch: ``master``)"
 msgstr ""
 
-#: ../../changelog.rst:10
+#: ../../changelog.rst:12
 msgid "Migrated project to Django 1.8.8 and django CMS 3.2"
 msgstr ""
 
-#: ../../changelog.rst:11
+#: ../../changelog.rst:13
 msgid ""
 "Added sample content loading (first using fixtures, later converted to "
 "management command)"
 msgstr ""
 
-#: ../../changelog.rst:12
+#: ../../changelog.rst:14
 msgid ""
 "Integration of Piwik open source analytics (optional via django-analytical)"
 msgstr "Integrazione di Piwik open source analytics (facoltativa usando django-analytical)"
 
-#: ../../changelog.rst:13
+#: ../../changelog.rst:15
 msgid "Added some test coverage, finally!"
 msgstr ""
 
-#: ../../changelog.rst:14
+#: ../../changelog.rst:16
 msgid "Started with continuous builds (Travis-CI, Shippable)"
 msgstr ""
 
-#: ../../changelog.rst:16
+#: ../../changelog.rst:18
 msgid "https://github.com/Organice/django-organice/compare/v0.2...v0.3"
 msgstr ""
 
-#: ../../changelog.rst:17
+#: ../../changelog.rst:19
 msgid "https://github.com/Organice/django-organice/blob/v0.3/requirements.txt"
 msgstr ""
 
-#: ../../changelog.rst:20
+#: ../../changelog.rst:22
 msgid "0.2"
 msgstr "0.2"
 
-#: ../../changelog.rst:22
+#: ../../changelog.rst:24
 msgid "Project-level Makefile"
 msgstr "Livello progetto Makefile"
 
-#: ../../changelog.rst:23
+#: ../../changelog.rst:25
 msgid ""
 "Automation of translation processes with Transifex (for documentation only)"
 msgstr "Automazione del processo di traduzione utilizzando Transifex (solo per la documentazione)"
 
-#: ../../changelog.rst:24
+#: ../../changelog.rst:26
 msgid "New options for settings (``ORGANICE_URL_PATH_``...)"
 msgstr "Nuove opzioni per le impostazioni (``ORGANICE_URL_PATH_``...)"
 
-#: ../../changelog.rst:25
+#: ../../changelog.rst:27
 msgid "Newsletter editor configuration, newsletter template sample"
 msgstr ""
 
-#: ../../changelog.rst:26
+#: ../../changelog.rst:28
 msgid "Added social login and user profiles (django-allauth)"
 msgstr ""
 
-#: ../../changelog.rst:27
+#: ../../changelog.rst:29
 msgid "Added assets pipeline (bootstrap-sass, Compass, UglifyJS v2)"
 msgstr ""
 
-#: ../../changelog.rst:28
+#: ../../changelog.rst:30
 msgid "Upgraded jQuery to v1.11.0, template overhaul with Bootstrap"
 msgstr ""
 
-#: ../../changelog.rst:29
+#: ../../changelog.rst:31
 msgid "Added language selection dropdown menu"
 msgstr ""
 
-#: ../../changelog.rst:30
+#: ../../changelog.rst:32
 msgid ""
 "Migrated theme data (templates, styles, and javascript) and assets pipeline "
 "to separate projects"
 msgstr ""
 
-#: ../../changelog.rst:32
+#: ../../changelog.rst:34
 msgid ""
 "Generation of server configuration (lighttpd) and more options in organice-"
 "setup"
 msgstr ""
 
-#: ../../changelog.rst:33
+#: ../../changelog.rst:35
 msgid "Added media management (django-media-tree)"
 msgstr ""
 
-#: ../../changelog.rst:34
+#: ../../changelog.rst:36
 msgid "Added todo lists (django-todo)"
 msgstr ""
 
-#: ../../changelog.rst:35
+#: ../../changelog.rst:37
 msgid "Added generic analytics (django-analytical)"
 msgstr ""
 
-#: ../../changelog.rst:37
+#: ../../changelog.rst:39
 msgid "https://github.com/Organice/django-organice/compare/v0.1...v0.2"
 msgstr ""
 
-#: ../../changelog.rst:38
+#: ../../changelog.rst:40
 msgid ""
 "https://github.com/Organice/django-organice/blob/v0.2/docs/requirements.txt"
 msgstr ""
 
-#: ../../changelog.rst:41
+#: ../../changelog.rst:43
 msgid "0.1"
 msgstr ""
 
-#: ../../changelog.rst:43
+#: ../../changelog.rst:45
 msgid "Initial release"
 msgstr ""
 
-#: ../../changelog.rst:44
+#: ../../changelog.rst:46
 msgid ""
 "Based on Django 1.5.5, django CMS 2.4.3, Zinnia blog 0.13, Emencia "
 "newsletter 0.3.dev"
 msgstr ""
 
-#: ../../changelog.rst:45
+#: ../../changelog.rst:47
 msgid ""
 "A more natural i18n mechanism than vanilla Django, no language prefix for "
 "default language"
 msgstr ""
 
-#: ../../changelog.rst:46
+#: ../../changelog.rst:48
 msgid ""
 "Setup script with project generation, deployment settings, custom templates,"
 " Bootstrap 3"
 msgstr ""
 
-#: ../../changelog.rst:48
+#: ../../changelog.rst:50
 msgid ""
 "https://github.com/Organice/django-organice/blob/v0.1/docs/requirements.txt"
 msgstr ""

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the django Organice package.
 # 
 # Translators:
-# Peter Bittner <django@bittner.it>, 2014
+# Peter Bittner <django@bittner.it>, 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 01:01+0100\n"
-"PO-Revision-Date: 2016-01-14 23:22+0000\n"
+"POT-Creation-Date: 2016-01-16 04:07+0100\n"
+"PO-Revision-Date: 2016-01-16 02:52+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: German (http://www.transifex.com/organice/django-organice-docs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,17 +20,17 @@ msgstr ""
 
 #: ../../../README.rst:3
 msgid "django Organice |latest-version|"
-msgstr ""
+msgstr "django Organice |latest-version|"
 
 #: ../../../README.rst:5
 msgid "|travis-ci| |health| |downloads| |license| |gitter|"
-msgstr ""
+msgstr "|travis-ci| |health| |downloads| |license| |gitter|"
 
 #: ../../../README.rst:7
 msgid ""
 "All-in-one collaboration solution.  For non-profit organizations, sports "
 "clubs, small to medium-sized businesses."
-msgstr ""
+msgstr "Die Kollaborationslösung, die alles kann.  Für Non-Profit-Organisationen, Sportvereine, kleine bis mittlere Unternehmen."
 
 #: ../../../README.rst:10
 msgid ""
@@ -39,49 +39,49 @@ msgid ""
 "packages, preconfigured for getting you started quickly.  Being powered by "
 "the well-known `Django Web framework`_ it's a safe choice for your IT "
 "investment providing an easily extensible architecture."
-msgstr ""
+msgstr "Mit django Organice gehen Sie den angenehmen Weg, eine Kollaborationsplatform, ein Intranet und Websites für Ihr Geschäft zu betreiben.  Es ist eine Zusammenstellung der besten Django-Pakete, vorkonfiguriert, damit Sie sofort durchstarten können.  Mit dem bekannten `Django Web framework`_ unter der Motorhaube haben Sie sich für eine sichere Wahl in Ihrem IT-Investment entschieden, das über eine leicht erweiterbare Architektur verfügt."
 
 #: ../../../README.rst:37
 msgid "Fundamental Features"
-msgstr ""
+msgstr "Grundsätzliche Features"
 
 #: ../../../README.rst:39
 msgid ""
 "Enables everyone to contribute to your content---while retaining your full "
 "control."
-msgstr ""
+msgstr "Befähigt jeden, zu Ihren Inhalten etwas beizutragen -- während Sie die vollständige Kontrolle bewahren."
 
 #: ../../../README.rst:40
 msgid ""
 "Supports all four common collaboration and support patterns in several ways:"
-msgstr ""
+msgstr "Unterstützt alle vier gängigen Kollaborations- und Support-Muster auf mehrere Wege:"
 
 #: ../../../README.rst:42
 msgid "*Active contribution* (create content, contribute corrections)"
-msgstr ""
+msgstr "*Aktive Mitarbeit* (Inhalte erstellen, Korrekturen beisteuern)"
 
 #: ../../../README.rst:43
 msgid "*Passive contribution* (report issues, assign tasks, provide feedback)"
-msgstr ""
+msgstr "*Passive Mitarbeit* (Probleme melden, Aufgaben zuweisen, Feedback geben)"
 
 #: ../../../README.rst:44
 msgid "*Active consumption* (search and browse for content)"
-msgstr ""
+msgstr "*Aktiver Konsum* (Suchen und Durchstöbern von Inhalten)"
 
 #: ../../../README.rst:45
 msgid "*Passive consumption* (subscribe to notifications)"
-msgstr ""
+msgstr "*Passiver Konsum* (Abonnieren von Benachrichtigungen)"
 
 #: ../../../README.rst:47
 msgid ""
 "Continually involves, helps and optimally supports your collaborators by "
 "sending out reminders, editing and submission hints to avoid losing traction"
 " or interest."
-msgstr ""
+msgstr "Involviert nachhaltig, hilft und unterstützt Sie bei der Zusammenarbeit optimal durch Aussenden von Erinnerungsmails, Bearbeitungs- und Einreichungshinweisen, damit Ihre Benutzer nicht Motivation und Interesse verlieren."
 
 #: ../../../README.rst:51
 msgid "Core Components"
-msgstr ""
+msgstr "Kernkomponenten"
 
 #: ../../../README.rst:53
 msgid "Major components of django Organice are:"
@@ -117,23 +117,23 @@ msgstr "leistungsstarker Newsletter (Emencia)"
 
 #: ../../../README.rst:62
 msgid "todo/issue lists"
-msgstr ""
+msgstr "Todo-Listen, Aufgabenlisten"
 
 #: ../../../README.rst:63
 msgid "social login and user profiles (allauth)"
-msgstr ""
+msgstr "Social Login und Benutzerprofile (allauth)"
 
 #: ../../../README.rst:64
 msgid "generic analytics support (analytical)"
-msgstr ""
+msgstr "Generischer Analytics-Support (analytical)"
 
 #: ../../../README.rst:65
 msgid "web analytics respecting your privacy (Piwik integration)"
-msgstr ""
+msgstr "Web Analytics, die Ihre Privatsphäre respektiert (Piwik-Integration)"
 
 #: ../../../README.rst:66
 msgid "multiple themes (available for free at http://organice.io/themes)"
-msgstr ""
+msgstr "Zahlreiche Web-Themes (kostenlos verfügbar unter http://organice.io/themes)"
 
 #: ../../../README.rst:67
 msgid "multi-language support"
@@ -145,53 +145,53 @@ msgstr "Multi-Websitefähigkeit"
 
 #: ../../../README.rst:69
 msgid "database support for PostgreSQL, MySQL, Oracle, and more"
-msgstr ""
+msgstr "Datenbankunterstützung für PostgreSQL, MySQL, Oracle u.v.m."
 
 #: ../../../README.rst:72
 msgid "Roadmap"
-msgstr ""
+msgstr "Roadmap"
 
 #: ../../../README.rst:74
 msgid "We are thrilled to get these awesome features out to you:"
-msgstr ""
+msgstr "Wir können es kaum erwarten, Ihnen diese Features zu liefern:"
 
 #: ../../../README.rst:76
 msgid "group spaces with automatic mailing list (groupname@example.com)"
-msgstr ""
+msgstr "Gruppenfunktionalität mit automatischem Mailverteiler (groupname@example.com)"
 
 #: ../../../README.rst:77
 msgid "documentation area / wiki (probably by use of CMS functionality)"
-msgstr ""
+msgstr "Dokumentationsbereich / Wiki (möglicherweise mittels CMS-Funktionalität)"
 
 #: ../../../README.rst:78
 msgid "discussion forum / Q&A board (Askbot, Misago)"
-msgstr ""
+msgstr "Diskussionsforum / Q&A-Board (Askbot, Misago)"
 
 #: ../../../README.rst:79
 msgid "content download for magazine generation"
-msgstr ""
+msgstr "Herunterladen von Inhalten zum Genierieren von Print-Magazinen"
 
 #: ../../../README.rst:80
 msgid "unobtrusive, integrated, transparent document and asset management"
-msgstr ""
+msgstr "unaufdringliches, integriertes, transparentes Dokumenten- und Asset-Management"
 
 #: ../../../README.rst:81
 msgid ""
 "DropBox, ownCloud, Windows OneDrive, Google Drive, Apple iCloud, etc. "
 "integration"
-msgstr ""
+msgstr "DropBox, ownCloud, Windows OneDrive, Google Drive, Apple iCloud, etc.-Integration"
 
 #: ../../../README.rst:82
 msgid "fully integrated search (Haystack)"
-msgstr ""
+msgstr "voll integrierte Suche (Haystack)"
 
 #: ../../../README.rst:83
 msgid "live chat or chat integration"
-msgstr ""
+msgstr "Live-Chat oder Chat-Integration"
 
 #: ../../../README.rst:84
 msgid "surveys (django-crowdsourcing, ntusurvey)"
-msgstr ""
+msgstr "Umfragen (django-crowdsourcing, ntusurvey)"
 
 #: ../../../README.rst:87
 msgid "Who is using django Organice?"
@@ -203,35 +203,35 @@ msgstr "Beispiele von Websites, die auf django Organice laufen:"
 
 #: ../../../README.rst:91
 msgid "`Organice.io website <http://organice.io/>`_"
-msgstr ""
+msgstr "`Organice.io Website <http://organice.io/>`_"
 
 #: ../../../README.rst:92
 msgid "`Organice demo site <http://demo.organice.io/>`_"
-msgstr ""
+msgstr "`Organice Demo-Website <http://demo.organice.io/>`_"
 
 #: ../../../README.rst:93
 msgid "`Kreuzlingen Rudolf Steiner school <http://www.rssk.ch/>`_"
-msgstr ""
+msgstr "`Rudolf Steiner Schule Kreuzlingen <http://www.rssk.ch/>`_"
 
 #: ../../../README.rst:96
 msgid "Download and Contributions"
-msgstr ""
+msgstr "Downloads und Mitarbeit"
 
 #: ../../../README.rst:98
 msgid "Official repositories: (kept in sync)"
-msgstr ""
+msgstr "Offizielle Repositories: (synchronisiert)"
 
 #: ../../../README.rst:100
 msgid "Bitbucket: https://bitbucket.org/organice/django-organice"
-msgstr ""
+msgstr "Bitbucket: https://bitbucket.org/organice/django-organice"
 
 #: ../../../README.rst:101
 msgid "GitHub: https://github.com/organice/django-organice"
-msgstr ""
+msgstr "GitHub: https://github.com/organice/django-organice"
 
 #: ../../../README.rst:104
 msgid "Getting Help"
-msgstr ""
+msgstr "Hilfe holen"
 
 #: ../../../README.rst:106
 msgid "Documentation is available at http://docs.organice.io"
@@ -241,14 +241,14 @@ msgstr "Dokumentation ist verfügbar unter http://docs.organice.io"
 msgid ""
 "Questions? Please use `StackOverflow`_.  Tag your questions with ``django-"
 "organice``."
-msgstr ""
+msgstr "Fragen? Bitte verwenden Sie `StackOverflow`_.  Markieren Sie Ihre Fragen mit ``django-organice``."
 
 #: ../../../README.rst:108
 msgid ""
 "Found a bug? Please use either the `Bitbucket`_ or `GitHub`_ issue tracker "
 "(you choose)"
-msgstr ""
+msgstr "Haben Sie einen Bug gefunden? Verwenden Sie bitte entweder den `Bitbucket`_ oder `GitHub`_ Issue Tracker (freie Wahl)"
 
 #: ../../../README.rst:109
 msgid "Need support? You're welcome to use our `Gitter chat room`_."
-msgstr ""
+msgstr "Brauchen Sie Unterstützung? Unser `Gitter chat room`_ steht Ihnen gerne zur Verfügung."
