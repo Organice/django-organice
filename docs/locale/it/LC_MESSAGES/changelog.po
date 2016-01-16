@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django Organice Docs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-16 04:07+0100\n"
-"PO-Revision-Date: 2016-01-16 03:01+0000\n"
+"POT-Creation-Date: 2016-01-16 15:18+0100\n"
+"PO-Revision-Date: 2016-01-16 14:10+0000\n"
 "Last-Translator: Peter Bittner <django@bittner.it>\n"
 "Language-Team: Italian (http://www.transifex.com/organice/django-organice-docs/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,8 @@ msgid "https://github.com/Organice/django-organice/compare/v0.2...v0.3"
 msgstr ""
 
 #: ../../changelog.rst:19
-msgid "https://github.com/Organice/django-organice/blob/v0.3/requirements.txt"
+msgid ""
+"https://github.com/Organice/django-organice/blob/v0.3/docs/requirements.txt"
 msgstr ""
 
 #: ../../changelog.rst:22
