@@ -111,5 +111,5 @@ Getting Help
 
 .. _StackOverflow: http://stackoverflow.com/questions/tagged/django-organice
 .. _Bitbucket: https://bitbucket.org/organice/django-organice/issues
-.. _GitHub: https://github.com/organice/django-organice/issues
+.. _GitHub: https://github.com/Organice/django-organice/issues
 .. _Gitter chat room: https://gitter.im/Organice/chat

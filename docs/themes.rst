@@ -41,7 +41,7 @@ Preparations:
 Loop until you're happy:
 
 - Add or adapt the style sheet (``.scss``), JavaScript (``.js``), and other files in ``mytheme/static/``.
-- Run ``make assets`` in order to compile the Sass files to CSS, and combine and minify both CSS und JavaScript.
+- Run ``make assets`` in order to compile the Sass files to CSS, and combine and minify both CSS and JavaScript.
 - Adapt the template files in ``mytheme/templates/``, and test the results on your development system.
 
 

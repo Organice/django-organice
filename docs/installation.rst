@@ -111,8 +111,8 @@ Initial Configuration
    Adapt the values of :const:`LANGUAGE_CODE` and :const:`LANGUAGES`, and set
    :const:`USE_I18N = True` in your project settings.
 
-#. After installation django Organice is configured, unless you ran the ``bootstrap`` management
-   command the database is blank without any content.  You can sample content and other data
+#. After installation django Organice is configured, but unless you ran the ``bootstrap`` management
+   command the database is blank without any content.  You can add some sample content and other data
    running one or all of the following commands::
 
     $ python manage.py organice initauth  # prepare social auth provider configuration
@@ -172,6 +172,10 @@ with::
 
     $ python manage.py runserver --settings=example.settings.staging
 
+Finally, make sure you also have consulted the `deployment checklist`_ of the Django project
+and follow their best practices.
+
 
 .. _`Django settings best practices`: http://www.sparklewise.com/django-settings-for-production-and-development-best-practices/
 .. [1] David Cramer from DISQUS has described a similar solution at http://justcramer.com/2011/01/13/settings-in-django/
+.. _deployment checklist: https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/

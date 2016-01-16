@@ -18,3 +18,9 @@ after_success:
   - coveralls || true
 notifications:
   slack: organice:2v4ZfYaW6KonOr5RyJqjyU92
+  webhooks:
+    urls:
+      - https://readthedocs.org/build/django-organice
+    on_start: never
+    on_failure: never
+    on_success: always

@@ -2,7 +2,7 @@
 User Manual
 ===========
 
-django Organice is composend of the following main components:
+django Organice is composed of the following main components:
 
 #. `Content Management`_ (Cms)
 #. `Blog`_ (Zinnia)
@@ -12,12 +12,13 @@ django Organice is composend of the following main components:
 ===========================
 
 Editing your website is not much different from surfing the web.  When you're logged in to your website you will have
-the django CMS toolbar on top of the page.  Slide the "Edit mode" button to the "ON" state, and some elements of the
-page you're currently on start having additional toolbars to add and edit content in those areas.
+the django CMS toolbar on top of the page.  Press the blue "Edit" button to go into Edit mode.  When you now hover
+over the website elements you'll notice tooltips ("Double-click to edit").  Double-click on those areas, and an editor
+window will open up to allow you to modify the content.
 
 You can safely modify content on the page without the website to change.  Only you can see the changes, and only as
-long as you are in Edit mode.  When you're happy with the changes press the blue "Publish" button on the django CMS
-toolbar to make your version visible to the world.
+long as you are in Edit mode.  When you're happy with the changes press the blue "Publish changes" button on the
+django CMS toolbar to make your version visible to the world.
 
 For more technical tasks like creating a navigation structure, adding pages, etc. the django CMS toolbar redirects you
 to the Django administration interface.  Want to have an upfront first impression before using it?  Check out the
