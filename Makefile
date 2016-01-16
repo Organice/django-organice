@@ -74,7 +74,9 @@ uninstall:
 	pip freeze | sed 's/==.*$$//' | xargs -I PKG pip uninstall -y PKG
 
 release: setuptools clean requirements
+	cp -v docs/requirements.txt requirements.txt
 	python setup.py sdist upload
+	git checkout requirements.txt
 
 requirements: setuptools undevelop
 # NOTE: we must filter out erroneously listed globally installed packages on Ubuntu
