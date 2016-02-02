@@ -29,8 +29,9 @@ bumpver:
 
 clean:
 	$(MAKE) -C docs clean
-	find . -name '*.pyc' -exec rm {} \;
-	rm -rf build/ dist/ *.egg-info/ .eggs/ docs/build/ organice/static/.sass-cache tests/__pycache__/ .cache .coverage
+	find {organice,tests} -type f -name '*.pyc' -delete
+	find {organice,tests} -type d -name '__pycache__' -delete
+	rm -rf build/ dist/ *.egg-info/ .eggs/ docs/build/ organice/static/.sass-cache .cache .coverage
 	rm -rf manage.py test_project_* coverage.xml unittests.xml *.egg/
 	for DIR in media/ static/ templates/ ; do \
 		[ -d $$DIR ] && rmdir $$DIR || true ; \
