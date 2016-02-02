@@ -5,8 +5,9 @@ CHANGELOG
 0.3
 ===
 
-- Disabled Mediatree component (needs upgrade to Python 3) -- *planned for v0.4*
-- Disabled Newsletter component (needs upgrade to Python 3) -- *planned for v0.4*
+- Disabled Contact Page plugin (to be replaced by forms builder) -- *planned for v0.5*
+- Disabled Mediatree component (needs upgrade to Python 3) -- *planned for v0.5*
+- Disabled Newsletter component (needs upgrade to Python 3) -- *planned for v0.5*
 - Added Python 3 support
 - Switched from develop/master model to feature branching model (default branch: ``master``)
 - Migrated project to Django 1.8.8 and django CMS 3.2

@@ -140,6 +140,9 @@ Initial Configuration
    - Finally, add your first newsletter to Newsletter > Newsletters.
    - For adding templates to Emencia Newsletter please consult the related section in the
      `TinyMCE 3.x documentation`_.
+   - To add a link page simply use the "bookmarks" template for a page.  You have to add categories
+     and links in the Django Admin.  (NOTE: This feature may be replaced by an integration of social
+     bookmarking services in future.)
 
 #. For sending newsletters to work you must configure a cronjob polling on
    ``python manage.py send_newsletter`` every half an hour.  If that was just Greek to you go ask
