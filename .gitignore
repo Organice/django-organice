@@ -18,7 +18,7 @@
 # test projects and data
 /manage.py
 /test_project_*/
-/unittests.xml
+/tests/reports/
 
 # Django and Python
 /static/

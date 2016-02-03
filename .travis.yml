@@ -14,7 +14,7 @@ after_success:
   - coverage report
   - coverage xml
   - mv -v coverage.xml shippable/codecoverage/
-  - mv -v unittests.xml shippable/testresults/
+  - mv -v tests/reports/* shippable/testresults/
   - coveralls || true
 notifications:
   slack: organice:2v4ZfYaW6KonOr5RyJqjyU92

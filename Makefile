@@ -32,7 +32,7 @@ clean:
 	find {organice,tests} -type f -name '*.pyc' -delete
 	find {organice,tests} -type d -name '__pycache__' -delete
 	rm -rf build/ dist/ *.egg-info/ .eggs/ docs/build/ organice/static/.sass-cache .cache .coverage
-	rm -rf manage.py test_project_* coverage.xml unittests.xml *.egg/
+	rm -rf manage.py test_project_* coverage.xml tests/reports/ *.egg/
 	for DIR in media/ static/ templates/ ; do \
 		[ -d $$DIR ] && rmdir $$DIR || true ; \
 	done
@@ -43,12 +43,12 @@ coverage:
 	echo 'Coverage generation failed. (Try `make develop`)'
 
 develop: setuptools
-	pip install -q Sphinx sphinx-intl transifex-client flake8 pytest tox coverage
+	pip install -q Sphinx sphinx-intl transifex-client flake8 pytest tox coverage behave-django selenium
 	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null || \
 	flake8 --install-hook
 
 undevelop: setuptools
-	for PKG in snowballstemmer pytz babel MarkupSafe Jinja2 sphinx-rtd-theme six docutils Pygments alabaster Sphinx click sphinx-intl urllib3 transifex-client pep8 pyflakes mccabe flake8 py pytest virtualenv pluggy tox coverage ; do \
+	for PKG in snowballstemmer pytz babel MarkupSafe Jinja2 sphinx-rtd-theme six docutils Pygments alabaster Sphinx click sphinx-intl urllib3 transifex-client pep8 pyflakes mccabe flake8 py pytest virtualenv pluggy tox coverage parse enum34 parse-type behave behave-django selenium ; do \
 		pip uninstall -q -y $$PKG || true ; \
 	done
 	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null && \
