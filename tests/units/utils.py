@@ -4,7 +4,7 @@ Helper functions for tests
 from organice.management.settings import DjangoSettingsManager
 
 
-def probe_values_in_tuple(content, tuple_key, required_values):
+def probe_values_in_tuple(content, tuple_key, required_values, delimiter='='):
     """
     Test a tuple for required values, extracting the tuple beforehand.
     :param content: content string containing the tuple attribute (e.g. Django settings)
@@ -13,7 +13,7 @@ def probe_values_in_tuple(content, tuple_key, required_values):
     :return: None (asserts in case of failure)
     """
     try:
-        start_pos = content.find("%s = (\n" % tuple_key)
+        start_pos = content.find("{key} {delim} (\n".format(key=tuple_key, delim=delimiter))
         assert start_pos != -1, "Tuple not found: %s" % tuple_key
         stop_pos = 1 + content.find("\n)\n", start_pos)
         assert stop_pos > start_pos, "End of tuple not found: %s" % tuple_key

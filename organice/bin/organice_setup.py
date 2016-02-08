@@ -187,6 +187,10 @@ def _split_project():
     settings.set_value('common', 'USE_I18N', False)
     settings.move_var('common', profiles, 'DEBUG')
     settings.move_var('common', profiles, 'ALLOWED_HOSTS')
+    settings.append_lines('develop',
+                          "INSTALLED_APPS += (",
+                          "    'behave_django',",
+                          ")")
     settings.move_var('common', profiles, 'DATABASES')
     settings.move_var('common', profiles, 'MEDIA_ROOT')
     settings.move_var('common', profiles, 'STATIC_ROOT')

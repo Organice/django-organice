@@ -121,6 +121,13 @@ class TestOrganiceSetup(object):
         ]
         assert probe_values_in_tuple(common_settings, 'INSTALLED_APPS', required_apps)
 
+    def test_04_configure_installed_dev(self, project_name, cmd_args):
+        dev_settings = open(settings_file_for(project_name, 'develop')).read()
+        required_apps = [
+            'behave_django',
+        ]
+        assert probe_values_in_tuple(dev_settings, 'INSTALLED_APPS', delimiter='+=', required_values=required_apps)
+
     def test_05_configure_authentication(self, project_name, cmd_args):
         common_settings = open(settings_file_for(project_name, 'common')).read()
         assert 'SERVER_EMAIL = ADMINS[0][1]' in common_settings
