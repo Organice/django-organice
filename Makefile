@@ -48,7 +48,7 @@ develop: setuptools
 	flake8 --install-hook
 
 undevelop: setuptools
-	for PKG in snowballstemmer pytz babel MarkupSafe Jinja2 sphinx-rtd-theme six docutils Pygments alabaster Sphinx click sphinx-intl urllib3 transifex-client pep8 pyflakes mccabe flake8 py pytest virtualenv pluggy tox coverage parse enum34 parse-type behave behave-django selenium ; do \
+	for PKG in snowballstemmer babel MarkupSafe Jinja2 sphinx-rtd-theme docutils Pygments alabaster Sphinx click sphinx-intl urllib3 transifex-client pep8 pyflakes mccabe flake8 py pytest virtualenv pluggy tox coverage parse enum34 parse-type behave behave-django selenium ; do \
 		pip uninstall -q -y $$PKG || true ; \
 	done
 	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null && \

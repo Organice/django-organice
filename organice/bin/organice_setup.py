@@ -188,9 +188,18 @@ def _split_project():
     settings.move_var('common', profiles, 'DEBUG')
     settings.move_var('common', profiles, 'ALLOWED_HOSTS')
     settings.append_lines('develop',
-                          "INSTALLED_APPS += (",
+                          "DEVELOP_APPS = (",
                           "    'behave_django',",
-                          ")")
+                          ")",
+                          "",
+                          "try:",
+                          "    from importlib import import_module",
+                          "    for pkg in DEVELOP_APPS:",
+                          "        import_module(pkg)",
+                          "    INSTALLED_APPS += DEVELOP_APPS",
+                          "except ImportError:",
+                          "    from warnings import warn",
+                          "    warn('Development packages missing. Please run `make develop`', Warning)")
     settings.move_var('common', profiles, 'DATABASES')
     settings.move_var('common', profiles, 'MEDIA_ROOT')
     settings.move_var('common', profiles, 'STATIC_ROOT')
