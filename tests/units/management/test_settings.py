@@ -4,19 +4,19 @@ from organice.management.settings import DjangoModuleManager, DjangoSettingsMana
 
 def test_create_module():
     """Create a module, and create a submodule (file) in it."""
-    content = [
+    module_content = [
         '# this is a test module',
         'KITCHEN = "Veggie Surprises"',
         'CARROTS = 50',
     ]
     module = DjangoModuleManager('test_project_settings', 'kitchen')
-    module.add_file('cook', lines=content)
+    module.add_file('cook', lines=module_content)
     module.save_files()
 
     thefile = module.get_file('cook')
     thefile.seek(0)
-    content = thefile.read()
-    assert content.startswith(content[0])
+    file_content = thefile.read()
+    assert file_content.startswith(module_content[0])
 
 
 def test_read_module():

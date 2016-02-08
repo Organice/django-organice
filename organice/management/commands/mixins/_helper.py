@@ -16,7 +16,7 @@ def create_user(username, email='testuser@organice.io'):
     print(_('Creating user {} with password {} ...').format(username, username))
     try:
         User.objects.get(username=username).delete()
-        print("Warning: deleted existing user {} first.".format(username))
+        print("WARNING: User {} exists. Deleting them first.".format(username))
     except User.DoesNotExist:
         pass
     User.objects.create_user(username, email, username).save()
@@ -27,7 +27,7 @@ def delete_page(title):
     while len(Title.objects.filter(title=title)):
         # Pain! filter, because django CMS creates 2 titles for each page
         page = Title.objects.filter(title=title).first().page
-        print(_('Warning: deleting existing page {} first ...').format(title))
+        print(_('WARNING: Page {} exists. Deleting it first ...').format(title))
         page.delete()
         # TODO: Check, are plugins deleted automatically? (cascading)
 
@@ -62,8 +62,9 @@ def add_blog_entry(slug, title, excerpt=None, lang='en', categories=(), tags=Non
     """
     print(_('Creating blog entry {} ...').format(title))
     Entry = apps.get_model('zinnia', 'entry')
-    entry, created = Entry.objects.get_or_create(
-            slug=slug, title=title, excerpt=excerpt, tags=tags, status=PUBLISHED)
+    entry, created = Entry.objects.get_or_create(slug=slug, title=title, status=PUBLISHED)
+    entry.excerpt = excerpt
+    entry.tags = tags
     entry.sites = Site.objects.all()
     entry.categories.add(*categories)
     for plugin, fieldset in plugins:

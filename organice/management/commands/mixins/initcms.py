@@ -12,7 +12,7 @@ class InitcmsCommandMixin(object):
         """
         Create some pages with sample content
         """
-        self.stdout.write(_('Generate menu structure and pages ...'))
+        self.stdout.write(_('Generate menu structure and pages:'))
         add_cms_page(_('Home'), plugins=[
             ('TextPlugin', {
                 'body': "<h1>Welcome to the Organice Demo Site!</h1>\n"
