@@ -120,7 +120,7 @@ def _create_project():
             safe_rename(manage_script_name, manage_delete_name)
 
     _print_verbose(2, 'Generating project %s ...' % projectname)
-    code = call(['django-admin.py', 'startproject', projectname, '.'])
+    code = call(['django-admin', 'startproject', projectname, '.'])
     if code != 0:
         if args.manage == 'multi':
             _print_verbose(1, 'Restoring original manage.py ...')
