@@ -3,32 +3,33 @@ A label command (sub-command) for the Organice management command.
 """
 from django.utils.translation import ugettext as _
 
-from ._helper import add_blog_category, add_blog_entry
+from ._helper import HelperMixin
 
 
-class InitblogCommandMixin(object):
+class InitblogCommandMixin(HelperMixin):
 
     def initblog_command(self):
         """
         Create sample blog entries
         """
-        self.stdout.write(_('Generate blog content ...'))
+        if self.verbosity >= 1:
+            self.stdout.write(_('Generate blog content ...'))
 
-        add_blog_category(
+        self.add_blog_category(
             slug='events', title=_('Events'),
             description=_("Articles that are displayed in the Events section of our website."))
-        add_blog_category(
+        self.add_blog_category(
             slug='press', title=_('Press'),
             description=_("Quotes about us in newspapers, or press releases."
                           " These articles are listed in the Press section of our website."))
-        category_jobs = add_blog_category(
+        category_jobs = self.add_blog_category(
             slug='jobs', title=_('Jobs'),
             description=_("Job vacancies. Because everyone wants to work with us!"))
 
-        add_blog_entry(slug='office-manager', title=_('Office Manager'),
-                       categories=[category_jobs], tags='awesome, backoffice',
-                       excerpt="We're looking for you. The best office manager (f/m) for a world-class team.",
-                       plugins=[
+        self.add_blog_entry(slug='office-manager', title=_('Office Manager'),
+                            categories=[category_jobs], tags='awesome, backoffice',
+                            excerpt="We're looking for you. The best office manager (f/m) for a world-class team.",
+                            plugins=[
             ('TextPlugin', {
                 'body': "<p>We're looking for you."
                         " The best <strong>office manager (f/m)</strong> for a world-class team.</p>\n"

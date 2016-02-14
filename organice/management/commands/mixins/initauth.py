@@ -11,7 +11,8 @@ class InitauthCommandMixin(object):
         """
         Initialize social auth providers with generic data
         """
-        self.stdout.write(_('Prepare configuration of SocialAuth apps ...'))
+        if self.verbosity >= 1:
+            self.stdout.write(_('Prepare configuration of SocialAuth apps ...'))
 
         count = 0
         social_auth_providers = [
@@ -31,13 +32,15 @@ class InitauthCommandMixin(object):
         for provider, name in social_auth_providers:
             app_config, created = SocialApp.objects.get_or_create(provider=provider, name=name)
             if not created:
-                self.stdout.write(_('App configuration already exists: {} -- leaving it untouched.')
-                                  .format(name))
+                if self.verbosity >= 1:
+                    self.stdout.write(_('App configuration already exists: {} -- leaving it untouched.')
+                                      .format(name))
             else:
                 app_config.secret = app_config.client_id = 'xxxx'
                 app_config.key = ''
                 app_config.save()
                 count += 1
 
-        self.stdout.write(_('{count} SocialAuth app configuration drafts added, {total} in total.')
-                          .format(count=count, total=SocialApp.objects.count()))
+        if self.verbosity >= 1:
+            self.stdout.write(_('{count} SocialAuth app configuration drafts added, {total} in total.')
+                              .format(count=count, total=SocialApp.objects.count()))

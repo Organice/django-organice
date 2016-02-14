@@ -65,6 +65,11 @@ class Command(InitauthCommandMixin,
         """
         parser.add_argument('args', metavar=self.label, nargs='+', help=self.cmd_help)
 
+    def handle(self, *labels, **options):
+        """Make ``verbosity`` available as an attribute, for ease of use."""
+        self.verbosity = options.get('verbosity')
+        super(Command, self).handle(*labels, **options)
+
     def handle_label(self, label, **options):
         try:
             self.label_commands[label]()

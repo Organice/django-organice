@@ -3,17 +3,19 @@ A label command (sub-command) for the Organice management command.
 """
 from django.utils.translation import ugettext as _
 
-from ._helper import add_cms_page
+from ._helper import HelperMixin
 
 
-class InitcmsCommandMixin(object):
+class InitcmsCommandMixin(HelperMixin):
 
     def initcms_command(self):
         """
         Create some pages with sample content
         """
-        self.stdout.write(_('Generate menu structure and pages:'))
-        add_cms_page(_('Home'), plugins=[
+        if self.verbosity >= 1:
+            self.stdout.write(_('Generate menu structure and pages:'))
+
+        self.add_cms_page(_('Home'), plugins=[
             ('TextPlugin', {
                 'body': "<h1>Welcome to the Organice Demo Site!</h1>\n"
                         "<p>You can use the User Menu in the right upper corner to log in"
@@ -29,7 +31,7 @@ class InitcmsCommandMixin(object):
             }),
         ])
         about_page = \
-            add_cms_page(_('About Us'), slug='about', plugins=[
+            self.add_cms_page(_('About Us'), slug='about', plugins=[
                 ('TextPlugin', {
                     'body': "<h1>About Us</h1>\n"
                             "<p>We are Demo Company. The greatest place on earth!"
@@ -37,7 +39,7 @@ class InitcmsCommandMixin(object):
                 }),
             ])
         programs_page = \
-            add_cms_page(_('Programs'), plugins=[
+            self.add_cms_page(_('Programs'), plugins=[
                 ('TextPlugin', {
                     'body': "<h1>Programs</h1>\n"
                             "<p>Demo Company is at the forefront of providing progressive"
@@ -47,7 +49,7 @@ class InitcmsCommandMixin(object):
                             " This is the foundation of our work to develop world-class talents.</p>\n",
                 }),
             ])
-        add_cms_page(_('Sponsors'), plugins=[
+        self.add_cms_page(_('Sponsors'), plugins=[
             ('TextPlugin', {
                 'body': "<h1>Sponsors</h1>\n"
                         "<p>Please applaud our very special sponsors. Say &ldquo;thank you&rdquo;"
@@ -60,7 +62,7 @@ class InitcmsCommandMixin(object):
                 'body': "<h2>Silver Sponsors</h2>\n<p>...</p>\n",
             }),
         ])
-        add_cms_page(_('Jobs'), parent=about_page, plugins=[
+        self.add_cms_page(_('Jobs'), parent=about_page, plugins=[
             ('TextPlugin', {
                 'body': "<h1>Job Vacancies</h1>\n"
                         "<p>We're always looking for great talents."
@@ -74,7 +76,7 @@ class InitcmsCommandMixin(object):
                 'number_of_entries': 0,
             }),
         ])
-        add_cms_page(_('Contact Us'), slug='contact', parent=about_page, plugins=[
+        self.add_cms_page(_('Contact Us'), slug='contact', parent=about_page, plugins=[
             ('TextPlugin', {
                 'body': "<h1>Office</h1>\n"
                         "<p>Demo Company street, 1a<br>12345 Isles of Scilly</p>\n"
@@ -94,7 +96,7 @@ class InitcmsCommandMixin(object):
             #               "<p>We'll get back to you about your request as soon as possible.</p>",
             # }),
         ])
-        add_cms_page(_('Directions'), parent=about_page, plugins=[
+        self.add_cms_page(_('Directions'), parent=about_page, plugins=[
             ('GoogleMapPlugin', {
                 'city': "Isles of Scilly",
                 'title': "How You Find Us",
@@ -105,13 +107,13 @@ class InitcmsCommandMixin(object):
                 'zoom': 16,
             }),
         ])
-        add_cms_page(_('Juniors'), parent=programs_page, plugins=[
+        self.add_cms_page(_('Juniors'), parent=programs_page, plugins=[
             ('TextPlugin', {
                 'body': "<h1>Juniors</h1>\n"
                         "<p>Training and education of our young stars.</p>\n",
             }),
         ])
-        add_cms_page(_('Seniors'), parent=programs_page, plugins=[
+        self.add_cms_page(_('Seniors'), parent=programs_page, plugins=[
             ('TextPlugin', {
                 'body': "<h1>Seniors</h1>\n"
                         "<p>Recreational programs for retired professionals and hobbyists.</p>\n",

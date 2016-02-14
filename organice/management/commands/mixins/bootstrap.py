@@ -15,4 +15,5 @@ class BootstrapCommandMixin(object):
         self.handle_label('initcms')
         self.handle_label('initblog')
 
-        self.stdout.write(_('Have an organiced day!'))
+        if self.verbosity >= 1:
+            self.stdout.write(_('Have an organiced day!'))
