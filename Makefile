@@ -94,6 +94,11 @@ setuptools:
 tests:
 	py.test
 
+behave: clean
+	python setup.py -q develop && \
+	organice-setup -v0 test_project_acceptance && \
+	python manage.py behave
+
 transifex: develop
 	@cd docs && tx pull --all --force
 	@$(MAKE) -C docs gettext

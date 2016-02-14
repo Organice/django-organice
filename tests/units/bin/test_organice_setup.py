@@ -162,10 +162,10 @@ class TestOrganiceSetup(object):
         ]
         assert probe_values_in_list(common_settings, [
             "TEMPLATES = [", "{", "'OPTIONS': {", "'context_processors': ["
-            ], required_ctx)
+        ], required_ctx)
         assert probe_values_in_list(common_settings, [
             "TEMPLATES = [", "{", "'OPTIONS': {", "'loaders': ["
-            ], required_loaders)
+        ], required_loaders)
 
     def test_07_configure_cms(self, project_name, cmd_args):
         common_settings = open(settings_file_for(project_name, 'common')).read()
