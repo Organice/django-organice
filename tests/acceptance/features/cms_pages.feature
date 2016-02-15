@@ -3,7 +3,6 @@ Feature: CMS features are provided
   I want to see a few CMS pages showcasing major features of the project
   So that I get a sound impression of the capabilities provided.
 
-  @wip
   Scenario: Welcome page shows navigation, content and sidebar
     Given the demo project has been generated according to the documentation
     When I open the "/" page
@@ -15,5 +14,6 @@ Feature: CMS features are provided
     And a "calendar" widget is displayed in the "sidebar"
 
   Scenario: News entry is a clickable teaser
+    Given I am on the "Home" / page
     When I click on the "continue-reading" link of the "Office Manager" teaser
     Then the blog entry "office-manager" titled "Office Manager" is displayed

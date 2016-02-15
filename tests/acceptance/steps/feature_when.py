@@ -19,8 +19,9 @@ def step_impl(context, caption, name):
 
 @when(u'I click on the "{element_class}" link of the "{entry_title}" teaser')
 def step_impl(context, element_class, entry_title):
-    anchor = context.browser.find('.contact-list .{css_class} a'.format(css_class=type))
-    context.pk = anchor.get_attribute('href').split('/')[-2]
+    title = context.browser.find('.hentry .entry-title a').text
+    assert title == entry_title, "Unexpected blog entry: {} != {}".format(title, entry_title)
+    anchor = context.browser.find('.hentry .{css_class} a'.format(css_class=element_class))
     anchor.click()
 
 

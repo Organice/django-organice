@@ -24,10 +24,6 @@ def before_all(context):
     context.browser = Firefox()  # use PhantomJS() for faster, invisible test runs
 
 
-def before_feature(context, feature):
-    pass
-
-
 def before_scenario(context, scenario):
     """Provide initial data (fixtures) for each test"""
     call_command('organice', 'bootstrap', verbosity=0)
