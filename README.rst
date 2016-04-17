@@ -2,7 +2,7 @@
 django Organice |latest-version|
 ================================
 
-|travis-ci| |health| |downloads| |license| |gitter|
+|travis-ci| |health| |python-support| |downloads| |license| |gitter|
 
 All-in-one collaboration solution.  For non-profit organizations, sports clubs, small to
 medium-sized businesses.
@@ -22,6 +22,9 @@ investment providing an easily extensible architecture.
 .. |health| image:: https://landscape.io/github/Organice/django-organice/master/landscape.svg?style=flat
    :target: https://landscape.io/github/Organice/django-organice/master
    :alt: Code health
+.. |python-support| image:: https://img.shields.io/pypi/pyversions/django-organice.svg
+   :target: https://pypi.python.org/pypi/django-organice
+   :alt: Python versions
 .. |downloads| image:: https://img.shields.io/pypi/dm/django-organice.svg
    :alt: Monthly downloads from PyPI
    :target: https://pypi.python.org/pypi/django-organice
