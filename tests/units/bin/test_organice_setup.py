@@ -13,6 +13,16 @@ def settings_file_for(project, profile):
     return join(project, 'settings', profile + '.py')
 
 
+def run_management_cmd_for(project_name, testcmd_args, *command_args):
+    """
+    Execute a management command, including the required settings if needed.
+    """
+    manage_cmd = ['python', 'manage.py'] + list(command_args)
+    if 'multi' in testcmd_args:
+        manage_cmd += ['--settings', '%s.settings' % project_name]
+    return call(manage_cmd)
+
+
 @fixture(scope="class")
 def setup(request, project_name):
     """test setup"""
@@ -38,6 +48,7 @@ class TestOrganiceSetup(object):
     """
     scenarios = [
         ['default', dict(project_name='test_project_default', cmd_args=[])],
+        ['multi', dict(project_name='test_project_multi', cmd_args=['--manage', 'multi'])],
         ['nginx', dict(project_name='test_project_nginx', cmd_args=['--webserver', 'nginx'])],
         ['lighttp', dict(project_name='test_project_lighttp', cmd_args=['--webserver', 'lighttp'])],
     ]
@@ -57,6 +68,10 @@ class TestOrganiceSetup(object):
         assert isfile(manage_script)
         file_mode = oct(stat(manage_script).st_mode)[-3:]
         assert file_mode == mode0755
+        with open(manage_script) as script:
+            content = script.read()
+            assert 'execute_from_command_line' in content
+            assert ('multi' in cmd_args) != ('DJANGO_SETTINGS_MODULE' in content)
 
     def test_02_split_project(self, project_name, cmd_args):
         """
@@ -276,17 +291,17 @@ class TestOrganiceSetup(object):
                 assert 'WSGI_APPLICATION = ' in content
 
     def test_13_system_check(self, project_name, cmd_args):
-        exit_code = call(['python', 'manage.py', 'check'])
+        exit_code = run_management_cmd_for(project_name, cmd_args, 'check')
         assert exit_code == 0, 'Validation of Django project failed. See output for details.'
 
     def test_14_init_database(self, project_name, cmd_args):
         """NOTE: This is the first test that takes significantly more time to complete"""
         # TODO: move this and subsequent calls to management command
-        exit_code = call(['python', 'manage.py', 'migrate'])
+        exit_code = run_management_cmd_for(project_name, cmd_args, 'migrate')
         assert exit_code == 0, 'Initialization of project database failed. See output for details.'
 
     def test_15_populate_database(self, project_name, cmd_args):
         # TODO: fix fixture 'organice_sample_content' and add it to the list below
         for fixture_file in ['organice_auth_providers']:
-            exit_code = call(['python', 'manage.py', 'loaddata', fixture_file])
+            exit_code = run_management_cmd_for(project_name, cmd_args, 'loaddata', fixture_file)
             assert exit_code == 0, 'Loading fixture `%s` into database failed.' % fixture

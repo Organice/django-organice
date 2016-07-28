@@ -128,18 +128,17 @@ def _create_project():
             _print_verbose(1, 'Restoring original manage.py ...')
             safe_rename(manage_delete_name, manage_script_name)
         raise SystemExit(code)
-    os.chmod(manage_script_name, mode0755)
 
     if args.manage == 'multi':
         safe_delete(manage_delete_name)
         _print_verbose(2, 'Removing project specific configuration from manage.py ...')
-        with open(manage_script_name, 'a+') as f:
-            lines = f.readlines()
-            f.seek(0)
-            f.truncate()
-            for line in lines:
-                if 'import os' not in line and 'DJANGO_SETTINGS_MODULE' not in line:
-                    f.write(line)
+        content = open(manage_script_name).readlines()
+        content = [line for line in content if 'import os' not in line and 'DJANGO_SETTINGS_MODULE' not in line]
+        safe_delete(manage_script_name)
+        with open(manage_script_name, 'w') as f:
+            f.writelines(content)
+
+    os.chmod(manage_script_name, mode0755)
 
 
 def _split_project():
