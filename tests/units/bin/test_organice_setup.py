@@ -38,6 +38,7 @@ class TestOrganiceSetup(object):
     """
     scenarios = [
         ['default', dict(project_name='test_project_default', cmd_args=[])],
+        ['nginx', dict(project_name='test_project_nginx', cmd_args=['--webserver', 'nginx'])],
         ['lighttp', dict(project_name='test_project_lighttp', cmd_args=['--webserver', 'lighttp'])],
     ]
 
@@ -219,7 +220,7 @@ class TestOrganiceSetup(object):
         webserver = (cmd_args[cmd_args.index('--webserver') + 1]
                      if '--webserver' in cmd_args else 'apache')
         wsgi_conf = join(project_name, 'wsgi.py')
-        lighttp_conf = project_name + '.conf'
+        webserv_conf = project_name + '.conf'
         conf_values = {
             'project': project_name,
             'domain': 'www.example.com',
@@ -227,9 +228,9 @@ class TestOrganiceSetup(object):
 
         if webserver == 'lighttp':
             assert not exists(wsgi_conf)
-            assert exists(lighttp_conf)
+            assert exists(webserv_conf)
 
-            content = open(lighttp_conf).read()
+            content = open(webserv_conf).read()
             for required_line in [
                 r'$HTTP["host"] =~ "^(%(project)s.organice.io|%(domain)s)$" {',
                 r'                "socket" => env.HOME + "/organice/%(project)s.sock",',
@@ -248,6 +249,23 @@ class TestOrganiceSetup(object):
                 content = open(profile).read()
                 assert 'WSGI_APPLICATION = ' not in content
                 assert "FORCE_SCRIPT_NAME = ''" in content
+
+        elif webserver == 'nginx':
+            assert exists(wsgi_conf)
+            for profile in (settings_file_for(project_name, 'develop'),
+                            settings_file_for(project_name, 'staging'),
+                            settings_file_for(project_name, 'production')):
+                content = open(profile).read()
+                assert 'WSGI_APPLICATION = ' in content
+                assert "FORCE_SCRIPT_NAME = ''" in content
+
+            assert exists(webserv_conf)
+            content = open(webserv_conf).read()
+            for required_line in [
+                r'upstream %(project)s {',
+            ]:
+                line = (required_line % conf_values) + '\n'
+                assert line in content, 'Missing in nginx configuration: %s' % line.strip()
 
         elif webserver == 'apache':  # default
             assert exists(wsgi_conf)

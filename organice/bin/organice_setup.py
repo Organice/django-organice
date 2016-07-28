@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2014-2015 Peter Bittner <django@bittner.it>
+# Copyright 2014-2016 Peter Bittner <django@bittner.it>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -87,6 +87,7 @@ def _evaluate_command_line():
     help_password = 'database password (for profiles: staging, production)'
     help_manage = 'use default single manage.py or use multi-settings variant (default: %(default)s)'
     help_webserver = 'create appropriate web server configuration (default: %(default)s)'
+    help_webserver_proxyport = 'Gunicorn proxy port to use in Nginx webserver configuration'
     help_set = 'set the value of a settings variable in a destination file (this option can be used several times)'
     help_verbosity = 'Verbosity level; 0=minimal output, 1=normal output, 2=verbose output, 3=very verbose output'
 
@@ -99,7 +100,8 @@ def _evaluate_command_line():
     parser.add_argument('--username', help=help_username)
     parser.add_argument('--password', help=help_password)
     parser.add_argument('--manage', choices=['single', 'multi'], default='single', help=help_manage)
-    parser.add_argument('--webserver', choices=['apache', 'lighttp'], default='apache', help=help_webserver)
+    parser.add_argument('--webserver', choices=['apache', 'lighttp', 'nginx'], default='apache', help=help_webserver)
+    parser.add_argument('--webserver-proxy-port', type=int, default=65432, help=help_webserver_proxyport)
     parser.add_argument('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
     parser.add_argument('--verbosity', '-v', type=int, choices=range(4), default=3, help=help_verbosity)
     args = parser.parse_args()
@@ -496,17 +498,43 @@ def _generate_webserver_conf():
     if args.webserver == 'apache':
         settings.move_var('common', profiles, 'WSGI_APPLICATION')
     else:
-        _print_verbose(2, 'Generating lighttp web server configuration ...')
-        os.unlink(os.path.join(projectname, 'wsgi.py'))
-        settings.delete_var('common', 'WSGI_APPLICATION')
-        settings.append_lines('common',
-                              '# Override the server-derived value of SCRIPT_NAME',
-                              '# See http://code.djangoproject.com/wiki/' +
-                              'BackwardsIncompatibleChanges#lighttpdfastcgiandothers',
-                              "FORCE_SCRIPT_NAME = ''")
-        settings.move_var('common', profiles, 'FORCE_SCRIPT_NAME')
+        _print_verbose(2, 'Generating %s web server configuration ...' % args.webserver)
 
-        conf_template = django.template.Template(r"""# Lighttp web server configuration
+        if args.webserver == 'nginx':
+            settings.move_var('common', profiles, 'WSGI_APPLICATION')
+            conf_template = django.template.Template(r"""# Nginx web server configuration
+
+# {{ account }}.organice.io
+upstream {{ projectname }} {
+    server unix:/home/organice/{{ organice }}/{{ projectname }}.sock;
+}
+
+server {
+    listen 127.0.0.1:{{ proxy_port }};
+    server_name {{ account }}.organice.io;
+
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        if (!-f $request_filename) {
+            proxy_pass http://{{ projectname }};
+            break;
+        }
+    }
+
+    location /static/ {
+        alias ../{{ organice }}/{{ projectname }}.static/;
+    }
+    location /media/ {
+        alias ../{{ organice }}/{{ projectname }}.media/;
+    }
+}
+""")
+        elif args.webserver == 'lighttp':
+            os.unlink(os.path.join(projectname, 'wsgi.py'))
+            settings.delete_var('common', 'WSGI_APPLICATION')
+            conf_template = django.template.Template(r"""# Lighttp web server configuration
 
 # {{ account }}.organice.io
 $HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
@@ -534,16 +562,28 @@ $HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
     {{ ignore }}}
 }
 """)
+        else:
+            exit('ERROR: Unknown webserver specified: %s' % args.webserver)
+
+        settings.append_lines('common',
+                              '# Override the server-derived value of SCRIPT_NAME',
+                              '# See http://code.djangoproject.com/wiki/' +
+                              'BackwardsIncompatibleChanges#lighttpdfastcgiandothers',
+                              "FORCE_SCRIPT_NAME = ''",
+                              "SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')")
+        settings.move_var('common', profiles, 'FORCE_SCRIPT_NAME')
+        settings.move_var('common', profiles, 'SECURE_PROXY_SSL_HEADER')
+
         conf_context = django.template.Context({
             'organice': 'organice',
             'projectname': projectname,
             'account': args.account if args.account else projectname,
             'custom_domain': args.domain if args.domain else 'www.example.com',
             'ignore': '' if args.domain else '#',
+            'proxy_port': args.webserver_proxy_port,
         })
-        conf_file = open('%s.conf' % projectname, 'w')
-        conf_file.write(conf_template.render(conf_context))
-        conf_file.close()
+        with open('%s.conf' % projectname, 'w') as conf_file:
+            conf_file.write(conf_template.render(conf_context))
 
 
 def _show_final_hints():
