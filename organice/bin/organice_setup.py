@@ -88,6 +88,7 @@ def _evaluate_command_line():
     help_manage = 'use default single manage.py or use multi-settings variant (default: %(default)s)'
     help_webserver = 'create appropriate web server configuration (default: %(default)s)'
     help_webserver_proxyport = 'Gunicorn proxy port to use in Nginx webserver configuration'
+    help_user_home = 'Path for user home directory (default: %(default)s)'
     help_set = 'set the value of a settings variable in a destination file (this option can be used several times)'
     help_verbosity = 'Verbosity level; 0=minimal output, 1=normal output, 2=verbose output, 3=very verbose output'
 
@@ -102,6 +103,7 @@ def _evaluate_command_line():
     parser.add_argument('--manage', choices=['single', 'multi'], default='single', help=help_manage)
     parser.add_argument('--webserver', choices=['apache', 'lighttp', 'nginx'], default='apache', help=help_webserver)
     parser.add_argument('--webserver-proxy-port', type=int, default=65432, help=help_webserver_proxyport)
+    parser.add_argument('--user-home', default='/home/organice', help=help_user_home)
     parser.add_argument('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
     parser.add_argument('--verbosity', '-v', type=int, choices=range(4), default=3, help=help_verbosity)
     args = parser.parse_args()
@@ -505,7 +507,7 @@ def _generate_webserver_conf():
 
 # {{ account }}.organice.io
 upstream {{ projectname }} {
-    server unix:/home/organice/{{ organice }}/{{ projectname }}.sock;
+    server unix:{{ user_home }}/{{ organice }}/{{ projectname }}.sock;
 }
 
 server {
@@ -523,10 +525,10 @@ server {
     }
 
     location /static/ {
-        alias ../{{ organice }}/{{ projectname }}.static/;
+        alias {{ user_home }}/{{ organice }}/{{ projectname }}.static/;
     }
     location /media/ {
-        alias ../{{ organice }}/{{ projectname }}.media/;
+        alias {{ user_home }}/{{ organice }}/{{ projectname }}.media/;
     }
 }
 """)
@@ -580,6 +582,7 @@ $HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
             'custom_domain': args.domain if args.domain else 'www.example.com',
             'ignore': '' if args.domain else '#',
             'proxy_port': args.webserver_proxy_port,
+            'user_home': args.user_home,
         })
         with open('%s.conf' % projectname, 'w') as conf_file:
             conf_file.write(conf_template.render(conf_context))
