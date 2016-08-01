@@ -107,6 +107,8 @@ def _evaluate_command_line():
     parser.add_argument('--set', help=help_set, nargs=3, metavar=('dest', 'var', 'value'), action='append')
     parser.add_argument('--verbosity', '-v', type=int, choices=range(4), default=3, help=help_verbosity)
     args = parser.parse_args()
+    if not args.account:
+        args.account = args.projectname
     projectname = args.projectname
 
 
@@ -505,14 +507,14 @@ def _generate_webserver_conf():
             settings.move_var('common', profiles, 'WSGI_APPLICATION')
             conf_template = django.template.Template(r"""# Nginx web server configuration
 
-# {{ account }}.organice.io
+# {{ target_domain }}
 upstream {{ projectname }} {
     server unix:{{ user_home }}/{{ organice }}/{{ projectname }}.sock;
 }
 
 server {
     listen 127.0.0.1:{{ proxy_port }};
-    server_name {{ account }}.organice.io;
+    server_name {{ target_domain }};
 
     location / {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -531,14 +533,21 @@ server {
         alias {{ user_home }}/{{ organice }}/{{ projectname }}.media/;
     }
 }
+
+# enforce optional custom domain name or strip www.
+server {
+    listen 127.0.0.1:{{ proxy_port }};
+    server_name {{ redirect_domain }};
+    return 301 $scheme://{{ target_domain }}$request_uri;
+}
 """)
         elif args.webserver == 'lighttp':
             os.unlink(os.path.join(projectname, 'wsgi.py'))
             settings.delete_var('common', 'WSGI_APPLICATION')
             conf_template = django.template.Template(r"""# Lighttp web server configuration
 
-# {{ account }}.organice.io
-$HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
+# {{ target_domain }}
+$HTTP["host"] =~ "^({{ target_domain }}|{{ redirect_domain }})$" {
     fastcgi.server = (
         "/django.fcgi" => (
             "main" => (
@@ -557,10 +566,10 @@ $HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
         "^/favicon\.ico$" => "/media/favicon.ico",
         "^(/.*)$" => "/django.fcgi$1",
     )
-    # enforce optional custom domain name
-    {{ ignore }}$HTTP["host"] != "{{ custom_domain }}" {
-    {{ ignore }}    url.redirect = ("^/django.fcgi(.*)$" => "http://{{ custom_domain }}$1")
-    {{ ignore }}}
+    # enforce optional custom domain name or strip www.
+    $HTTP["host"] != "{{ target_domain }}" {
+        url.redirect = ("^/django.fcgi(.*)$" => "http://{{ target_domain }}$1")
+    }
 }
 """)
         else:
@@ -575,12 +584,13 @@ $HTTP["host"] =~ "^({{ account }}.organice.io|{{ custom_domain }})$" {
         settings.move_var('common', profiles, 'FORCE_SCRIPT_NAME')
         settings.move_var('common', profiles, 'SECURE_PROXY_SSL_HEADER')
 
+        account_domain = '%s.organice.io' % args.account
         conf_context = django.template.Context({
             'organice': 'organice',
             'projectname': projectname,
-            'account': args.account if args.account else projectname,
-            'custom_domain': args.domain if args.domain else 'www.example.com',
-            'ignore': '' if args.domain else '#',
+            'account': args.account,
+            'target_domain': args.domain if args.domain else account_domain,
+            'redirect_domain': account_domain if args.domain else 'www.%s' % account_domain,
             'proxy_port': args.webserver_proxy_port,
             'user_home': args.user_home,
         })

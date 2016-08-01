@@ -238,22 +238,22 @@ class TestOrganiceSetup(object):
         webserv_conf = project_name + '.conf'
         conf_values = {
             'project': project_name,
-            'domain': 'www.example.com',
+            'target_domain': '%s.organice.io' % project_name,
+            'redirect_domain': 'www.%s.organice.io' % project_name,
         }
 
         if webserver == 'lighttp':
             assert not exists(wsgi_conf)
             assert exists(webserv_conf)
-
             content = open(webserv_conf).read()
             for required_line in [
-                r'$HTTP["host"] =~ "^(%(project)s.organice.io|%(domain)s)$" {',
+                r'$HTTP["host"] =~ "^(%(target_domain)s|%(redirect_domain)s)$" {',
                 r'                "socket" => env.HOME + "/organice/%(project)s.sock",',
                 r'        "/media/" => env.HOME + "/organice/%(project)s.media/",',
                 r'        "/static/" => env.HOME + "/organice/%(project)s.static/",',
                 r'        "^/favicon\.ico$" => "/media/favicon.ico",',
-                r'$HTTP["host"] != "%(domain)s" {',
-                r'    url.redirect = ("^/django.fcgi(.*)$" => "http://%(domain)s$1")',
+                r'$HTTP["host"] != "%(target_domain)s" {',
+                r'    url.redirect = ("^/django.fcgi(.*)$" => "http://%(target_domain)s$1")',
             ]:
                 line = (required_line % conf_values) + '\n'
                 assert line in content, 'Missing in lighttp configuration: %s' % line.strip()
@@ -267,20 +267,25 @@ class TestOrganiceSetup(object):
 
         elif webserver == 'nginx':
             assert exists(wsgi_conf)
+            assert exists(webserv_conf)
+            content = open(webserv_conf).read()
+            for required_line in [
+                r'upstream %(project)s {',
+                r'    server_name %(target_domain)s;',
+                r'        alias /home/organice/organice/%(project)s.static/;',
+                r'        alias /home/organice/organice/%(project)s.media/;',
+                r'    server_name %(redirect_domain)s;',
+                r'    return 301 $scheme://%(target_domain)s$request_uri;',
+            ]:
+                line = (required_line % conf_values) + '\n'
+                assert line in content, 'Missing in nginx configuration: %s' % line.strip()
+
             for profile in (settings_file_for(project_name, 'develop'),
                             settings_file_for(project_name, 'staging'),
                             settings_file_for(project_name, 'production')):
                 content = open(profile).read()
                 assert 'WSGI_APPLICATION = ' in content
                 assert "FORCE_SCRIPT_NAME = ''" in content
-
-            assert exists(webserv_conf)
-            content = open(webserv_conf).read()
-            for required_line in [
-                r'upstream %(project)s {',
-            ]:
-                line = (required_line % conf_values) + '\n'
-                assert line in content, 'Missing in nginx configuration: %s' % line.strip()
 
         elif webserver == 'apache':  # default
             assert exists(wsgi_conf)
