@@ -17,7 +17,30 @@ class InitcmsCommandMixin(HelperMixin):
 
         self.add_cms_page(_('Home'), plugins=[
             ('TextPlugin', {
-                'body': "<h1>Welcome to the Organice Demo Site!</h1>\n"
+                'body': "<h1>Hello at Organice!</h1>\n"
+                        "<p>Thank you for your interest in Organice. The Organice platform is powered"
+                        " by <a href=\"https://github.com/Organice/django-organice\">django Organice</a>,"
+                        " a compilation of the best Django packages, preconfigured for getting you"
+                        " started quickly.<p>\n"
+                        "<p>With <a href=\"https://www.djangoproject.com/\">Django</a> under the hood"
+                        " it's easy for us to promise powerful development speed paired with unparalleled"
+                        " flexibility. For Web agencies and independent professionals.</p>\n",
+            }),
+            ('TextPlugin', {
+                'body': "<blockquote>\n"
+                        "<h2>It has never been easier.</h2>\n"
+                        "<p>With front-end editing getting things done is fast.</p>\n"
+                        "<h2>Never been more effective.</h2>\n"
+                        "<p>Empower everyone, with no effort.</p>\n"
+                        "<h2>Never been more fun.</h2>\n"
+                        "<p>Invest your time, but not your anger.</p>\n"
+                        "</blockquote>\n",
+            }),
+            ('TextPlugin', {
+                'body': "<h1>This is a Demo Site</h1>\n"
+                        "<p>This website is a demo site and your playground at the same time."
+                        " The content is re-generated every day. Feel free to log in and apply"
+                        " your changes!</p>\n"
                         "<p>You can use the User Menu in the right upper corner to log in"
                         " or register for an account. You can immediately modify the content"
                         " of this website after logging in.</p>\n",
