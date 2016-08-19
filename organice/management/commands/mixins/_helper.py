@@ -30,6 +30,12 @@ class HelperMixin(object):
 
     def delete_page(self, title):
         """Delete all pages with the given title."""
+        # ts = Title.objects.filter(title=title)
+        # print("**** {}".format(ts))
+        # if not len(ts):
+        #     print(Title.objects.filter())
+        #     ts = [ Title.objects.get(title=title) ]
+        # assert len(ts) > 0, 'Only {} items found of {}'.format(len(ts), title)
         while len(Title.objects.filter(title=title)):
             # Pain! filter, because django CMS creates 2 titles for each page
             page = Title.objects.filter(title=title).first().page

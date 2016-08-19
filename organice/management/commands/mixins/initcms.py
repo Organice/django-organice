@@ -119,17 +119,17 @@ class InitcmsCommandMixin(HelperMixin):
             #               "<p>We'll get back to you about your request as soon as possible.</p>",
             # }),
         ])
-        self.add_cms_page(_('Directions'), parent=about_page, plugins=[
-            ('GoogleMapPlugin', {
-                'city': "Isles of Scilly",
-                'title': "How You Find Us",
-                'zipcode': "TR24 0QH",
-                'width': "100%",
-                'address': "Isles of Scilly",
-                'height': "400px",
-                'zoom': 16,
-            }),
-        ])
+        # self.add_cms_page(_('Directions'), parent=about_page, plugins=[
+        #     ('GoogleMapPlugin', {
+        #         'city': "Isles of Scilly",
+        #         'title': "How You Find Us",
+        #         'zipcode': "TR24 0QH",
+        #         'width': "100%",
+        #         'address': "Isles of Scilly",
+        #         'height': "400px",
+        #         'zoom': 16,
+        #     }),
+        # ])
         self.add_cms_page(_('Juniors'), parent=programs_page, plugins=[
             ('TextPlugin', {
                 'body': "<h1>Juniors</h1>\n"

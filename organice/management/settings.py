@@ -120,6 +120,17 @@ class DjangoSettingsManager(DjangoModuleManager):
     def _indentation_by(indent_level):
         return indent_level * 4 * ' '
 
+    def _build_list_items(self, block_is_empty, settings_path, *items):
+        indentation = self._indentation_by(len(settings_path))
+        chunk = ''
+        if block_is_empty:
+            chunk += os.linesep
+        for line in items:
+            chunk += indentation + line + ',' + os.linesep
+        if block_is_empty:
+            chunk += self._indentation_by(len(settings_path) - 1)
+        return chunk
+
     def find_block(self, src, settings_path):
         """
         Return (start, stop) position of a match, or NO_MATCH i.e. (0, 0).
@@ -208,18 +219,23 @@ class DjangoSettingsManager(DjangoModuleManager):
         data = self.get_data(dest)
         self.set_data(dest, data[:start] + chunk + data[stop:])
 
+    def prepend_to_list(self, dest, settings_path, *items):
+        """Add one or more list items to the beginning of a list identified by a hierarchy"""
+        start, stop = self.find_block(dest, settings_path)
+        chunk = self._build_list_items(start == stop, settings_path, *items)
+        self.__insert(dest,
+                      start + len(os.linesep),
+                      start + len(os.linesep),
+                      chunk)
+
     def append_to_list(self, dest, settings_path, *items):
         """Append one or more list items to a list identified by a hierarchy"""
         start, stop = self.find_block(dest, settings_path)
-        indentation = self._indentation_by(len(settings_path))
-        chunk = ''
-        if start == stop:
-            chunk += os.linesep
-        for line in items:
-            chunk += indentation + line + ',' + os.linesep
-        if start == stop:
-            chunk += self._indentation_by(len(settings_path) - 1)
-        self.__insert(dest, stop, stop, chunk)
+        chunk = self._build_list_items(start == stop, settings_path, *items)
+        self.__insert(dest,
+                      stop,
+                      stop,
+                      chunk)
 
     def delete_from_list(self, dest, settings_path, *items):
         """Remove list items from a list identified by a hierarchy"""

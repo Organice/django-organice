@@ -204,11 +204,13 @@ def _split_project():
     settings.move_var('common', profiles, 'MEDIA_ROOT')
     settings.move_var('common', profiles, 'STATIC_ROOT')
     settings.move_var('common', profiles, 'SECRET_KEY')
+
+    account_domain = '%s.organice.io' % args.account
     for prof in ('staging', 'production'):
         settings.set_value(prof, 'DEBUG', False)
         settings.set_value_lines(prof, 'ALLOWED_HOSTS', '[',
-                                 "    '%s.organice.io'," % (args.account if args.account else args.projectname),
-                                 "    '%s'," % (args.domain if args.domain else 'www.example.com'),
+                                 "    '%s'," % (args.domain if args.domain else account_domain),
+                                 "    '%s'," % (account_domain if args.domain else 'www.%s' % account_domain),
                                  ']')
 
 
@@ -263,13 +265,12 @@ def _configure_installed_apps():
                           "    'treebeard',",
                           "    'easy_thumbnails',",
                           "    'djangocms_admin_style',",
-                          "    'djangocms_file',",
-                          "    'djangocms_flash',",
-                          "    'djangocms_googlemap',",
-                          "    'djangocms_inherit',",
+                          "    # 'djangocms_file',",
+                          "    # 'djangocms_googlemap',",
+                          "    # 'djangocms_inherit',",
                           "    'djangocms_link',",
                           "    'djangocms_picture',",
-                          "    'djangocms_teaser',",
+                          "    # 'djangocms_teaser',",
                           "    'djangocms_text_ckeditor',",
                           "    'djangocms_video',",
                           "    'django_comments',",
@@ -389,6 +390,9 @@ def _configure_cms():
     global settings
 
     _print_verbose(2, adding_settings_for('django CMS'))
+    settings.prepend_to_list('common',
+                             ['MIDDLEWARE_CLASSES = ('],
+                             "'cms.middleware.utils.ApphookReloadMiddleware'")
     settings.append_to_list('common',
                             ['MIDDLEWARE_CLASSES = ('],
                             "'django.middleware.locale.LocaleMiddleware'",
@@ -417,6 +421,7 @@ def _configure_cms():
     settings.append_lines('common',
                           'MIGRATION_MODULES = {',
                           "    'zinnia': 'organice.migrations.zinnia',",
+                          "    'cmsplugin_zinnia': 'organice.migrations.cmsplugin_zinnia',",
                           '}')
 
 

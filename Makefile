@@ -44,14 +44,14 @@ coverage:
 
 develop: setuptools
 	pip install -q Sphinx sphinx-intl transifex-client flake8 pytest tox coverage behave-django selenium
-	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null || \
-	flake8 --install-hook
+	HOOK=.git/hooks/pre-commit && grep 'flake8\.main.*git' $$HOOK &> /dev/null || \
+	flake8 --install-hook git
 
 undevelop: setuptools
 	for PKG in snowballstemmer babel MarkupSafe Jinja2 sphinx-rtd-theme docutils Pygments alabaster Sphinx click sphinx-intl urllib3 transifex-client pep8 pyflakes mccabe flake8 py pytest virtualenv pluggy tox coverage parse enum34 parse-type behave behave-django selenium ; do \
 		pip uninstall -q -y $$PKG || true ; \
 	done
-	HOOK=.git/hooks/pre-commit && grep 'flake8\.hooks' $$HOOK &> /dev/null && \
+	HOOK=.git/hooks/pre-commit && grep 'flake8\.main.*git' $$HOOK &> /dev/null && \
 	rm $$HOOK || true
 
 docs: develop

@@ -90,11 +90,11 @@ class TestOrganiceSetup(object):
                         settings_file_for(project_name, 'production')):
             content = open(profile).read()
             assert "ALLOWED_HOSTS = [\n" \
-                   "    '%(subdomain)s.organice.io',\n" \
-                   "    '%(domain)s',\n" \
+                   "    '%(target_domain)s',\n" \
+                   "    '%(redirect_domain)s',\n" \
                    "]\n" % {
-                       'subdomain': project_name,
-                       'domain': 'www.example.com',
+                       'target_domain': '%s.organice.io' % project_name,
+                       'redirect_domain': 'www.%s.organice.io' % project_name,
                    } in content
             assert 'DEBUG = ' in content
             assert 'ALLOWED_HOSTS = [\n' in content
@@ -186,16 +186,17 @@ class TestOrganiceSetup(object):
     def test_07_configure_cms(self, project_name, cmd_args):
         common_settings = open(settings_file_for(project_name, 'common')).read()
         required_middleware = [
-            'django.contrib.sessions.middleware.SessionMiddleware',
-            'django.contrib.messages.middleware.MessageMiddleware',
             'django.contrib.auth.middleware.AuthenticationMiddleware',
+            'django.contrib.messages.middleware.MessageMiddleware',
+            'django.contrib.sessions.middleware.SessionMiddleware',
             'django.middleware.common.CommonMiddleware',
             'django.middleware.csrf.CsrfViewMiddleware',
-            'solid_i18n.middleware.SolidLocaleMiddleware',
-            'cms.middleware.page.CurrentPageMiddleware',
-            'cms.middleware.user.CurrentUserMiddleware',
-            'cms.middleware.toolbar.ToolbarMiddleware',
             'cms.middleware.language.LanguageCookieMiddleware',
+            'cms.middleware.page.CurrentPageMiddleware',
+            'cms.middleware.toolbar.ToolbarMiddleware',
+            'cms.middleware.user.CurrentUserMiddleware',
+            'cms.middleware.utils.ApphookReloadMiddleware',
+            'solid_i18n.middleware.SolidLocaleMiddleware',
         ]
         required_mediatree = [
             'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',
