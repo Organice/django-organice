@@ -44,3 +44,15 @@ class InitauthCommandMixin(object):
         if self.verbosity >= 1:
             self.stdout.write(_('{count} SocialAuth app configuration drafts added, {total} in total.')
                               .format(count=count, total=SocialApp.objects.count()))
+
+        username, password, email = 'admin', 'demo', 'demo@organice.io'
+        if self.verbosity >= 1:
+            self.stdout.write(_('Create admin user ({}/{}) ...').format(username, password))
+        try:
+            call_command('createsuperuser', '--noinput', username=username, email=email, verbosity=self.verbosity)
+            u = User.objects.get(username=username)
+            u.set_password(password)
+            u.save()
+        except IntegrityError:
+            if self.verbosity >= 1:
+                self.stdout.write(_("WARNING: Looks like a user '{}' already exists.".format(username)))

@@ -3,7 +3,6 @@ django-apptemplates
 django-blog-zinnia
 django-cms
 djangocms-file
-djangocms-flash
 djangocms-googlemap
 djangocms-grid
 djangocms-inherit
@@ -13,7 +12,6 @@ djangocms-picture
 djangocms-table
 djangocms-teaser
 djangocms-text-ckeditor
-djangocms-video
 # django-form-designer
 # django-media-tree
 django-organice-theme

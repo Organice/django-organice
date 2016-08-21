@@ -23,15 +23,3 @@ class InitdbCommandMixin(object):
         s, created = Site.objects.get_or_create(id=1)
         s.name, s.domain = 'Organice Demo', 'demo.organice.io'
         s.save()
-
-        username, password, email = 'admin', 'admin', 'demo@organice.io'
-        if self.verbosity >= 1:
-            self.stdout.write(_('Create admin user ({}/{}) ...').format(username, password))
-        try:
-            call_command('createsuperuser', '--noinput', username=username, email=email, verbosity=self.verbosity)
-            u = User.objects.get(username=username)
-            u.set_password(password)
-            u.save()
-        except IntegrityError:
-            if self.verbosity >= 1:
-                self.stdout.write(_("WARNING: Looks like a user '{}' already exists.".format(username)))

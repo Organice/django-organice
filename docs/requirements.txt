@@ -24,7 +24,6 @@ django-xmlrpc==0.1.5
 djangocms-admin-style==1.2.3
 djangocms-attributes-field==0.1.1
 djangocms-file==1.0
-djangocms-flash==0.3.0
 djangocms-googlemap==0.5.1
 djangocms-grid==1.3.0
 djangocms-inherit==0.2.1
@@ -34,7 +33,6 @@ djangocms-picture==1.0.0
 djangocms-table==1.2
 djangocms-teaser==0.2.0
 djangocms-text-ckeditor==3.1.0
-djangocms-video==1.0.0
 easy-thumbnails==2.3
 html5lib==0.9999999
 lxml==3.6.3
