@@ -14,8 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from os.path import dirname, join
-from pip.req import parse_requirements
+from os.path import abspath, dirname, join
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
@@ -38,12 +37,6 @@ CLASSIFIERS = [
     'Topic :: Office/Business :: Groupware',
 ]
 
-NON_PYPI_DEP_LINKS = [
-    'git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev',
-    'git+https://github.com/samluescher/django-form-designer.git#egg=django-form-designer',
-    'git+https://github.com/samluescher/django-media-tree@b69c508#egg=django-media-tree',  # treebeard feature branch
-]
-
 
 class PyTest(TestCommand):
     user_options = [('pytest-args=', 'a', "Arguments to pass to py.test")]
@@ -64,14 +57,27 @@ class PyTest(TestCommand):
 
 
 def read_file(*pathname):
-    return open(join(dirname(__file__), *pathname)).read()
+    """Read the contents of a file located relative to setup.py"""
+    with open(join(abspath(dirname(__file__)), *pathname)) as thefile:
+        return thefile.read()
 
 
-def read_requirements():
-    filepath = join(dirname(__file__), 'requirements.txt')
-    generator = parse_requirements(filepath, session=False)
-    return [str(requirement.req) for requirement in generator]
+def replace_last(s, old, new, maxtimes=1):
+    """Replace the last (n) occurence(s) of an expression in a string"""
+    tokens = s.rsplit(old, maxtimes)
+    return new.join(tokens)
 
+
+# Parse requirements.txt for both package (PyPI) and source (VCS) dependencies
+DEPENDENCY_LINKS = []
+INSTALL_REQUIRES = [line for line in read_file('requirements.txt').splitlines()
+                    if line and not line.strip().startswith('#')]
+
+for index, line in enumerate(INSTALL_REQUIRES):
+    if '#egg=' in line:
+        DEPENDENCY_LINKS += [line]
+        pkg_name_version = replace_last(line.split('#egg=')[1], '-', '==')
+        INSTALL_REQUIRES[index] = pkg_name_version
 
 setup(
     name='django-organice',
@@ -91,8 +97,8 @@ setup(
     keywords='cms, collaboration, blog, newsletter, django, python',
 
     classifiers=CLASSIFIERS,
-    install_requires=read_requirements(),
-    dependency_links=NON_PYPI_DEP_LINKS,
+    dependency_links=DEPENDENCY_LINKS,
+    install_requires=INSTALL_REQUIRES,
     packages=find_packages(exclude=['docs', 'tests']),
     include_package_data=True,
     zip_safe=False,
