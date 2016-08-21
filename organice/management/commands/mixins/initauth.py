@@ -2,6 +2,9 @@
 A label command (sub-command) for the Organice management command.
 """
 from allauth.socialaccount.models import SocialApp
+from django.contrib.auth.models import User
+from django.core.management import call_command
+from django.db.utils import IntegrityError
 from django.utils.translation import ugettext as _
 
 
