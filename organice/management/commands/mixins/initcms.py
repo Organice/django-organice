@@ -7,7 +7,6 @@ from ._helper import HelperMixin
 
 
 class InitcmsCommandMixin(HelperMixin):
-
     def initcms_command(self):
         """
         Create some pages with sample content
@@ -140,5 +139,20 @@ class InitcmsCommandMixin(HelperMixin):
             ('TextPlugin', {
                 'body': "<h1>Seniors</h1>\n"
                         "<p>Recreational programs for retired professionals and hobbyists.</p>\n",
+            }),
+        ])
+
+        self.add_cms_page(_('Imprint'), slug='imprint', in_navigation=False, plugins=[
+            ('TextPlugin', {
+                'body': "<h1>Imprint</h1>\n"
+                        "<p>Organice Demo<br>"
+                        "Hosted by the creators of <a href=\"%(pypi_url)s\">django-organice</a>.</p>\n"
+                        "\n"
+                        "<h2>Privacy Policy</h2>\n"
+                        "<p>This website uses cookies to provide a safe and convenient user"
+                        " experience. However, no personal data is collected or evaluated."
+                        " By using this website you consent our use of cookies.</p>\n" % {
+                            'pypi_url': "https://pypi.python.org/pypi/django-organice",
+                        },
             }),
         ])

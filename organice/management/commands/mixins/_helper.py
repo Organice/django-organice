@@ -44,7 +44,8 @@ class HelperMixin(object):
             page.delete()
             # TODO: Check, are plugins deleted automatically? (cascading)
 
-    def add_cms_page(self, title, slug=None, template='cms_base.html', parent=None, lang='en', plugins=()):
+    def add_cms_page(self, title, slug=None, template='cms_base.html', lang='en',
+                     parent=None, in_navigation=True, plugins=()):
         """
         Create or recreate a CMS page including content plugins with content in them.
         """
@@ -52,7 +53,7 @@ class HelperMixin(object):
             print(_('Creating CMS page {} ...').format(title))
         self.delete_page(title)
         page = create_page(title=title, template=template, language=lang,
-                           slug=slug, in_navigation=True, parent=parent)
+                           slug=slug, in_navigation=in_navigation, parent=parent)
         placeholder = page.placeholders.get(slot='content')
         for plugin, fieldset in plugins:
             add_plugin(placeholder, plugin, lang, **fieldset)
