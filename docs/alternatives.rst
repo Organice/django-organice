@@ -35,6 +35,7 @@ In alphabetical order.
 - `Igloo`_
 - `Odoo`_
 - `teamraum`_
+- `VereinOnline`_
 
 
 .. _drop us a note: info@organice.io
@@ -51,5 +52,6 @@ In alphabetical order.
 .. _huddle: http://www.huddle.com/
 .. _Igloo: http://www.igloosoftware.com/
 .. _teamraum: http://www.teamraum.com/
+.. _VereinOnline: https://www.vereinonline.org/
 
 .. [1] http://intranetsdoneright.blogspot.com/2013/11/what-is-social-intranet.html
