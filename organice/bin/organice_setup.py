@@ -310,7 +310,7 @@ def _configure_installed_apps():
                           "    'allauth.socialaccount.providers.instagram',",
                           "    'allauth.socialaccount.providers.linkedin_oauth2',",
                           "    # 'allauth.socialaccount.providers.openid',",
-                          "    # 'allauth.socialaccount.providers.persona',",
+                          "    'allauth.socialaccount.providers.pinterest',",
                           "    'allauth.socialaccount.providers.slack',",
                           "    'allauth.socialaccount.providers.soundcloud',",
                           "    'allauth.socialaccount.providers.stackexchange',",
@@ -409,12 +409,13 @@ def _configure_cms():
                              "    ('de', _('German')),",
                              "    ('it', _('Italian')),",
                              ')')
-    settings.set_value('common', 'CMS_USE_TINYMCE', False)
+    settings.set_value('common', 'CMS_PERMISSION', True)
     settings.append_lines('common',
                           'CMS_TEMPLATES = (',
                           "    ('cms_base.html', 'Template for normal content pages'),",
                           "    ('cms_bookmarks.html', 'Template for the bookmarks page'),",
                           ')')
+    settings.set_value('common', 'CMS_USE_TINYMCE', False)
     settings.append_lines('common',
                           'MEDIA_TREE_MEDIA_BACKENDS = (',
                           "    'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',",

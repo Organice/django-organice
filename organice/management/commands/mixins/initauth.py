@@ -29,6 +29,7 @@ class InitauthCommandMixin(object):
             ('google', 'Google'),
             ('instagram', 'Instagram'),
             ('linkedin_oauth2', 'LinkedIn'),
+            ('pinterest', 'Pinterest'),
             ('slack', 'Slack'),
             ('soundcloud', 'SoundCloud'),
             ('stackexchange', 'Stack Exchange'),
