@@ -16,7 +16,7 @@
 
 from os.path import abspath, dirname, join
 from setuptools import setup, find_packages
-from setuptools.command.test import test as TestCommand
+from setuptools.command.test import test as TestCommand  # noqa: disable=N812
 
 import organice as package
 import sys

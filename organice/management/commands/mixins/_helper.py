@@ -75,8 +75,8 @@ class HelperMixin(object):
         """
         if self.verbosity >= 1:
             print(_('Creating blog entry {} ...').format(title))
-        Entry = apps.get_model('zinnia', 'entry')
-        entry, created = Entry.objects.get_or_create(slug=slug, title=title, status=PUBLISHED)
+        entry_model = apps.get_model('zinnia', 'entry')
+        entry, created = entry_model.objects.get_or_create(slug=slug, title=title, status=PUBLISHED)
         entry.excerpt = excerpt
         entry.tags = tags
         entry.sites = Site.objects.all()
