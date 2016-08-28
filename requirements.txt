@@ -1,6 +1,6 @@
 Django>1.8,<1.9
 django-apptemplates
-django-blog-zinnia
+django-blog-zinnia<0.17
 django-cms
 djangocms-file
 git+https://github.com/divio/djangocms-googlemap@9433d30#egg=djangocms-googlemap-0.5.2rc1
