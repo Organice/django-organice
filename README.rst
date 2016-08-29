@@ -16,7 +16,7 @@ investment providing an easily extensible architecture.
 .. |latest-version| image:: https://img.shields.io/pypi/v/django-organice.svg
    :alt: Latest version on PyPI
    :target: https://pypi.python.org/pypi/django-organice
-.. |travis-ci| image:: https://travis-ci.org/Organice/django-organice.svg
+.. |travis-ci| image:: https://travis-ci.org/Organice/django-organice.svg?branch=master
    :alt: Build status
    :target: https://travis-ci.org/Organice/django-organice
 .. |health| image:: https://landscape.io/github/Organice/django-organice/master/landscape.svg?style=flat
