@@ -342,9 +342,12 @@ def _configure_authentication():
                           "    'django.contrib.auth.backends.ModelBackend',",
                           "    'allauth.account.auth_backends.AuthenticationBackend',",
                           ')')
-    settings.set_value('common', 'ACCOUNT_AUTHENTICATION_METHOD', "'email'")
-    settings.set_value('common', 'ACCOUNT_EMAIL_REQUIRED', True)
-    settings.set_value('common', 'ACCOUNT_USERNAME_REQUIRED', False)
+    settings.append_lines('common',
+                          "ACCOUNT_AUTHENTICATION_METHOD = 'email'",
+                          'ACCOUNT_EMAIL_REQUIRED = True',
+                          'ACCOUNT_USERNAME_REQUIRED = False',
+                          "ACCOUNT_ADAPTER = 'organice.auth.adapters.AccountAdapter'",
+                          "SOCIALACCOUNT_ADAPTER = 'organice.auth.adapters.SocialAccountAdapter'")
     settings.set_value('common', 'LOGIN_REDIRECT_URL', "'/'")
     settings.set_value('common', 'LOGIN_URL', "'/login'")
     settings.set_value('common', 'LOGOUT_URL', "'/logout'")
