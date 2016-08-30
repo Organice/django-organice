@@ -19,8 +19,7 @@ class EditorialWorkflowMixin(object):
         """Give a user permissions to participate in managing content"""
         user.is_staff = True
         group = Group.objects.get(name=group_name)
-        if group not in user.groups.all():
-            user.groups.add(group)
+        user.groups.add(group)
         return user
 
 
