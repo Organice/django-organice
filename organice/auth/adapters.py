@@ -5,29 +5,29 @@ from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from django.contrib.auth.models import Group
 
+from .groups import GUESTS_GROUP
+
 
 class EditorialWorkflowMixin(object):
     """
     We provide a simple editorial workflow (for django CMS) by assigning users
-    to specific user groups and give the "Staff" status.  Those groups are created
+    to specific user groups and granting "Staff" status.  Those groups are created
     by the ``organice initauth`` management command after setting up the project.
-    Background reading:
-    http://stackoverflow.com/questions/8806705/django-cms-and-editorial-workflows#answer-39128706
     """
-    GUESTS_GROUP = 'Guests'
-    EDITORS_GROUP = 'Editors'
-    PUBLISHERS_GROUP = 'Publishers'
 
     def add_user_to_group(self, user, group_name=GUESTS_GROUP):
         """Give a user permissions to participate in managing content"""
         user.is_staff = True
-        user.groups = [Group.objects.get(name=group_name)]
+        group = Group.objects.get(name=group_name)
+        if group not in user.groups.all():
+            user.groups.add(group)
         return user
 
 
 class AccountAdapter(EditorialWorkflowMixin, DefaultAccountAdapter):
     """
-    Ensures that the CMS editorial workflow is activated for every new user.
+    Ensures that the CMS editorial workflow is activated for every new user
+    signing up using email and password.
     """
 
     def save_user(self, request, user, form, commit=True):
@@ -40,7 +40,8 @@ class AccountAdapter(EditorialWorkflowMixin, DefaultAccountAdapter):
 
 class SocialAccountAdapter(EditorialWorkflowMixin, DefaultSocialAccountAdapter):
     """
-    Ensures that the CMS editorial workflow is activated for every new user.
+    Ensures that the CMS editorial workflow is activated for every new user
+    signing up using a social account.
     """
 
     def save_user(self, request, sociallogin, form=None):
