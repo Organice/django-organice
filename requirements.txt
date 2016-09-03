@@ -3,7 +3,7 @@ django-apptemplates
 django-blog-zinnia<0.17
 django-cms
 djangocms-file
-git+https://github.com/divio/djangocms-googlemap@9433d30#egg=djangocms-googlemap-0.5.2rc1
+djangocms-maps
 djangocms-grid
 git+https://github.com/divio/djangocms-inherit@8af4e99#egg=djangocms-inherit-0.2.1
 djangocms-link

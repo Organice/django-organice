@@ -73,8 +73,15 @@ service properties in your settings file.  The properties are documented in `the
 For security reasons you shouldn't add those to your common settings file, but to
 ``settings.production``.
 
+Maps (Plugin for django CMS)
+----------------------------
+
+All map providers require that you configure an API key.  See the `djangocms-maps configuration`_
+for details.
+
 .. _django-allauth configuration:
     http://django-allauth.readthedocs.io/en/latest/configuration.html?highlight=ACCOUNT_ADAPTER
 .. _Advanced Usage:
     http://django-allauth.readthedocs.io/en/latest/advanced.html#creating-and-populating-user-instances
 .. _`their documentation`: https://pythonhosted.org/django-analytical/install.html#enabling-the-services
+.. _djangocms-maps configuration: https://github.com/Organice/djangocms-maps#configuration

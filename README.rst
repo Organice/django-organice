@@ -31,7 +31,7 @@ investment providing an easily extensible architecture.
 .. |license| image:: https://img.shields.io/pypi/l/django-organice.svg
    :alt: Software license
    :target: https://www.apache.org/licenses/LICENSE-2.0.html
-.. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
+.. |gitter| image:: https://badges.gitter.im/Organice/django-organice.svg
    :alt: Gitter chat room
    :target: https://gitter.im/Organice/chat
 .. _Django Web framework: https://www.djangoproject.com/

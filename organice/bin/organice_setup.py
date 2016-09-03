@@ -266,7 +266,7 @@ def _configure_installed_apps():
                           "    'easy_thumbnails',",
                           "    'djangocms_admin_style',",
                           "    # 'djangocms_file',",
-                          "    'djangocms_googlemap',",
+                          "    'djangocms_maps',",
                           "    'djangocms_inherit',",
                           "    'djangocms_link',",
                           "    'djangocms_picture',",

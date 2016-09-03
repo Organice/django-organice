@@ -119,7 +119,7 @@ class InitcmsCommandMixin(HelperMixin):
             # }),
         ])
         self.add_cms_page(_('Directions'), parent=about_page, plugins=[
-            ('GoogleMapPlugin', {
+            ('MapsPlugin', {
                 'city': "Isles of Scilly",
                 'title': "How You Find Us",
                 'zipcode': "TR24 0QH",
