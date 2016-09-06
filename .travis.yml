@@ -16,7 +16,7 @@ before_script:
 script:
   - tox -e $TOXENV
 after_success:
-  - coveralls || true
+  - if [[ "$TOXENV" == "py27" ]]; then coveralls; fi || true
   - mv -v coverage.xml shippable/codecoverage/
   - mv -v tests/reports/* shippable/testresults/
 notifications:
