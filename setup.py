@@ -92,7 +92,7 @@ setup(
     description=package.__doc__.strip(),
     long_description='\n'.join([
         read_file('README.rst'),
-        read_file('docs', 'changelog.rst')
+        read_file('CHANGELOG.rst')
     ]),
     keywords='cms, collaboration, blog, newsletter, django, python',
 

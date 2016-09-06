@@ -1,21 +1,25 @@
 language: python
-python:
-  - "2.7"
-  - "3.3"
-  - "3.4"
+python: "3.5"
+
+env:
+  matrix:
+    - TOXENV=flake8
+    - TOXENV=checkdocs
+    - TOXENV=py27
+    - TOXENV=py33
+    - TOXENV=py34
+    - TOXENV=behave
+
 install:
-  - pip install flake8 tox coverage==3.7.1 coveralls
+  - pip install tox coveralls
 before_script:
-  - flake8
   - mkdir -p shippable/{codecoverage,testresults}
 script:
-  - tox -e py${TRAVIS_PYTHON_VERSION/\./}
+  - tox -e $TOXENV
 after_success:
-  - coverage report
-  - coverage xml
+  - coveralls || true
   - mv -v coverage.xml shippable/codecoverage/
   - mv -v tests/reports/* shippable/testresults/
-  - coveralls || true
 notifications:
   slack: organice:2v4ZfYaW6KonOr5RyJqjyU92
   webhooks:
