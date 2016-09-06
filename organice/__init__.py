@@ -14,12 +14,12 @@
 """
 All-in-one collaboration solution providing an intuitive, consistent user experience.
 """
-__version__ = '0.4.dev1'
+__version__ = '0.4.0'
 
 __author__ = 'Peter Bittner'
 __author_email__ = 'django@bittner.it'
 __maintainer__ = __author__
 __maintainer_email__ = __author_email__
 
-__url__ = 'http://organice.io/'
+__url__ = 'https://organice.io/'
 __license__ = 'Apache 2.0'
