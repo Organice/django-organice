@@ -1,6 +1,7 @@
 0.4
 ===
 
+- Use djangocms-maps (instead of djangocms-googlemap)
 - Add a simple type of editorial workflow (via user groups and CMS permissions)
 - Upgrade and add more social auth providers (django-allauth)
 - Upgrade to Django 1.8.14, django CMS 3.3.2, Zinnia 0.16

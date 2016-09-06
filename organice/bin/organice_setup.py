@@ -426,7 +426,6 @@ def _configure_cms():
     settings.append_lines('common',
                           'MIGRATION_MODULES = {',
                           "    'zinnia': 'organice.migrations.zinnia',",
-                          "    'cmsplugin_zinnia': 'organice.migrations.cmsplugin_zinnia',",
                           '}')
 
 

@@ -25,4 +25,4 @@ easy-thumbnails
 # git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev
 Pillow
 solid_i18n
-cmsplugin-zinnia
+git+https://github.com/django-blog-zinnia/cmsplugin-zinnia@7613c0d#egg=cmsplugin-zinnia-0.8.1
