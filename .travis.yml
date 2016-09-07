@@ -10,13 +10,12 @@ env:
     - TOXENV=py34
 
 install:
-  - pip install tox coveralls
+  - pip install tox
 before_script:
   - mkdir -p shippable/{codecoverage,testresults}
 script:
   - tox -e $TOXENV
 after_success:
-  - if [[ "$TOXENV" == "py27" ]]; then coveralls; fi || true
   - mv -v coverage.xml shippable/codecoverage/
   - mv -v tests/reports/* shippable/testresults/
 notifications:
