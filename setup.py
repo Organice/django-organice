@@ -94,7 +94,7 @@ setup(
         read_file('README.rst'),
         read_file('CHANGELOG.rst')
     ]),
-    keywords='cms, collaboration, blog, newsletter, django, python',
+    keywords='cms collaboration blog newsletter django python',
 
     classifiers=CLASSIFIERS,
     dependency_links=DEPENDENCY_LINKS,

@@ -1,11 +1,11 @@
-Django>1.8,<1.9
+Django>1.9,<1.10
 django-apptemplates
-django-blog-zinnia<0.17
-django-cms
+django-blog-zinnia==0.17
+django-cms>3.4,<3.5
 djangocms-file
 djangocms-maps
 djangocms-grid
-git+https://github.com/divio/djangocms-inherit@8af4e99#egg=djangocms-inherit-0.2.1
+djangocms-inherit
 djangocms-link
 djangocms-oembed
 djangocms-picture
@@ -14,7 +14,7 @@ djangocms-teaser
 djangocms-text-ckeditor
 # git+https://github.com/samluescher/django-form-designer.git#egg=django-form-designer-0.8.0
 # git+https://github.com/samluescher/django-media-tree@b69c508#egg=django-media-tree-0.9.0  # treebeard feature branch
-django-organice-theme>=0.4.0,<0.5.0
+django-organice-theme>=0.5.0.dev0,<0.6.0
 django-simple-links
 django-tinymce
 django-todo
@@ -25,4 +25,4 @@ easy-thumbnails
 # git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev
 Pillow
 solid_i18n
-git+https://github.com/django-blog-zinnia/cmsplugin-zinnia@7613c0d#egg=cmsplugin-zinnia-0.8.1
+git+https://github.com/bittner/cmsplugin-zinnia@29bc6a6#egg=cmsplugin-zinnia-0.8.1
