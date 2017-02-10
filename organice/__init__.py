@@ -14,7 +14,7 @@
 """
 All-in-one collaboration solution providing an intuitive, consistent user experience.
 """
-__version__ = '0.4.0'
+__version__ = '0.5.0.dev0'
 
 __author__ = 'Peter Bittner'
 __author_email__ = 'django@bittner.it'

@@ -13,8 +13,7 @@ install:
   - pip install tox
 before_script:
   - mkdir -p shippable/{codecoverage,testresults}
-script:
-  - tox -e $TOXENV
+script: tox
 after_success:
   - mv -v coverage.xml shippable/codecoverage/
   - mv -v tests/reports/* shippable/testresults/
