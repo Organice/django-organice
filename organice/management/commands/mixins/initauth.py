@@ -21,8 +21,7 @@ class InitauthCommandMixin(object):
 
     def create_social_apps(self):
         """Configuration for social apps (django-allauth)"""
-        if self.verbosity >= 1:
-            self.stdout.write(_('Prepare configuration of SocialAuth apps ...'))
+        self.log(_('Prepare configuration of SocialAuth apps ...'))
 
         count = 0
         social_auth_providers = [
@@ -48,26 +47,22 @@ class InitauthCommandMixin(object):
         for provider, name in social_auth_providers:
             app_config, created = SocialApp.objects.get_or_create(provider=provider, name=name)
             if not created:
-                if self.verbosity >= 1:
-                    self.stdout.write(_('App configuration already exists: {} -- leaving it untouched.')
-                                      .format(name))
+                self.log(_('App configuration already exists: {} -- leaving it untouched.').format(name))
             else:
                 app_config.secret = app_config.client_id = 'xxxx'
                 app_config.key = ''
                 app_config.save()
                 count += 1
 
-        if self.verbosity >= 1:
-            self.stdout.write(_('{count} SocialAuth app configuration drafts added, {total} in total.')
-                              .format(count=count, total=SocialApp.objects.count()))
+        self.log(_('{count} SocialAuth app configuration drafts added, {total} in total.')
+                 .format(count=count, total=SocialApp.objects.count()))
 
     def create_groups_and_permissions(self):
         """
         Prepare a simple editorial workflow using Django Contrib Auth and
         django CMS permissions.
         """
-        if self.verbosity >= 1:
-            self.stdout.write(_('Prepare groups and permissions for editorial workflow ...'))
+        self.log(_('Prepare groups and permissions for editorial workflow ...'))
 
         reset_group_permissions(GUESTS_GROUP,
                                 app_permissions=BASIC_APP_PERMISSIONS,

@@ -12,12 +12,10 @@ class InitdbCommandMixin(object):
         """
         Initialize the Organice database and apps
         """
-        if self.verbosity >= 1:
-            self.stdout.write(_('Initialize database:'))
+        self.log(_('Initialize database:'))
         call_command('migrate', verbosity=self.verbosity)
 
-        if self.verbosity >= 1:
-            self.stdout.write(_('Configure site #1 ...'))
-        s, created = Site.objects.get_or_create(id=1)
-        s.name, s.domain = 'Organice Demo', 'demo.organice.io'
-        s.save()
+        self.log(_('Configure site #1 ...'))
+        site, created = Site.objects.get_or_create(id=1)
+        site.name, site.domain = 'Organice Demo', 'demo.organice.io'
+        site.save()

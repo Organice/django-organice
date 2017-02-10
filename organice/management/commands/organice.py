@@ -67,7 +67,7 @@ class Command(InitauthCommandMixin,
 
     def handle(self, *labels, **options):
         """Make ``verbosity`` available as an attribute, for ease of use."""
-        self.verbosity = options.get('verbosity')
+        self.verbosity = options['verbosity']
         super(Command, self).handle(*labels, **options)
 
     def handle_label(self, label, **options):

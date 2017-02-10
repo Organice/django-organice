@@ -11,8 +11,7 @@ class InitcmsCommandMixin(HelperMixin):
         """
         Create some pages with sample content
         """
-        if self.verbosity >= 1:
-            self.stdout.write(_('Generate menu structure and pages:'))
+        self.log(_('Generate menu structure and pages:'))
 
         self.add_cms_page(_('Home'), plugins=[
             ('TextPlugin', {
