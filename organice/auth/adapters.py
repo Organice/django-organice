@@ -3,9 +3,12 @@ Authentication adapters for Organice
 """
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
+from django.conf import settings
 from django.contrib.auth.models import Group
 
 from .groups import GUESTS_GROUP
+
+ADMIN_EMAIL_ADDRESSES = [email for name, email in settings.ADMINS]
 
 
 class EditorialWorkflowMixin(object):
@@ -18,6 +21,7 @@ class EditorialWorkflowMixin(object):
     def add_user_to_group(self, user, group_name=GUESTS_GROUP):
         """Give a user permissions to participate in managing content"""
         user.is_staff = True
+        user.is_superuser = user.email in ADMIN_EMAIL_ADDRESSES
         group = Group.objects.get(name=group_name)
         user.groups.add(group)
         return user
