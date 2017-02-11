@@ -4,7 +4,9 @@ Authentication adapters for Organice
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.models import Group
+from django.utils.translation import ugettext as _
 
 from .groups import GUESTS_GROUP
 
@@ -21,7 +23,6 @@ class EditorialWorkflowMixin(object):
     def add_user_to_group(self, user, group_name=GUESTS_GROUP):
         """Give a user permissions to participate in managing content"""
         user.is_staff = True
-        user.is_superuser = user.email in ADMIN_EMAIL_ADDRESSES
         group = Group.objects.get(name=group_name)
         user.groups.add(group)
         return user
@@ -39,6 +40,24 @@ class AccountAdapter(EditorialWorkflowMixin, DefaultAccountAdapter):
         if commit:
             user.save()
         return user
+
+    def confirm_email(self, request, email_address):
+        """
+        Give superuser privileges automagically if the email address of a
+        user confirming their email is listed in ``settings.ADMINS``.
+        """
+        super().confirm_email(request, email_address)
+
+        if email_address.email in ADMIN_EMAIL_ADDRESSES:
+            user = email_address.user
+            user.is_staff = user.is_superuser = True
+            user.save()
+
+            messages.add_message(
+                request, messages.INFO,
+                _('Welcome Admin! You have been given superuser privileges. '
+                  'Use them with caution.')
+            )
 
 
 class SocialAccountAdapter(EditorialWorkflowMixin, DefaultSocialAccountAdapter):
