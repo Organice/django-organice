@@ -92,41 +92,6 @@ class InitcmsCommandMixin(HelperMixin):
                             " community, because everyone profits.</dd>\n"
                             "</dl>\n",
                 }),
-                ('TextPlugin', {
-                    'body': "<h2>Documentation</h2>"
-                            "<dl>\n"
-                            "<dt>Read the docs </dt>\n"
-                            '  <dd>The <a href="http://docs.organice.io/en/latest/components.html">'
-                            "User Manual chapter</a> in the documentation is targeted at end users."
-                            "</dd>\n"
-                            "  <dd>Full technical documentation is available at"
-                            ' <a href="http://docs.organice.io">docs.organice.io</a>.</dd>\n'
-                            "<dt>Demos</dt>\n"
-                            '  <dd>Our main demo site <a href="https://demo.organice.io">'
-                            "demo.organice.io</a> is an open playground. Register an account there"
-                            " and play. This instance is reset every morning.</dd>\n"
-                            "  <dd>Of course you can also register with and contribute content to"
-                            " any other live Organice site, such as"
-                            ' <a href="https://organice.io">organice.io</a> itself.</dd>\n'
-                            "</dl>\n",
-                }),
-                ('TextPlugin', {
-                    'body': "<h2>Get Involved!</h2>"
-                            "<dl>\n"
-                            "<dt>Source Code</dt>\n"
-                            '  <dd>GitHub: <a href="https://github.com/organice/django-organice">'
-                            "github.com/organice/django-organice</a></dd>\n"
-                            '  <dd>GitLab: <a href="https://gitlab.com/organice/django-organice">'
-                            "gitlab.com/organice/django-organice</a></dd>\n"
-                            '  <dd>Bitbucket: <a href="https://bitbucket.org/organice/django-organice">'
-                            "bitbucket.org/organice/django-organice</a></dd>\n"
-                            "</dl>\n",
-                }),
-                ('TextPlugin', {
-                    'body': "<p>Find out more about django Organice! Fork us, test, find bugs,"
-                            " write code and documentation, translate.</p>\n"
-                            "<p>Your contribution is welcome!</p>\n",
-                }),
             ])
         self.add_cms_page(_('Themes'), plugins=[
             ('TextPlugin', {
@@ -192,16 +157,43 @@ class InitcmsCommandMixin(HelperMixin):
                 'zoom': 16,
             }),
         ])
-        self.add_cms_page(_('Juniors'), parent=project_page, plugins=[
+        self.add_cms_page(_('Documentation'), parent=project_page, plugins=[
             ('TextPlugin', {
-                'body': "<h1>Juniors</h1>\n"
-                        "<p>Training and education of our young stars.</p>\n",
+                'body': "<h2>Documentation</h2>"
+                        "<dl>\n"
+                        "<dt>Read the docs</dt>\n"
+                        '  <dd>The <a href="http://docs.organice.io/en/latest/components.html">'
+                        "User Manual chapter</a> in the documentation is targeted at end users."
+                        "</dd>\n"
+                        "  <dd>Full technical documentation is available at"
+                        ' <a href="http://docs.organice.io">docs.organice.io</a>.</dd>\n'
+                        "<dt>Demos</dt>\n"
+                        '  <dd>Our main demo site <a href="https://demo.organice.io">'
+                        "demo.organice.io</a> is an open playground. Register an account there"
+                        " and play. This instance is reset every morning.</dd>\n"
+                        "  <dd>Of course you can also register with and contribute content to"
+                        " any other live Organice site, such as"
+                        ' <a href="https://organice.io">organice.io</a> itself.</dd>\n'
+                        "</dl>\n",
             }),
         ])
-        self.add_cms_page(_('Seniors'), parent=project_page, plugins=[
+        self.add_cms_page(_('Contribute'), parent=project_page, plugins=[
             ('TextPlugin', {
-                'body': "<h1>Seniors</h1>\n"
-                        "<p>Recreational programs for retired professionals and hobbyists.</p>\n",
+                'body': "<h2>Get Involved!</h2>"
+                        "<dl>\n"
+                        "<dt>Source Code</dt>\n"
+                        '  <dd>GitHub: <a href="https://github.com/organice/django-organice">'
+                        "github.com/organice/django-organice</a></dd>\n"
+                        '  <dd>GitLab: <a href="https://gitlab.com/organice/django-organice">'
+                        "gitlab.com/organice/django-organice</a></dd>\n"
+                        '  <dd>Bitbucket: <a href="https://bitbucket.org/organice/django-organice">'
+                        "bitbucket.org/organice/django-organice</a></dd>\n"
+                        "</dl>\n",
+            }),
+            ('TextPlugin', {
+                'body': "<p>Find out more about django Organice! Fork us, test, find bugs,"
+                        " write code and documentation, translate.</p>\n"
+                        "<p>Your contribution is welcome!</p>\n",
             }),
         ])
 
