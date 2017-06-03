@@ -11,17 +11,16 @@ class InitcmsCommandMixin(HelperMixin):
         """
         Create some pages with sample content
         """
-        if self.verbosity >= 1:
-            self.stdout.write(_('Generate menu structure and pages:'))
+        self.log(_('Generate menu structure and pages:'))
 
         self.add_cms_page(_('Organice'), plugins=[
             ('TextPlugin', {
                 'body': "<h1>Hello at Organice!</h1>\n"
                         "<p>Thank you for your interest in Organice. The Organice platform is powered"
-                        " by <a href=\"https://github.com/Organice/django-organice\">django Organice</a>,"
+                        ' by <a href="https://github.com/Organice/django-organice">django Organice</a>,'
                         " a compilation of the best Django packages, preconfigured for getting you"
                         " started quickly.<p>\n"
-                        "<p>With <a href=\"https://www.djangoproject.com/\">Django</a> under the hood"
+                        '<p>With <a href="https://www.djangoproject.com/">Django</a> under the hood'
                         " it's easy for us to promise powerful development speed paired with unparalleled"
                         " flexibility. For Web agencies and independent professionals.</p>\n",
             }),
@@ -63,7 +62,7 @@ class InitcmsCommandMixin(HelperMixin):
         project_page = \
             self.add_cms_page(_('Project'), plugins=[
                 ('TextPlugin', {
-                    'body': "<h1>The django Organice Project</h1>\n"
+                    'body': "<h1>The Organice Project</h1>\n"
                             "<p>Organice.io builds on open source software, and django Organice is"
                             " open source software itself. &ndash; We want to make the world a"
                             " better place!</p>\n",
