@@ -11,9 +11,10 @@ class InitcmsCommandMixin(HelperMixin):
         """
         Create some pages with sample content
         """
-        self.log(_('Generate menu structure and pages:'))
+        if self.verbosity >= 1:
+            self.stdout.write(_('Generate menu structure and pages:'))
 
-        self.add_cms_page(_('Home'), plugins=[
+        self.add_cms_page(_('Organice'), plugins=[
             ('TextPlugin', {
                 'body': "<h1>Hello at Organice!</h1>\n"
                         "<p>Thank you for your interest in Organice. The Organice platform is powered"
@@ -59,33 +60,96 @@ class InitcmsCommandMixin(HelperMixin):
                             " That's what we are.</p>\n",
                 }),
             ])
-        programs_page = \
-            self.add_cms_page(_('Programs'), plugins=[
+        project_page = \
+            self.add_cms_page(_('Project'), plugins=[
                 ('TextPlugin', {
-                    'body': "<h1>Programs</h1>\n"
-                            "<p>Demo Company is at the forefront of providing progressive"
-                            " education programs to all ages and skill levels, whether recreational"
-                            " or competitive, youth or adult.</p>\n"
-                            "<p>At the heart of our programs there is always fun."
-                            " This is the foundation of our work to develop world-class talents.</p>\n",
+                    'body': "<h1>The django Organice Project</h1>\n"
+                            "<p>Organice.io builds on open source software, and django Organice is"
+                            " open source software itself. &ndash; We want to make the world a"
+                            " better place!</p>\n",
+                }),
+                ('TextPlugin', {
+                    'body': "<h2>Features and Goals</h2>"
+                            "<dl>\n"
+                            "<dt>Honest collaboration</dt>\n"
+                            "  <dd>We implement best-of-breed concepts for collaboration."
+                            " Transparency is king, and freedom wins. For people with honest minds,"
+                            " bold and open-minded. We know that this is the future. It's simple as"
+                            " maths: Because today's businesses lose more with restrictions than"
+                            " they can gain with tomorrow's freedom.</dd>\n"
+                            "<dt>Usability counts</dt>\n"
+                            "  <dd>One of our key goals is to provide an absolutely intuitive,"
+                            " consistent user experience. Because in fast-paced, flexible, probably"
+                            " small-margin businesses you don’t have the time to invest in training"
+                            " your staff. That's why our software also works perfect in very"
+                            " demanding environments, such as non-profit organizations with unpaid"
+                            " volunteers.</dd>\n"
+                            "<dt>Reliable software</dt>\n"
+                            "  <dd>We build on promising, reliable Django components, and rather"
+                            " invest in those projects than build source code here. We expect to"
+                            " continually tune the compilation to keep the source footprint small,"
+                            " keeping the project lean and responsive. We give back to the"
+                            " community, because everyone profits.</dd>\n"
+                            "</dl>\n",
+                }),
+                ('TextPlugin', {
+                    'body': "<h2>Documentation</h2>"
+                            "<dl>\n"
+                            "<dt>Read the docs </dt>\n"
+                            '  <dd>The <a href="http://docs.organice.io/en/latest/components.html">'
+                            "User Manual chapter</a> in the documentation is targeted at end users."
+                            "</dd>\n"
+                            "  <dd>Full technical documentation is available at"
+                            ' <a href="http://docs.organice.io">docs.organice.io</a>.</dd>\n'
+                            "<dt>Demos</dt>\n"
+                            '  <dd>Our main demo site <a href="https://demo.organice.io">'
+                            "demo.organice.io</a> is an open playground. Register an account there"
+                            " and play. This instance is reset every morning.</dd>\n"
+                            "  <dd>Of course you can also register with and contribute content to"
+                            " any other live Organice site, such as"
+                            ' <a href="https://organice.io">organice.io</a> itself.</dd>\n'
+                            "</dl>\n",
+                }),
+                ('TextPlugin', {
+                    'body': "<h2>Get Involved!</h2>"
+                            "<dl>\n"
+                            "<dt>Source Code</dt>\n"
+                            '  <dd>GitHub: <a href="https://github.com/organice/django-organice">'
+                            "github.com/organice/django-organice</a></dd>\n"
+                            '  <dd>GitLab: <a href="https://gitlab.com/organice/django-organice">'
+                            "gitlab.com/organice/django-organice</a></dd>\n"
+                            '  <dd>Bitbucket: <a href="https://bitbucket.org/organice/django-organice">'
+                            "bitbucket.org/organice/django-organice</a></dd>\n"
+                            "</dl>\n",
+                }),
+                ('TextPlugin', {
+                    'body': "<p>Find out more about django Organice! Fork us, test, find bugs,"
+                            " write code and documentation, translate.</p>\n"
+                            "<p>Your contribution is welcome!</p>\n",
                 }),
             ])
-        self.add_cms_page(_('Sponsors'), plugins=[
+        self.add_cms_page(_('Themes'), plugins=[
             ('TextPlugin', {
-                'body': "<h1>Sponsors</h1>\n"
-                        "<p>Please applaud our very special sponsors. Say &ldquo;thank you&rdquo;"
-                        " with us. They trust in us that we give our best.</p>\n",
+                'body': "<h1>Themes</h1>\n"
+                        "<p>django Organice comes with a default theme, which is fully responsive,"
+                        " i.e. optimized for mobile devices. Every new theme can build on its"
+                        " features. This way designers can focus on creating a beautiful,"
+                        " customized visual appearance for you!</p>\n",
             }),
             ('TextPlugin', {
-                'body': "<h2>Gold Sponsors</h2>\n<p>...</p>\n",
-            }),
-            ('TextPlugin', {
-                'body': "<h2>Silver Sponsors</h2>\n<p>...</p>\n",
+                'body': "<h2>Documentation</h2>\n"
+                        "<p>Wondering how to customize a theme, or to write your own? See the"
+                        " documentation at:</p>\n"
+                        "<dl>\n"
+                        "<dt>Technical documentation on themes</dt>\n"
+                        '  <dd><a href="http://docs.organice.io/en/latest/themes.html">'
+                        "docs.organice.io</a></dd>\n"
+                        "</dl>\n",
             }),
         ])
         self.add_cms_page(_('Jobs'), parent=about_page, plugins=[
             ('TextPlugin', {
-                'body': "<h1>Job Vacancies</h1>\n"
+                'body': "<h1>Job Vacancies (Demo)</h1>\n"
                         "<p>We're always looking for great talents."
                         " Do you also want to be part of a world-class team?</p>\n",
             }),
@@ -128,13 +192,13 @@ class InitcmsCommandMixin(HelperMixin):
                 'zoom': 16,
             }),
         ])
-        self.add_cms_page(_('Juniors'), parent=programs_page, plugins=[
+        self.add_cms_page(_('Juniors'), parent=project_page, plugins=[
             ('TextPlugin', {
                 'body': "<h1>Juniors</h1>\n"
                         "<p>Training and education of our young stars.</p>\n",
             }),
         ])
-        self.add_cms_page(_('Seniors'), parent=programs_page, plugins=[
+        self.add_cms_page(_('Seniors'), parent=project_page, plugins=[
             ('TextPlugin', {
                 'body': "<h1>Seniors</h1>\n"
                         "<p>Recreational programs for retired professionals and hobbyists.</p>\n",
@@ -145,7 +209,7 @@ class InitcmsCommandMixin(HelperMixin):
             ('TextPlugin', {
                 'body': "<h1>Imprint</h1>\n"
                         "<p>Organice Demo<br>"
-                        "Hosted by the creators of <a href=\"%(pypi_url)s\">django-organice</a>.</p>\n"
+                        'Hosted by the creators of <a href="%(pypi_url)s">django-organice</a>.</p>\n'
                         "\n"
                         "<h2>Privacy Policy</h2>\n"
                         "<p>This website uses cookies to provide a safe and convenient user"
