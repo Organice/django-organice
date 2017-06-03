@@ -100,8 +100,9 @@ Download and Contributions
 
 Official repositories: (kept in sync)
 
-#. Bitbucket: https://bitbucket.org/organice/django-organice
 #. GitHub: https://github.com/Organice/django-organice
+#. GitLab: https://gitlab.com/organice/django-organice
+#. Bitbucket: https://bitbucket.org/organice/django-organice
 
 Getting Help
 ============
