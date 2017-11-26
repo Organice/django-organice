@@ -2,7 +2,7 @@
 django Organice |latest-version|
 ================================
 
-|travis-ci| |health| |python-support| |downloads| |license| |gitter|
+|travis-ci| |health| |python-support| |license| |gitter|
 
 All-in-one collaboration solution.  For non-profit organizations, sports clubs, small to
 medium-sized businesses.
@@ -16,7 +16,7 @@ investment providing an easily extensible architecture.
 .. |latest-version| image:: https://img.shields.io/pypi/v/django-organice.svg
    :alt: Latest version on PyPI
    :target: https://pypi.python.org/pypi/django-organice
-.. |travis-ci| image:: https://travis-ci.org/Organice/django-organice.svg?branch=master
+.. |travis-ci| image:: https://img.shields.io/travis/Organice/django-organice/master.svg
    :alt: Build status
    :target: https://travis-ci.org/Organice/django-organice
 .. |health| image:: https://landscape.io/github/Organice/django-organice/master/landscape.svg?style=flat
@@ -25,9 +25,6 @@ investment providing an easily extensible architecture.
 .. |python-support| image:: https://img.shields.io/pypi/pyversions/django-organice.svg
    :target: https://pypi.python.org/pypi/django-organice
    :alt: Python versions
-.. |downloads| image:: https://img.shields.io/pypi/dm/django-organice.svg
-   :alt: Monthly downloads from PyPI
-   :target: https://pypi.python.org/pypi/django-organice
 .. |license| image:: https://img.shields.io/pypi/l/django-organice.svg
    :alt: Software license
    :target: https://www.apache.org/licenses/LICENSE-2.0.html

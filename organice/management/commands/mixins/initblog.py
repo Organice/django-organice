@@ -27,7 +27,6 @@ class InitblogCommandMixin(HelperMixin):
             slug='jobs', title=_('Jobs'),
             description=_("Job vacancies. Because everyone wants to work with us!"))
 
-        """
         self.add_blog_entry(slug='office-manager', title=_('Office Manager'),
                             categories=[category_jobs], tags='awesome, backoffice',
                             excerpt="We're looking for you. The best office manager (f/m) for a world-class team.",
@@ -58,5 +57,4 @@ class InitblogCommandMixin(HelperMixin):
                         "<p>Find more vacancies on our <a href=\"/about/jobs/\">jobs page</a>!</p>\n",
             }),
         ])
-        """
         # TODO: Link({'mailto': 'jobs@example.com'}) inside TextPlugin

@@ -37,7 +37,7 @@ def setup(request, project_name):
                 rmdir(project_name + '.' + suffix)
             unlink(project_name + '.conf')
             rmdir(getcwd())
-        except:
+        except Exception:
             pass
 
 
@@ -123,19 +123,11 @@ class TestOrganiceSetup(object):
         common_settings = open(settings_file_for(project_name, 'common')).read()
         required_apps = [
             'organice',
-            'organice_theme',
-            'cms',
-            'zinnia',
-            # 'emencia.django.newsletter',
-            'todo',
-            # 'media_tree',
-            'analytical',
-            'allauth',
-            'allauth.account',
-            'allauth.socialaccount',
-            'allauth.socialaccount.providers.google',
+            # 'organice_theme',
         ]
-        assert probe_values_in_tuple(common_settings, 'INSTALLED_APPS', required_apps)
+        assert probe_values_in_list(common_settings, ['INSTALLED_APPS = ['], required_apps)
+        # TODO: Test for: ORGANICE_DJANGO_APPS + ORGANICE_CMS_APPS + ORGANICE_BLOG_APPS
+        # TODO:  + ORGANICE_AUTH_APPS + ORGANICE_UTIL_APPS
 
     def test_04_configure_installed_dev(self, project_name, cmd_args):
         dev_settings = open(settings_file_for(project_name, 'develop')).read()
@@ -201,9 +193,8 @@ class TestOrganiceSetup(object):
         required_mediatree = [
             'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',
         ]
-        assert probe_values_in_tuple(common_settings, 'MIDDLEWARE_CLASSES', required_middleware)
-        assert probe_values_in_tuple(common_settings, 'MEDIA_TREE_MEDIA_BACKENDS',
-                                     required_mediatree)
+        assert probe_values_in_list(common_settings, ['MIDDLEWARE_CLASSES = ['], required_middleware)
+        assert probe_values_in_list(common_settings, ['MEDIA_TREE_MEDIA_BACKENDS = ['], required_mediatree)
 
     def test_08_configure_newsletter(self, project_name, cmd_args):
         common_settings = open(settings_file_for(project_name, 'common')).read()

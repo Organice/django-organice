@@ -24,7 +24,7 @@ def probe_values_in_tuple(content, tuple_key, required_values, delimiter='='):
             assert val_line in tuple, "Not found in tuple %s: %s" % (tuple_key, val)
         return True
     except AssertionError as ae:
-        print(ae.msg)
+        print(ae.message)
         return False
 
 
@@ -48,7 +48,7 @@ def probe_values_in_list(content, settings_path, required_values):
                 (settings_path[last_index], val)
         return True
     except AssertionError as ae:
-        print(ae.msg)
+        print(ae.message)
         return False
 
 

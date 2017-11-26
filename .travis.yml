@@ -1,22 +1,24 @@
 language: python
-python: "3.5"
+python:
+  - 2.7
+  - 3.4
+  - 3.5
 
-env:
-  matrix:
-    - TOXENV=flake8
-    - TOXENV=checkdocs
-    - TOXENV=py27
-    - TOXENV=py33
-    - TOXENV=py34
+matrix:
+  include:
+    - { python: 3.6, env: TOXENV=flake8 }
+    # - { python: 3.6, env: TOXENV=readme }
 
 install:
-  - pip install tox
+  - pip install tox-travis
 before_script:
   - mkdir -p shippable/{codecoverage,testresults}
-script: tox
+script:
+  - tox
 after_success:
   - mv -v coverage.xml shippable/codecoverage/
   - mv -v tests/reports/* shippable/testresults/
+
 notifications:
   slack: organice:2v4ZfYaW6KonOr5RyJqjyU92
   webhooks:

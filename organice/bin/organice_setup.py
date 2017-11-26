@@ -176,15 +176,17 @@ def _split_project():
     # out-of-the-box Django values relevant for deployment
     settings.delete_var('common', 'SITE_ID')
     settings.insert_lines('common',
-                          '_ = lambda s: s',
+                          'from django.utils.translation import ugettext_lazy as _',
                           '',
                           'SITE_ID = 1')
-    settings.replace_line('common', 'import os', 'from os.path import abspath, dirname, join')
+    settings.replace_line('common', 'import os', '')
+    settings.insert_lines('common', 'from os.path import abspath, dirname, join')
     settings.set_value('common', 'BASE_DIR', 'dirname(dirname(dirname(abspath(__file__))))')
     settings.set_value('common', 'MEDIA_ROOT', "join(BASE_DIR, '%s.media')" % args.projectname)
     settings.set_value('common', 'STATIC_ROOT', "join(BASE_DIR, '%s.static')" % args.projectname)
     settings.set_value('common', 'MEDIA_URL', "'/media/'")
-    settings.set_value('common', 'USE_I18N', False)
+    settings.set_value('common', 'USE_I18N', True)
+    settings.set_value('common', 'USE_L10N', True)
     settings.move_var('common', profiles, 'DEBUG')
     settings.move_var('common', profiles, 'ALLOWED_HOSTS')
     settings.append_lines('develop',
@@ -252,78 +254,25 @@ def _configure_installed_apps():
     global settings
 
     _print_verbose(2, adding_settings_for('installed apps'))
+    settings.insert_lines('common',
+                          'from organice.constants import (',
+                          '    ORGANICE_AUTH_APPS,',
+                          # '    ORGANICE_BLOG_APPS,',
+                          # '    ORGANICE_CMS_APPS,',
+                          '    ORGANICE_DJANGO_APPS,',
+                          '    ORGANICE_UTIL_APPS,',
+                          ')')
     settings.delete_var('common', 'INSTALLED_APPS')
     settings.append_lines('common',
-                          'INSTALLED_APPS = (',
+                          'INSTALLED_APPS = [',
                           "    # 'organice_theme_add-your-theme-here',",
-                          "    'organice_theme',",
+                          "    # 'organice_theme',",
                           "    'organice',",
-                          "    'cms',",
-                          "    'mptt',",
-                          "    'menus',",
-                          "    'sekizai',",
-                          "    'treebeard',",
-                          "    'easy_thumbnails',",
-                          "    'djangocms_admin_style',",
-                          "    # 'djangocms_file',",
-                          "    'djangocms_maps',",
-                          "    'djangocms_inherit',",
-                          "    'djangocms_link',",
-                          "    'djangocms_picture',",
-                          "    # 'djangocms_teaser',",
-                          "    'djangocms_text_ckeditor',",
-                          "    'django_comments',",
-                          "    'django.contrib.auth',",
-                          "    'django.contrib.contenttypes',",
-                          "    'django.contrib.sessions',",
-                          "    'django.contrib.sites',",
-                          "    'django.contrib.messages',",
-                          "    'django.contrib.staticfiles',",
-                          "    'django.contrib.admin',",
-                          "    # 'media_tree',",
-                          "    # 'media_tree.contrib.cms_plugins.media_tree_image',",
-                          "    # 'media_tree.contrib.cms_plugins.media_tree_gallery',",
-                          "    # 'media_tree.contrib.cms_plugins.media_tree_slideshow',",
-                          "    # 'media_tree.contrib.cms_plugins.media_tree_listing',",
-                          "    # 'form_designer.contrib.cms_plugins.form_designer_form',",
-                          "    'cmsplugin_zinnia',",
-                          "    'tagging',",
-                          "    'todo',",
-                          "    # 'emencia.django.newsletter',",
-                          "    'tinymce',",
-                          "    'simple_links',",
-                          "    'zinnia',",
-                          "    'allauth',",
-                          "    'allauth.account',",
-                          "    'allauth.socialaccount',",
-                          "    'allauth.socialaccount.providers.amazon',",
-                          "    # 'allauth.socialaccount.providers.angellist',",
-                          "    'allauth.socialaccount.providers.bitbucket',",
-                          "    'allauth.socialaccount.providers.bitly',",
-                          "    'allauth.socialaccount.providers.dropbox_oauth2',",
-                          "    'allauth.socialaccount.providers.facebook',",
-                          "    # 'allauth.socialaccount.providers.flickr',",
-                          "    # 'allauth.socialaccount.providers.feedly',",
-                          "    'allauth.socialaccount.providers.github',",
-                          "    'allauth.socialaccount.providers.gitlab',",
-                          "    'allauth.socialaccount.providers.google',",
-                          "    'allauth.socialaccount.providers.instagram',",
-                          "    'allauth.socialaccount.providers.linkedin_oauth2',",
-                          "    # 'allauth.socialaccount.providers.openid',",
-                          "    'allauth.socialaccount.providers.pinterest',",
-                          "    'allauth.socialaccount.providers.slack',",
-                          "    'allauth.socialaccount.providers.soundcloud',",
-                          "    'allauth.socialaccount.providers.stackexchange',",
-                          "    # 'allauth.socialaccount.providers.tumblr',",
-                          "    # 'allauth.socialaccount.providers.twitch',",
-                          "    'allauth.socialaccount.providers.twitter',",
-                          "    'allauth.socialaccount.providers.vimeo',",
-                          "    # 'allauth.socialaccount.providers.vk',",
-                          "    # 'allauth.socialaccount.providers.weibo',",
-                          "    'allauth.socialaccount.providers.windowslive',",
-                          "    'allauth.socialaccount.providers.xing',",
-                          "    'analytical',",
-                          ')')
+                          '] + ORGANICE_DJANGO_APPS + \\',
+                          # '    ORGANICE_CMS_APPS + \\',
+                          # '    ORGANICE_BLOG_APPS + \\',
+                          '    ORGANICE_AUTH_APPS + \\',
+                          '    ORGANICE_UTIL_APPS')
 
 
 def _configure_authentication():
@@ -384,9 +333,8 @@ def _configure_templates():
                             "'django.template.loaders.app_directories.Loader'")
     settings.append_to_list('common',
                             ["TEMPLATES = [", "{", "'OPTIONS': {"],
-                            "'debug': True",
                             "# 'string_if_invalid': '|INVALID) %s (INVALID|'",
-                            "# see https://docs.djangoproject.com/en/1.8/ref/settings/#template-string-if-invalid ")
+                            "# see https://docs.djangoproject.com/en/stable/ref/settings/#template-string-if-invalid ")
 
 
 def _configure_cms():
@@ -395,10 +343,10 @@ def _configure_cms():
 
     _print_verbose(2, adding_settings_for('django CMS'))
     settings.prepend_to_list('common',
-                             ['MIDDLEWARE_CLASSES = ('],
+                             ['MIDDLEWARE_CLASSES = ['],
                              "'cms.middleware.utils.ApphookReloadMiddleware'")
     settings.append_to_list('common',
-                            ['MIDDLEWARE_CLASSES = ('],
+                            ['MIDDLEWARE_CLASSES = ['],
                             "'django.middleware.locale.LocaleMiddleware'",
                             "'solid_i18n.middleware.SolidLocaleMiddleware'",
                             "'cms.middleware.page.CurrentPageMiddleware'",
@@ -407,22 +355,22 @@ def _configure_cms():
                             "'cms.middleware.language.LanguageCookieMiddleware'")
     # must be set both in order to make solid_i18n work properly
     settings.set_value_lines('common', 'LANGUAGE_CODE', "'en'",
-                             'LANGUAGES = (',
+                             'LANGUAGES = [',
                              "    ('en', _('English')),",
                              "    ('de', _('German')),",
                              "    ('it', _('Italian')),",
-                             ')')
+                             ']')
     settings.set_value('common', 'CMS_PERMISSION', True)
     settings.append_lines('common',
-                          'CMS_TEMPLATES = (',
+                          'CMS_TEMPLATES = [',
                           "    ('cms_base.html', 'Template for normal content pages'),",
                           "    ('cms_bookmarks.html', 'Template for the bookmarks page'),",
-                          ')')
+                          ']')
     settings.set_value('common', 'CMS_USE_TINYMCE', False)
     settings.append_lines('common',
-                          'MEDIA_TREE_MEDIA_BACKENDS = (',
+                          'MEDIA_TREE_MEDIA_BACKENDS = [',
                           "    'media_tree.contrib.media_backends.easy_thumbnails.EasyThumbnailsBackend',",
-                          ')')
+                          ']')
     settings.append_lines('common',
                           'MIGRATION_MODULES = {',
                           "    'zinnia': 'organice.migrations.zinnia',",
@@ -613,7 +561,7 @@ def _show_final_hints():
                    (settings.get_file('common').name, ", ".join(suggest_editing + suggest_adding)))
     _print_verbose(2, 'Please visit file `%s` and configure your development database in: %s' %
                    (settings.get_file('develop').name, 'DATABASES'))
-    _print_verbose(3, 'See https://docs.djangoproject.com/en/1.8/ref/settings/ for details.')
+    _print_verbose(3, 'See https://docs.djangoproject.com/en/stable/ref/settings/ for details.')
     _print_verbose(3, '')
     _print_verbose(3, '1) To initialize your development database run: `python manage.py migrate`')
     _print_verbose(3, '   Alternatively, you can run `python manage.py organice bootstrap`,')
@@ -631,7 +579,10 @@ def startproject():
     global settings
 
     _evaluate_command_line()
-    django.conf.settings.configure()  # for django.template init only
+
+    # initialize Django for using Template engine
+    django.conf.settings.configure()
+    django.setup()
 
     _create_project()
     _split_project()

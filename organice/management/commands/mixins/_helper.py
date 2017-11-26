@@ -73,7 +73,7 @@ class HelperMixin(object):
         entry_model = apps.get_model('zinnia', 'entry')
         try:
             entry, created = entry_model.objects.get_or_create(slug=slug, title=title, status=PUBLISHED)
-        except:  # entry_model.DoesNotExist:
+        except entry_model.DoesNotExist:
             entry = entry_model.objects.create(slug=slug, title=title, status=PUBLISHED)
         entry.excerpt = excerpt
         entry.tags = tags

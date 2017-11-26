@@ -14,13 +14,13 @@ djangocms-teaser
 djangocms-text-ckeditor
 # git+https://github.com/samluescher/django-form-designer.git#egg=django-form-designer-0.8.0
 # git+https://github.com/samluescher/django-media-tree@b69c508#egg=django-media-tree-0.9.0  # treebeard feature branch
-django-organice-theme>=0.5.0.dev0,<0.6.0
+# django-organice-theme>=0.5.0.dev0,<0.6.0
 django-simple-links
 django-tinymce
 django-todo
 django-allauth
 django-analytical
-easy-thumbnails
+easy-thumbnails<2.5
 # emencia.django.newsletter v0.2 depends on tagging (which breaks django-tagging)
 # git+https://github.com/emencia/emencia-django-newsletter.git#egg=emencia.django.newsletter-0.3.dev
 Pillow
