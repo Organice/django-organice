@@ -22,7 +22,6 @@ In alphabetical order.
 - `Microsoft SharePoint + Yammer`_ [1]_ (.NET + Rails, commercial)
 - `Odoo`_ (Python, open source)
 - `Open Atrium`_ (Drupal, open source)
-- `teamraum Enterprise`_ (Django, commercial)
 - `tendenci`_ (Django, open source)
 
 Cloud Competitors
@@ -36,12 +35,13 @@ In alphabetical order.
 - `Odoo`_
 - `teamraum`_
 - `VereinOnline`_
+- `Webling`_
 
 
 .. _drop us a note: info@organice.io
 .. _Bitrix Intranet: http://www.bitrixsoft.com/products/intranet/
 .. _Coyo: https://www.coyoapp.com/
-.. _Fairgate: http://www.pitsolutions.ch/case-studies/php/fairgate-ag/
+.. _Fairgate: https://www.pitsolutions.ch/fairgate-ag/
 .. _Microsoft SharePoint + Yammer: http://office.microsoft.com/sharepoint/
 .. _Open Atrium: https://drupal.org/project/openatrium
 .. _Odoo: https://github.com/odoo/odoo
@@ -53,5 +53,6 @@ In alphabetical order.
 .. _Igloo: http://www.igloosoftware.com/
 .. _teamraum: http://www.teamraum.com/
 .. _VereinOnline: https://www.vereinonline.org/
+.. _Webling: https://webling.ch/
 
 .. [1] http://intranetsdoneright.blogspot.com/2013/11/what-is-social-intranet.html
